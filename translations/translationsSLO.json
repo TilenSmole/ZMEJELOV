@@ -1,0 +1,108 @@
+{
+  "slo": {
+    "zmejelov_intro_OG": "Je nadgrajena različica prvotne igre, ki je predstavljena z zgodbo. Za začetnike je igra kar težavna, tako da je implementiranih kar nekaj pomoči. Igra avtomatsko shranjuje napredek, tako da lahko kadarkoli prekineš in nadaljuješ, ko se ti ponovno pojavi želja po izzivih.",
+    "please_login": "Za igranje se <a href='\\login'>prijavite</a> ali pa <a href='SERVER\\register.php'>registrirajte</a>.",
+    "q1_OG": "Kako shranim napredek igre?",
+    "q2_OG": "KAJ NAREDITI, ČE IGRICA ZAGLIČA?",
+    "q3_OG": "Zakaj se ob smrti ponovno pojavim na 4 nivoju?",
+    "q4_OG": "KAKO ODKLENEM DOSEŽKE?",
+    "a1_OG": "Napredek igre se shrani avtomatsko na vsakem nivoju GLEJ DA TO TUD IMPLEMENTIRAS?",
+    "a2_OG": "Ponovno naloži stran, v kolikor pa se težava pojava me kontaktiraj <a href='SHARED\\contact.php'>preko obrazca</a>?",
+    "a3_OG": "Ker si umrl in kje so mrtvi ljudje? Na pokopališču! Šalo na stran, tam se pojavič, ker igraš na težki težavnosti, in ker nisi odkril skrivnega nivoja, ki ti omogoča uporabo 'checkpoint'",
+    "a4_OG": "Preberi <a href='#dosezki_OG'>dosežke</a>",
+    "please_login_achivements": "Za odklenitev dosežkov se <a href='\\login'>prijavite</a> ali pa <a href='/register'>registrirajte</a>    </a>",
+    "game": "IGRA",
+    "achivements": "DOSEŽKI",
+    "ach_OG1":"Ne umri na težki težavnosti",
+    "ach_OG1.1":"amm ja tole je pa moralo biti zabavno...imaš moje večno spoštovanje ",
+    "ach_OG2": "odkleni skrivni nivo in ga premagaj",
+    "ach_OG2.2": "čestitam, veliko ljudi ga je spregledalo",
+    "ach_OG3": "UMRI 50X V ENI IGRI",
+    "ach_OG3.3": "nov hobij, h?",
+    "ach_OG4": "PREMAGAJ LAHKO TEŽAVNOST",
+    "ach_OG4.4": "stavim, da si tole opravim z zaprtimi očmi ;)?",
+    "ach_OG5": "POMAGAJ LJUDEM V MESTU",
+    "ach_OG5.5": "kakšna dobra dušica si pa ti 🥺🥺🥺🥺",
+    "ach_OG6": "RAZIŠČI RUŠEVINE",
+    "ach_OG6.6": "kdaj greva v Grčijo? ",
+    "KOMENTARJI": "KOMENTARJI",
+    "please_login_comments": "Za komentiranje se <a href='\\login'>prijavite</a> ali pa <a href='SERVER\\register.php'>registrirajte</a>",
+    "write_comment": "napiši svoj komentar tukaj",
+    "add_comment": "OBJAVI",
+
+    
+    "zmejelov_1960":"je prvotna verzija aplikacije zasnovana v davnem 2021 letu. Danes je na voljo v svoji originali formi, edina dodana stvar k igri je en dosežek, ki ga lahko dosežeš. Kljub temu, da je igra za izkušene igralce zelo hitra in enostavna, lahko na začetku novim igralcem ponuja malo preglavic, tako da, v primeru težav, ne obupati z igranjem. Igra je primerna tudi za vse 'OG', ki želijo podoživeti  nostalgijo igranja prvotne verzije!",
+    "q1_1960": "ZAKAJ JE TA IGRA TAKO ENOSTAVNA?",
+    "a1_1960": "Mogoče si pa ti tako dober 😉",
+    "a2_1960": "Preberi <a href='#dosezki_OG'>dosežke</a>", 
+
+    
+
+    "intro_essay": "»RAČUNALNIK NE DELA NAPAK, PREPROSTO IZVRŠUJE TO, KAR MU UKAŽEMO«",
+    "github_essay":" Odprto kodni projekt, vsa koda na voljo na <a href='https://github.com/randomtuser/zmejelov'>githubu</a>",
+    "welcome_again":"Še enkrat pozdravljeni na zmejelov IGRALNI PLATFORMI. Moje ime je Zmeja in moram priznati, da sem zelo vesela,da te vidim! Na portalu je 5 iger:",
+    "welcome_again2":"Če mene vprašaš moraš preigrati vse xd. Veselo igranje.     ",
+    "welcome_again3":" Naj poudarim, da sem zelo vesela, da te vidim! Na portalu je 5 iger za veliko ur igranja, z dosežki pa te spodbujam k igranju. Če mene vprašaš moraš preigrati vse xd. Za njihovo uporabo pa se moraš registrirati s klikom <a href='/register'>tukaj</a> ali pa prijaviti s klikom <a href='\\login'>tukaj</a>. Veselo igranje. ",
+    
+
+
+
+    "ach1_speed": "Opravi igro v minuti",
+    "ach1.1_speed": "strela mc queen?",
+
+    "ach2_speed": "Opravi igro",
+    "ach2.2_speed": "mislim tudi to ni tako slabo",
+
+    "ach3_speed": "Umri od vsakega sovražnika v  eni igri?",
+    "ach3.3_speed": "to je pa definitivno bilo namirno?",
+
+    "ach4_speed": "Poberi vse možne zvezde",
+    "ach4.4_speed": "Vedno ciljaj visoko!",
+
+
+    "ach5_speed": "Umri 20x v eni igri",
+    "ach5.5_speed": "To pa je res moralo biti namerno",
+
+    "ach6_speed": "Umri zaradi vesoljske ladje",
+    "ach6.6_speed": "To pa je bilo lahko XD",
+
+
+    "": "To pa je bilo lahko XD",
+
+
+    "about_the_game": "O IGRI",
+    "logout": "ODJAVA",
+    "login": "PRIJAVA",
+    "home" : "DOMOV",
+    "intro" : "uvod",
+    "about" :" O PROJEKTU",
+    "video_library" :"VIDEO VSEBINA",
+
+
+
+
+    "rOG" :"ahhh to so bili časi",
+    "aOG": "DOKANČAJ IGRO",
+
+    "username" : "zmejevski vzdevek",
+    "password" : "geslo",
+    "not_yet_user" :" nisi še uporabnik? <a href='/register'>REGISTRIRAJ SE!</a>",
+    "incorect_pass":"nepravilno geslo",
+    "user_not" : "uporabnik ne obstaja",
+    "login_succ" :"   Prijava uspešna, prenaslavlanje!",
+    "already_user" : "že uporabnik? <a href='login'>PRIJAVI SE!</a>",
+    
+
+
+    "error": "Joj, kako ti pa je uspelo priti sem! Ta stran namreč ne obstaja!!!",
+    "error_home": "Vrni se domoov",
+    "name" :"VAŠE IME",
+    "email" :"VAŠ EMAIL",
+    "message" : "VAŠE SPOROČILO",
+    "subject" :" ZADEVA",
+"send": "POŠLJI"
+  }
+
+}
+
+

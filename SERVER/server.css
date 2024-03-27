@@ -1,0 +1,55 @@
+#loginForm,
+.response {
+    padding: 2%;
+    margin: 2% 30% 2% 30%;
+    text-align: center;
+  background-color: #605966;
+    border-radius: 10px;
+
+}
+
+.password,
+.username {
+    padding: 2%;
+}
+
+input {
+    font-size: 25PX;
+    border: none;
+    background-color: #6e6479;
+    border-bottom: solid;
+}
+
+.response {
+    font-weight: bold;
+}
+
+
+
+.submitData {
+    background-color: #680747;
+    border: none;
+    margin: 1%;
+    padding: 2% 5% 2% 5%;
+    border-radius: 10px 15px;
+    cursor: pointer;
+    color: black;
+    font-size: 25PX;
+}
+
+
+.submitData:hover {
+    background-color: hsl(320, 87%, 27%);
+    transition: 0.5s
+}
+
+
+
+.submitData:active {
+    background-color: hsl(320, 87%, 32%);
+    transition: 0.5s
+}
+
+.textForm {
+    font-size: 20PX;
+}

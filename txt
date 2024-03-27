@@ -1,0 +1,64 @@
+Zmentures je nadgrajena različica prvotne igre, ki pa je skozi svojo zgodovino šla čez veliko sprememb. V svoji novi podobi vsebuje 12 nivojev, ki 
+so na začetku zelo enostavni, vendar se težavnost hitro začne stopnjevati, ko na 6 nivoju doseže vrhunec težavnosti. Celotna igra je sestavljena skozi
+zgodbo, katere glavna nit je Zmejina vrnitev domov potem ko pobegne iz eksperimentalnega laboratorija! V qna dej da jo poje skrinja in nakonc pride iz nje.
+Tisti, ki iščete globok smisel v zgodbi, da včasih ni važna pot, temveč cilj. V zgodbi to vidimo skozi to, da skrinja, ki Zmejo poje na 2 nivoju in jo
+na 4 že izpusti ter znova poje na predpredzanjem nivoju, tako se na koncu pojavimo znova na 2 nivoju. 
+Igra zna predstavljati kar velik napor za prvo igranje, saj vsebujo veliko nepričakovanega, veliko smrti, upam pa da tudi veliko zabave 😇.
+Za pomoč je v igri implementirano kar nekaj pomoči. Tu govorimo o avtomatskem napredku igre na začetku vsakega nivoja, prav tako pa so implementirane
+znotraj igre. Na lahkem nivoju so avtomatske, medtem ko jih je na težkem potrebno odkleniti.
+Igra vsebuje tudi razširitev imenovano Zmentures++, ki te popelje skozi mesto in doda češnjo na vrh torte. 
+Veliko veselja in potrpežljivosti pri igranju.
+
+The final rage je ustvarjena po navdihu prvih igralcev <a>prvotne verzije </a>, ki so jo opravili v manj kot minuti.
+Temelji na hitrosti igralca in njegovi "naučenosti" nivoja. Igra za razliko od <a>ZMENTURES</a> ni popolnoma naključna,
+saj so vse stvari vedno postavljene na istem mestu. Tako da preklopi na piflarski način in naštudiraj nivo 🤓.  
+da igralcu omogoča, da jo naštudira v nulo.
+Naj zmaga najhitrejši!
+
+
+City Zmentures
+
+
+
+Cr*ckelov
+
+
+Zmejelov 1869 je prvotna verzija aplikacije zasnovana v davnem 2021 letu, kot semirarska naloga za maturo. Danes je na voljo v svoji originali formi.
+Kljub temu, da je igra zelo preprosta, lahko na začetku novim igralcem ponuja malo preglavic.
+Igra je primerna tudi za vse igralce, ki želijo podoživeti nostalgijo igranja prvotne verzije oz videti napredek v samem razvoju igre.
+In da, preden me vprašaš to je predhodnik <a>Zmentures</a>.
+Ah dobri stari časi.
+
+
+
+
+Projekt je začel nastajati že v srednji šoli, takrat še pod imenom "IZDELAVA 2D IGRE V HTML Z UPORABO CSS IN JAVASCRIPTA", katerega namen je bil, 
+dobiti dobro oceno za maturo. Igra je v 2022 letu dobila posodobitev, kjer sem hotel preizkusiti svoje novo programersko znanje.
+Namen same prenove igre, ki jo končno dobila tudi svoje ime, ni bil ta, da jo bo zdej igralo vso podeželje, ker 
+bodimo iskreni, koliko od igralcev je sploh prišlo do cilja. Ne, namen je bil, da je igra dobila podobo, ki si jo zasluži.
+V sam projekt je res šlo več kot 200 ur, igra je postala zelo kompleksna, kar se mislim, da se tudi odraža, v kolikor ste jo oz jo boste igrali.
+Med samim programiranjem je prišlo do veliko težav, na koncu se je vse uspešno rešilo - no skoraj vse. Nekajkrat se je namreč zgodilo, da 
+problema nisem znal rešiti, niti s pomočjo Googla, zato se je pregovor »If it's a bug, make it a feature« izkazal za resničnega. Sama prenova 
+vsebuje nove nivoje, prenovljen UI, nove koncepte igranja in veliko ur zabave XD. Prelevila se je iz speed running igre v bolj story telling
+igro. Igra je tudi dobila dve razširitvi, City zmentures, v kateri je predstavljeno Zmejino popotovanje v mesto. Druga se imenuje The final
+rage, ki predstavlja nek zaključek celotnega projekta. Namen zadnje razširitve je bil, da se je igra dodelala v nulo - dobila je svojo grafično
+podobo, bile so tudi upoštevane želje igralcev, tako, da je igra v verziji 4.0 celo lažja kot v prejšnjih! 
+
+
+Nikoli pa si nisem mislim, da se bo projekt prelevil v Diplomsko nalogo.
+
+
+
+
+
+Moram priznati, da sem z končno
+podobo Zmejelova zelo zadovoljen. To je tisti občutek, ko si v glavi nekaj zamisliš, potem pa, ko izvršiš je še 10x boljše, kot si si sploh lahko
+predstavljal. To je zame Zmejelov. Igrica je del mene, 
+
+Največje zahvale gredo mojemu možganu, ki je prispeval vse ideje ter jih potem tudi pomagal implementirati. Izredcna hvala pa tudi vsem, ki ste me 
+inspirarali in pomgali pri zasnovi projekta. Upam da boste na platformi užival, saj pol
+toliko, kot sem jaz med izdelovanjem. Prijetno in veselo igranje in ne pozabi "keep on zmejeloving"!
+
+
+
+

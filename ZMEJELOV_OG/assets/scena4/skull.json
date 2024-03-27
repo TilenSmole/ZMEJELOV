@@ -1,0 +1,41 @@
+{
+	"textures": [
+		{
+			"image": "skull.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 63,
+				"h": 57
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "Bone (2).png",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 61,
+						"h": 55
+					},
+					"spriteSourceSize": {
+						"x": 10,
+						"y": 1,
+						"w": 61,
+						"h": 55
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 61,
+						"h": 55
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:28f7c5125b338c788055cb45be102629:80b56b4b4221a984b497f79961b6a9b9:443f28002a1aabbdca7c6a666d0850c5$"
+	}
+}

@@ -1,0 +1,88 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZMEJELOV</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="/CSS/common.css">
+
+
+</head>
+
+<body>
+    <div class="introductionDivFrontPage">
+        <div id="animationIntro">
+            <img src="assets/lvl2/Wraith_03_Idle_006.png" id="zmejaIntro" alt="Zmeja">
+        </div>
+        <div id="introductionTextDivFrontPage">
+            <p id="textIntroAnimation"></p>
+            <p id="welcome"></p>
+            <p id="thisIsZmejelov"></p>
+            <p id="enterTheWorldText"><br><br><button id="enterTheWorld"><a href="index.php">ODKRIJ SVET</a></button>
+            </p>
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <script>
+
+    
+
+
+
+        //https://www.codesdope.com/blog/article/12-creative-css-and-javascript-text-typing-animati/
+        var content = "Pozdravljeni na ZMEJELOV IGRALNI PLATFORMI. Moje ime je Zmeja, sem kar pomembna oseba tukaj, če mene vprašaš 😇. Na portalu je 5 iger, ki vsebujejo razne trike, pasti, vsebujejo pa tudi dosežke, da te motivirajo! Na portalu pa se lahko tudi povežeš s prijatelji. Sodeluj na lestvici najboljših, komentiraj in postani najboljši ZMEJELJUB! Če mene vprašaš, je totalno vredno preživeti ure tukaj XD. Kaj praviš, si pripravljen se spustiti v svet avantur, svet dogajanja???";
+        var content2 = "DOBRODOŠLI V MOJEM SVETU!";
+        var content3 = "TO JE ZMEJELOV!!!";
+
+        var ele = '<span>' + content.split('').join('</span><span>') + '</span>';
+        var ele2 = '<span>' + content2.split('').join('</span><span>') + '</span>';
+        var ele3 = '<span>' + content3.split('').join('</span><span>') + '</span>';
+
+
+
+        $(ele).hide().appendTo('p#textIntroAnimation').each(function (i) {
+            $(this).delay(70 * i).css({
+                display: 'inline',
+                opacity: 0
+            }).animate({
+                opacity: 1
+            }, 100);
+        });
+
+        // Wait for 10 seconds before executing the next block
+        setTimeout(function () {
+            $(ele2).hide().appendTo('p#welcome').each(function (i) {
+                $(this).delay(67 * i).css({
+                    display: 'inline',
+                    opacity: 0
+                }).animate({
+                    opacity: 1
+                }, 100);
+            });
+        }, 34500);
+
+
+
+        setTimeout(function () {
+            $(ele3).hide().appendTo('p#thisIsZmejelov').each(function (i) {
+                $(this).delay(65 * i).css({
+                    display: 'inline',
+                    opacity: 0
+                }).animate({
+                    opacity: 1
+                }, 100);
+            });
+        }, 37000);
+
+    </script>
+
+
+</body>
+
+</html>

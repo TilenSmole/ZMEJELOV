@@ -1,0 +1,37 @@
+
+.achievementsDisplayProfile{
+    border: 2px solid red;
+    margin: 3%;
+   }
+
+.achievement-container {
+    display: inline-block;
+    vertical-align: top; /* Align containers to the top */
+    margin-left: 3%; /* Adjust spacing between containers */
+    margin-bottom: 3%; /* Add margin bottom to create space between rows */
+    position: relative; /* Set position relative for absolute positioning of hover text */
+}
+
+.hover-text {
+    display: none;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: hsl(270, 11%, 30%);
+    padding: 5%;
+    border-radius: 5px;
+ 
+}
+
+.achievement-container:hover .hover-text {
+    display: block;
+}
+
+
+img{
+    width: auto; 
+    height: 100px; 
+    max-width: 100%; 
+    display: block; 
+}

@@ -1,0 +1,12 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+#footer{
+    font-size: 30px;
+    background-color: #2A282E;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center; /* Center-align text */
+}

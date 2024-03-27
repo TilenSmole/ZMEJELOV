@@ -1,0 +1,42 @@
+body {
+    font-size: 25px;
+    margin: 0;
+
+}
+
+::selection {
+    background-color: hsl(320, 87%, 32%);
+}
+
+button {
+    background-color: #680747;
+
+}
+
+button:hover {
+    background-color: hsl(320, 87%, 27%);
+    transition: 0.5s
+}
+
+button:active {
+    background-color: hsl(320, 87%, 32%);
+    transition: 0.5s
+}
+
+b,
+h1 {
+  color: #680747;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #680747;
+}
+
+h1 {
+  font-size: 50px;
+  display: center;
+  text-align: center;
+
+}

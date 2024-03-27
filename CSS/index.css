@@ -1,0 +1,652 @@
+.comments_DIV,
+body {
+  background-color: #605966;
+  margin-top: 20px;
+}
+
+
+/* introduction */
+.introduction,
+.introductionDivFrontPage {
+  color: black;
+  display: flex;
+  margin-right: 50px;
+}
+
+.introductionText {
+  font-size: 30px;
+  margin-top: 5%;
+}
+
+
+
+.introduction {
+  display: flex;
+
+}
+
+
+
+/*main containers of the game*/
+.game,
+.achievementsMainBlock,
+.QN_field {
+  background-color: hsl(244, 7%, 35%);
+  margin-top: 2%;
+}
+
+
+
+
+/*Q&N*/
+.QN_field {
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 30px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  width: 80%;
+}
+
+.QnA {
+  display: center;
+  text-align: center;
+
+}
+
+#speed_running_split {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.QnA_split {
+  display: center;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.question_field {
+  flex: 1;
+  padding: 20px;
+
+}
+
+.button_field {
+  float: right;
+  margin-right: 50px;
+}
+
+.dropbtn {
+  color: black;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  background-color: hsl(244, 7%, 35%);
+
+}
+
+.dropbtn:hover {
+  background-color: hsl(244, 7%, 40%);
+
+}
+
+.answer-visible-div {
+  display: block;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 80%;
+  margin-bottom: 30px;
+  padding: 30px;
+  background-color: hsl(244, 7%, 40%);
+  margin-top: -30px;
+  padding: 50px;
+
+}
+
+/*achivements*/
+
+.achievements {
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+
+}
+
+.achievementsMainBlock {
+  display: grid;
+  text-align: center;
+
+}
+
+.oneAchievements {
+  border: 2px solid black;
+  display: relative;
+  vertical-align: top;
+  position: relative;
+  padding: 2%;
+  border-radius: 5px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  background-color: hsl(244, 7%, 40%);
+
+}
+
+
+.tooltip {
+  display: none;
+
+}
+
+.oneAchievements:hover .tooltip {
+  display: block;
+  height: 200px;
+  width: 400px;
+}
+
+.oneAchievements img {
+  width: auto;
+  height: 100px;
+  max-width: 100%;
+}
+
+/*comments*/
+
+.comments_DIV {}
+
+.commentsForm,
+.commentsFormError {
+  display: center;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.alignCommentAdd{
+ display: flex;
+  justify-content: center;
+}
+
+.commentsForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+#addCommentZmejelov {
+  border: none;
+  resize: none;
+  border-radius: 15px 15px;
+  font-size: 25px;
+  background-color: hsl(270, 7%, 35%);
+}
+
+.submitButtonClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.submitCommentButton {
+  border: none;
+  padding: 1% 2% 1% 2%;
+  border-radius: 10px 15px;
+  cursor: pointer;
+  color: black;
+  font-size: 25PX;
+  text-align: center;
+  margin-left: 100px;
+  text-decoration: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.commentAuthor, .commentText  {
+  display: block;
+  padding: 1% 1% 0% 1%;
+
+
+}
+
+.commentsFormErrorText {
+  
+  padding: 50px;
+}
+
+.full_comment, .commentsFormErrorText  {
+  background-color: hsl(270, 7%, 35%);
+  width: 70%;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 10px; /* Add border radius for curly edges */
+  padding: 10px; /* Add padding to create space between content and edges */
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 1200px) {
+  .game {
+    visibility: hidden;
+  }
+}
+
+
+
+@keyframes animationIntro {
+  0% {
+    left: 1%;
+  }
+
+  5% {
+    left: 2%;
+  }
+
+  10% {
+    left: 3%
+  }
+
+  15% {
+    left: 4%
+  }
+
+  20% {
+    left: 5%
+  }
+
+  25% {
+    left: 6%
+  }
+
+  30% {
+    left: 7%
+  }
+
+  35% {
+    left: 8%
+  }
+
+  40% {
+    left: 9%
+  }
+
+  45% {
+    left: 10%
+  }
+
+  50% {
+    left: 11%
+  }
+
+  55% {
+    left: 12%
+  }
+
+  60% {
+    left: 13%
+  }
+
+  65% {
+    left: 14%
+  }
+
+  70% {
+    left: 15%;
+  }
+
+  75% {
+    left: 16%;
+  }
+
+  80% {
+    left: 17%;
+  }
+
+  85% {
+    left: 18%
+  }
+
+  90% {
+    left: 17%
+  }
+
+  95% {
+    left: 16%
+  }
+
+  100% {
+    left: 15%;
+  }
+
+}
+
+
+
+#introductionTextDivFrontPage {
+  overflow: hidden;
+
+}
+
+
+
+
+
+
+#options {
+  margin-top: -20px;
+  list-style-type: circle;
+  ;
+  margin-left: 30px;
+}
+
+
+
+.fade {
+  animation-name: fade;
+  animation-duration: 4s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .7
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+
+#about_proyect {
+  font-size: 30px;
+}
+
+.pictureSlider img {
+  max-width: 90%;
+  display: block;
+  /* Ensures the image is treated as a block element */
+  margin: 0 auto;
+  /* Centers the image horizontally */
+}
+
+.pictureSliderVideo {
+  overflow: hidden;
+  margin: 0px 100px 0px 100px;
+}
+
+.pictureSliderVideo iframe {
+  float: left;
+  margin-right: 20px;
+}
+
+.pictureSliderVideo .text {
+  overflow: hidden;
+}
+
+
+#introduction_FrontPage {
+  display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.question {
+  color: #000;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 2%;
+}
+
+
+
+
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.show {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
+#zmejaIntro {
+  scale: 1.5;
+
+}
+
+#animationIntro {
+  position: relative;
+  animation-name: animationIntro;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.zmeja {
+  padding: 5%;
+  padding-right: 2%;
+}
+
+.zmeja img {
+  display: block;
+}
+
+
+
+
+
+.gameContainerError {
+  display: center;
+  text-align: center;
+
+}
+
+
+
+
+
+
+
+#textIntroAnimation {
+  font-size: 25px;
+}
+
+#welcome {
+  font-size: 30px;
+}
+
+#thisIsZmejelov {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+
+
+#welcome,
+#thisIsZmejelov {
+  color: #761E85;
+  text-align: center;
+}
+
+
+
+
+
+
+#speed_running_split .QnA {
+  flex: 0 0 65%;
+}
+
+#speed_running_split .leaderBoardSpeedRun {
+  flex: 0 0 35%;
+
+}
+
+
+.game,
+.achievementsMainBlock {
+  padding: 2% 0% 5% 0%;
+  margin: 0%;
+}
+
+
+
+
+
+/*p {
+  animation: animated-text 4s steps(40,end) 1s 1 normal both,
+             animated-cursor 600ms steps(40,end) infinite;
+}
+
+p: nth-child(2)
+{
+    white-space:nowrap;
+    overflow:hidden;    
+   animation: animated-text2 4s steps(29,end) 1s 1 normal both;
+    -webkit-animation-delay: 5s; 
+    animation-delay: 5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+/* text animation */
+
+/*@keyframes animated-text{
+  from{width: 0;}
+  to{width: 472px;}
+}
+
+@keyframes animated-text2{
+  from{width: 0;}
+  to{width: 472px;}
+}
+
+/* cursor animations */
+
+/*@keyframes animated-cursor{
+  from{border-right-color: rgba(0,255,0,.75);}
+  to{border-right-color: transparent;}
+}
+*/
+
+#enterTheWorld {
+  background-color: hsl(300, 100%, 25%);
+  border: none;
+  margin: 1% auto;
+  padding: 2.5% 5% 2.5% 5%;
+  border-radius: 10px 15px;
+  cursor: pointer;
+  color: white;
+  font-size: 25PX;
+  display: block;
+  /* Ensure it's a block element for margin auto to work */
+  text-align: center;
+  text-decoration: none;
+}
+
+#enterTheWorld a {
+  color: white;
+}
+
+
+
+
+.achievementsNotLoggedIn {
+  display: flex;
+  /* Use flexbox */
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  border: 2px solid black;
+  padding: 10px;
+  height: 100px;
+  width: 600px;
+  text-align: center;
+}
+
+
+
+@media screen and (min-width: 3500px) {
+  body {
+    background-color: lightgreen;
+  }
+}

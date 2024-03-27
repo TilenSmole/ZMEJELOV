@@ -1,0 +1,74 @@
+{
+  "en": {
+    "zmejelov_intro_OG": "is an upgraded version of the original game that comes with a story. For beginners, the game is quite difficult, so quite a lot of help is implemented. The game automatically saves your progress, so you can pause at any time and continue when you feel like challenging yourself again.",
+    "please_login": "To play, please <a href='\\login'>log in</a> or <a href='SERVER\\register.php'>register</a>.",
+    "q1_OG": "HOW DO I SAVE GAME PROGRESS?",
+    "q2_OG": "WHAT DO I DO IF MY GAME GLITCHES OUT?",
+    "q3_OG": "WHY DO I RESPAWN AT LEVEL 4?",
+    "q4_OG": "HOW DO I UNLOCK ACHIEVEMENTS?",
+    "a1_OG": "Game progress is saved automatically at the begining of each level?",
+    "a2_OG": "Reload the page, but if the problem persist don't hasitate me to contact me <a href='SHARED\\contact.php'>with the form</a>?",
+    "a3_OG": "Because you died and where are dead people? In the graveyard! Joke aside, it is because you are playing HARD difficulty and you died without unlocking any checkpoint",
+    "a4_OG": "Read <a href='#dosezki_OG'>achievements</a>",
+    "please_login_achivements": "To unlock achievements <a href='\\login'>login</a> or<a href='/register'>register</a>    </a>",
+    "game": "GAME",
+    "achivements": "ACHIEVEMENTS",
+    "ach_OG1":"Don't die on hard difficulty",
+    "ach_OG1.1":"ammmm this must had been fun...u have my internal respect! ",
+    "ach_OG2": "beat the secret level",
+    "ach_OG2.2": "congrats! A lot of people have missed it",
+    "ach_OG3": "DIE 50X IN ONE GAME",
+    "ach_OG3.3": "a new hobby, h?",
+    "ach_OG4": "BEAT THE GAME ON EASY MODE",
+    "ach_OG4.4": "I bet you did this with your eyes closed ;)?",
+    "ach_OG5": "HELP PEOPLE IN TOWN",
+    "ach_OG5.5": "what a good soul you are 🥺🥺🥺🥺",
+    "ach_OG6": "EXPLORE THE ANCIENT RUINS",
+    "ach_OG6.6": "when are we going to Greece? ",
+    "KOMENTARJI": "COMMENTS",
+    "please_login_comments": "To comment please <a href='\\login'>login</a> or <a href='SERVER\\register.php'>register</a>",
+    "write_comment": "write your comment here",
+    "add_comment": "POST",
+
+    
+    "zmejelov_1960":"je prvotna verzija aplikacije zasnovana v davnem 2021 letu. Danes je na voljo v svoji originali formi, edina dodana stvar k igri je en dosežek, ki ga lahko dosežeš. Kljub temu, da je igra za izkušene igralce zelo hitra in enostavna, lahko na začetku novim igralcem ponuja malo preglavic, tako da, v primeru težav, ne obupati z igranjem. Igra je primerna tudi za vse 'OG', ki želijo podoživeti  nostalgijo igranja prvotne verzije!",
+    "q1_1960": "Why is this game so easy?",
+    "a1_1960": "Maybe you are just so good 😉",
+    "a2_1960": "Read <a href='#dosezki_OG'>ACHIEVEMENTS</a>", 
+
+    
+
+    "intro_essay": "»RAČUNALNIK NE DELA NAPAK, PREPROSTO IZVRŠUJE TO, KAR MU UKAŽEMO«",
+    "github_essay":" Odprto kodni projekt, vsa koda na voljo na <a href='https://github.com/randomtuser/zmejelov'>githubu</a>",
+    "welcome_again":"Še enkrat pozdravljeni na ZMEJELOV IGRALNI PLATFORMI. Moje ime je Zmeja in moram priznati, da sem zelo vesela,da te vidim! Na portalu je 5 iger:",
+    "welcome_again2":"Če mene vprašaš moraš preigrati vse xd. Veselo igranje.     ",
+    "welcome_again3":" Naj poudarim, da sem zelo vesela, da te vidim! Na portalu je 5 iger za veliko ur igranja, z dosežki pa te spodbujam k igranju. Če mene vprašaš moraš preigrati vse xd. Za njihovo uporabo pa se moraš registrirati s klikom <a href='/register'>tukaj</a> ali pa prijaviti s klikom <a href='\\login'>tukaj</a>. Veselo igranje. ",
+    
+
+
+
+    "ach1_speed": "COMPLETE THE GAME IN LESS THEN A MINUTE",
+    "ach1.1_speed": "strela mc queen?",
+
+    "ach2_speed": "COMPLETE THE GAME",
+    "ach2.2_speed": "i mean, its deffinitely something",
+
+    "ach3_speed": "DIE BY EVERY IDENTITY AT LEAST ONCE IN A GAME",
+    "ach3.3_speed": "on purpose or just that shit?",
+
+    "ach4_speed": "COLLECT ALL THE POSSIBLE STARS",
+    "ach4.4_speed": "pleae always remember to reach for the stars, you can trully do it :)",
+
+
+    "ach5_speed": "DIE 20 TIMES IN ONE GAME",
+    "ach5.5_speed": "this one was one purpose, right 🥺?",
+
+    "ach6_speed": "DIE BY A SPACESHIP",
+    "ach6.6_speed": "this one was quite easy, right?"
+
+
+
+
+
+  }}
+  

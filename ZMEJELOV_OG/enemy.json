@@ -1,0 +1,41 @@
+{
+	"textures": [
+		{
+			"image": "enemy.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 217,
+				"h": 286
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "Wraith_02_Moving Forward_000.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 520,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 154,
+						"y": 37,
+						"w": 215,
+						"h": 284
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 215,
+						"h": 284
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:b3a57c2ea26ed69a5676681a815417e8:0a0536cf63ea0416cb781a188fe37e28:a99356c10d69482e9bee53d25c3d05e1$"
+	}
+}

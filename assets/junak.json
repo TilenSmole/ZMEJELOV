@@ -1,0 +1,83 @@
+{
+	"textures": [
+		{
+			"image": "junak.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 221,
+				"h": 893
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "Wraith_03_Moving Forward_000.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 520,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 142,
+						"y": 30,
+						"w": 219,
+						"h": 291
+					},
+					"frame": {
+						"x": 1,
+						"y": 1,
+						"w": 219,
+						"h": 291
+					}
+				},
+				{
+					"filename": "Wraith_03_Dying_000.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 520,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 139,
+						"y": 29,
+						"w": 218,
+						"h": 298
+					},
+					"frame": {
+						"x": 1,
+						"y": 294,
+						"w": 218,
+						"h": 298
+					}
+				},
+				{
+					"filename": "Wraith_03_Idle_000.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 520,
+						"h": 420
+					},
+					"spriteSourceSize": {
+						"x": 139,
+						"y": 29,
+						"w": 218,
+						"h": 298
+					},
+					"frame": {
+						"x": 1,
+						"y": 594,
+						"w": 218,
+						"h": 298
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:5098ca6d723259be7ac43309efbab1d4:ad4a164984c7aec4a4a1d46beaf6cb13:e2eedbc451698a0ae1feea6a754e4194$"
+	}
+}
