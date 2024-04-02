@@ -75,7 +75,7 @@ class E0_mestoKonec extends A0_osnova {
             })
   
   
-      this.add.text(100, GAME_HEIGHT - 200, this.loadText("ctiy_win"), {
+      this.add.text(100, GAME_HEIGHT - 200, this.loadText("ctiy_win2"), {
         fontSize: '40px',
         fill: '#A996BC',
         fontFamily: 'CustomFont',
@@ -111,7 +111,7 @@ class E0_mestoKonec extends A0_osnova {
   
 
 
-            this.add.text(100, GAME_HEIGHT - 200, this.loadText("ctiy_win2"), {
+            this.add.text(100, GAME_HEIGHT - 200, this.loadText("ctiy_win"), {
               fontSize: '40px',
               fill: '#A996BC',
               fontFamily: 'CustomFont',

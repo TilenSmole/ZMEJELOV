@@ -1,7 +1,8 @@
-class S2_inicial  extends S0_shared {
-    constructor(){
-        super("S2_inicial")
-    }
+class S2_inicial extends Phaser.Scene {
+        constructor() {
+          super({ key: 'S2_inicial' });
+        }
+      
     preload() {
         this.load.audio('glavna', ['assets/uvod/glavna.mp3',"assets/uvod/glavna.ogg"]);
         this.load.image("gumb","assets/uvod/gumb.png")
@@ -15,7 +16,16 @@ class S2_inicial  extends S0_shared {
         this.load.image("gumb2","assets/uvod/gumbVeliki.png")
         this.load.image("mute","assets/uvod/mute.png")
         this.load.image("unmute","assets/uvod/umute.png")
+        this.load.json('textEn', 'translations/translationsSLO_js.json');
+		this.load.json('textSlo', 'translations/translationsEN_js.json');
     }
+    loadText(text_to_translate) {
+		if (language === "en") {
+			return this.cache.json.get('textEn')[text_to_translate];
+		} else {
+			return this.cache.json.get('textSlo')[text_to_translate];
+		}
+	}
     create() {
         this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
@@ -125,7 +135,7 @@ class S2_inicial  extends S0_shared {
 
             stopWatchStart()
             this.scene.stop('S2_inicial ')
-            this.scene.start('S4_gamePlayStart')
+            this.scene.start('S3_storyIntro')
         })
         
 
@@ -138,35 +148,7 @@ class S2_inicial  extends S0_shared {
 
 
 
-        var razmak = 50
-        var y = GAME_HEIGHT-20
-        this.slo = this.add.sprite(25+razmak+razmak, y, 'slo').setInteractive();
-        this.slo.setScale(.5)
-        this.slo.on('pointerup', () => {
-            slo = true
-            rus = false
-            usa = false
-            this.scene.restart();
-        })
-            
-        this.usa = this.add.sprite(20+razmak, y, 'usa').setInteractive();
-        this.usa.setScale(.5)
-        this.usa.on('pointerup', () => {
-            slo = false
-            rus = false
-            usa = true
-            this.scene.restart();
-        })
-
-        this.rus = this.add.sprite(20, y, 'rus').setInteractive();
-        this.rus.setScale(.45)
-        this.rus.on('pointerup', () => {
-            slo = false
-            rus = true
-            usa = false
-            this.scene.restart();
-        
-        })
+       
 
         
         

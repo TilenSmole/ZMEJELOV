@@ -1,7 +1,11 @@
-class scena1 extends osnova {
-  constructor(){
-    super({ key: 'scena1' });
-  }
+
+
+  class scena1 extends osnova {
+    constructor() {
+        super("scena1")
+    }
+
+
   preload() {
    this.load.image("ozadje","assets/Background_01.png")
    this.load.image("platform","assets/jump.png")

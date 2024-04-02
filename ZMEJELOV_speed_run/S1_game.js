@@ -10,29 +10,28 @@ var enkratt = 1 //ce je 1 je default, pomeni pa da odklenemo 2 easter egg na 4 n
 var stSmrti = 0
 var deathVarient = ""
 
+// Languages
+var language = "slo"
+
 function getLanguage() {
   var xhr = new XMLHttpRequest();
-  xhr.onreadystatechange = function() {
-      if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-              var response = JSON.parse(xhr.responseText); // Parse JSON response
-              var language = response.language;
-              if (language === "en") {
-                slo = false;
-                usa = true;
-              } else {
-                slo = true;
-                usa = false;
-              }
-          } 
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        var response = JSON.parse(xhr.responseText); // Parse JSON response
+        var languageOfApp = response.language;
+        console.log(languageOfApp)
+        if (languageOfApp === "en") {
+          language = "en"
+        } 
       }
+    }
   };
   // Send a request to getLanguage.php to retrieve the selected language
   xhr.open('GET', '/translations/getLanguage.php', true);
   xhr.send();
 }
 getLanguage()
-
 
 
 

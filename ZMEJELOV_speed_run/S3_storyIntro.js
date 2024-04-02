@@ -1,54 +1,73 @@
-class S3_storyIntro extends Phaser.Scene {
+
+class S3_storyIntro extends S0_shared{
 	constructor(){
-		super({ key: 'S3_storyIntro' });
+		super("S3_storyIntro");
 	}
-	preload() {
-	    this.load.audio('glavna', ['assets/uvod/glavna.mp3',"assets/uvod/glavna.ogg"]);
-		this.load.image("gumb","assets/uvod/gumb.png")
-        this.load.image("zmeja","assets/uvod/zmeja.png")
-        this.load.video('video2', 'assets/uvod/story intro.mp4');
-	   }
- create() {
-    this.video = this.add.video(GAME_WIDTH/2, GAME_HEIGHT/2, 'video2');
-    this.video.setScale(.65)
-    this.video.play()
+  preload() {
+    this.load.image("zmeja","assets/uvod/zmeja.png")
 
-
-        
-    this.zacetek = this.add.sprite(GAME_WIDTH-100,GAME_HEIGHT - 50, 'gumb').setInteractive();
-    this.zacetek.setScale(0.8)
-    if (usa == true){
-        this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65, 'NEXT',{ fontSize: '40px', fill: '#E950F4' });}
-    else if (rus == true){
-        this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65, 'СЛЕДУЮЩИЙ',{ fontSize: '20px', fill: '#E950F4' });}
-    else{
-        this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65, 'NAPREJ',{ fontSize: '40px', fill: '#E950F4' });}
-
-        
-    
-    this.zacetek.on('pointerup', () => {
-        this.scene.stop('S3_storyIntro')
-        this.scene.start('S4_gamePlayStart')
-        })
-    
-    
-
-
-
-  
-    
-   
-
-
-	
-
-
-    
-
-
-  
-
-
-    
   }
+  create() {
+
+  
+    this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
+
+
+    gameState.sovraznik = this.physics.add.sprite(-100, 220, "zmeja");
+    gameState.sovraznik.setScale(.7)
+    gameState.sovraznik.body.setAllowGravity(false);
+
+    gameState.sovraznik.move = this.tweens.add({
+      targets: gameState.sovraznik,
+      x: GAME_WIDTH+100,
+      ease: 'Linear',
+      duration: 4000,
+      repeat: -1,
+      flipX: true,
+      yoyo: true,
+    })
+
+
+
+
+
+
+
+
+    const text = this.add.text(10, 500, this.loadText("game_intro_speedrun"), {
+      fontSize: '40px',
+      fill: '#A996BC',
+      fontFamily: 'CustomFont',
+      wordWrap: { width: GAME_WIDTH - 20, useAdvancedWrap: true }
+    });
+
+    const xKordinata = (Math.random() * 490);
+    const yKordinata = (Math.random() * 350);
+    var text2 = this.add.text(xKordinata, yKordinata, "", { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
+
+      text2.destroy(); 
+      text2 = this.add.text(xKordinata, yKordinata, this.loadText("space_start"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' }); // Create a new text object with updated content
+
+
+
+
+    this.input.keyboard.on('keyup-SPACE', () => {
+      this.scene.stop('S3_storyIntro')
+      this.scene.start('S4_gamePlayStart')
+    });
+  }    
+  update() {
+   
+}
+
+
+ 
+}
+
+
+function random_color() {
+  var rint = Math.floor(0x100000000 * Math.random());
+  return 'rgb(' + (rint & 255) + ',' + (rint >> 8 & 255) + ',' + (rint >> 16 & 255) + ')';
+
+
 }

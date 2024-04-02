@@ -1,5 +1,6 @@
 <?php
 include('translations/load_translations.php');
+$translations = loadTranslations();
 
 include("SERVER/database.php");
 session_start();
@@ -29,16 +30,18 @@ session_start();
   <meta charset="utf-8" />
   <title>Zmejelov</title>
 
-  <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/scena2.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/scena1.js"></script>
+  <script type="text/javascript" src="/Zmejelov_basic_game/phaser.min.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/osnova.js"></script>
   <script type="text/javascript" src="zmejelov_OG/uvod.js"></script>
+
+  <script type="text/javascript" src="zmejelov_OG/scena1.js"></script>
+
+  <script type="text/javascript" src="zmejelov_OG/scena2.js"></script>
   <script type="text/javascript" src="zmejelov_OG/scena6.js"></script>
   <script type="text/javascript" src="zmejelov_OG/scena3.js"></script>
   <script type="text/javascript" src="zmejelov_OG/scena4.js"></script>
   <script type="text/javascript" src="zmejelov_OG/scena5.js"></script>
   <script type="text/javascript" src="zmejelov_OG/konec.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/osnova.js"></script>
 
   <script type="text/javascript" src="zmejelov_OG/game.js"></script>
 
@@ -232,13 +235,10 @@ session_start();
       if ($_SESSION["achievements"][12] === "1") {
         echo "<div class='oneAchievements'>";
         echo '<img src="assets\achivments\old.png"  alt="Achievement Picture 1">';
-        echo  $translations = loadTranslations();
         $translations["aOG"];
-        echo  $translations = loadTranslations();
         $translations["rOG"];
         echo '</div>';
       } else {
-        echo  $translations = loadTranslations();
         $translations["aOG"];
       }
       ?>

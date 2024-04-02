@@ -87,15 +87,44 @@ if (session_status() === PHP_SESSION_NONE)
 </head>
 
 <body>
-  <div id="header"></div>
 
-  <script>
+<div class="loader-wrapper">
+      <span class="loader"><img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Loading..."></span>
+    </div>
+
+
+
+<script>
+  function showLoader() {
+    document.getElementsByClassName("loader-wrapper").style.display = "flex";
+
+  }
+
+  function hideLoader() {
+    document.getElementsByClassName("loader-wrapper").style.display = "none";
+    document.getElementById("fullBody").style.display = "block";
+
+
+  }
+
+  window.onload = function() {
+    setTimeout(hideLoader, 111500); 
+  };
+  showLoader();
+</script>
+
+
+ 
+<div id="fullBody">
+<script>
     $(document).ready(function() {
       $("#header").load("SHARED/header.php");
       $("#footer").load("SHARED/footer.php");
 
     });
   </script>
+  <div id="header"></div>
+
 
   <div class="introduction" id="introduction_OG">
     <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
@@ -238,8 +267,11 @@ if (session_status() === PHP_SESSION_NONE)
           echo '</div>';
           echo '</div>';
         } else {
-          echo '<div class="achievementsNotLoggedIn">';
-          echo '<p>' . $translations["ach_OG1"] . '</p>';
+          echo "<div class='achievementsNotLoggedIn'>";
+          echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
+          echo '</div>';
           echo '</div>';
         }
         ?>
@@ -255,8 +287,11 @@ if (session_status() === PHP_SESSION_NONE)
           echo '</div>';
           echo '</div>';
         } else {
-          echo '<div class="achievementsNotLoggedIn">';
-          echo '<p>' . $translations["ach_OG2"] . '</p>';
+          echo "<div class='achievementsNotLoggedIn'>";
+          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["ach_OG2"] . '</p></b>';
+          echo '</div>';
           echo '</div>';
         }
         ?>
@@ -272,8 +307,11 @@ if (session_status() === PHP_SESSION_NONE)
           echo '</div>';
           echo '</div>';
         } else {
-          echo '<div class="achievementsNotLoggedIn">';
-          echo '<p>' . $translations["ach_OG3"] . '</p>';
+          echo "<div class='achievementsNotLoggedIn'>";
+          echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["ach_OG3"] . '</p></b>';
+          echo '</div>';
           echo '</div>';
         }
         ?>
@@ -290,8 +328,11 @@ if (session_status() === PHP_SESSION_NONE)
           echo '</div>';
           echo '</div>';
         } else {
-          echo '<div class="achievementsNotLoggedIn">';
-          echo '<p>' . $translations["ach_OG4"] . '</p>';
+          echo "<div class='achievementsNotLoggedIn'>";
+          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["ach_OG4"] . '</p></b>';
+          echo '</div>';
           echo '</div>';
         }
         ?>
@@ -308,8 +349,11 @@ if (session_status() === PHP_SESSION_NONE)
           echo '</div>';
           echo '</div>';
         } else {
-          echo '<div class="achievementsNotLoggedIn">';
-          echo '<p>' . $translations["ach_OG5"] . '</p>';
+          echo "<div class='achievementsNotLoggedIn'>";
+          echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["ach_OG5"] . '</p></b>';
+          echo '</div>';
           echo '</div>';
         }
         ?>
@@ -325,8 +369,11 @@ if (session_status() === PHP_SESSION_NONE)
           echo '</div>';
           echo '</div>';
         } else {
-          echo '<div class="achievementsNotLoggedIn">';
-          echo '<p>' . $translations["ach_OG6"] . '</p>';
+          echo "<div class='achievementsNotLoggedIn'>";
+          echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["ach_OG6"] . '</p></b>';
+          echo '</div>';
           echo '</div>';
         }
         ?>
@@ -422,6 +469,7 @@ if (session_status() === PHP_SESSION_NONE)
 
 
   <div id="footer"></div>
+</div>
 </body>
 
 

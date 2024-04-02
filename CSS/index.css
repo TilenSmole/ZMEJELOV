@@ -3,6 +3,80 @@ body {
   background-color: #605966;
   margin-top: 20px;
 }
+/*loading*/
+.loader-wrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: hsl(244, 7%, 35%);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.loader {
+  display: inline-block;
+  position: relative;
+  animation: loader 2s infinite ease;
+}
+.loader img {
+width: 50%;
+height: 50%;
+}
+
+
+
+#fullBody{
+  display: none;
+
+}
+
+
+@keyframes loader {
+  0% { transform: rotate(0deg); }
+  2.5% { transform: rotate(9deg); }
+  5% { transform: rotate(18deg); }
+  7.5% { transform: rotate(27deg); }
+  10% { transform: rotate(36deg); }
+  12.5% { transform: rotate(45deg); }
+  15% { transform: rotate(54deg); }
+  17.5% { transform: rotate(63deg); }
+  20% { transform: rotate(72deg); }
+  22.5% { transform: rotate(81deg); }
+  25% { transform: rotate(90deg); }
+  27.5% { transform: rotate(99deg); }
+  30% { transform: rotate(108deg); }
+  32.5% { transform: rotate(117deg); }
+  35% { transform: rotate(126deg); }
+  37.5% { transform: rotate(135deg); }
+  40% { transform: rotate(144deg); }
+  42.5% { transform: rotate(153deg); }
+  45% { transform: rotate(162deg); }
+  47.5% { transform: rotate(171deg); }
+  50% { transform: rotate(180deg); }
+  52.5% { transform: rotate(189deg); }
+  55% { transform: rotate(198deg); }
+  57.5% { transform: rotate(207deg); }
+  60% { transform: rotate(216deg); }
+  62.5% { transform: rotate(225deg); }
+  65% { transform: rotate(234deg); }
+  67.5% { transform: rotate(243deg); }
+  70% { transform: rotate(252deg); }
+  72.5% { transform: rotate(261deg); }
+  75% { transform: rotate(270deg); }
+  77.5% { transform: rotate(279deg); }
+  80% { transform: rotate(288deg); }
+  82.5% { transform: rotate(297deg); }
+  85% { transform: rotate(306deg); }
+  87.5% { transform: rotate(315deg); }
+  90% { transform: rotate(324deg); }
+  92.5% { transform: rotate(333deg); }
+  95% { transform: rotate(342deg); }
+  97.5% { transform: rotate(351deg); }
+  100% { transform: rotate(360deg); }
+}
+
 
 
 /* introduction */
@@ -129,7 +203,9 @@ body {
 
 }
 
-.oneAchievements {
+
+
+.oneAchievements, .achievementsNotLoggedIn {
   border: 2px solid black;
   display: relative;
   vertical-align: top;
@@ -139,22 +215,31 @@ body {
   margin-right: 2%;
   margin-bottom: 2%;
   background-color: hsl(244, 7%, 40%);
-
 }
 
+.achievementsNotLoggedIn{
+  opacity: 0.4;
+
+}
 
 .tooltip {
   display: none;
 
 }
 
-.oneAchievements:hover .tooltip {
+.oneAchievements:hover .tooltip, .achievementsNotLoggedIn:hover .tooltip {
   display: block;
   height: 200px;
   width: 400px;
 }
 
-.oneAchievements img {
+.achievementsNotLoggedIn:hover .tooltip{
+  height: 100px;
+  width: 300px;
+}
+
+
+.oneAchievements img , .achievementsNotLoggedIn img{
   width: auto;
   height: 100px;
   max-width: 100%;
@@ -629,19 +714,7 @@ p: nth-child(2)
 
 
 
-.achievementsNotLoggedIn {
-  display: flex;
-  /* Use flexbox */
-  justify-content: center;
-  /* Center horizontally */
-  align-items: center;
-  /* Center vertically */
-  border: 2px solid black;
-  padding: 10px;
-  height: 100px;
-  width: 600px;
-  text-align: center;
-}
+
 
 
 

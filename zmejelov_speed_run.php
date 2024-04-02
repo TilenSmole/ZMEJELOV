@@ -35,7 +35,7 @@ include('translations/load_translations.php');
   <script type="text/javascript" src="zmejelov_speed_run/S4_gamePlayStart.js"></script>
   <script type="text/javascript" src="zmejelov_speed_run/S5_konec.js"></script>
   <script type="text/javascript" src="zmejelov_speed_run/S4_deathScreen.js"></script>
-
+   
 
   <script type="text/javascript" src="zmejelov_speed_run/S1_game.js"></script>
   <link rel="preload" as="font" href="assets\uvod\Cinzel-Regular.ttf" type="font/ttf" />

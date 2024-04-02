@@ -1,7 +1,7 @@
 class konec extends osnova {
-	constructor(){
-		super({ key: 'konec' });
-	}
+    constructor() {
+        super("konec")
+    }
 	preload() {
         this.load.audio('egg', ['assets/uvod/easterEgg(1).mp3',"assets/uvod/easterEgg(1).ogg"]);
 	   }
@@ -33,7 +33,7 @@ class konec extends osnova {
 
 
 
-	const uvod =  this.add.text(100, 100, this.loadText("intro"), { fontSize: '60px', fill: '#8B0000' });
+	const uvod =  this.add.text(100, 100, this.loadText("finish"), { fontSize: '60px', fill: '#8B0000' });
 	
 	if(!completed ){
 		showPopupAchievements("COMPLETE THE GAME")

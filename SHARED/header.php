@@ -133,9 +133,9 @@
 
           <li class="has-subnav"><a href="/" id="mainPageReturn" onclick="closeNav()"><?php $translations = loadTranslations();  echo $translations['home']; ?></a>
             <ul class="subnav">
-              <li><a href="/" onclick="closeNav()"><?php $translations = loadTranslations(); echo $translations['intro']; ?></a></li>
-              <li><a href="/#videos" onclick="closeNav()"><?php echo $translations = loadTranslations();  $translations['video_library']; ?></a></li>
-              <li><a href="/#about_proyect" onclick="closeNav()"><?php $translations = loadTranslations();  echo $translations['about']; ?></a></li>
+              <li><a href="/" onclick="closeNav()"><?php echo $translations['intro']; ?></a></li>
+              <li><a href="/#videos" onclick="closeNav()"><?php echo  $translations['video_library']; ?></a></li>
+              <li><a href="/#about_proyect" onclick="closeNav()"><?php  echo $translations['about']; ?></a></li>
             </ul>
           </li>
           <li class="has-subnav"><a href="/zmentures" onclick="closeNav()">ZMENTURES</a>

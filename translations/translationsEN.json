@@ -13,8 +13,8 @@
     "please_login_achivements": "To unlock achievements <a href='\\login'>login</a> or<a href='/register'>register</a>    </a>",
     "game": "GAME",
     "achivements": "ACHIEVEMENTS",
-    "ach_OG1":"Don't die on hard difficulty",
-    "ach_OG1.1":"ammmm this must had been fun...u have my internal respect! ",
+    "ach_OG1": "Don't die on hard difficulty",
+    "ach_OG1.1": "ammmm this must had been fun...u have my internal respect! ",
     "ach_OG2": "beat the secret level",
     "ach_OG2.2": "congrats! A lot of people have missed it",
     "ach_OG3": "DIE 50X IN ONE GAME",
@@ -29,46 +29,57 @@
     "please_login_comments": "To comment please <a href='\\login'>login</a> or <a href='SERVER\\register.php'>register</a>",
     "write_comment": "write your comment here",
     "add_comment": "POST",
-
-    
-    "zmejelov_1960":"je prvotna verzija aplikacije zasnovana v davnem 2021 letu. Danes je na voljo v svoji originali formi, edina dodana stvar k igri je en dosežek, ki ga lahko dosežeš. Kljub temu, da je igra za izkušene igralce zelo hitra in enostavna, lahko na začetku novim igralcem ponuja malo preglavic, tako da, v primeru težav, ne obupati z igranjem. Igra je primerna tudi za vse 'OG', ki želijo podoživeti  nostalgijo igranja prvotne verzije!",
+    "zmejelov_1960": "je prvotna verzija aplikacije zasnovana v davnem 2021 letu. Danes je na voljo v svoji originali formi, edina dodana stvar k igri je en dosežek, ki ga lahko dosežeš. Kljub temu, da je igra za izkušene igralce zelo hitra in enostavna, lahko na začetku novim igralcem ponuja malo preglavic, tako da, v primeru težav, ne obupati z igranjem. Igra je primerna tudi za vse 'OG', ki želijo podoživeti  nostalgijo igranja prvotne verzije!",
     "q1_1960": "Why is this game so easy?",
     "a1_1960": "Maybe you are just so good 😉",
-    "a2_1960": "Read <a href='#dosezki_OG'>ACHIEVEMENTS</a>", 
-
-    
-
+    "a2_1960": "Read <a href='#dosezki_OG'>ACHIEVEMENTS</a>",
     "intro_essay": "»RAČUNALNIK NE DELA NAPAK, PREPROSTO IZVRŠUJE TO, KAR MU UKAŽEMO«",
-    "github_essay":" Odprto kodni projekt, vsa koda na voljo na <a href='https://github.com/randomtuser/zmejelov'>githubu</a>",
-    "welcome_again":"Še enkrat pozdravljeni na ZMEJELOV IGRALNI PLATFORMI. Moje ime je Zmeja in moram priznati, da sem zelo vesela,da te vidim! Na portalu je 5 iger:",
-    "welcome_again2":"Če mene vprašaš moraš preigrati vse xd. Veselo igranje.     ",
-    "welcome_again3":" Naj poudarim, da sem zelo vesela, da te vidim! Na portalu je 5 iger za veliko ur igranja, z dosežki pa te spodbujam k igranju. Če mene vprašaš moraš preigrati vse xd. Za njihovo uporabo pa se moraš registrirati s klikom <a href='/register'>tukaj</a> ali pa prijaviti s klikom <a href='\\login'>tukaj</a>. Veselo igranje. ",
-    
-
-
-
+    "github_essay": " Odprto kodni projekt, vsa koda na voljo na <a href='https://github.com/randomtuser/zmejelov'>githubu</a>",
+    "welcome_again": "Še enkrat pozdravljeni na ZMEJELOV IGRALNI PLATFORMI. Moje ime je Zmeja in moram priznati, da sem zelo vesela,da te vidim! Na portalu je 5 iger:",
+    "welcome_again2": "Če mene vprašaš moraš preigrati vse xd. Veselo igranje.     ",
+    "welcome_again3": " Naj poudarim, da sem zelo vesela, da te vidim! Na portalu je 5 iger za veliko ur igranja, z dosežki pa te spodbujam k igranju. Če mene vprašaš moraš preigrati vse xd. Za njihovo uporabo pa se moraš registrirati s klikom <a href='/register'>tukaj</a> ali pa prijaviti s klikom <a href='\\login'>tukaj</a>. Veselo igranje. ",
     "ach1_speed": "COMPLETE THE GAME IN LESS THEN A MINUTE",
     "ach1.1_speed": "strela mc queen?",
-
     "ach2_speed": "COMPLETE THE GAME",
     "ach2.2_speed": "i mean, its deffinitely something",
-
     "ach3_speed": "DIE BY EVERY IDENTITY AT LEAST ONCE IN A GAME",
     "ach3.3_speed": "on purpose or just that shit?",
-
     "ach4_speed": "COLLECT ALL THE POSSIBLE STARS",
     "ach4.4_speed": "pleae always remember to reach for the stars, you can trully do it :)",
-
-
     "ach5_speed": "DIE 20 TIMES IN ONE GAME",
     "ach5.5_speed": "this one was one purpose, right 🥺?",
-
     "ach6_speed": "DIE BY A SPACESHIP",
-    "ach6.6_speed": "this one was quite easy, right?"
+    "ach6.6_speed": "this one was quite easy, right?",
+    "about_the_game": "ABOUT",
+    "logout": "LOGOUT",
+    "login": "LOGIN",
+    "home": "HOME",
+    "intro": "INTRO",
+    "about": "ABOUT",
+    "video_library": "VIDEOS",
+    "rOG": "ahhh thoe were the times",
+    "aOG": "FINISH A GAME",
+    "username": "nickname",
+    "password": "password",
+    "not_yet_user": " not yet an user? <a href='/register'>REGISTER!</a>",
+    "incorect_pass": "password incorect",
+    "user_not": "user doesn't exists",
+    "login_succ": "   Login successful, redirecting!",
+    "already_user": "already an user? <a href='login'>LOGIN!</a>",
+    "error": "How did you manage to come here, this page doesn't exists!!!",
+    "error_home": "RETURN HOME",
+    "name": "YOUR NAME",
+    "email": "YOUR EMAIL",
+    "message": "YOUR MESSAGE",
+    "subject": " SUBJECT",
+    "send": "SEND",
+    "this_is" :"THIS IS ZMEJELOV!!!",
+    "welcome" : "WELCOME TO MY WORLD!",
+    "welcome_intro" : "    Welcome to Zmejelov Gaming platform, my name is Zmeja and I am quite an important person here (if you ask me 😇). On the portal there are 5 games with different tricks, traps, each game also has its own achievements to motivate you. Try to become the best on the leaderboard, comment and connect with friends! If you ask me it is totally worth it to spend hours here. What do you say, are you ready to start exloring the world of advantures and excitment?    ",
+    "explore" :" START EXPLORING"
 
 
 
 
-
-  }}
-  
+  }
+}

@@ -1,6 +1,7 @@
+
 class scena6 extends osnova {
 	constructor() {
-		super({ key: 'scena6' });
+		super("scena6")
 	}
 	preload() {
 		this.load.image("ozadje6", "assets/scena6/Cartoon_Forest_BG_02.png")

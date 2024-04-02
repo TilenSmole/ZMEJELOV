@@ -1,39 +1,45 @@
 <?php
-  include("SERVER/database.php");
-  session_start();
-    
+include("SERVER/database.php");
+session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-TH6M7HMG59"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-TH6M7HMG59');   
-</script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="index.css">
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TH6M7HMG59"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TH6M7HMG59');
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="index.css">
 
 
- <meta charset="utf-8"/>
-     <title>Zmejelov</title>
-    <script type="text/javascript" src = "Zmejelov_basic_game/phaser.min.js"></script>
-    <script type="text/javascript"src = "zmejelov_njam_njam/F0_shared.js"></script>
-    <script type="text/javascript"src = "zmejelov_njam_njam/F2_inicial.js"></script>
-    <script type="text/javascript"src = "zmejelov_njam_njam/F3_storyIntro.js"></script>
-    <script type="text/javascript"src = "zmejelov_njam_njam/F4_gamePlayStart.js"></script>
-    <script type="text/javascript"src = "zmejelov_njam_njam/F5_konec.js"></script>
+  <meta charset="utf-8" />
+  <title>Zmejelov</title>
+  <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F0_shared.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F2_inicial.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F3_storyIntro.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F4_gamePlayStart.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F5_konec.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F2_time_intro.js"></script>
 
-    
-    <script type="text/javascript"src = "zmejelov_njam_njam/F1_game.js"></script>
-    <link rel="preload" as="font" href="assets\uvod\Cinzel-Regular.ttf" type="font/ttf" />
-  </head>
-  <body>
+
+  <script type="text/javascript" src="zmejelov_njam_njam/F1_game.js"></script>
+  <link rel="preload" as="font" href="assets\uvod\Cinzel-Regular.ttf" type="font/ttf" />
+</head>
+
+<body>
   <div id="header"></div>
 
   <script>
@@ -43,7 +49,6 @@
 
     });
   </script>
-
 
   <h1>ZMENTURES</h1>
   <div class="introduction" id="introduction_OG">
@@ -72,51 +77,56 @@
       <h1>Q&N</h1>
       <div>
         <div class="QN_field">
-            <div class="question_field"><p>Kako shranim napredek igre?</p></div>
-            <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('a1s')">&#9660;</button></div>
+          <div class="question_field">
+            <p>Kako shranim napredek igre?</p>
           </div>
-          <div id="a1s" style="display: none;"> 
-            <p >Napredek igre se shrani avtomatsko na vsakem nivoju GLEJ DA TO TUD IMPLEMENTIRAS</p>
-          </div>
+          <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('a1s')">&#9660;</button></div>
+        </div>
+        <div id="a1s" style="display: none;">
+          <p>Napredek igre se shrani avtomatsko na vsakem nivoju GLEJ DA TO TUD IMPLEMENTIRAS</p>
+        </div>
       </div>
-        
+
 
       <div>
         <div class="QN_field">
-            <div class="question_field">      <p class="question">KAJ NAREDITI, ČE IGRICA ZAGLIČA?</p></div>
-            <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('a2s')">&#9660;</button></div>
+          <div class="question_field">
+            <p class="question">KAJ NAREDITI, ČE IGRICA ZAGLIČA?</p>
           </div>
-          <div id="a2s" style="display: none;"> 
-            <p >Ponovno naloži stran, v kolikor pa se težava pojava me kontaktiraj <a href="SHARED\contact.php">preko obrazca</a></p>
-          </div>
+          <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('a2s')">&#9660;</button></div>
+        </div>
+        <div id="a2s" style="display: none;">
+          <p>Ponovno naloži stran, v kolikor pa se težava pojava me kontaktiraj <a href="SHARED\contact.php">preko obrazca</a></p>
+        </div>
       </div>
-      
-      
+
+
       <div>
         <div class="QN_field">
-            <div class="question_field">      <p class="question">KAJ NAREDITI, ČE IGRICA ZAGLIČA?</p></div>
-            <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('a3s')">&#9660;</button></div>
+          <div class="question_field">
+            <p class="question">KAJ NAREDITI, ČE IGRICA ZAGLIČA?</p>
           </div>
-          <div id="a3s" style="display: none;"> 
-            <p >Ponovno naloži stran, v kolikor pa se težava pojava me kontaktiraj <a href="SHARED\contact.php">preko obrazca</a></p>
-          </div>
+          <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('a3s')">&#9660;</button></div>
+        </div>
+        <div id="a3s" style="display: none;">
+          <p>Ponovno naloži stran, v kolikor pa se težava pojava me kontaktiraj <a href="SHARED\contact.php">preko obrazca</a></p>
+        </div>
       </div>
-      
+
 
     </div>
 
     <script>
       function toggleAnswerVisibility(id) {
-  var myEle = document.getElementById(id);
-  if (myEle.style.display === "none") {
-    myEle.style.display = "inline";
-    myEle.classList.add("answer-visible"); // Add the CSS class
-  } else {
-    myEle.style.display = "none";
-    myEle.classList.remove("answer-visible"); // Remove the CSS class
-  }
-}
-
+        var myEle = document.getElementById(id);
+        if (myEle.style.display === "none") {
+          myEle.style.display = "inline";
+          myEle.classList.add("answer-visible"); // Add the CSS class
+        } else {
+          myEle.style.display = "none";
+          myEle.classList.remove("answer-visible"); // Remove the CSS class
+        }
+      }
     </script>
 
 
@@ -198,7 +208,7 @@
   </div>
 
   <div class="achievementsMainBlock" id="dosezki_OG">
-  <h1><?php $translations = loadTranslations();
+    <h1><?php $translations = loadTranslations();
         echo $translations['achivements'] ?></h1>
     <?php if (isset($_SESSION["username"])) : ?>
       <div class="achievements">
@@ -286,7 +296,8 @@
         ?>
       <?php else : ?>
         <div>
-          <p><?php  $translations = loadTranslations(); echo $translations['please_login_achivements'] ?></p>
+          <p><?php $translations = loadTranslations();
+              echo $translations['please_login_achivements'] ?></p>
         </div>
       <?php endif; ?>
       </div>
@@ -294,15 +305,16 @@
 
       <div class="comments_DIV" id="comments_OG">
         <?php if (isset($_SESSION["username"])) : ?>
-            <h1><?php $translations = loadTranslations();
-                echo $translations["KOMENTARJI"] ?></h1>
-                <div  >
-    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET" class="commentsForm">
-        <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php $translations = loadTranslations(); echo $translations["write_comment"]; ?>"></textarea>
-        <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
-        </div>
-      </form>
-</div>
+          <h1><?php $translations = loadTranslations();
+              echo $translations["KOMENTARJI"] ?></h1>
+          <div>
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET" class="commentsForm">
+              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php $translations = loadTranslations();
+                                                                                        echo $translations["write_comment"]; ?>"></textarea>
+              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
+              </div>
+            </form>
+          </div>
 
 
         <?php else : ?>
@@ -327,6 +339,29 @@
       </div>
 
       <div id="footer"></div>
+
+
+      <div id="loader">
+  <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Loading...">
+</div>
+
+<script>
+  function showLoader() {
+    document.getElementById("loader").style.display = "block";
+  }
+
+  function hideLoader() {
+    document.getElementById("loader").style.display = "none";
+  }
+
+  window.onload = function() {
+    setTimeout(hideLoader, 5000); // Hide loader after 5 seconds
+  };
+  showLoader();
+</script>
+
+
+
 </body>
 
 
@@ -334,27 +369,24 @@
 
 
 
-</script>
+
+
 
 <?php
-    if(isset($_GET["submitCommentZmejelov"])){
-      echo "gsdf";
-      if(isset($_GET["addCommentZmejelov"])){
-        $user = $_SESSION["username"];
-        $comment = $_GET["addCommentZmejelov"];
-        
-        $sql = "INSERT INTO comments_zmejelov_speedrun (user, comment) VALUES ('$user', '$comment') "; 
-        mysqli_query($conn, $sql);
-        echo "<script>window.location.href = '".$_SERVER['PHP_SELF']."';</script>";
-      }
-    }
+if (isset($_GET["submitCommentZmejelov"])) {
+  echo "gsdf";
+  if (isset($_GET["addCommentZmejelov"])) {
+    $user = $_SESSION["username"];
+    $comment = $_GET["addCommentZmejelov"];
+
+    $sql = "INSERT INTO comments_zmejelov_speedrun (user, comment) VALUES ('$user', '$comment') ";
+    mysqli_query($conn, $sql);
+    echo "<script>window.location.href = '" . $_SERVER['PHP_SELF'] . "';</script>";
+  }
+}
 
 
 
-      mysqli_close($conn);
+mysqli_close($conn);
 
 ?>
-
-
-
-

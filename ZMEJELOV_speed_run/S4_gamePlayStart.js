@@ -492,7 +492,7 @@ class S4_gamePlayStart extends S0_shared {
     }
 
     this.physics.add.overlap(gameState.junak, ubijejo, () => {
-        deathVarient = "greadiness" 
+        deathVarient = "greediness" 
         this.scene.stop('S4_gamePlayStart')
         this.scene.start('S4_deathScreen') 
     });

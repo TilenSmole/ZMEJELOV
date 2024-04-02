@@ -90,7 +90,7 @@ create() {
 
                       
     }
-    else if(deathVarient == "greadiness"){
+    else if(deathVarient == "greediness"){
         if (usa == true){
             this.add.text(GAME_WIDTH/2-250,GAME_HEIGHT - 300, "The enemy's hit was fatal...",{ fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });}
             else if (rus == true){

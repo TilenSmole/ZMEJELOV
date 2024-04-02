@@ -267,10 +267,7 @@ function updateStopwatch() {
 		let secString = second.toString().padStart(2, '0');
 		let countString = count.toString().padStart(2, '0');
 	
-		document.getElementById('hr').innerHTML = hrString;
-		document.getElementById('min').innerHTML = minString;
-		document.getElementById('sec').innerHTML = secString;
-		document.getElementById('count').innerHTML = countString;
+	
 	}
     
 }

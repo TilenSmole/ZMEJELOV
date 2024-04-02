@@ -27,11 +27,13 @@ function getLanguage() {
         if (languageOfApp === "en") {
           slo = false;
           usa = true;
-          language = en
+          language = "en"
+
+          
         } else {
           slo = true;
           usa = false;
-          language = slo
+          language = "slo"
         }
       }
     }

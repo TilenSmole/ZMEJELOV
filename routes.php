@@ -29,13 +29,16 @@ post('/register', '/SERVER/register.php');
 get('/login', '/SERVER/login.php');
 get('/language.php', '/language.php');
 get('/translations/getLanguage.js', '/translations/getLanguage.js');
-get('/translations/language.php', '/translations/language.php');get('', '');
+get('/translations/language.php', '/translations/language.php');
+get('/translations/language.php?language=en', '/translations/language.php?language=en');
+get('/translations/language.php?language', '/translations/language.php?language');
+get('/translations/language.php?language=slo', '/translations/language.php?language=slo');
 
 get('/zmentures', '/zmejelov_basic.php');
 get('/Zmejelov_1869', '/zmejelov_og.php');
-get('/Cra*kelov', '/zmejelov_speed_run.php');
+get('/Crackelov', '/zmejelov_speed_run.php');
 get('/TheFinalRage', '/zmejelov_mcqueen.php');
 get('/CityZmentures', '/ZMEJELOV_njam_njam.php');
-
+get('/intro', '/intro.php');
 
 any('/404','/errors/404.php');

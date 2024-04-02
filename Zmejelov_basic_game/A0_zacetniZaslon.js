@@ -16,7 +16,19 @@ class A0_zacetniZaslon extends Phaser.Scene {
         this.load.json('textEn', 'translations/translationsEN_js.json');
     }
 
+    loadText(text_to_translate) {
+        console.log("Klicem")
+        console.log(text_to_translate)
+        console.log(this.cache.json.get('textEn'))
 
+
+
+        if (language === "en") {
+            return this.cache.json.get('textEn')["en"][text_to_translate];
+        } else {
+            return this.cache.json.get('textSlo')["slo"][text_to_translate];
+        }
+    }
 
     create() {
 
@@ -141,13 +153,7 @@ class A0_zacetniZaslon extends Phaser.Scene {
             easyMode = true;
     }
 
-    loadText(text_to_translate) {
-        if (language === "en") {
-            return this.cache.json.get('textEn')[text_to_translate];
-        } else {
-            return this.cache.json.get('textSlo')[text_to_translate];
-        }
-    }
+  
 
 
   

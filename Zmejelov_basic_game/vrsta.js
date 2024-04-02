@@ -11,9 +11,11 @@ class vrsta extends Phaser.Scene {
 
     loadText(text_to_translate) {
         if (language === "en") {
-            return this.cache.json.get('textEn')[text_to_translate];
+                        return this.cache.json.get('textEn')["en"][text_to_translate];
+
         } else {
-            return this.cache.json.get('textSlo')[text_to_translate];
+                        return this.cache.json.get('textSlo')["slo"][text_to_translate];
+
         }
     }
     enemyDeath() {
@@ -35,6 +37,15 @@ class vrsta extends Phaser.Scene {
                 break;
             case 4:
                 death_message = this.loadText("enemy_death_n4");
+                break;
+            case 5:
+                death_message = this.loadText("enemy_death_n5");
+                break;
+            case 6:
+                death_message = this.loadText("enemy_death_n6");
+                break;
+            case 7:
+                death_message = this.loadText("enemy_death_n7");
                 break;
         }
 
@@ -220,13 +231,15 @@ class vrsta extends Phaser.Scene {
 
         }
         else if (vrstaTeksta == "swamp") {
-            this.add.text(100, GAME_HEIGHT - 200, this.loadText("level4smrt"), {
+            const number = Math.floor(Math.random() * 1);
+            const textToShow = number === 0 ? this.loadText("swamp") : this.loadText("swamp2");
+
+            this.add.text(100, GAME_HEIGHT - 200, textToShow, {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
                 wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
             });
-
 
 
 
@@ -253,7 +266,7 @@ class vrsta extends Phaser.Scene {
 
         }
         else if (vrstaTeksta == "bar") {
-        
+
             this.add.text(100, GAME_HEIGHT - 200, this.loadText("bar"), {
                 fontSize: '40px',
                 fill: '#A996BC',
@@ -332,7 +345,7 @@ class vrsta extends Phaser.Scene {
             }
         }
         else if (vrstaTeksta == "level_3_konec") {
-        
+
             this.add.text(100, GAME_HEIGHT - 200, this.loadText("level_3_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
@@ -340,7 +353,7 @@ class vrsta extends Phaser.Scene {
                 wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
             });
 
-            
+
             if (vrniNaPogoj == true) {
                 this.scene.stop('vrsta')
                 this.scene.start('A0_vsi_nivoji')
@@ -355,10 +368,10 @@ class vrsta extends Phaser.Scene {
         else if (vrstaTeksta == "level_4_konec") {
             vrstaTeksta = ""
 
-            var text =  this.loadText("level_4_konec")
+            var text = this.loadText("level_4_konec")
 
             if (zaprto == false && easy == false) {
-                text =text + " "+ this.loadText("secret_level_missed")
+                text = text + " " + this.loadText("secret_level_missed")
             }
 
             this.add.text(100, GAME_HEIGHT - 200, text, {

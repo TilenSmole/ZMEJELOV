@@ -13,24 +13,49 @@ var delayTimer = 2500
 var typeOfBc = [1,2,3,4,5,6,7]
 var typeOfBcIndex = 0
 var speedOfDrops = 300
+var timeToPlay = 0
+var countdown = false
+
 const gameState = {
    speed: -650, //650!!!!!!!!!!!!!!!
    
   };
 
+//language
+  var language = "slo"
 
-
+  function getLanguage() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === XMLHttpRequest.DONE) {
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText); // Parse JSON response
+          var languageOfApp = response.language;
+          console.log(languageOfApp)
+          if (languageOfApp === "en") {
+            language = "en"
+          } 
+        }
+      }
+    };
+    // Send a request to getLanguage.php to retrieve the selected language
+    xhr.open('GET', '/translations/getLanguage.php', true);
+    xhr.send();
+  }
+  getLanguage()
 
 
 //achivements
-var completedSpeedy = false
-var completedGame = false
-var dieDiverse = false
-var stars = false
-var dieALot = false
-var quickDeath = false
-var stZvezd = 0
 
+var H = false
+var FH = false
+var T = false
+var tfT = false
+var fT = false
+var K = false
+var tfK = false
+var fK = false
+var HK = false
 
 
 const config = {
@@ -41,7 +66,7 @@ const config = {
     type: Phaser.AUTO,
     height:  GAME_HEIGHT, 
     width: GAME_WIDTH ,  
-    scene:[F2_inicial, F0_shared, F3_storyIntro, F4_gamePlayStart,F5_konec],
+    scene:[F2_inicial, F0_shared, F3_storyIntro, F4_gamePlayStart,F5_konec, F2_time_intro],
     physics: {
       default: 'arcade',
       arcade: {

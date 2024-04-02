@@ -1,6 +1,6 @@
-class A0_tezavnost extends A0_osnova {
+class F2_time_intro extends Phaser.Scene {
 	constructor() {
-        super("A0_tezavnost")
+        super("F2_time_intro")
     }
 	preload() {
 	
@@ -11,11 +11,9 @@ class A0_tezavnost extends A0_osnova {
 	   }
  create() {
 
-   
-    easy = false
+   countdown = true
     var x = 150
     var y = 100
-    pogojSmrtLevel = 25
     this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
     var font = "80px"
@@ -32,60 +30,39 @@ class A0_tezavnost extends A0_osnova {
     this.add.text(x, y+520, 'S',{ fontSize: '80px',fill: '#B637BF',  fontFamily: 'CustomFont' });
 
     this.lahko = this.add.sprite(GAME_WIDTH/2, 300, 'gumb').setInteractive();
-    this.tezko = this.add.sprite(GAME_WIDTH/2, 150, 'gumb').setInteractive();
     this.city = this.add.sprite(GAME_WIDTH/2, 450, 'gumb').setInteractive();
     this.nivoji = this.add.sprite(GAME_WIDTH/2, 600, 'gumb').setInteractive();
 
-   
-
-    this.add.text(GAME_WIDTH/2-150, 105, this.loadText("no_mercy"), { 
+   //this.loadText("no_mercy")
+   var odmik = 30
+    this.add.text(GAME_WIDTH/2-220, 105, "IZBERI ŽELJENI ČAS IGRANJA", { 
+        fontSize: '35px',
+        fill: '#B637BF',
+        fontFamily: 'CustomFont',
+        wordWrap: { width: 500, useAdvancedWrap: false }
+    });
+  
+    this.add.text(GAME_WIDTH/2-odmik, 285, "20s", { 
         fontSize: '35px',
         fill: '#B637BF',
         fontFamily: 'CustomFont',
         wordWrap: { width: 300, useAdvancedWrap: true }
     });
-    this.add.text(GAME_WIDTH/2-150, 145, this.loadText("no_mercy_descr"), { 
-        fontSize: '20px',
-        fill: '#A996BC',
-        fontFamily: 'CustomFont',
-        wordWrap: { width: 300, useAdvancedWrap: true }
-    });
-    this.add.text(GAME_WIDTH/2-150, 250, this.loadText("easy"), { 
+  
+    this.add.text(GAME_WIDTH/2-odmik, 440, "60s", { 
         fontSize: '35px',
         fill: '#B637BF',
         fontFamily: 'CustomFont',
         wordWrap: { width: 300, useAdvancedWrap: true }
     });
-    this.add.text(GAME_WIDTH/2-150, 296, this.loadText("easy_desc"), { 
-        fontSize: '20px',
-        fill: '#A996BC',
-        fontFamily: 'CustomFont',
-        wordWrap: { width: 300, useAdvancedWrap: true }
-    });
-    this.add.text(GAME_WIDTH/2-150, 405, this.loadText("zmentures_ep"), { 
+  
+    this.add.text(GAME_WIDTH/2-odmik, 590,  "120s", { 
         fontSize: '35px',
         fill: '#B637BF',
         fontFamily: 'CustomFont',
         wordWrap: { width: 300, useAdvancedWrap: true }
     });
-    this.add.text(GAME_WIDTH/2-150, 450, this.loadText("zmentures__ep_desc"), { 
-        fontSize: '20px',
-        fill: '#A996BC',
-        fontFamily: 'CustomFont',
-        wordWrap: { width: 300, useAdvancedWrap: true }
-    });
-    this.add.text(GAME_WIDTH/2-150, 555, this.loadText("individual_level"), { 
-        fontSize: '35px',
-        fill: '#B637BF',
-        fontFamily: 'CustomFont',
-        wordWrap: { width: 300, useAdvancedWrap: true }
-    });
-    this.add.text(GAME_WIDTH/2-150, 600, this.loadText("individual_level_descr"), { 
-        fontSize: '20px',
-        fill: '#A996BC',
-        fontFamily: 'CustomFont',
-        wordWrap: { width: 300, useAdvancedWrap: true }
-    });
+ 
     
 
 
@@ -102,36 +79,32 @@ class A0_tezavnost extends A0_osnova {
     this.nivoji.setScale(1.5)
     this.nivoji.setScale(1.5)
     this.nivoji.on('pointerup', () => {
-        easy = true
-        this.scene.stop('A0_tezavnost')
-        this.scene.start('A0_vsi_nivoji')
+        stopWatchStart()
+        timeToPlay = 60
+        this.scene.stop('F2_time_intro')
+        this.scene.start('F4_gamePlayStart')
 	})
-    this.tezko.setScale(1.5)
-    this.tezko.on('pointerup', () => {
-        easy = false
-        this.scene.stop('A0_tezavnost')
-        this.scene.start('A0_intro')
-	})
+    
     this.lahko.setScale(1.5)
     this.lahko.on('pointerup', () => {
-        easy = true
-        this.scene.stop('A0_tezavnost')
-        this.scene.start('A0_intro')
+        stopWatchStart()
+        timeToPlay = 20
+
+        this.scene.stop('F2_time_intro')
+        this.scene.start('F4_gamePlayStart')
 	})
     this.city.setScale(1.5)
 	this.city.on('pointerup', () => {
-        mestoGameMode = true;
-
-
-
-        this.scene.stop('A0_tezavnost')
-        this.scene.start('E0_mesto')
+        timeToPlay = 120
+        stopWatchStart()
+        this.scene.stop('F2_time_intro')
+        this.scene.start('F4_gamePlayStart')
 	})
     
    
     this.domov.on('pointerup', () => {
-        this.scene.stop('A0_tezavnost')
-        this.scene.start('A0_zacetniZaslon')
+        this.scene.stop('F2_time_intro')
+        this.scene.start('F2_inicial')
         })
 
 	

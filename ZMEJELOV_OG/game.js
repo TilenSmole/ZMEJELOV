@@ -75,7 +75,7 @@ dataRetrieval.getPhpStuff()
 
 
 // Languages
-var language = slo
+var language = "slo"
 
 function getLanguage() {
   var xhr = new XMLHttpRequest();
@@ -86,7 +86,7 @@ function getLanguage() {
         var languageOfApp = response.language;
         console.log(languageOfApp)
         if (languageOfApp === "en") {
-          language = en
+          language = "en"
         } 
       }
     }

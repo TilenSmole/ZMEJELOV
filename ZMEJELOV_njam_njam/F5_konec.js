@@ -41,62 +41,9 @@ class F5_konec extends F0_shared {
 
 
    
-    if(stSmrti > 20 && !dieALot ){
-        this.showPopupAchievements("  UMRI 20X")
-
-			this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });   
-			this.titleMusic.play(); 
-			dieALot = true;
-		    this.updateAchievements();
-		    const dataAchievements = {
-			achievements: achievements,
-			};
-		  this.updateDataBaseAchivements(dataAchievements)
-		  
-	}
-
-    if(finalTime >60 && !completedSpeedy ){
-        this.showPopupAchievements("  OPRAVI LAHEK NIVO")
-
-        this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });   
-        this.titleMusic.play(); 
-        completedSpeedy = true;
-        this.updateAchievements();
-        const dataAchievements = {
-        achievements: achievements,
-        };
-      this.updateDataBaseAchivements(dataAchievements)
-      
-    }
-
-
-    if(!completedGame ){
-        this.showPopupAchievements("  OPRAVI IGRO")
-
-        this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });   
-        this.titleMusic.play(); 
-        completedGame = true;
-        this.updateAchievements();
-        const dataAchievements = {
-        achievements: achievements,
-        };
-    this.updateDataBaseAchivements(dataAchievements)
     
-    }
 
-    if(deathByWho = [1,1,1,1,1]  && !dieDiverse){
-        this.showPopupAchievements("  UMRI ZARADI VSEGA")
-
-        this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });   
-        this.titleMusic.play(); 
-        dieDiverse = true;  
-        this.updateAchievements();
-        const dataAchievements = {
-        achievements: achievements,
-        };
-      this.updateDataBaseAchivements(dataAchievements)
-      
-    }
+   
 
 
 
