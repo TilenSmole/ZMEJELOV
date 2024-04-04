@@ -14,7 +14,5 @@ function getLanguage() {
 
 $data = ['language' => getLanguage()];
 
-
 echo json_encode($data); 
 ?>
-

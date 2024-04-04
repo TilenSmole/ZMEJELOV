@@ -25,15 +25,15 @@ class S0_shared extends Phaser.Scene {
 			frameWidth: 220,
 			frameHeight: 302,
 		});
-		this.load.json('textEn', 'translations/translationsSLO_js.json');
-		this.load.json('textSlo', 'translations/translationsEN_js.json');
+		this.load.json('textSlo', '/translations/translationsSLO_js.json');
+		this.load.json('textEn', '/translations/translationsEN_js.json');
 	}
 
 	loadText(text_to_translate) {
 		if (language === "en") {
-			return this.cache.json.get('textEn')[text_to_translate];
+			return this.cache.json.get('textEn')["en"][text_to_translate];
 		} else {
-			return this.cache.json.get('textSlo')[text_to_translate];
+			return this.cache.json.get('textSlo')["slo"][text_to_translate];
 		}
 	}
 

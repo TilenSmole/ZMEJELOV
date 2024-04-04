@@ -88,7 +88,7 @@ class F2_time_intro extends Phaser.Scene {
     this.lahko.setScale(1.5)
     this.lahko.on('pointerup', () => {
         stopWatchStart()
-        timeToPlay = 20
+        timeToPlay = 22
 
         this.scene.stop('F2_time_intro')
         this.scene.start('F4_gamePlayStart')

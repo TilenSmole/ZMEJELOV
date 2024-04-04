@@ -14,7 +14,7 @@ if ($data) {
     
     // Perform database update operation
     $query = "UPDATE users SET achievements = '$achievements' WHERE username = '$username'";
-    $result = mysqli_query($conn, $query);
+    $result = sqlsrv_query($conn, $query);
    
     if ($result) {
         echo json_encode(array("message" => "Database updated successfully"));

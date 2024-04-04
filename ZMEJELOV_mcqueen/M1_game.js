@@ -1,5 +1,5 @@
 const GAME_HEIGHT = 800
-const GAME_WIDTH = 100
+const GAME_WIDTH = 1200
 var cursors;
 var isMute = false
 var slo = true   //jeziki
@@ -12,6 +12,16 @@ var generated = false
 const visina = 3000
 var heightPlatform = visina - 200 //kok visok je platforma, dinamicno spreminja
 var userCoins = 0 //load!!!!!!
+var inventory = []
+
+
+
+var wisdom = false
+var chests = []
+
+
+
+
 
 
 function getLanguage() {

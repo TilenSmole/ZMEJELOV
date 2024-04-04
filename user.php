@@ -35,13 +35,13 @@ session_start();
   }
   echo "<h1>ZMEJELOVER: " . $username . "</h1>";
   $sql = "SELECT achievements, date_created FROM users WHERE username='{$username}'";
-  $result = mysqli_query($conn, $sql);
+  $result = sqlsrv_query($conn, $sql);
   if ($result) {
-    if (mysqli_num_rows($result) > 0) {
+    if (sqlsrv_has_rows($result) > 0) {
       $achievements = "";
       $date = "";
 
-      while ($row = mysqli_fetch_assoc($result)) {
+      while ($row = sqlsrv_fetch_array($result)) {
         $achievements .= $row["achievements"] . "<br>";
         $date.= $row["date_created"] . "<br>";
       }

@@ -28,6 +28,10 @@ class F4_gamePlayStart extends F0_shared {
             this.load.image("b" + i, "assets/a_njam_njam/background/" + i + ".png");
         }
 
+        this.load.image("b_mesto", " assets/mesto/City2.png");
+
+       
+
         this.load.image("platform2", "assets/a_speedRunning/platforms/Pad_04_1.png")
 
         for (let i = 1; i <= 101; i++) {
@@ -71,9 +75,16 @@ class F4_gamePlayStart extends F0_shared {
         }
     }
     create() {
+        food = [];
+        destoyers = [];
         super.create();
 
         gameState.bg = this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'b2');
+       
+
+        if(countdown)
+        gameState.bg.setTexture('b_mesto');;
+
         gameState.bg.setDisplaySize(GAME_WIDTH, GAME_HEIGHT)
 
         this.cameras.main.setBounds(0, 0, dolzina, visina)
@@ -86,7 +97,7 @@ class F4_gamePlayStart extends F0_shared {
             loop: true
         });
 
-        gameState.junak = this.physics.add.sprite(200, visina - 400, "Zmeja") //ZAMENJI DODAJ STORYLINEE
+        gameState.junak = this.physics.add.sprite(GAME_WIDTH / 2, GAME_HEIGHT - 200, "Zmeja")
         gameState.junak.setScale(.6)// pomanjsa
         gameState.junak.setDepth(0)
 
@@ -108,8 +119,12 @@ class F4_gamePlayStart extends F0_shared {
             loop: true
         });
 
-        gameState.countdown = this.add.text(GAME_WIDTH - 200, 50, 'Time left: ', { fontSize: '30px', fill: '#E950F4', fontFamily: 'CustomFont' });
-        gameState.countdown.setDepth(0)
+
+        if(countdown){
+            gameState.countdown = this.add.text(GAME_WIDTH - 200, 50, 'Time left: ', { fontSize: '30px', fill: '#E950F4', fontFamily: 'CustomFont' });
+            gameState.countdown.setDepth(0)
+        }
+      
 
         gameState.text = this.add.text(GAME_WIDTH - 200, 0, 'Score: ', { fontSize: '30px', fill: '#E950F4', fontFamily: 'CustomFont' });
         gameState.text.setDepth(0)
@@ -197,12 +212,14 @@ class F4_gamePlayStart extends F0_shared {
                 }
 
 
-            } else if (shield && startTime + 20 > currentTime) {
+            }  else if (countdown) {
+                destoyer.destroy();
+                score -= 50
                 destoyer.destroy();
             }
             else {
                 //this.scene.stop('F4_gamePlayStart')
-               // this.scene.start('S5_konec')
+                // this.scene.start('S5_konec') 
             }
 
         })
@@ -213,7 +230,7 @@ class F4_gamePlayStart extends F0_shared {
 
         if(countdown){
             var timeLeft = timeToPlay - currentTime
-            gameState.countdown.setText('Score: ' + timeLeft);
+            gameState.countdown.setText('Time left: ' + timeLeft);
             if(timeLeft == 0){
                 this.scene.stop('F4_gamePlayStart')
                 this.scene.start('S5_konec')
@@ -387,83 +404,133 @@ class F4_gamePlayStart extends F0_shared {
 
 }
 
-
-
-
 function spawn() {
     timer = this.getTimePassed()
 
-    if (timer < 5) {
-        this.activateSpawn()
-        gameState.bg.setTexture('b2');;
 
-    }
-    else if (timer > 5 && timer < 15) {
-        food = [];
-        destoyers = []; for (var i = 0; i < 2; i++) {
+    if (!countdown) {
+        if (timer < 5) {
             this.activateSpawn()
-        }
-        console.log(food)
-        gameState.bg.setTexture('b3');;
-        speedOfDrops = 320
-    }
-    else if (timer > 15 && timer < 30) {
-        food = [];
-        destoyers = []; for (var i = 0; i < 3; i++) {
-            this.activateSpawn()
-        }
-        console.log(food)
-        gameState.bg.setTexture('b4');;
-        speedOfDrops = 350
-    }
-    else if (timer > 30 && timer < 60) {
-        food = [];
-        destoyers = []; for (var i = 0; i < 4; i++) {
-            this.activateSpawn()
-        }
-        gameState.bg.setTexture('b5');;
-    }
-    else if (timer > 60 && timer < 75) {
-        food = [];
-        destoyers = [];
-        for (var i = 0; i < 4; i++) {
-            this.activateSpawn()
-        }
+            gameState.bg.setTexture('b2');;
 
-        gameState.bg.setTexture('b6');;
-        speedOfDrops = 400
-    }
-    else if (timer > 75 && timer < 100) {
-        food = [];
-        destoyers = [];
-        for (var i = 0; i < 4; i++) {
-
-            this.activateSpawn()
         }
-        gameState.bg.setTexture('b7');;
-    }
-    else {
-        
-        if (timer % 30 == 0) {
+        else if (timer > 5 && timer < 15) {
+            food = [];
+            destoyers = []; for (var i = 0; i < 2; i++) {
+                this.activateSpawn()
+            }
+            console.log(food)
+            gameState.bg.setTexture('b3');;
+            speedOfDrops = 320
+        }
+        else if (timer > 15 && timer < 30) {
+            food = [];
+            destoyers = []; for (var i = 0; i < 3; i++) {
+                this.activateSpawn()
+            }
+            console.log(food)
+            gameState.bg.setTexture('b4');;
+            speedOfDrops = 350
+        }
+        else if (timer > 30 && timer < 60) {
+            food = [];
+            destoyers = []; for (var i = 0; i < 4; i++) {
+                this.activateSpawn()
+            }
+            gameState.bg.setTexture('b5');;
+        }
+        else if (timer > 60 && timer < 75) {
             food = [];
             destoyers = [];
-            this.changeBc()
-        }      
-        
-        
-        console.log(food)
+            for (var i = 0; i < 4; i++) {
+                this.activateSpawn()
+            }
 
-
-        for (var i = 0; i < 4; i++) {
-            this.activateSpawn()
+            gameState.bg.setTexture('b6');;
+            speedOfDrops = 400
         }
-        console.log(food)
-        console.log("------------")
+        else if (timer > 75 && timer < 100) {
+            food = [];
+            destoyers = [];
+            for (var i = 0; i < 4; i++) {
 
+                this.activateSpawn()
+            }
+            gameState.bg.setTexture('b7');;
+        }
+        else {
+            food = [];
+            destoyers = [];
+            if (timer % 30 == 0) {
+                this.changeBc()
+            }
+
+
+
+
+            for (var i = 0; i < 4; i++) {
+                this.activateSpawn()
+            }
+ 
+
+        }
+
+    }
+    else {
+        if (timer <= 5) {
+            this.activateSpawn()
+            for (var i = 0; i < 2; i++) {
+                this.activateSpawn()
+            }
+
+
+        }
+        else if (timer > 5 && timer <= 40) {
+            food = [];
+            destoyers = [];
+            speedOfDrops = 320
+            for (var i = 0; i < 3; i++) {
+                this.activateSpawn()
+            }
+        }
+        else if (timer > 40 && timer <= 60) {
+            food = [];
+            destoyers = [];
+            speedOfDrops = 400
+            for (var i = 0; i < 3; i++) {
+                this.activateSpawn()
+            }
+        }
+        else if (timer > 60 && timer < 90) {
+            food = [];
+            destoyers = [];
+            for (var i = 0; i < 4; i++) {
+                this.activateSpawn()
+            }
+        }
+        else {
+
+            if (timer % 30 == 0) {
+                food = [];
+                destoyers = [];
+            }
+
+
+            speedOfDrops = 420
+
+
+            for (var i = 0; i < 4; i++) {
+                this.activateSpawn()
+            }
+
+        }
     }
 
 
 }
+
+
+
 
 
 

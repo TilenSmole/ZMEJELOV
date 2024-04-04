@@ -33,7 +33,6 @@ create() {
 
 
     if(verzija == 0){
-
         var zmentures = this.add.image(GAME_WIDTH/2,150,"zmentures");
         zmentures.setScale(.7)
     }
@@ -80,7 +79,7 @@ create() {
     
 
 
-
+    score = 0
 
     var odmik = 2
 
@@ -142,7 +141,7 @@ create() {
     
 
     this.igraTimer.on('pointerup', () => {
-        countdown = false
+        countdown = true
         var achievementsSplit = achievements;
        /* const prevCompletedSpeedy = achievementsSplit.substring(6, 7); 
         const prevCompletedGame = achievementsSplit.substring(7, 8); 

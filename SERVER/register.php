@@ -1,8 +1,7 @@
 <?php
     include(__DIR__ . '/../SHARED/header.php');
     include("database.php");
-    
-
+    $translations = loadTranslations();
 ?>
 <html lang="en">
 <head>
@@ -57,25 +56,25 @@
         }
         else{
             $check_query = "SELECT * FROM users WHERE username='$username'";
-            $result = mysqli_query($conn, $check_query);
-        if (mysqli_num_rows($result) > 0) {
+            $result = sqlsrv_query($conn, $check_query);
+        if (sqlsrv_has_rows($result) > 0) {
             echo "<p class='response''>uporabniško ime že v uporabi 😫!<p>";
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hash') "; 
-            mysqli_query($conn, $sql);
+            sqlsrv_query($conn, $sql);
                 if (session_status() === PHP_SESSION_NONE) 
                     session_start();
                 $_SESSION["username"] = $username;
                 $getLastLevel = "SELECT achievements  FROM users WHERE username='$username'";
-                $getLastLevel_result = mysqli_query($conn, $getLastLevel);
+                $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
 
-                $row = mysqli_fetch_assoc($getLastLevel_result);
+                $row = sqlsrv_fetch_array($getLastLevel_result);
                 $_SESSION["achievements"] = $row['achievements'];
-
+                
              
                 echo "<p class='response''>Registracija uspešna, prenaslavlanje!<p>";
-                echo "<meta http-equiv=Refresh content=2;url=../index.php>";
+                echo "<meta http-equiv=Refresh content=1;url=../>";
          
 
         }
@@ -85,7 +84,6 @@
     
     }
 
-    mysqli_close($conn);
   
    
 ?> 

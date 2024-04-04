@@ -133,7 +133,8 @@ class M2_inicial  extends M0_shared {
                  quickDeath  = true;
 
 
-            stopWatchStart()
+                 stopWatchStart()
+
             this.scene.stop('M2_inicial ')
             this.scene.start('M4_gamePlayStart')
         })

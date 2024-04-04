@@ -13,7 +13,7 @@ if ($data) {
     
     // Perform database update operation
     $query = "INSERT INTO leaderboard (user, time) VALUES ('$username', '$time')";
-    $result = mysqli_query($conn, $query);
+    $result = sqlsrv_query($conn, $query);
    
     if ($result) {
         echo json_encode(array("message" => "Database updated successfully"));

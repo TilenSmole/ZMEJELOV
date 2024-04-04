@@ -210,6 +210,13 @@ replaceCharAt(str, index, replacement) {
     return str.substring(0, index) + replacement + str.substring(index + 1);
 }
 
+
+
+
+
+
+
+
 stopWatchStop(){
 	timer = false;
 	//console.log(hour+" "+ minute+" "+second+count)
@@ -235,7 +242,9 @@ stopWatchStop(){
 
 }
 
-
+getTimePassed(){
+	return parseInt(hour) * 3600 + parseInt(minute) * 60 + parseInt(second);
+}
 
 
 
@@ -269,10 +278,7 @@ function updateStopwatch() {
 		let secString = second.toString().padStart(2, '0');
 		let countString = count.toString().padStart(2, '0');
 	
-		document.getElementById('hr').innerHTML = hrString;
-		document.getElementById('min').innerHTML = minString;
-		document.getElementById('sec').innerHTML = secString;
-		document.getElementById('count').innerHTML = countString;
+	
 	}
     
 }

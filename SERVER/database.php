@@ -1,17 +1,8 @@
 <?php
 
-    $db_server = "localhost";
-    $db_user = "root";
-    $db_pass = "";
-    $db_name = "ZMEJELOV";
-    $conn = "";
 
-    try {
-        $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
-    }catch(Exception $e){
-        echo "problems with database";}
-
-    
-
-
+// SQL Server Extension Sample Code:
+$connectionInfo = array("UID" => "zmejelover", "pwd" => "9ar:p!d&@,w4mY8", "Database" => "zmejelov", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:zmejelov.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 ?>

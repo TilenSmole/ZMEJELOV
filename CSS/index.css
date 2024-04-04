@@ -3,85 +3,209 @@ body {
   background-color: #605966;
   margin-top: 20px;
 }
+
 /*loading*/
-.loader-wrapper {
+#loader-wrapper {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
   background-color: hsl(244, 7%, 35%);
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .loader {
   display: inline-block;
   position: relative;
   animation: loader 2s infinite ease;
 }
+
 .loader img {
-width: 50%;
-height: 50%;
+  width: 50%;
+  height: 50%;
 }
 
 
 
-#fullBody{
+#fullBody {
   display: none;
 
 }
 
 
 @keyframes loader {
-  0% { transform: rotate(0deg); }
-  2.5% { transform: rotate(9deg); }
-  5% { transform: rotate(18deg); }
-  7.5% { transform: rotate(27deg); }
-  10% { transform: rotate(36deg); }
-  12.5% { transform: rotate(45deg); }
-  15% { transform: rotate(54deg); }
-  17.5% { transform: rotate(63deg); }
-  20% { transform: rotate(72deg); }
-  22.5% { transform: rotate(81deg); }
-  25% { transform: rotate(90deg); }
-  27.5% { transform: rotate(99deg); }
-  30% { transform: rotate(108deg); }
-  32.5% { transform: rotate(117deg); }
-  35% { transform: rotate(126deg); }
-  37.5% { transform: rotate(135deg); }
-  40% { transform: rotate(144deg); }
-  42.5% { transform: rotate(153deg); }
-  45% { transform: rotate(162deg); }
-  47.5% { transform: rotate(171deg); }
-  50% { transform: rotate(180deg); }
-  52.5% { transform: rotate(189deg); }
-  55% { transform: rotate(198deg); }
-  57.5% { transform: rotate(207deg); }
-  60% { transform: rotate(216deg); }
-  62.5% { transform: rotate(225deg); }
-  65% { transform: rotate(234deg); }
-  67.5% { transform: rotate(243deg); }
-  70% { transform: rotate(252deg); }
-  72.5% { transform: rotate(261deg); }
-  75% { transform: rotate(270deg); }
-  77.5% { transform: rotate(279deg); }
-  80% { transform: rotate(288deg); }
-  82.5% { transform: rotate(297deg); }
-  85% { transform: rotate(306deg); }
-  87.5% { transform: rotate(315deg); }
-  90% { transform: rotate(324deg); }
-  92.5% { transform: rotate(333deg); }
-  95% { transform: rotate(342deg); }
-  97.5% { transform: rotate(351deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  2.5% {
+    transform: rotate(9deg);
+  }
+
+  5% {
+    transform: rotate(18deg);
+  }
+
+  7.5% {
+    transform: rotate(27deg);
+  }
+
+  10% {
+    transform: rotate(36deg);
+  }
+
+  12.5% {
+    transform: rotate(45deg);
+  }
+
+  15% {
+    transform: rotate(54deg);
+  }
+
+  17.5% {
+    transform: rotate(63deg);
+  }
+
+  20% {
+    transform: rotate(72deg);
+  }
+
+  22.5% {
+    transform: rotate(81deg);
+  }
+
+  25% {
+    transform: rotate(90deg);
+  }
+
+  27.5% {
+    transform: rotate(99deg);
+  }
+
+  30% {
+    transform: rotate(108deg);
+  }
+
+  32.5% {
+    transform: rotate(117deg);
+  }
+
+  35% {
+    transform: rotate(126deg);
+  }
+
+  37.5% {
+    transform: rotate(135deg);
+  }
+
+  40% {
+    transform: rotate(144deg);
+  }
+
+  42.5% {
+    transform: rotate(153deg);
+  }
+
+  45% {
+    transform: rotate(162deg);
+  }
+
+  47.5% {
+    transform: rotate(171deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  52.5% {
+    transform: rotate(189deg);
+  }
+
+  55% {
+    transform: rotate(198deg);
+  }
+
+  57.5% {
+    transform: rotate(207deg);
+  }
+
+  60% {
+    transform: rotate(216deg);
+  }
+
+  62.5% {
+    transform: rotate(225deg);
+  }
+
+  65% {
+    transform: rotate(234deg);
+  }
+
+  67.5% {
+    transform: rotate(243deg);
+  }
+
+  70% {
+    transform: rotate(252deg);
+  }
+
+  72.5% {
+    transform: rotate(261deg);
+  }
+
+  75% {
+    transform: rotate(270deg);
+  }
+
+  77.5% {
+    transform: rotate(279deg);
+  }
+
+  80% {
+    transform: rotate(288deg);
+  }
+
+  82.5% {
+    transform: rotate(297deg);
+  }
+
+  85% {
+    transform: rotate(306deg);
+  }
+
+  87.5% {
+    transform: rotate(315deg);
+  }
+
+  90% {
+    transform: rotate(324deg);
+  }
+
+  92.5% {
+    transform: rotate(333deg);
+  }
+
+  95% {
+    transform: rotate(342deg);
+  }
+
+  97.5% {
+    transform: rotate(351deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 
 
 /* introduction */
-.introduction,
-.introductionDivFrontPage {
+.introduction {
   color: black;
   display: flex;
   margin-right: 50px;
@@ -130,7 +254,7 @@ height: 50%;
 
 }
 
-#speed_running_split {
+#split {
   display: flex;
   justify-content: space-between;
 
@@ -146,7 +270,7 @@ height: 50%;
 .question_field {
   flex: 1;
   padding: 20px;
-
+  border-radius: 10px;
 }
 
 .button_field {
@@ -205,7 +329,8 @@ height: 50%;
 
 
 
-.oneAchievements, .achievementsNotLoggedIn {
+.oneAchievements,
+.achievementsNotLoggedIn {
   border: 2px solid black;
   display: relative;
   vertical-align: top;
@@ -217,7 +342,7 @@ height: 50%;
   background-color: hsl(244, 7%, 40%);
 }
 
-.achievementsNotLoggedIn{
+.achievementsNotLoggedIn {
   opacity: 0.4;
 
 }
@@ -227,19 +352,21 @@ height: 50%;
 
 }
 
-.oneAchievements:hover .tooltip, .achievementsNotLoggedIn:hover .tooltip {
+.oneAchievements:hover .tooltip,
+.achievementsNotLoggedIn:hover .tooltip {
   display: block;
   height: 200px;
   width: 400px;
 }
 
-.achievementsNotLoggedIn:hover .tooltip{
+.achievementsNotLoggedIn:hover .tooltip {
   height: 100px;
   width: 300px;
 }
 
 
-.oneAchievements img , .achievementsNotLoggedIn img{
+.oneAchievements img,
+.achievementsNotLoggedIn img {
   width: auto;
   height: 100px;
   max-width: 100%;
@@ -256,8 +383,8 @@ height: 50%;
   margin-bottom: 100px;
 }
 
-.alignCommentAdd{
- display: flex;
+.alignCommentAdd {
+  display: flex;
   justify-content: center;
 }
 
@@ -272,7 +399,7 @@ height: 50%;
   resize: none;
   border-radius: 15px 15px;
   font-size: 25px;
-  background-color: hsl(270, 7%, 35%);
+  background-color: hsl(244, 7%, 35%);
 }
 
 .submitButtonClass {
@@ -318,7 +445,8 @@ height: 50%;
   padding: 0;
 }
 
-.commentAuthor, .commentText  {
+.commentAuthor,
+.commentText {
   display: block;
   padding: 1% 1% 0% 1%;
 
@@ -326,18 +454,21 @@ height: 50%;
 }
 
 .commentsFormErrorText {
-  
+
   padding: 50px;
 }
 
-.full_comment, .commentsFormErrorText  {
-  background-color: hsl(270, 7%, 35%);
+.full_comment,
+.commentsFormErrorText {
+  background-color: hsl(244, 7%, 35%);
   width: 70%;
   justify-content: center;
   align-items: center;
   margin: auto;
-  border-radius: 10px; /* Add border radius for curly edges */
-  padding: 10px; /* Add padding to create space between content and edges */
+  border-radius: 10px;
+  /* Add border radius for curly edges */
+  padding: 10px;
+  /* Add padding to create space between content and edges */
 }
 
 
@@ -352,105 +483,121 @@ height: 50%;
   }
 }
 
+/*INTRO */
+.introductionDivFrontPage {
+  color: black;
+  display: flex;
+  margin-right: 50px;
+  margin-top: 10%;
+}
+
+
+#animationIntro {
+  position: relative;
+  animation-name: animationIntro;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
 
 
 @keyframes animationIntro {
-  0% {
-    left: 1%;
-  }
-
-  5% {
-    left: 2%;
-  }
-
-  10% {
-    left: 3%
-  }
-
-  15% {
-    left: 4%
-  }
-
-  20% {
-    left: 5%
-  }
-
-  25% {
-    left: 6%
-  }
-
-  30% {
-    left: 7%
-  }
-
-  35% {
-    left: 8%
-  }
-
-  40% {
-    left: 9%
-  }
-
-  45% {
-    left: 10%
-  }
-
-  50% {
-    left: 11%
-  }
-
-  55% {
-    left: 12%
-  }
-
-  60% {
-    left: 13%
-  }
-
-  65% {
-    left: 14%
-  }
-
-  70% {
-    left: 15%;
-  }
-
-  75% {
-    left: 16%;
-  }
-
-  80% {
-    left: 17%;
-  }
-
-  85% {
-    left: 18%
-  }
-
-  90% {
-    left: 17%
-  }
-
-  95% {
-    left: 16%
-  }
-
-  100% {
-    left: 15%;
-  }
-
+  0% { left: 0.25%; }
+  2.5% { left: 0.5%; }
+  5% { left: 0.75%; }
+  7.5% { left: 1%; }
+  10% { left: 1.25%; }
+  12.5% { left: 1.5%; }
+  15% { left: 1.75%; }
+  17.5% { left: 2%; }
+  20% { left: 2.25%; }
+  22.5% { left: 2.5%; }
+  25% { left: 2.75%; }
+  27.5% { left: 3%; }
+  30% { left: 3.25%; }
+  32.5% { left: 3.5%; }
+  35% { left: 3.75%; }
+  37.5% { left: 4%; }
+  40% { left: 4.25%; }
+  42.5% { left: 4.5%; }
+  45% { left: 4.75%; }
+  47.5% { left: 5%; }
+  50% { left: 5.25%; }
+  52.5% { left: 5.5%; }
+  55% { left: 5.75%; }
+  57.5% { left: 6%; }
+  60% { left: 6.25%; }
+  62.5% { left: 6.5%; }
+  65% { left: 6.75%; }
+  67.5% { left: 7%; }
+  70% { left: 7.25%; }
+  72.5% { left: 7.5%; }
+  75% { left: 7.75%; }
+  77.5% { left: 8%; }
+  80% { left: 8.25%; }
+  82.5% { left: 8.5%; }
+  85% { left: 8.75%; }
+  87.5% { left: 9%; }
+  90% { left: 9.25%; }
+  92.5% { left: 9.5%; }
+  95% { left: 9.75%; }
+  97.5% { left: 10%; }
+  100% { left: 10.25%; }
 }
+
+
+
 
 
 
 #introductionTextDivFrontPage {
-  overflow: hidden;
+  margin-left: 15%;
+  margin-right: 15%;
 
+}
+
+
+#textIntroAnimation {
+  font-size: 25px;
+}
+
+#welcome {
+  font-size: 30px;
+}
+
+#thisIsZmejelov {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+
+
+#welcome,
+#thisIsZmejelov {
+  color: #761E85;
+  text-align: center;
 }
 
 
 
 
+/**/
+.leaderboard_buttons{
+  display: center;
+  text-align: center;
+}
+.leaderboard_button{
+  margin-bottom: 20px;
+  padding: 10px;
+  border: none;
+
+}
+
+.Leaderbord_result{
+  background-color: hsl(244, 7%, 35%);
+  border-radius: 10px;
+  padding-top: 20px;
+  min-height: 630px;
+}
 
 
 #options {
@@ -567,12 +714,6 @@ height: 50%;
 
 }
 
-#animationIntro {
-  position: relative;
-  animation-name: animationIntro;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-}
 
 
 
@@ -610,39 +751,23 @@ height: 50%;
 
 
 
-#textIntroAnimation {
-  font-size: 25px;
-}
 
-#welcome {
-  font-size: 30px;
-}
 
-#thisIsZmejelov {
-  font-size: 45px;
-  font-weight: bold;
+
+.speed_running_split {
+  display: flex;
 }
 
 
 
-#welcome,
-#thisIsZmejelov {
-  color: #761E85;
-  text-align: center;
+.speed_running_split .QnA {
+  flex: 0 0 80%;
 }
 
-
-
-
-
-
-#speed_running_split .QnA {
-  flex: 0 0 65%;
-}
-
-#speed_running_split .leaderBoardSpeedRun {
-  flex: 0 0 35%;
-
+.speed_running_split .leaderBoardSpeedRun {
+  flex: 0 0 15%;
+  margin-right: 5%;
+  align-self: left;
 }
 
 
@@ -692,27 +817,33 @@ p: nth-child(2)
 }
 */
 
-#enterTheWorld {
-  background-color: hsl(300, 100%, 25%);
+#enterTheWorld  {
   border: none;
   margin: 1% auto;
-  padding: 2.5% 5% 2.5% 5%;
-  border-radius: 10px 15px;
+  padding: 10px 20px  10px 20px;
+  border-radius: 10px ;
   cursor: pointer;
-  color: white;
   font-size: 25PX;
   display: block;
-  /* Ensure it's a block element for margin auto to work */
   text-align: center;
   text-decoration: none;
 }
 
 #enterTheWorld a {
-  color: white;
+  color: rgb(121, 112, 112);
+}
+#inlineButtons{
+  display: flex;
 }
 
-
-
+.button_language_intro {
+  border: none;
+  text-align: center;
+  display: inline-block;
+  font-size: 50px;
+  border: none;
+  padding: 10px;
+}
 
 
 

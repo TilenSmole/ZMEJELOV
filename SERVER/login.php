@@ -1,10 +1,9 @@
 <?php
+
 include(__DIR__ . '/../SHARED/header.php');
 include("database.php");
 include("generalData.php");
-include('/translations/load_translations.php');
 $translations = loadTranslations();
-
 ?>
 <html lang="en">
 
@@ -49,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
     $check_user_query = "SELECT * FROM users WHERE username='$username'";
-    $check_user_result = mysqli_query($conn, $check_user_query);
+    $check_user_result = sqlsrv_query($conn, $check_user_query);
 
 
 
-    if ($check_user_result && mysqli_num_rows($check_user_result) > 0) {
-        $user_data = mysqli_fetch_assoc($check_user_result);
+    if ($check_user_result && sqlsrv_has_rows($check_user_result) > 0) {
+        $user_data = sqlsrv_fetch_array($check_user_result);
         $hashed_password = $user_data['password'];
 
         if (password_verify($password, $hashed_password)) {
@@ -63,10 +62,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $_SESSION["username"] = $username;
             $getLastLevel = "SELECT lastLevel, dificulty, DATE, achievements  FROM users WHERE username='$username'";
-            $getLastLevel_result = mysqli_query($conn, $getLastLevel);
+            $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
 
             // Fetch a row from the result set as an associative array
-            $row = mysqli_fetch_assoc($getLastLevel_result);
+            $row = sqlsrv_fetch_array($getLastLevel_result);
             // Access the column containing the integer value 
             $_SESSION["lastLevel"] = $row['lastLevel'];
             $_SESSION["dificulty"] = $row['dificulty'];
@@ -83,13 +82,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo $translations["user_not"];
     }
 }
-mysqli_close($conn);
+//mysqli_close($conn);
 
 
 ?>
 
 
-<?php echo $translations["user_not"] ?>
 
 
 </div>

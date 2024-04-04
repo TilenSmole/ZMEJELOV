@@ -25,10 +25,10 @@ class F3_storyIntro extends Phaser.Scene {
         this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65, 'NAPREJ',{ fontSize: '40px', fill: '#E950F4' });}
 
         
-    
+        countdown = false
     this.zacetek.on('pointerup', () => {
-        this.scene.stop('S3_storyIntro')
-        this.scene.start('S4_gamePlayStart')
+        this.scene.stop('F3_storyIntro')
+        this.scene.start('F4_gamePlayStart')
         })
     
     
