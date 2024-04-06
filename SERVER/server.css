@@ -1,4 +1,4 @@
-#loginForm,
+#loginForm, 
 .response {
     padding: 2%;
     margin: 2% 30% 2% 30%;
@@ -7,6 +7,9 @@
     border-radius: 10px;
 
 }
+
+
+
 
 .password,
 .username {

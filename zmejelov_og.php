@@ -182,13 +182,13 @@ $translations = loadTranslations();
           <div class="QN_field">
             <div class="question_field">
               <p><?php
-                  echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a1b','a1bDiv')">&#9660;</button></span>
+                  echo $translations['q1_1960'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a1b','a1bDiv')">&#9660;</button></span>
               </p>
             </div>
           </div>
           <div id="a1bDiv">
             <p id="a1b" style="display: none; "><?php
-                                                echo $translations['a1_OG'] ?></p>
+                                                echo $translations['a1_1960'] ?></p>
           </div>
         </div>
 
@@ -207,19 +207,7 @@ $translations = loadTranslations();
           </div>
         </div>
 
-        <div>
-          <div class="QN_field">
-            <div class="question_field">
-              <p> <?php
-                  echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a3b','a3bDiv')">&#9660;</button></span>
-              </p>
-            </div>
-          </div>
-          <div id="a3bDiv">
-            <p id="a3b" style="display: none;"><?php
-                                                echo $translations['a3_OG'] ?></p>
-          </div>
-        </div>
+      
 
         <div>
           <div class="QN_field">
@@ -284,122 +272,23 @@ $translations = loadTranslations();
           <?php
           if ($_SESSION["achievements"][4] === "1") {
             echo "<div class='oneAchievements'>";
-            echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\old.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG1.1"] . '</p>';
+            echo '<b><p>' . $translations["ach_OGReal"] . '</p></b>';
+            echo '<p>' . $translations["ach_OGRealComment"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\old.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
+            echo '<b><p>' . $translations["ach_OGReal"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
           ?>
 
-          <?php
-
-          if ($_SESSION["achievements"][2] === "1") {
-            echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG2"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG2.2"] . '</p>';
-            echo '</div>';
-            echo '</div>';
-          } else {
-            echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG2"] . '</p></b>';
-            echo '</div>';
-            echo '</div>';
-          }
-          ?>
-
-          <?php
-
-          if ($_SESSION["achievements"][1] === "1") {
-            echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG3"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG3.3"] . '</p>';
-            echo '</div>';
-            echo '</div>';
-          } else {
-            echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG3"] . '</p></b>';
-            echo '</div>';
-            echo '</div>';
-          }
-          ?>
-
-          <?php
-
-
-          if ($_SESSION["achievements"][5] === "1") {
-            echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG4"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG4.4"] . '</p>';
-            echo '</div>';
-            echo '</div>';
-          } else {
-            echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG4"] . '</p></b>';
-            echo '</div>';
-            echo '</div>';
-          }
-          ?>
-
-          <?php
-
-
-          if ($_SESSION["achievements"][3] === "1") {
-            echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG5"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG5.5"] . '</p>';
-            echo '</div>';
-            echo '</div>';
-          } else {
-            echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG5"] . '</p></b>';
-            echo '</div>';
-            echo '</div>';
-          }
-          ?>
-
-          <?php
-          if ($_SESSION["achievements"][0] === "1") {
-            echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG6"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG6.6"] . '</p>';
-            echo '</div>';
-            echo '</div>';
-          } else {
-            echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
-            echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG6"] . '</p></b>';
-            echo '</div>';
-            echo '</div>';
-          }
-          ?>
+         
 
         </div>
       <?php else : ?>

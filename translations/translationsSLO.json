@@ -5,11 +5,11 @@
     "q1_OG": "Kako shranim napredek igre?",
     "q2_OG": "KAJ NAREDITI, ČE IGRICA ZAGLIČA?",
     "q3_OG": "Zakaj se ob smrti ponovno pojavim na 4 nivoju?",
-    "q4_OG": "KAKO ODKLENEM DOSEŽKE?",
+    "q4_OG": "KAKO VEM, DA JE BIL DOSEŽEK ODKLENJEN?",
     "a1_OG": "Napredek igre se shrani avtomatsko na vsakem nivoju GLEJ DA TO TUD IMPLEMENTIRAS?",
-    "a2_OG": "Ponovno naloži stran, v kolikor pa se težava pojava me kontaktiraj <a href='SHARED\\contact.php'>preko obrazca</a>?",
+    "a2_OG": "Ponovno naloži stran, v kolikor pa se težava pojava me kontaktiraj <a href='\\contact'>preko obrazca</a>?",
     "a3_OG": "Ker si umrl in kje so mrtvi ljudje? Na pokopališču! Šalo na stran, tam se pojavič, ker igraš na težki težavnosti, in ker nisi odkril skrivnega nivoja, ki ti omogoča uporabo 'checkpoint'",
-    "a4_OG": "Preberi <a href='#dosezki_OG'>dosežke</a>",
+    "a4_OG": "Ko greš čež miško čez dosežek, se ti bo prikazalo šaljivo sporočilce",
     "please_login_achivements": "Za odklenitev dosežkov se <a href='\\login'>prijavite</a> ali pa <a href='/register'>registrirajte</a>    </a>",
     "game": "IGRA",
     "achivements": "DOSEŽKI",
@@ -77,9 +77,14 @@
     "this_is" :"TO JE ZMEJELOV!!!",
     "welcome" : "DOBRODOŠLI V MOJEM SVETU!",
     "welcome_intro": "Pozdravljeni na ZMEJELOV IGRALNI PLATFORMI. Moje ime je Zmeja, sem kar pomembna oseba tukaj, če mene vprašaš 😇. Na portalu je 5 iger, ki vsebujejo razne trike, pasti, vsebujejo pa tudi dosežke, da te motivirajo! Na portalu pa se lahko tudi povežeš s prijatelji. Sodeluj na lestvici najboljših, komentiraj in postani najboljši ZMEJELJUB! Če mene vprašaš, je totalno vredno preživeti ure tukaj XD. Kaj praviš, si pripravljen se spustiti v svet avantur, svet dogajanja???",
-    "explore" :" ODKRIJ SVET"
+    "explore" :" ODKRIJ SVET",
 
 
 
+
+
+    "ach_OGReal": "Premagaj igro",
+    "ach_OGRealComment": "ah dobri stari časi "
+    
   }
 }

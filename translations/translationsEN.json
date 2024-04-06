@@ -7,7 +7,7 @@
     "q3_OG": "WHY DO I RESPAWN AT LEVEL 4?",
     "q4_OG": "HOW DO I UNLOCK ACHIEVEMENTS?",
     "a1_OG": "Game progress is saved automatically at the begining of each level?",
-    "a2_OG": "Reload the page, but if the problem persist don't hasitate me to contact me <a href='SHARED\\contact.php'>with the form</a>?",
+    "a2_OG": "Reload the page, but if the problem persist don't hasitate me to contact me <a href='\\contact'>with the form</a>?",
     "a3_OG": "Because you died and where are dead people? In the graveyard! Joke aside, it is because you are playing HARD difficulty and you died without unlocking any checkpoint",
     "a4_OG": "Read <a href='#dosezki_OG'>achievements</a>",
     "please_login_achivements": "To unlock achievements <a href='\\login'>login</a> or<a href='/register'>register</a>    </a>",
