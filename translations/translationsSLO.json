@@ -83,8 +83,32 @@
 
 
 
-    "ach_OGReal": "Premagaj igro",
-    "ach_OGRealComment": "ah dobri stari časi "
+    "50": "Osvoji 50 točk ",
+    "200": "Osvoji 200 točk  ",
+    "500": "Osvoji 500 točk ",
+    "1000": "Osvoji 1000 točk ",
+    "5000": "Osvoji 5000 točk  ",
+    "10000": "Osvoji 10000 točk ",
+    "25000": "Osvoji 25000 točk  ",
+
+    "50e": "Začetek... ",
+    "200e": "Nadaljevanje",
+    "500e": "Nekdo se pa dobro izmika ;) ",
+    "1000e": " Sreča ali spretnost?",
+    "5000e": "Jackpot gre brrrrrrrrrrrrrrrrrr ",
+    "10000e": "Mislim, da je čas da greva uplačat eno srečko ;)",
+    "25000e": "Nasvet zdravnika 'v prihajajočih dneh uporabljajte manj računalnik' ",
+
+
+    "rainbow": "Odkrij mavrico",
+    "money_ach": "Kupi dosežek ",
+    "no_pups": "Doseži 10000 brez dodatnih sposobnosti",
+    "rainbowA": "🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈",
+    "money_achA": "Denar sveta vladar",
+    "no_pupsA": "Močččččččččččččččččččččččččččččččč"
+
+
+
     
   }
 }

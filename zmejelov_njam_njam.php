@@ -313,7 +313,6 @@ if (session_status() === PHP_SESSION_NONE)
     }
   </script>
 
-
   <div class="achievementsMainBlock" id="dosezki_OG">
     <h1><?php $translations = loadTranslations();
         echo $translations['achivements'] ?></h1>
@@ -323,17 +322,17 @@ if (session_status() === PHP_SESSION_NONE)
         $translations = loadTranslations();
         if ($_SESSION["achievements"][4] === "1") {
           echo "<div class='oneAchievements'>";
-          echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">50</p>          ';
           echo '<div class="tooltip">';
           echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
-          echo '<p>' . $translations["ach_OG1.1"] . '</p>';
+          echo '<p>' . $translations["50e"] . '</p>';
           echo '</div>';
           echo '</div>';
         } else {
           echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">50</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
+          echo '<b><p>' . $translations["50"] . '</p></b>';
           echo '</div>';
           echo '</div>';
         }
@@ -343,17 +342,17 @@ if (session_status() === PHP_SESSION_NONE)
         $translations = loadTranslations();
         if ($_SESSION["achievements"][2] === "1") {
           echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
+          echo '<p class="ach_num">200</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG2"] . '</p></b>';
-          echo '<p>' . $translations["ach_OG2.2"] . '</p>';
+          echo '<b><p>' . $translations["200"] . '</p></b>';
+          echo '<p>' . $translations["200e"] . '</p>';
           echo '</div>';
           echo '</div>';
         } else {
           echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
+          echo '<p class="ach_num">200</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG2"] . '</p></b>';
+          echo '<b><p>' . $translations["200"] . '</p></b>';
           echo '</div>';
           echo '</div>';
         }
@@ -363,17 +362,17 @@ if (session_status() === PHP_SESSION_NONE)
         $translations = loadTranslations();
         if ($_SESSION["achievements"][1] === "1") {
           echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">500</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG3"] . '</p></b>';
-          echo '<p>' . $translations["ach_OG3.3"] . '</p>';
+          echo '<b><p>' . $translations["500"] . '</p></b>';
+          echo '<p>' . $translations["500e"] . '</p>';
           echo '</div>';
           echo '</div>';
         } else {
           echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">500</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG3"] . '</p></b>';
+          echo '<b><p>' . $translations["500"] . '</p></b>';
           echo '</div>';
           echo '</div>';
         }
@@ -384,17 +383,17 @@ if (session_status() === PHP_SESSION_NONE)
 
         if ($_SESSION["achievements"][5] === "1") {
           echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">1000</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG4"] . '</p></b>';
-          echo '<p>' . $translations["ach_OG4.4"] . '</p>';
+          echo '<b><p>' . $translations["1000"] . '</p></b>';
+          echo '<p>' . $translations["1000e"] . '</p>';
           echo '</div>';
           echo '</div>';
         } else {
           echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">1000</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG4"] . '</p></b>';
+          echo '<b><p>' . $translations["1000"] . '</p></b>';
           echo '</div>';
           echo '</div>';
         }
@@ -405,17 +404,17 @@ if (session_status() === PHP_SESSION_NONE)
 
         if ($_SESSION["achievements"][3] === "1") {
           echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">5000</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG5"] . '</p></b>';
-          echo '<p>' . $translations["ach_OG5.5"] . '</p>';
+          echo '<b><p>' . $translations["5000"] . '</p></b>';
+          echo '<p>' . $translations["5000e"] . '</p>';
           echo '</div>';
           echo '</div>';
         } else {
           echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">5000</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG5"] . '</p></b>';
+          echo '<b><p>' . $translations["5000"] . '</p></b>';
           echo '</div>';
           echo '</div>';
         }
@@ -425,21 +424,42 @@ if (session_status() === PHP_SESSION_NONE)
         $translations = loadTranslations();
         if ($_SESSION["achievements"][0] === "1") {
           echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">10000</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG6"] . '</p></b>';
-          echo '<p>' . $translations["ach_OG6.6"] . '</p>';
+          echo '<b><p>' . $translations["10000"] . '</p></b>';
+          echo '<p>' . $translations["10000e"] . '</p>';
           echo '</div>';
           echo '</div>';
         } else {
           echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="ach_num">10000</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG6"] . '</p></b>';
+          echo '<b><p>' . $translations["10000"] . '</p></b>';
           echo '</div>';
           echo '</div>';
         }
         ?>
+
+<?php
+        $translations = loadTranslations();
+        if ($_SESSION["achievements"][0] === "1") {
+          echo "<div class='oneAchievements'>";
+          echo '<p class="ach_num">25000</p>          ';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["25000"] . '</p></b>';
+          echo '<p>' . $translations["25000e"] . '</p>';
+          echo '</div>';
+          echo '</div>';
+        } else {
+          echo "<div class='achievementsNotLoggedIn'>";
+          echo '<p class="ach_num">25000</p>          ';
+          echo '<div class="tooltip">';
+          echo '<b><p>' . $translations["25000"] . '</p></b>';
+          echo '</div>';
+          echo '</div>';
+        }
+        ?>
+
 
       </div>
     <?php else : ?>

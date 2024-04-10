@@ -27,8 +27,8 @@ class M3_storyIntro extends Phaser.Scene {
         
     
     this.zacetek.on('pointerup', () => {
-        this.scene.stop('S3_storyIntro')
-        this.scene.start('S4_gamePlayStart')
+        this.scene.stop('M3_storyIntro')
+        this.scene.start('M4_gamePlayStart')
         })
     
     

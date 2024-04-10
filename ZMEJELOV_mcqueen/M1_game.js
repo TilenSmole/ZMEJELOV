@@ -76,7 +76,7 @@ const config = {
     type: Phaser.AUTO,
     height:  GAME_HEIGHT, 
     width: GAME_WIDTH ,  
-    scene:[M2_inicial, M0_shared, M3_storyIntro, M4_gamePlayStart, M4_deathScreen, M5_konec],
+    scene:[M2_inicial,M4_shop , M0_shared, M3_storyIntro, M4_gamePlayStart, M4_deathScreen, M5_konec],
     physics: {
       default: 'arcade',
       arcade: {

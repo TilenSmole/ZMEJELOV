@@ -9,7 +9,7 @@ znotraj igre. Na lahkem nivoju so avtomatske, medtem ko jih je na težkem potreb
 Igra vsebuje tudi razširitev imenovano Zmentures++, ki te popelje skozi mesto in doda češnjo na vrh torte. 
 Veliko veselja in potrpežljivosti pri igranju.
 
-The final rage je ustvarjena po navdihu prvih igralcev <a>prvotne verzije </a>, ki so jo opravili v manj kot minuti.
+The final rage je ustvarjena po navdihu prvih igralcev <a>prvotne verzije </a>, ki so jo poskusili opravili v manj kot minuti. Mislim, da je rekord še vedno okoli 30s.
 Temelji na hitrosti igralca in njegovi "naučenosti" nivoja. Igra za razliko od <a>ZMENTURES</a> ni popolnoma naključna,
 saj so vse stvari vedno postavljene na istem mestu. Tako da preklopi na piflarski način in naštudiraj nivo 🤓.  
 da igralcu omogoča, da jo naštudira v nulo.
@@ -17,10 +17,16 @@ Naj zmaga najhitrejši!
 
 
 City Zmentures
-
+Igra je bila ustvarjena pod vplivom Zmentures++, kjer igralec v mestu odigra podobno igro tej. Inspiracija tu je bila ustvariti igro, ki igralcu
+omogoča igranje Zmentures++ igre v nedogled. 
 
 
 Cr*ckelov
+Igra je bila navdihnjena po igrah, kot sta Subway surf ali pa Zombie cunami. Z igro sem želel predsvsem ugotoviti kako se izdelujejo igre, ki potekajo
+v "neskončnost". Prav tako je bil zanimiv podvig ustvariti trgovino, kjer lahko igralec kupi stvari, ki mu pomagajo med samim igranjem. Na koncu dneva
+se mi zdi, da je igra nekakšen lep zaključek oz. povzetek celotnega projekta, saj je v igri predstavljeno celotno znanje in stvari iz celega projekta.
+
+
 
 
 Zmejelov 1869 je prvotna verzija aplikacije zasnovana v davnem 2021 letu, kot semirarska naloga za maturo. Danes je na voljo v svoji originali formi.

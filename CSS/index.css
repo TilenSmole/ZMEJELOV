@@ -326,6 +326,12 @@ body {
 
 }
 
+.ach_num{
+  text-align: center;
+  font-size: 40px;
+}
+
+
 .achievementsMainBlock {
   display: grid;
   text-align: center;
@@ -346,6 +352,9 @@ body {
   margin-bottom: 2%;
   background-color: hsl(244, 7%, 40%);
 }
+
+
+
 
 .achievementsNotLoggedIn {
   opacity: 0.4;
