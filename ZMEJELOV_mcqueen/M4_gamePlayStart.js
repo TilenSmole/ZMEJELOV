@@ -380,7 +380,9 @@ class M4_gamePlayStart extends M0_shared {
         gameState.text = this.add.text(GAME_WIDTH - 200, visina - 600, 'Coins: ', { fontSize: '30px', fill: '#000000', fontFamily: 'CustomFont' });
         gameState.text.setDepth(0)
 
-        
+        gameState.coins = this.add.text(GAME_WIDTH - 200, visina - 800, 'Coins: ', { fontSize: '30px', fill: '#000000', fontFamily: 'CustomFont' });
+        gameState.coins.setDepth(0)
+
 
 
 
@@ -459,7 +461,12 @@ class M4_gamePlayStart extends M0_shared {
         var currentTime = this.getTimePassed()
 
         borderLeft = gameState.junak.x - 1500
-        gameState.text.setText('Score: ' + score);
+        gameState.text.setText('Score: ' + score++);
+        gameState.coins.setText('Coins: ' + userCoins);
+
+        gameState.coins.x = this.cameras.main.scrollX + 1000;
+        gameState.coins.y = this.cameras.main.scrollY + 100;
+
         gameState.text.x = this.cameras.main.scrollX + 1000;
         gameState.text.y = this.cameras.main.scrollY + 50;
         if (gameState.junak.y >= 2940)
@@ -486,7 +493,6 @@ class M4_gamePlayStart extends M0_shared {
 
         this.physics.add.overlap(gameState.junak, coins, (user, coin) => {
             userCoins += coin.value;
-            score += coin.value;
             coin.destroy()
 
         })
@@ -516,7 +522,6 @@ class M4_gamePlayStart extends M0_shared {
 
 
         });
-        console.log(distance)
 
 
         if (shield) {

@@ -40,5 +40,6 @@ get('/TheFinalRage', '/zmejelov_mcqueen.php');
 get('/CityZmentures', '/ZMEJELOV_njam_njam.php');
 get('/intro', '/index.php');
 post('/zmentures', '/zmejelov_basic.php');
+get('/contact', '/SHARED/contact.php');
 
 any('/404','/errors/404.php');

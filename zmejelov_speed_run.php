@@ -298,17 +298,17 @@ if (session_status() === PHP_SESSION_NONE)
           $translations = loadTranslations();
           if ($_SESSION["achievements"][4] === "1") {
             echo "<div class='oneAchievements'>";
-            echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets/achivments/speedRun/speed.png"    alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG1.1"] . '</p>';
+            echo '<b><p>' . $translations["ach1_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach1.1_speed"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets/achivments/speedRun/speed.png"    alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
+            echo '<b><p>' . $translations["ach1_speed"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
@@ -318,17 +318,17 @@ if (session_status() === PHP_SESSION_NONE)
           $translations = loadTranslations();
           if ($_SESSION["achievements"][2] === "1") {
             echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\complete.png" alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG2"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG2.2"] . '</p>';
+            echo '<b><p>' . $translations["ach2_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach2.2_speed"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\complete.png" alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG2"] . '</p></b>';
+            echo '<b><p>' . $translations["ach2_speed"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
@@ -338,17 +338,17 @@ if (session_status() === PHP_SESSION_NONE)
           $translations = loadTranslations();
           if ($_SESSION["achievements"][1] === "1") {
             echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\allDeaths.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG3"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG3.3"] . '</p>';
+            echo '<b><p>' . $translations["ach3_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach3.3_speed"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\allDeaths.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG3"] . '</p></b>';
+            echo '<b><p>' . $translations["ach3_speed"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
@@ -359,17 +359,17 @@ if (session_status() === PHP_SESSION_NONE)
 
           if ($_SESSION["achievements"][5] === "1") {
             echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\star.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG4"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG4.4"] . '</p>';
+            echo '<b><p>' . $translations["ach4_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach4.4_speed"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\star.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG4"] . '</p></b>';
+            echo '<b><p>' . $translations["ach4_speed"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
@@ -380,17 +380,17 @@ if (session_status() === PHP_SESSION_NONE)
 
           if ($_SESSION["achievements"][3] === "1") {
             echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\dieALot.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG5"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG5.5"] . '</p>';
+            echo '<b><p>' . $translations["ach5_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach5.5_speed"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\dieALot.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG5"] . '</p></b>';
+            echo '<b><p>' . $translations["ach5_speed"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
@@ -400,17 +400,17 @@ if (session_status() === PHP_SESSION_NONE)
           $translations = loadTranslations();
           if ($_SESSION["achievements"][0] === "1") {
             echo "<div class='oneAchievements'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG6"] . '</p></b>';
-            echo '<p>' . $translations["ach_OG6.6"] . '</p>';
+            echo '<b><p>' . $translations["ach6_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach6.6_speed"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
-            echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
+            echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OG6"] . '</p></b>';
+            echo '<b><p>' . $translations["ach6_speed"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
@@ -434,15 +434,14 @@ if (session_status() === PHP_SESSION_NONE)
 
     </div>
 
-
     <div class="comments_DIV" id="comments_OG">
       <?php if (isset($_SESSION["username"])) : ?>
-        <h1><?php $translations = loadTranslations();
+        <h1><?php
             echo $translations["KOMENTARJI"] ?></h1>
         <div>
           <div class="alignCommentAdd">
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET" class="commentsForm">
-              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php $translations = loadTranslations();
+            <form action="Zmejelov1869" method="GET" class="commentsForm">
+              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
                                                                                         echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
               <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
               </div>
@@ -453,7 +452,7 @@ if (session_status() === PHP_SESSION_NONE)
 
       <?php else : ?>
         <div class="commentsFormError">
-          <h1><?php $translations = loadTranslations();
+          <h1><?php
               echo $translations["KOMENTARJI"] ?></h1>
           <p class="commentsFormErrorText">za komentiranje se prijavi</p>
         </div>
@@ -469,40 +468,74 @@ if (session_status() === PHP_SESSION_NONE)
       $offset = ($page - 1) * $commentsPerPage;
 
       // Query to fetch comments for the current page
-      $sql = "SELECT * FROM comments LIMIT $offset, $commentsPerPage";
-      $result = sqlsrv_query($conn, $sql);
+      $sql = "
+WITH PaginationCTE AS (
+    SELECT *, ROW_NUMBER() OVER (ORDER BY date DESC) AS RowNum
+    FROM comments
+    WHERE type = 2
+)
+SELECT *
+FROM PaginationCTE
+WHERE RowNum BETWEEN ? AND ?";
 
-      // Display comments
-      echo '<div id="comment_section" class="commentsZmejelov">';
-      while ($row = sqlsrv_fetch_array($result)) {
-        echo '<div class="full_comment">
-        <span class="commentAuthor"> 
-        <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-        <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"] . '):
-        </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
+      // Prepare the statement
+      $stmt = sqlsrv_prepare($conn, $sql, array($offset, $commentsPerPage));
+
+      // Execute the statement
+      try {
+        $result = sqlsrv_execute($stmt);
+
+        if ($result === false) {
+          echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
+          exit();
+        }
+
+
+        // Display comments
+        echo '<div id="comment_section" class="commentsZmejelov">';
+        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          echo '<div class="full_comment">
+            <span class="commentAuthor"> 
+            <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
+            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
+            </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
+        }
+        echo '</div>';
+      } catch (Exception $e) {
+        // Handle the exception
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
       }
-      echo '</div>';
+
 
       // Query to count total number of comments
-      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments";
+      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=2";
       $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
       $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
       $totalComments = $totalCommentsRow['total'];
 
-      // Calculate total number of pages
-      $totalPages = ceil($totalComments / $commentsPerPage);
 
-      // Display pagination links
-      echo '<div class="pagination-container">';
-      echo '<div class="pagination">';
-      for ($i = 1; $i <= $totalPages; $i++) {
-        // Add onclick event to each pagination link to scroll to the comment section
-        echo '<a href="zmejelov?page=' . $i . '#comment_section">' . $i . "&nbsp;   "  . '</a>';
+      if ($totalComments != 0) {
+       
+        
+
+        // Calculate total number of pages
+        $totalPages = ceil($totalComments / $commentsPerPage);
+
+        // Display pagination links
+        echo '<div class="pagination-container">';
+        echo '<div class="pagination">';
+        for ($i = 1; $i <= $totalPages; $i++) {
+          // Add onclick event to each pagination link to scroll to the comment section
+          echo '<a href="Zmejelov1869?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
+        }
+        echo '</div>';
+        echo '</div>';
       }
-      echo '</div>';
-      echo '</div>';
+
+
       ?>
 
+    </div>
     </div>
 
 
@@ -518,19 +551,28 @@ if (session_status() === PHP_SESSION_NONE)
 
 <?php
 if (isset($_GET["submitCommentZmejelov"])) {
-  echo "gsdf";
   if (isset($_GET["addCommentZmejelov"])) {
     $user = $_SESSION["username"];
     $comment = $_GET["addCommentZmejelov"];
 
-    $sql = "INSERT INTO comments (user, comment) VALUES ('$user', '$comment') ";
-    sqlsrv_query($conn, $sql);
-    echo "<script>window.location.href = '" . $_SERVER['PHP_SELF'] . "';</script>";
+    // Prepare the SQL statement with placeholders
+    $sql = "INSERT INTO comments ([user], comment, date, type) VALUES (?, ?, GETDATE(), 2)";
+
+    // Prepare the statement
+    $stmt = sqlsrv_prepare($conn, $sql, array(&$user, &$comment));
+
+    if ($stmt) {
+      if (sqlsrv_execute($stmt)) {
+        echo "<meta http-equiv=Refresh content=2;url=/Zmejelov1869#comments_OG>";
+      } else {
+        echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
+      }
+    } else {
+      echo "Error preparing statement: " . print_r(sqlsrv_errors(), true);
+    }
   }
 }
 
 
-
-mysqli_close($conn);
 
 ?>
