@@ -49,6 +49,8 @@ class S4_deathScreen extends Phaser.Scene {
 
         }
         else if (deathVarient == "qucikSpaceship") {
+            this.showPopupAchievements( this.loadText("ach_ship"))
+
             if (!quickDeath) {
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();

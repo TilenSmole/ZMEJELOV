@@ -19,7 +19,7 @@ class E0_mestoKonec extends A0_osnova {
 	   }
  create() {
   if (!city){
-    this.showPopupAchievements("POMAGAJ LJUDEM V MESTU")
+    this.showPopupAchievements( this.loadText("ach_city"))
 
     this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });   
     this.titleMusic.play(); 

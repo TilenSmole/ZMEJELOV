@@ -2,7 +2,8 @@
 include("SERVER/database.php");
 include('translations/load_translations.php');
 
-session_start();
+if (session_status() === PHP_SESSION_NONE)
+  session_start();
 ?>
 <html lang="en">
 
@@ -34,8 +35,9 @@ session_start();
     $username = $_GET['user'];
   }
   echo "<h1>ZMEJELOVER: " . $username . "</h1>";
-  $sql = "SELECT achievements, date_created FROM users WHERE username='{$username}'";
+  $sql = "SELECT achievements, creation_date FROM users WHERE username='{$username}'";
   $result = sqlsrv_query($conn, $sql);
+
   if ($result) {
     if (sqlsrv_has_rows($result) > 0) {
       $achievements = "";
@@ -43,9 +45,8 @@ session_start();
 
       while ($row = sqlsrv_fetch_array($result)) {
         $achievements .= $row["achievements"] . "<br>";
-        $date.= $row["date_created"] . "<br>";
-      }
-      mysqli_close($conn);
+        $date .= $row["creation_date"]->format('Y-m-d H:i:s') . "<br>";
+            }
       echo "zmejeloving since " .$date;
   ?>
       <div class="achievementsDisplayProfile">
@@ -177,7 +178,7 @@ session_start();
       echo "Username doesn't exist";
     }
   } else {
-    echo "Error: " . mysqli_error($conn);
+    echo "Error";
   }
 
 

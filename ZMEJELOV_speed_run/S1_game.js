@@ -84,6 +84,8 @@ const config = {
     
   };
 
+var user = null
+
 class getStuff {
     getPhpStuff() {
       return new Promise((resolve, reject) => {
@@ -92,9 +94,10 @@ class getStuff {
         xhr.onload = function () {
           if (xhr.status >= 200 && xhr.status < 300) {
             var sessionData = JSON.parse(xhr.responseText);
-            const achievements = sessionData.achievements;
-            console.log(achievements)
-            resolve({achievements });
+          var username = sessionData.username;
+          user = sessionData.username;
+          const achievements = sessionData.achievements;
+          resolve({ username, achievements, user });
           } else {
             // Handle error
             reject(new Error('Failed to retrieve username')); // Reject with an error
@@ -120,12 +123,17 @@ const dataRetrieval = new getStuff();
   
 dataRetrieval.getPhpStuff()
   .then(data => {
-    achievements = data.achievements;   
+    username = data.username;
+    achievements = data.achievements;
+    /* console.log(username);
+     console.log(lastLevel);
+     console.log(dificulty);
+     console.log(DATE);
+     console.log(achievements);*/
+    if (user !== undefined) {
+      const game = new Phaser.Game(config);
+    }
   })
   .catch(error => {
     console.error(error);
-});
-
-
-
-  const game = new Phaser.Game(config)
+  });

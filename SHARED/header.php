@@ -219,7 +219,7 @@
               <li> <a href="/login" onclick="closeNav()"><?php $translations = loadTranslations();
                                                           echo $translations['login']; ?></a></li>
             <?php else : ?>
-              <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php $translations = loadTranslations();
+              <li><a href="/user"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php $translations = loadTranslations();
                                                                                                             echo $translations['logout']; ?></a></li>
             <?php endif; ?>
             <li><a href="/#about_proyect" id="logo">Zmejelov © 2024</a></li>

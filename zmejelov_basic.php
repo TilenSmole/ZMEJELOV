@@ -282,7 +282,7 @@ $translations = loadTranslations();
       <?php if (isset($_SESSION["username"])) : ?>
         <div class="achievements">
           <?php
-          if ($_SESSION["achievements"][4] === "1") {
+          if ($_SESSION["achievements"][0] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
@@ -302,7 +302,7 @@ $translations = loadTranslations();
 
           <?php
 
-          if ($_SESSION["achievements"][2] === "1") {
+          if ($_SESSION["achievements"][1] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
@@ -322,7 +322,7 @@ $translations = loadTranslations();
 
           <?php
 
-          if ($_SESSION["achievements"][1] === "1") {
+          if ($_SESSION["achievements"][2] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
@@ -343,7 +343,7 @@ $translations = loadTranslations();
           <?php
 
 
-          if ($_SESSION["achievements"][5] === "1") {
+          if ($_SESSION["achievements"][3] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
@@ -364,7 +364,7 @@ $translations = loadTranslations();
           <?php
 
 
-          if ($_SESSION["achievements"][3] === "1") {
+          if ($_SESSION["achievements"][4] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
@@ -383,7 +383,7 @@ $translations = loadTranslations();
           ?>
 
           <?php
-          if ($_SESSION["achievements"][0] === "1") {
+          if ($_SESSION["achievements"][5] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
@@ -483,7 +483,7 @@ WHERE RowNum BETWEEN ? AND ?";
           echo '<div class="full_comment">
             <span class="commentAuthor"> 
             <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
+            <a href="user?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
             </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
         }
         echo '</div>';

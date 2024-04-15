@@ -63,7 +63,7 @@ class S5_konec extends S0_shared {
 
 
         if (stSmrti > 20 && !dieALot) {
-            this.showPopupAchievements("  UMRI veliko")
+            this.showPopupAchievements( this.loadText("ach_death"))
 
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
@@ -77,7 +77,7 @@ class S5_konec extends S0_shared {
         }
 
         if (finalTime > 60 && !completedSpeedy) {
-            this.showPopupAchievements("  dokoncaj")
+            this.showPopupAchievements( this.loadText("ach_speed"))
 
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
@@ -92,7 +92,7 @@ class S5_konec extends S0_shared {
 
 
         if (!completedGame) {
-            this.showPopupAchievements("  DOKONCAJ IGRO")
+            this.showPopupAchievements( this.loadText("ach_finish"))
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
             completedGame = true;
@@ -105,7 +105,7 @@ class S5_konec extends S0_shared {
         }
 
         if (deathByWho = [1, 1, 1, 1, 1] && !dieDiverse) {
-            this.showPopupAchievements("  UMRI ZARADI VSEGA")
+            this.showPopupAchievements( this.loadText("ach_all"))
 
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();

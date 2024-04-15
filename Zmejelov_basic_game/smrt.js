@@ -24,7 +24,7 @@ class smrt extends A0_osnova {
       "Тайната да излезеш\nначело е да започнеш.", "Изчисти си разума\nот не мога."]
     var stRUS = Math.floor(Math.random() * (angQuoti.length - 2));
     if (!deaths) {
-      this.showPopupAchievements("UMRI 50X")
+      this.showPopupAchievements(this.loadText("ach_50deaths"))
 
       this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
       this.titleMusic.play();

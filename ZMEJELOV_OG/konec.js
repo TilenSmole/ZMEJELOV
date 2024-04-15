@@ -36,7 +36,7 @@ class konec extends osnova {
 	const uvod =  this.add.text(100, 100, this.loadText("finish"), { fontSize: '60px', fill: '#8B0000' });
 	
 	if(!completed ){
-		showPopupAchievements("COMPLETE THE GAME")
+		this.showPopupAchievements( this.loadText("ach_OG"))
 		this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });   
 		this.titleMusic.play(); 
 		completed = true;

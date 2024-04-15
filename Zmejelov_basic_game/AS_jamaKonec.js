@@ -28,6 +28,8 @@ class AS_jamaKonec extends A0_osnova {
       });
 
       if (!secret) {
+        this.showPopupAchievements(this.loadText("ach_secret"))
+  
         this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
         this.titleMusic.play();
         secret = true;

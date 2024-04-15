@@ -39,6 +39,10 @@ get('/Crackelov', '/zmejelov_speed_run.php');
 get('/TheFinalRage', '/zmejelov_mcqueen.php');
 get('/CityZmentures', '/ZMEJELOV_njam_njam.php');
 get('/intro', '/index.php');
+get('/user', '/user.php');
+
+
+
 post('/zmentures', '/zmejelov_basic.php');
 get('/contact', '/SHARED/contact.php');
 

@@ -128,22 +128,11 @@ class A0_tezavnost extends A0_osnova {
         this.scene.start('E0_mesto')
 	})
     
-   
     this.domov.on('pointerup', () => {
         this.scene.stop('A0_tezavnost')
         this.scene.start('A0_zacetniZaslon')
         })
 
-	
-
-
-    
-
-
-  
-
-
-    
   }
  
   loadText(text_to_translate) {

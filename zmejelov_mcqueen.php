@@ -253,7 +253,7 @@ if (session_status() === PHP_SESSION_NONE)
       // Display the sorted results with consistent player ranking
       echo '<div class="Leaderbord_result">';
       foreach ($paginatedRows as $row) {
-        echo '<div><span ><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
+        echo '<div><span ><a href="user?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
         $startingRank++; // Increment the player ranking
       }
       echo '</div>';
@@ -298,7 +298,7 @@ if (session_status() === PHP_SESSION_NONE)
       <div class="achievements">
         <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][4] === "1") {
+        if ($_SESSION["achievements"][6] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<img src="assets/achivments/money.png"  alt="Achievement Picture 1">';
           echo '<div class="tooltip">';
@@ -318,7 +318,7 @@ if (session_status() === PHP_SESSION_NONE)
 
         <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][2] === "1") {
+        if ($_SESSION["achievements"][7] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<img src="assets\achivments\rainbown.png" alt="Achievement Picture 1">';
           echo '<div class="tooltip">';
@@ -338,7 +338,7 @@ if (session_status() === PHP_SESSION_NONE)
 
         <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][1] === "1") {
+        if ($_SESSION["achievements"][8] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<img src="assets\achivments\broom.png"  alt="Achievement Picture 1">';
           echo '<div class="tooltip">';
@@ -439,7 +439,7 @@ WHERE RowNum BETWEEN ? AND ?";
         echo '<div class="full_comment">
             <span class="commentAuthor"> 
             <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
+            <a href="user?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
             </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
       }
       echo '</div>';

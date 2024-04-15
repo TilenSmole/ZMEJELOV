@@ -88,6 +88,27 @@
         "speedrun_win_fast": "Ok, tole je blo pa kar hitro",
         "speedrun_win_med": "Še kar OK rezultat",
         "speedrun_win_slow": "No, smo saj prišli saj do konca 🙊",
-        "speedrun_win_slow2x": "Wow, nisem si mislil, da se bo tole sporočilo kdaj prikazalo na zaslonu, tole je pa bilo kar počasi za igrico, kjer si dolžan biti hiter"
+        "speedrun_win_slow2x": "Wow, nisem si mislil, da se bo tole sporočilo kdaj prikazalo na zaslonu, tole je pa bilo kar počasi za igrico, kjer si dolžan biti hiter",
+       
+       
+       
+        "ach_ruins": "RUŠEVINE",
+        "ach_50deaths": "50 SMRTI",
+        "ach_secret": "SKRIVNI NIVO",
+        "ach_city" : "MESTO",
+        "ach_hard": "HARD MODE",
+        "ach_easy": "EASY MODE",
+
+        "ach_stars": "ZVEZDE",
+        "ach_all": "RAZNOLIKOST",
+        "ach_finish": "DOKONČAJ",
+        "ach_speed": "HITROST",
+        "ach_death" : "UMRI 20x",
+        "ach_ship" : "BRRRRRRRRR",
+        "ach_OG": "OG "
+
+
+
+
     }
 }

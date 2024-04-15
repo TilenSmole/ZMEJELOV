@@ -9,8 +9,21 @@ class E0_uvod extends Phaser.Scene {
         this.load.video('videoMESTO', 'assets/mesto/E0_uvod_video.mp4');
         this.load.image("zmeja","assets/uvod/zmeja.png")
         this.load.atlas("trgovec", "assets/mesto/zivali/trgovec/trgovec.png", "assets/mesto/zivali/trgovec/trgovec_atlas.json")
-
+        this.load.json('textSlo', 'translations/translationsSLO_js.json');
+        this.load.json('textEn', 'translations/translationsEN_js.json');
 	   }
+
+       loadText(text_to_translate) {
+        if (language === "en") {
+                        return this.cache.json.get('textEn')["en"][text_to_translate];
+    
+        } else {
+                        return this.cache.json.get('textSlo')["slo"][text_to_translate];
+    
+        }
+    }
+
+
  create() {
     this.video = this.add.video(GAME_WIDTH/2, GAME_HEIGHT/2, 'videoMESTO');
     this.video.setScale(.65)

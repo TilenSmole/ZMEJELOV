@@ -130,12 +130,14 @@ class A0_zacetniZaslon extends Phaser.Scene {
         }
 
         //NAREDIMO, DA IGRALEC NE DOBI PONOVNO OBVESTIL O DOSEZENIH ACHIVEMENTIH
-        const achRuins = achievements.substring(0, 1);
-        const achDeaths = achievements.substring(1, 2);
-        const achSecret = achievements.substring(2, 3);
-        const achCity = achievements.substring(3, 4);
-        const achHardMode = achievements.substring(4, 5);
-        const achEasyMode = achievements.substring(5, 6);
+        const achHardMode = achievements.substring(0, 1);
+        const achSecret = achievements.substring(1, 2);
+        const achDeaths = achievements.substring(2, 3);
+        const achEasyMode = achievements.substring(3, 4);
+        const achCity = achievements.substring(4, 5);
+        const achRuins = achievements.substring(5, 6);
+        
+
         /*const secretLevelCompletedPrevious = achievements.substring(1, 2); 
         const checkPoints = achievements.substring(2, 3);*/
 

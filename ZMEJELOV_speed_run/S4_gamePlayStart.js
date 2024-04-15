@@ -546,7 +546,9 @@ class S4_gamePlayStart extends S0_shared {
       });
       
 
-    if(stZvezd == 1 && !stars ){    
+    if(stZvezd == 1 && !stars ){   
+        this.showPopupAchievements( this.loadText("ach_stars"))
+ 
         this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });   
         this.titleMusic.play(); 
         stars = true;

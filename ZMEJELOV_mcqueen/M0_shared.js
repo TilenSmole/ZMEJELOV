@@ -138,11 +138,6 @@ updateAchievements() {
 
 
 resetGame(){
-	var disableReturnBack = false //player cant take the easy way out 
-	var stopChecking = false //so it doesnt dispplay every second if disableReturnBack
-	var hotdogShow = true //shows a hotdog
-	var canWin = false //if the player touches spaceship does he win
-	setJumpingSpeed(-650)
 }
 
 

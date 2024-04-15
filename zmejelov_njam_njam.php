@@ -276,7 +276,7 @@ if (session_status() === PHP_SESSION_NONE)
       // Display the sorted results with consistent player ranking
       echo '<div class="Leaderbord_result">';
       foreach ($paginatedRows as $row) {
-        echo '<div><span ><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
+        echo '<div><span ><a href="user?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
         $startingRank++; // Increment the player ranking
       }
       echo '</div>';
@@ -320,11 +320,11 @@ if (session_status() === PHP_SESSION_NONE)
       <div class="achievements">
         <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][4] === "1") {
+        if (4$_SESSION["achievements"][9] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">50</p>          ';
           echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach_OG1"] . '</p></b>';
+          echo '<b><p>' . $translations["50"] . '</p></b>';
           echo '<p>' . $translations["50e"] . '</p>';
           echo '</div>';
           echo '</div>';
@@ -340,7 +340,7 @@ if (session_status() === PHP_SESSION_NONE)
 
         <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][2] === "1") {
+        if ($_SESSION["achievements"][10] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">200</p>          ';
           echo '<div class="tooltip">';
@@ -360,7 +360,7 @@ if (session_status() === PHP_SESSION_NONE)
 
         <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][1] === "1") {
+        if ($_SESSION["achievements"][11] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">500</p>          ';
           echo '<div class="tooltip">';
@@ -381,7 +381,7 @@ if (session_status() === PHP_SESSION_NONE)
         <?php
         $translations = loadTranslations();
 
-        if ($_SESSION["achievements"][5] === "1") {
+        if ($_SESSION["achievements"][12] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">1000</p>          ';
           echo '<div class="tooltip">';
@@ -402,7 +402,7 @@ if (session_status() === PHP_SESSION_NONE)
         <?php
         $translations = loadTranslations();
 
-        if ($_SESSION["achievements"][3] === "1") {
+        if ($_SESSION["achievements"][13] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">5000</p>          ';
           echo '<div class="tooltip">';
@@ -422,7 +422,7 @@ if (session_status() === PHP_SESSION_NONE)
 
         <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][0] === "1") {
+        if ($_SESSION["achievements"][14] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">10000</p>          ';
           echo '<div class="tooltip">';
@@ -442,7 +442,7 @@ if (session_status() === PHP_SESSION_NONE)
 
 <?php
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][0] === "1") {
+        if ($_SESSION["achievements"][15] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">25000</p>          ';
           echo '<div class="tooltip">';
@@ -542,7 +542,7 @@ WHERE RowNum BETWEEN ? AND ?";
         echo '<div class="full_comment">
             <span class="commentAuthor"> 
             <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
+            <a href="user?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
             </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
       }
       echo '</div>';

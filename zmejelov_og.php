@@ -32,57 +32,20 @@ $translations = loadTranslations();
 
   <meta charset="utf-8" />
   <title>Zmejelov</title>
-  <script type="text/javascript" src="/Zmejelov_basic_game/phaser.min.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_osnova.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A2_scena2.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A1_scena1.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_uvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A10_konec.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A6_scena6.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A5_scena5.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A4_scena4.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A3_scena3.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/AS_skrivni.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A7_droper.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A8_plavanje.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A9_cilj.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_zacetniZaslon.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/vrsta.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/AS_jama.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_tezavnost.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/AS_jamaKonec.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/smrt.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A7_droperUvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A7_droperTroll.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_vsi_nivoji.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_vsi_nivoji2.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_intro.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/film.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A10_outro.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_mesto.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_uvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E1_swamp.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E12_swampSkakanje.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E12_SWAMP_PORAZ.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E12_skakanjeUvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_pokerUvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_barUvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_bar.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_poker.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_poker1.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_poker2.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_poker3.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_poker4.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_barKonec.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_barRazlaga.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E12_Swamp_goraUvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E12_goraKonec.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/E0_mestoKonec.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A9_skrinja.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A9_skrinja_konec.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A9_skrinja_uvod.js"></script>
-  <script type="text/javascript" src="/Zmejelov_basic_game/A0_loadSave.js"></script>
-  <script type="text/javascript" src="Zmejelov_basic_game/game.js"></script>
+  <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/osnova.js"></script>
+
+  <script type="text/javascript" src="zmejelov_OG/scena2.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/scena1.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/uvod.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/scena6.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/scena3.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/scena4.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/scena5.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/konec.js"></script>
+  <script type="text/javascript" src="zmejelov_OG/osnova.js"></script>
+
+  <script type="text/javascript" src="zmejelov_OG/game.js"></script>
   <link rel="preload" as="font" href="assets\uvod\Cinzel-Regular.ttf" type="font/ttf" />
 </head>
 
@@ -270,19 +233,19 @@ $translations = loadTranslations();
       <?php if (isset($_SESSION["username"])) : ?>
         <div class="achievements">
           <?php
-          if ($_SESSION["achievements"][4] === "1") {
+          if ($_SESSION["achievements"][16] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets\achivments\old.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OGReal"] . '</p></b>';
-            echo '<p>' . $translations["ach_OGRealComment"] . '</p>';
+            echo '<b><p>' . $translations["aOG"] . '</p></b>';
+            echo '<p>' . $translations["rOG"] . '</p>';
             echo '</div>';
             echo '</div>';
           } else {
             echo "<div class='achievementsNotLoggedIn'>";
             echo '<img src="assets\achivments\old.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
-            echo '<b><p>' . $translations["ach_OGReal"] . '</p></b>';
+            echo '<b><p>' . $translations["aOG"] . '</p></b>';
             echo '</div>';
             echo '</div>';
           }
@@ -372,7 +335,7 @@ WHERE RowNum BETWEEN ? AND ?";
           echo '<div class="full_comment">
             <span class="commentAuthor"> 
             <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
+            <a href="user?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
             </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
         }
         echo '</div>';
