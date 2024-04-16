@@ -5,12 +5,6 @@ require_once __DIR__.'/router.php';
 // ##################################################
 // ##################################################
 // ##################################################
-
-
-// Redirect /index.php to /
-
-
-
 // Static GET
 // In the URL -> http://localhost
 // The output -> Index
@@ -40,10 +34,6 @@ get('/TheFinalRage', '/zmejelov_mcqueen.php');
 get('/CityZmentures', '/ZMEJELOV_njam_njam.php');
 get('/intro', '/index.php');
 get('/user', '/user.php');
-
-
-
 post('/zmentures', '/zmejelov_basic.php');
 get('/contact', '/SHARED/contact.php');
-
 any('/404','/errors/404.php');

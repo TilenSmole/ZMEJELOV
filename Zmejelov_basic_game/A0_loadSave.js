@@ -105,33 +105,7 @@ create() {
 
             }
 
-          var achievementsSplit = achievements;
-          const prevHardMode = achievementsSplit.substring(0, 1); 
-          const prevSecret = achievementsSplit.substring(1, 2); 
-          const prevDeaths = achievementsSplit.substring(2, 3);
-          const prevEasy = achievementsSplit.substring(3, 4);
-          const prevCity = achievementsSplit.substring(4, 5);
-          const prevRuins = achievementsSplit.substring(5, 6);
-          
-       
-
-          if(prevHardMode == "1")
-            hardMode = true;
-              
-          if(prevSecret == "1")
-            secret     = true;
-        
-          if(prevDeaths == "1")
-              deaths = true;
-              
-          if(prevEasy == "1")
-            easyMode  = true;
-        
-          if(prevCity == "1")
-            city  = true;
-
-          if(prevRuins == "1")
-              ruins  = true;
+   
 
 
         this.scene.start(lastLevel)

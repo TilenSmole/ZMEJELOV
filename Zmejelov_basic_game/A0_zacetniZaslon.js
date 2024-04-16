@@ -138,8 +138,7 @@ class A0_zacetniZaslon extends Phaser.Scene {
         const achRuins = achievements.substring(5, 6);
         
 
-        /*const secretLevelCompletedPrevious = achievements.substring(1, 2); 
-        const checkPoints = achievements.substring(2, 3);*/
+
 
         if (achRuins == 1)
             ruins = true;

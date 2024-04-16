@@ -34,10 +34,19 @@ class uvod extends Phaser.Scene {
 
 
 
+    const ach = achievements.substring(16, 17);
+
+
+    if (ach == 1)
+        completed = true;
+
+
+
+
 
     this.input.on('pointerup', () => {
       var achievementsSplit = achievements;
-      const prevCompleted = achievementsSplit.substring(12, 13);
+      const prevCompleted = achievementsSplit.substring(11, 12);
 
       if (prevCompleted == "1")
         completed = true;

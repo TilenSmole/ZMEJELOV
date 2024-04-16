@@ -86,12 +86,11 @@ loadText(text_to_translate) {
 
         if (ach1 == 1)
             money = true;
-        if (ach2 == 1)
-            noPops = true;
         if (ach3 == 1)
+            noPops = true;
+        if (ach2 == 1)
             rainbow = true;
-        if (ach4 == 1)
-            tenK = true
+     
 
 
 

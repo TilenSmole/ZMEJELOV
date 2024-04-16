@@ -106,51 +106,21 @@ class F2_inicial extends Phaser.Scene {
 
 
         this.igra.on('pointerup', () => {
-            var achievementsSplit = achievements;
-            /* const prevCompletedSpeedy = achievementsSplit.substring(6, 7); 
-             const prevCompletedGame = achievementsSplit.substring(7, 8); 
-             const prevDieDiverse = achievementsSplit.substring(8, 9);
-             const prevStars = achievementsSplit.substring(9, 10);
-             const prevDieALot = achievementsSplit.substring(10,11);
-             const prevQuickDeath = achievementsSplit.substring(11, 12);
      
-     
-             if(prevCompletedSpeedy == "1")
-                  completedSpeedy = true;
-                 
-             if(prevCompletedGame == "1")
-                 completedGame     = true;
-            
-             if(prevDieDiverse == "1")
-                 dieDiverse = true;
-                 
-             if(prevStars == "1")
-                 stars  = true;
-            
-             if(prevDieALot == "1")
-                  dieALot  = true;
-     
-             if(prevQuickDeath == "1")
-                  quickDeath  = true;
-     
-             console.log(stars)*/
-
             stopWatchStart()
             this.scene.stop('F2_inicial')
             this.scene.start('F3_storyIntro')
         })
 
         //NAREDIMO, DA IGRALEC NE DOBI PONOVNO OBVESTIL O DOSEZENIH ACHIVEMENTIH
-        const ach1 = achievements.substring(0, 1);
-        const ach2 = achievements.substring(1, 2);
-        const ach3 = achievements.substring(2, 3);
-        const ach4 = achievements.substring(3, 4);
-        const ach5 = achievements.substring(4, 5);
-        const ach6 = achievements.substring(5, 6);
-        const ach7 = achievements.substring(1, 2);
-        const ach8 = achievements.substring(2, 3);
-        const ach9 = achievements.substring(3, 4);
-        const ach10 = achievements.substring(4, 5);
+        const ach1 = achievements.substring(9, 10);
+        const ach2 = achievements.substring(10, 11);
+        const ach3 = achievements.substring(11, 12);
+        const ach4 = achievements.substring(12, 13);
+        const ach5 = achievements.substring(13, 14);
+        const ach6 = achievements.substring(14, 15);
+        const ach7 = achievements.substring(15, 16);
+
 
         if (ach1 == 1)
             H = true;
@@ -184,34 +154,7 @@ class F2_inicial extends Phaser.Scene {
 
         this.igraTimer.on('pointerup', () => {
             countdown = true
-            var achievementsSplit = achievements;
-            /* const prevCompletedSpeedy = achievementsSplit.substring(6, 7); 
-             const prevCompletedGame = achievementsSplit.substring(7, 8); 
-             const prevDieDiverse = achievementsSplit.substring(8, 9);
-             const prevStars = achievementsSplit.substring(9, 10);
-             const prevDieALot = achievementsSplit.substring(10,11);
-             const prevQuickDeath = achievementsSplit.substring(11, 12);
-     
-     
-             if(prevCompletedSpeedy == "1")
-                  completedSpeedy = true;
-                 
-             if(prevCompletedGame == "1")
-                 completedGame     = true;
-            
-             if(prevDieDiverse == "1")
-                 dieDiverse = true;
-                 
-             if(prevStars == "1")
-                 stars  = true;
-            
-             if(prevDieALot == "1")
-                  dieALot  = true;
-     
-             if(prevQuickDeath == "1")
-                  quickDeath  = true;
-     
-             console.log(stars)*/
+         
 
             stopWatchStart()
             this.scene.stop('F2_inicial')

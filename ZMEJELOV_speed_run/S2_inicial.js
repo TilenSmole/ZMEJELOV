@@ -105,12 +105,12 @@ class S2_inicial extends Phaser.Scene {
            
         this.igra.on('pointerup', () => {
             var achievementsSplit = achievements;
-            const prevCompletedSpeedy = achievementsSplit.substring(6, 7); 
-            const prevCompletedGame = achievementsSplit.substring(7, 8); 
-            const prevDieDiverse = achievementsSplit.substring(8, 9);
-            const prevStars = achievementsSplit.substring(9, 10);
-            const prevDieALot = achievementsSplit.substring(10,11);
-            const prevQuickDeath = achievementsSplit.substring(11, 12);
+            const prevCompletedSpeedy = achievementsSplit.substring(17, 18); 
+            const prevCompletedGame = achievementsSplit.substring(18, 19); 
+            const prevDieDiverse = achievementsSplit.substring(19, 20);
+            const prevStars = achievementsSplit.substring(20, 21);
+            const prevDieALot = achievementsSplit.substring(21,22);
+            const prevQuickDeath = achievementsSplit.substring(22, 23);
 
 
             if(prevCompletedSpeedy == "1")
