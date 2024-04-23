@@ -36,4 +36,7 @@ get('/intro', '/index.php');
 get('/user', '/user.php');
 post('/zmentures', '/zmejelov_basic.php');
 get('/contact', '/SHARED/contact.php');
+
+
+
 any('/404','/errors/404.php');

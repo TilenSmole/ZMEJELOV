@@ -1,2 +1,3 @@
 # Ignore MP4 video files
 *.mp4
+.vercel
