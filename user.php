@@ -253,7 +253,7 @@ if (session_status() === PHP_SESSION_NONE)
 
 
         <?php
-
+ 
         if ($_SESSION["achievements"][6] === "1") {
           echo '<div class="achievement-container">';
           echo '<img src="assets/achivments/money.png"  alt="Achievement Picture 1">';
