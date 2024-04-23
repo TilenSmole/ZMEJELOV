@@ -36,7 +36,6 @@ get('/intro', '/index.php');
 get('/user', '/user.php');
 post('/zmentures', '/zmejelov_basic.php');
 get('/contact', '/SHARED/contact.php');
-get('/api/index.php', '/api/index.php');
 
 
 
