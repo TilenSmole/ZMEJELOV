@@ -5,12 +5,10 @@ require_once __DIR__.'/router.php';
 // ##################################################
 // ##################################################
 // ##################################################
-// Static GET
-// In the URL -> http://localhost
-// The output -> Index
 
-get('zmejelov.azurewebsites.net/', 'zmejelov.azurewebsites.net/firstPage.php');
-get('zmejelov.azurewebsites.net/SHARED/header.php', 'zmejelov.azurewebsites.net/SHARED/header.php');
+
+get('/', '/firstPage.php');
+get('/SHARED/header.php', '/SHARED/header.php');
 get('/translations/load_translations.php', '/translations/load_translations.php');
 get('/translations/getLanguage.php', '/translations/getLanguage.php');
 get('/SHARED/footer.php', '/SHARED/footer.php');
@@ -31,12 +29,9 @@ get('/zmentures', '/zmejelov_basic.php');
 get('/Zmejelov1869', '/zmejelov_og.php');
 get('/Crackelov', '/zmejelov_speed_run.php');
 get('/TheFinalRage', '/zmejelov_mcqueen.php');
-get('zmejelov.azurewebsites.net/CityZmentures', 'zmejelov.azurewebsites.net/ZMEJELOV_njam_njam.php');
-get('zmejelov.azurewebsites.net/intro', 'zmejelov.azurewebsites.net/index.php');
+get('/CityZmentures', '/ZMEJELOV_njam_njam.php');
+get('/intro', '/index.php');
 get('/user', '/user.php');
-post('zmejelov.azurewebsites.net/zmentures', 'zmejelov.azurewebsites.net/zmejelov_basic.php');
+post('/zmentures', '/zmejelov_basic.php');
 get('/contact', '/SHARED/contact.php');
-
-
-
 any('/404','/errors/404.php');
