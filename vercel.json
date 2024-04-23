@@ -1,7 +1,7 @@
 {
     "functions": {
       "api/index.php": {
-        "runtime": "nodejs16.x"
+        "runtime": "vercel-php@1.0.0"
       }
     },
     "version": 2
