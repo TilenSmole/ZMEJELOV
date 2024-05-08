@@ -29,7 +29,7 @@
       <div class="introductionText" >
       <?php if(isset($_SESSION["username"])):?>
             <p ><?php  $translations = loadTranslations(); echo $translations['welcome_again'] ?> <ul id="options">
-                    <li ><a href="/zmentures">ZMENTURES</a></li>
+                    <li ><a href="/zmejelov_basic.php">ZMENTURES</a></li>
                     <li><a href="Zmejelov1869">ZMEJELOV 1869</a></li>
                     <li><a href="CityZmentures">CITY ZMENTURES</a></li>
                     <li><a href="Crackelov">CRA*KELOV</a></li>
