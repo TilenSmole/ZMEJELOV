@@ -502,7 +502,7 @@ if (isset($_GET["submitCommentZmejelov"])) {
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/CityZmentures#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/ZMEJELOV_njam_njam.php#comments_OG>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

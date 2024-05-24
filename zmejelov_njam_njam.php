@@ -227,7 +227,7 @@ if (session_status() === PHP_SESSION_NONE)
         $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 2";
         $resultCount = sqlsrv_query($conn, $sqlCount);
         $rowCount = sqlsrv_fetch_array($resultCount);
-        echo "<meta http-equiv=Refresh content=2;url=/zmentures#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/zmejelov_basic.php#comments_OG>";
       } elseif (isset($_GET['button120'])) {
         // Fetch leaderboard entries
         $sql = "SELECT * FROM leaderboard WHERE type = 3";
@@ -605,7 +605,7 @@ if (isset($_GET["submitCommentZmejelov"])) {
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/CityZmentures#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/ZMEJELOV_njam_njam.php#comments_OG>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }
