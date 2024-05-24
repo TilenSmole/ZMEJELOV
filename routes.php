@@ -7,7 +7,7 @@ require_once __DIR__.'/router.php';
 // ##################################################
 
 
-get('/firstPage', '/firstPage.php');
+get('/', '/firstPage.php');
 get('/SHARED/header.php', '/SHARED/header.php');
 get('/translations/load_translations.php', '/translations/load_translations.php');
 get('/translations/getLanguage.php', '/translations/getLanguage.php');

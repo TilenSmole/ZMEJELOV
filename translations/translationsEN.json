@@ -1,6 +1,5 @@
 {
   "en": {
-    "zmejelov_intro_OG": "is an upgraded version of the original game that comes with a story. For beginners, the game is quite difficult, so quite a lot of help is implemented. The game automatically saves your progress, so you can pause at any time and continue when you feel like challenging yourself again.",
     "please_login": "To play, please <a href='\\login'>log in</a> or <a href='SERVER\\register.php'>register</a>.",
     "q1_OG": "HOW DO I SAVE GAME PROGRESS?",
     "q2_OG": "WHAT DO I DO IF MY GAME GLITCHES OUT?",
@@ -33,8 +32,8 @@
     "q1_1960": "Why is this game so easy?",
     "a1_1960": "Maybe you are just so good 😉",
     "a2_1960": "Read <a href='#dosezki_OG'>ACHIEVEMENTS</a>",
-    "intro_essay": "»RAČUNALNIK NE DELA NAPAK, PREPROSTO IZVRŠUJE TO, KAR MU UKAŽEMO«",
-    "github_essay": " Odprto kodni projekt, vsa koda na voljo na <a href='https://github.com/randomtuser/zmejelov'>githubu</a>",
+    "intro_essay": "»Computer doesn't do mistakes, it simply does what we tell him to do«",
+    "github_essay": " Open source project, code available on <a href='https://github.com/randomtuser/zmejelov'>github</a>",
     "welcome_again": "Še enkrat pozdravljeni na ZMEJELOV IGRALNI PLATFORMI. Moje ime je Zmeja in moram priznati, da sem zelo vesela,da te vidim! Na portalu je 5 iger:",
     "welcome_again2": "Če mene vprašaš moraš preigrati vse xd. Veselo igranje.     ",
     "welcome_again3": " Naj poudarim, da sem zelo vesela, da te vidim! Na portalu je 5 iger za veliko ur igranja, z dosežki pa te spodbujam k igranju. Če mene vprašaš moraš preigrati vse xd. Za njihovo uporabo pa se moraš registrirati s klikom <a href='/register'>tukaj</a> ali pa prijaviti s klikom <a href='\\login'>tukaj</a>. Veselo igranje. ",
@@ -73,13 +72,35 @@
     "message": "YOUR MESSAGE",
     "subject": " SUBJECT",
     "send": "SEND",
-    "this_is" :"THIS IS ZMEJELOV!!!",
-    "welcome" : "WELCOME TO MY WORLD!",
-    "welcome_intro" : "    Welcome to Zmejelov Gaming platform, my name is Zmeja and I am quite an important person here (if you ask me 😇). On the portal there are 5 games with different tricks, traps, each game also has its own achievements to motivate you. Try to become the best on the leaderboard, comment and connect with friends! If you ask me it is totally worth it to spend hours here. What do you say, are you ready to start exloring the world of advantures and excitment?    ",
-    "explore" :" START EXPLORING"
-
-
-
-
+    "this_is": "THIS IS ZMEJELOV!!!",
+    "welcome": "WELCOME TO MY WORLD!",
+    "welcome_intro": "    Welcome to Zmejelov Gaming platform, my name is Zmeja and I am quite an important person here (if you ask me 😇). On the portal there are 5 games with different tricks, traps, each game also has its own achievements to motivate you. Try to become the best on the leaderboard, comment and connect with friends! If you ask me it is totally worth it to spend hours here. What do you say, are you ready to start exloring the world of advantures and excitment?    ",
+    "explore": " START EXPLORING",
+    "zmentures_intro": "Zmentures is an upgraded version of the original game, dating back to the times of Ledins, which has undergone many changes throughout its history. In its new form, it contains 12 levels that are very easy at the beginning, but the difficulty quickly increases, reaching its peak at level 6. The entire game is structured through a story, the main thread of which is the Dragon's return home after escaping from NASA's experimental laboratory! The game can be quite a challenge for first-time players, as it contains a lot of unexpected events, many deaths, but hopefully also a lot of fun. Based on player feedback, several aids have been implemented today. We're talking about automatic progress saving at the beginning of each level, as well as checkpoints implemented within the game. On the easy level, they appear automatically, while on the hard level, they need to be unlocked (HINT: find the secret level). The game also includes an expansion called Zmentures++, which takes you through the city and adds the cherry on top of the cake, further expanding the story. Have lots of joy and patience while playing.",
+    "thefinalrage_intro": "The Final Rage is created inspired by the first players of the <a>original version</a>, who attempted to complete the game in less than a minute. I believe the record is still around 30 seconds. It relies on the player's speed and familiarity with the level. Unlike <a>ZMENTURES</a>, the game is not entirely random, as everything is always placed in the same position. So switch to the nerdy mode and study the level 🤓. May the fastest one win!",
+    "1869_intro": "Zmejelov 1869 is the original version of the application designed back in the distant year of 2021, as a high school graduation project. Today, it's available in its original form. Despite being a very simple game, it can offer a bit of a challenge to new players at the beginning. The game is also suitable for all players who want to relive the nostalgia of playing the original version or see the progress in the game's development. And yes, before you ask, it is the predecessor of <a>Zmentures</a>. Ah, the good old days.",
+    "crackelov_intro": "The game was inspired by games like Subway Surfers or Zombie Tsunami. With the game, I primarily wanted to figure out how to create games that follow the endless principle. It was also an interesting challenge to create a store where players can buy items to help them during gameplay. In the end, it seems to me that the game is a kind of nice conclusion or summary of the entire project, as it presents all the knowledge and things from the entire project.",
+    "cityzmentures_intro": "The game was created under the influence of Zmentures++, where the player plays a similar game in the city. The inspiration here was to create a game that allows players to play the Zmentures++ game endlessly.",
+    "my_intro": "The project began to take shape back in high school, then under the name 'CREATING A 2D GAME IN HTML USING CSS AND JAVASCRIPT', with the aim of getting a good grade for graduation. In 2022, the game received its first update, where I wanted to test my new programming knowledge. The purpose of the game's renovation, which finally also got its name, was not for the entire countryside to play it now, because let's be honest, how many players even reached the goal. No, the purpose was for the game to get the appearance it deserves. The project itself took more than 200 hours, the game became very complex, which I think is reflected in how much fun it is to play. During programming, there were many challenges, but in the end, everything was successfully resolved - well, almost everything. The renovation includes new levels of the original game, 4 new games, a redesigned UI, new gameplay concepts, and many hours of fun. It has transformed from a speed running game into a gaming platform. I never thought the project would turn into a Bachelor's thesis, but I'm glad it did because it really perfected the game. I must admit, I'm very pleased with the final version of Zmejelov. It's that feeling when you imagine something in your head, and then, when you execute it, it's even better. That's Zmejelov for me. As some have mentioned, the game reflects a part of me. I sincerely hope you enjoy playing it and that it brightens your day. Happy playing, and remember to 'keep on Zmejeloving'!\n\n The biggest thanks go to my brain, which contributed all the ideas and then helped implement them. Special thanks also to everyone who inspired me passively and actively and helped with the project's design. \n\n-the biggest Zmejelover",
+    "50": "Win 50 points",
+    "200": "Win 200 points",
+    "500": "Win 500 points",
+    "1000": "Win 1000 points",
+    "5000": "Win 5000 points",
+    "10000": "Win 10000 points",
+    "25000": "Win 25000 points",
+    "50e": "Beginning...",
+    "200e": "Continuation",
+    "500e": "Someone is dodging well ;)",
+    "1000e": "Luck or skill?",
+    "5000e": "Jackpot goes brrrrrrrrrrrrrrrrrr",
+    "10000e": "I think it's time to buy a lottery ticket ;)",
+    "25000e": "Doctor's advice 'use less computer in the coming days'",
+    "rainbow": "Discover the rainbow",
+    "money_ach": "Buy the achievement",
+    "no_pups": "Achieve 10000 without additional abilities",
+    "rainbowA": "🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈",
+    "money_achA": "Money rules the world",
+    "no_pupsA": "Pooowwwweeeeeerrrrrrrr"
   }
 }

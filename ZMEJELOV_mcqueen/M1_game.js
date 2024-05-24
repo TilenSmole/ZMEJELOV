@@ -17,6 +17,15 @@ var wisdom = false
 var chests = []
 
 
+var storage = {}
+
+
+var shieldAbility = false
+var ghostAbility= false
+var shroomAbility= false
+var potionAbility = false
+var rocketAbility= false
+var spaceshipAbility = false
 
 
 

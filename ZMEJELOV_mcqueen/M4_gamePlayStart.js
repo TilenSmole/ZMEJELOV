@@ -242,42 +242,7 @@ class M4_gamePlayStart extends M0_shared {
     
     
     
-        //ALL MOVING ENEMIES    
-        gameState.vulture  = this.physics.add.sprite(dolzina-5800, visina-1000, 'vulture');
-        gameState.vulture.body.allowGravity = false;
-        gameState.vulture.setScale(2)
-    
-    
-        gameState.vulture1  = this.physics.add.sprite(dolzina-2000, visina-1800, 'vulture');
-        gameState.vulture1.body.allowGravity = false;
-        gameState.vulture1.setScale(2)
-    
-        gameState.reaper  = this.physics.add.sprite(dolzina-6400, visina-2800, 'reaper');
-        gameState.reaper.body.allowGravity = false;
-        gameState.reaper.setScale(0.2)
-        
-        gameState.reaper1  = this.physics.add.sprite(dolzina-6500, visina-4125, 'reaper');
-        gameState.reaper1.body.allowGravity = false;
-        gameState.reaper1.setScale(0.2)
-    
-        gameState.spaceShip  = this.physics.add.sprite(dolzina-7150, visina-3800, 'spaceShipAttackerIdle');
-        gameState.spaceShip.body.allowGravity = false;
-        gameState.spaceShip.setScale(1)
-    
-        gameState.spaceShipKiller  = this.physics.add.sprite( dolzina+100, visina-4050, 'quickKillerRockerIdle');
-        gameState.spaceShipKiller.body.allowGravity = false;
-        gameState.spaceShipKiller.setScale(1.7)
-    
-    
-    
-        
-    
-        this.anims.create({
-            key: 'vultureMovement',
-            frames: this.anims.generateFrameNumbers('vultureMovement', { start: 0, end: 3 }), // Adjust the range as needed
-            frameRate: 10,
-            repeat: -1
-        });*/
+       
 
         this.anims.create({
             key: 'reaperMovement',
@@ -286,26 +251,7 @@ class M4_gamePlayStart extends M0_shared {
             repeat: -1
         });
 
-        /*  this.anims.create({
-              key: 'spaceShipAttacker',
-              frames: this.anims.generateFrameNumbers('spaceShipAttacker', { start: 0, end: 5 }),  
-              frameRate: 8,
-              repeat: -1
-          });
-      
-      
-          this.anims.create({
-              key: 'quickKillerRocker',
-              frames: this.anims.generateFrameNumbers('quickKillerRocker', { start: 0, end: 5 }),  
-              frameRate: 8,
-              repeat: -1
-          });
-      
-        //COLLIDERS AND OVERLAPS
-        this.physics.add.overlap(gameState.junak, platfromActivater, () => {
-             disableReturnBack = true 
-         })
-        */
+     
         this.physics.add.collider(gameState.junak, allPlatforms)
         gameState.junak.setCollideWorldBounds(true) //ne more vn past
 
@@ -390,6 +336,13 @@ class M4_gamePlayStart extends M0_shared {
 
     update() {
 
+        /*var shieldAbility = false
+        var ghostAbility= false
+        var shroomAbility= false
+        var potionAbility = false
+        var rocketAbility= false
+        var spaceshipAbility = false*/
+
         this.physics.add.overlap(gameState.junak, buffs, (user, buff) => {
             if (buff.value == 2) {
                 if (!shield) {
@@ -425,11 +378,11 @@ class M4_gamePlayStart extends M0_shared {
                     startTimeheart = this.getTimePassed()
                     heart = true
                     distance += 50
-                    if(buff.value == 9){
+                    if (buff.value == 9) {
                         heartIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (10)")
                     }
-                    else{
-                        heartIcon =  this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (9)")
+                    else {
+                        heartIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (9)")
                         heartIcon.setScale(.5)
                     }
 
@@ -446,10 +399,10 @@ class M4_gamePlayStart extends M0_shared {
 
                 }
             }
-            if (buff.value == 3 || buff.value == 12  || buff.value == 13  ) 
+            if (buff.value == 3 || buff.value == 12 || buff.value == 13)
                 return
-            
-            
+
+
             buff.destroy()
 
 
@@ -469,16 +422,19 @@ class M4_gamePlayStart extends M0_shared {
 
         gameState.text.x = this.cameras.main.scrollX + 1000;
         gameState.text.y = this.cameras.main.scrollY + 50;
+
+
+
         if (gameState.junak.y >= 2940)
             //this.scene.restart() 
 
 
 
-            allPlatforms.forEach(platform => {
-                if (platform.x < borderLeft) {
-                    platform.destroy();
-                }
-            });
+        allPlatforms.forEach(platform => {
+            if (platform.x < borderLeft) {
+                platform.destroy();
+            }
+        });
 
         coins.forEach(coin => {
             if (coin.x < borderLeft) {
@@ -525,9 +481,8 @@ class M4_gamePlayStart extends M0_shared {
 
 
         if (shield) {
-            shieldIcon.x = gameState.junak.x - 100 
+            shieldIcon.x = gameState.junak.x - 100
             shieldIcon.y = gameState.junak.y - 50;
-
             if (startTimeShield + 5 <= currentTime) {
                 shieldIcon.destroy()
                 shield = false
@@ -537,7 +492,6 @@ class M4_gamePlayStart extends M0_shared {
 
 
         if (ghost) {
-
             ghostIcon.x = gameState.junak.x - 200
             ghostIcon.y = gameState.junak.y - 50;
             if (startTimeGhost + 5 <= currentTime) {
@@ -560,8 +514,6 @@ class M4_gamePlayStart extends M0_shared {
         }
 
         if (heart) {
-
-
             heartIcon.x = gameState.junak.x - 150
             heartIcon.y = gameState.junak.y - 50;
             if (startTimeheart + 5 <= currentTime) {

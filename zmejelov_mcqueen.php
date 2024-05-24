@@ -88,8 +88,8 @@ if (session_status() === PHP_SESSION_NONE)
     <div class="introduction" id="introduction_OG">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">CityZmentures</span></b> <?php $translations = loadTranslations();
-                                                                      echo $translations["zmejelov_intro_OG"] ?></p>
+        <p><b><span style="font-size: 50px;">CityZmentures</span></b> <?php   $translations = loadTranslations();
+                                                                      echo $translations["crackelov_intro"] ?></p>
       </div>
     </div>
 

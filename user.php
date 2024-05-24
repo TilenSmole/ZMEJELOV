@@ -40,7 +40,7 @@ if (session_status() === PHP_SESSION_NONE)
 
   if ($result) {
     if (sqlsrv_has_rows($result) > 0) {
-      $achievements = "";
+      $achievements = "0000000000000000000000000000000000000000000000000000000000000000000000";
       $date = "";
 
       while ($row = sqlsrv_fetch_array($result)) {

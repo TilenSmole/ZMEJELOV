@@ -31,7 +31,7 @@ include('translations/load_translations.php');
             echo $translations["error"] ?></p>
 
 
-        <p><a href="index.php"><?php $translations = loadTranslations();
+        <p><a href="/"><?php $translations = loadTranslations();
                                 echo $translations["error_home"] ?></a></p>
     </div>
 

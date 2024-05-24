@@ -86,7 +86,7 @@ if (session_status() === PHP_SESSION_NONE)
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
         <p><b><span style="font-size: 50px;">CityZmentures</span></b> <?php $translations = loadTranslations();
-                                                                      echo $translations["zmejelov_intro_OG"] ?></p>
+                                                                      echo $translations["cityzmentures_intro"] ?></p>
       </div>
     </div>
 
@@ -320,7 +320,7 @@ if (session_status() === PHP_SESSION_NONE)
       <div class="achievements">
         <?php
         $translations = loadTranslations();
-        if (4$_SESSION["achievements"][9] === "1") {
+        if ($_SESSION["achievements"][9] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">50</p>          ';
           echo '<div class="tooltip">';
