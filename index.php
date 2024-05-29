@@ -40,9 +40,6 @@ echo __DIR__ . "dir" ."\n";
         </div>
     </div>
 
-
-
-
     <script>
 getLanguage(function(language) {
     var languageObj = JSON.parse(language);

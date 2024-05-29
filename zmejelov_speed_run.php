@@ -21,8 +21,8 @@ if (session_status() === PHP_SESSION_NONE)
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
     gtag('config', 'G-TH6M7HMG59');
+
   </script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <link rel="stylesheet" href="/CSS/index.css">
@@ -43,24 +43,18 @@ if (session_status() === PHP_SESSION_NONE)
 </head>
 
 <body>
-
   <div id="loader-wrapper">
     <span class="loader"><img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Loading..."></span>
   </div>
 
-
-
   <script>
     function showLoader() {
       document.getElementById("loader-wrapper").style.display = "flex";
-
     }
 
     function hideLoader() {
       document.getElementById("loader-wrapper").style.display = "none";
       document.getElementById("fullBody").style.display = "block";
-
-
     }
 
     window.onload = function() {
