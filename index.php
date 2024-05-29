@@ -3,8 +3,7 @@ include('translations/load_translations.php');
 $translations = loadTranslations();
 
 require_once __DIR__.'/router.php';
-echo __DIR__;
-require_once '/router.php';
+echo __DIR__ . "dir" ."\n";
 
 
 get('/', '/firstPage.php');
@@ -14,7 +13,7 @@ get('/translations/getLanguage.php', '/translations/getLanguage.php');
 get('/SHARED/footer.php', '/SHARED/footer.php');
 get('/zmentures/introduction', '/zmentures#introduction_OG');
 get('/SERVER/getSessionData.php', '/SERVER/getSessionData.php');
-post('/login', '/SERVER/login.php');
+post(__DIR__.'/login', '/SERVER/login.php');
 get('../SHARED/header.php', '../SHARED/header.php');
 get('/SERVER/logout.php', '/SERVER/logout.php');
 post('/register', '/SERVER/register.php');
