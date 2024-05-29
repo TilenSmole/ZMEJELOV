@@ -1,4 +1,5 @@
 <?php
+echo "omg to dela1";
 function get($route, $path_to_include)
 {
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {

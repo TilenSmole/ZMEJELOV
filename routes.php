@@ -1,11 +1,14 @@
 <?php
+echo "omg to dela";
+echo "omg to dela";
+echo "omg to dela";
 
 require_once __DIR__.'/router.php';
 
 // ##################################################
 // ##################################################
 // ##################################################
-echo "omg to dela";
+echo "omg to dela2";
 
 get('/', '/firstPage.php');
 get('/SHARED/header.php', '/SHARED/header.php');
