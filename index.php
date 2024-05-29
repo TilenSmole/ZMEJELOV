@@ -3,11 +3,9 @@ include('translations/load_translations.php');
 $translations = loadTranslations();
 
 require_once __DIR__.'/router.php';
+echo __DIR__;
+require_once '/router.php';
 
-// ##################################################
-// ##################################################
-// ##################################################
-echo "omg to dela2";
 
 get('/', '/firstPage.php');
 get('/SHARED/header.php', '/SHARED/header.php');
