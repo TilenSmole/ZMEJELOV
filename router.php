@@ -60,7 +60,7 @@ function route($route, $path_to_include)
 			call_user_func_array($callback, []);
 			exit();
 		}
-		include_once __DIR__ . "/$path_to_include";
+		include_once "/$path_to_include";
 		exit();
 	}
 	if (count($route_parts) != count($request_url_parts)) {
@@ -82,7 +82,7 @@ function route($route, $path_to_include)
 		call_user_func_array($callback, $parameters);
 		exit();
 	}
-	$full_path = __DIR__ . DIRECTORY_SEPARATOR . $path_to_include;
+	$full_path =  DIRECTORY_SEPARATOR . $path_to_include;
 
 // Include the file
 include_once $full_path;

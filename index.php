@@ -2,9 +2,6 @@
 include('translations/load_translations.php');
 $translations = loadTranslations();
 
-echo __DIR__ . "dir" ."\n";
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">    
