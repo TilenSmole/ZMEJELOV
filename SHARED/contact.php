@@ -1,5 +1,6 @@
 <?php
 include('translations/load_translations.php');
+$translations = loadTranslations();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,24 +56,24 @@ include('translations/load_translations.php');
     <div id="header"></div>
     <div id="loginForm">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <label for="name"><?php $translations = loadTranslations();
+            <label for="name"><?php 
                                 echo $translations["name"] ?>:</label><br>
             <input type="text" id="name" name="name" required class="username">
             <br>
-            <label for="subject"><?php $translations = loadTranslations();
+            <label for="subject"><?php 
                                     echo $translations["subject"] ?>:</label><br>
             <input type="text" id="subject" name="subject" required class="username">
             <br>
-            <label for="email"><?php $translations = loadTranslations();
+            <label for="email"><?php 
                                 echo $translations["email"] ?>:</label><br>
             <input type="email" id="email" name="email" required class="username">
             <br>
-            <label for="message"><?php $translations = loadTranslations();
+            <label for="message"><?php 
                                     echo $translations["message"] ?>:</label><br>
             <textarea id="message" name="message" required class="textMessage"></textarea>
             <br>
             <div class="submitAbove">
-                <button type="submit" class="submitData"><?php $translations = loadTranslations();
+                <button type="submit" class="submitData"><?php 
                                                             echo $translations["send"] ?></button>
             </div>
 

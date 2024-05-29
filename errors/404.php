@@ -1,5 +1,6 @@
 <?php
 include('translations/load_translations.php');
+$translations = loadTranslations();
 ?>
 
 
@@ -27,11 +28,11 @@ include('translations/load_translations.php');
     <div id="header"></div>
 
     <div id="errorDiv">
-        <p><?php $translations = loadTranslations();
+        <p><?php 
             echo $translations["error"] ?></p>
 
 
-        <p><a href="/"><?php $translations = loadTranslations();
+        <p><a href="/"><?php 
                                 echo $translations["error_home"] ?></a></p>
     </div>
 

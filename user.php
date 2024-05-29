@@ -4,6 +4,7 @@ include('translations/load_translations.php');
 
 if (session_status() === PHP_SESSION_NONE)
   session_start();
+$translations = loadTranslations();
 ?>
 <html lang="en">
 
@@ -30,7 +31,7 @@ if (session_status() === PHP_SESSION_NONE)
 
   <?php
   $username = $_SESSION['username'];
-  $translations = loadTranslations();
+
   if (isset($_GET['user'])) {
     $username = $_GET['user'];
   }
@@ -183,7 +184,7 @@ if (session_status() === PHP_SESSION_NONE)
 
         <?php
 
-        $translations = loadTranslations();
+
         if ($_SESSION["achievements"][9] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">50</p>';
@@ -253,7 +254,7 @@ if (session_status() === PHP_SESSION_NONE)
 
 
         <?php
- 
+
         if ($_SESSION["achievements"][6] === "1") {
           echo '<div class="achievement-container">';
           echo '<img src="assets/achivments/money.png"  alt="Achievement Picture 1">';

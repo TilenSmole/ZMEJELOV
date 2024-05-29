@@ -85,8 +85,8 @@ if (session_status() === PHP_SESSION_NONE)
     <div class="introduction" id="introduction_OG">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">CityZmentures</span></b> <?php 
-                                                                      echo $translations["cityzmentures_intro"] ?></p>
+        <p><b><span style="font-size: 50px;">CityZmentures.php</span></b> <?php 
+                                                                      echo $translations["CityZmentures.php_intro"] ?></p>
       </div>
     </div>
 
@@ -199,7 +199,7 @@ if (session_status() === PHP_SESSION_NONE)
     <h1>LEADERBOARD</h1>
 
     <div class="leaderboard_buttons">
-      <form method="get" action="CityZmentures">
+      <form method="get" action="CityZmentures.php">
         <button type="submit" name="button20" class="leaderboard_button"> 20s</button>
         <button type="submit" name="button60" class="leaderboard_button">60s</button>
         <button type="submit" name="button120" class="leaderboard_button">120s</button>
@@ -208,7 +208,7 @@ if (session_status() === PHP_SESSION_NONE)
     </div>
 
 
-    <div style="text-align: center;" >
+    <div style="text-align: center;">
       <?php
       // Retrieve the current page number from the URL
       $page = isset($_GET['page']) ? $_GET['page'] : 1;
@@ -440,7 +440,7 @@ if (session_status() === PHP_SESSION_NONE)
         }
         ?>
 
-<?php
+        <?php
         
         if ($_SESSION["achievements"][15] === "1") {
           echo "<div class='oneAchievements'>";
@@ -485,7 +485,7 @@ if (session_status() === PHP_SESSION_NONE)
           echo $translations["KOMENTARJI"] ?></h1>
       <div>
         <div class="alignCommentAdd">
-          <form action="CityZmentures" method="GET" class="commentsForm">
+          <form action="CityZmentures.php" method="GET" class="commentsForm">
             <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
                                                                                       echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
             <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
@@ -560,7 +560,7 @@ WHERE RowNum BETWEEN ? AND ?";
 
 
     if ($totalComments != 0) {
-    
+
 
       // Calculate total number of pages
       $totalPages = ceil($totalComments / $commentsPerPage);
@@ -570,7 +570,7 @@ WHERE RowNum BETWEEN ? AND ?";
       echo '<div class="pagination">';
       for ($i = 1; $i <= $totalPages; $i++) {
         // Add onclick event to each pagination link to scroll to the comment section
-        echo '<a href="CityZmentures?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
+        echo '<a href="CityZmentures.php?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
       }
       echo '</div>';
       echo '</div>';
@@ -605,7 +605,7 @@ if (isset($_GET["submitCommentZmejelov"])) {
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/CityZmentures#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#comments_OG>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

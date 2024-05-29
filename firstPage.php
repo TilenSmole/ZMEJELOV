@@ -1,6 +1,7 @@
 <?php
 session_start();
 include('translations/load_translations.php');
+$translations = loadTranslations();
 ?>
 <html lang="en">
 
@@ -30,7 +31,7 @@ include('translations/load_translations.php');
         <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja" class="col-10">
         <div class="introductionText">
             <?php if (isset($_SESSION["username"])) : ?>
-                <p><?php $translations = loadTranslations();
+                <p><?php 
                     echo $translations['welcome_again'] ?>
                 <ul id="options">
                     <li><a href="/zmentures">ZMENTURES</a></li>
@@ -39,11 +40,11 @@ include('translations/load_translations.php');
                     <li><a href="Crackelov">CRA*KELOV</a></li>
                     <li><a href="TheFinalRage">THE FINAL RAGE</a></li>
                 </ul>
-                <?php $translations = loadTranslations();
+                <?php 
                 echo $translations['welcome_again2'] ?> <ul id="options">
                     </p>
                 <?php else : ?>
-                    <p> <?php $translations = loadTranslations();
+                    <p> <?php 
                         echo $translations['welcome_again3'] ?>
                     <ul id="options">
                         </p>
@@ -111,7 +112,7 @@ include('translations/load_translations.php');
 
 
     <div id="about_proyect">
-        <h1><?php $translations = loadTranslations();
+        <h1><?php 
             echo $translations['intro_essay'] ?></h1>
         <div class="pictureSlider fade">
             <img src="assets/uvod/Screenshot 2023-01-27 at 16-50-18 Untitled-11.pdf.png" alt="zmentures">
@@ -148,7 +149,7 @@ include('translations/load_translations.php');
         <p><?php
             echo $translations["my_intro"] ?>
 
-        <p><?php $translations = loadTranslations();
+        <p><?php 
             echo $translations['github_essay'] ?></p>
 
     </div>
