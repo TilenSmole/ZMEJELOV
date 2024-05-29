@@ -1,5 +1,5 @@
     <?php
-        require_once '/router.php';
+        require_once __DIR__.'/router.php';
     echo "omg to dela";
     echo "omg to dela";
     echo "omg to dela";

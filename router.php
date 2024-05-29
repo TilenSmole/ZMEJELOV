@@ -1,5 +1,5 @@
 <?php
-echo "omg to dela1";
+echo "omg to dela";
 function get($route, $path_to_include)
 {
 	if ($_SERVER['REQUEST_METHOD'] == 'GET') {
@@ -36,7 +36,8 @@ function any($route, $path_to_include)
 }
 function route($route, $path_to_include)
 {
-
+	echo $route. "route      ";
+	echo $path_to_include . "path_to_include      ";   
 	$callback = $path_to_include;
 	if (!is_callable($callback)) {
 		if (!strpos($path_to_include, '.php')) {
@@ -60,7 +61,7 @@ function route($route, $path_to_include)
 			call_user_func_array($callback, []);
 			exit();
 		}
-		include_once "/$path_to_include";
+		include_once __DIR__ . "/$path_to_include";
 		exit();
 	}
 	if (count($route_parts) != count($request_url_parts)) {
@@ -82,7 +83,7 @@ function route($route, $path_to_include)
 		call_user_func_array($callback, $parameters);
 		exit();
 	}
-	$full_path =  DIRECTORY_SEPARATOR . $path_to_include;
+	$full_path = __DIR__ . DIRECTORY_SEPARATOR . $path_to_include;
 
 // Include the file
 include_once $full_path;
