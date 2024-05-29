@@ -5,7 +5,7 @@
     echo "omg to dela";
     echo "omg to dela2"."\n";
 
-    get('/', '/firstPage.php');
+    get('/intro', '/firstPage.php');
     get('/SHARED/header.php', '/SHARED/header.php');
     get('/translations/load_translations.php', '/translations/load_translations.php');
     get('/translations/getLanguage.php', '/translations/getLanguage.php');
@@ -26,9 +26,9 @@
     get('/zmentures', '/zmejelov_basic.php');
     get('/Zmejelov1869', '/zmejelov_og.php');
     get('/Crackelov', '/zmejelov_speed_run.php');
-    get('/TheFinalRage', '/zmejelov_mcqueen.php');
+    get(__DIR__.'/TheFinalRage', '/zmejelov_mcqueen.php');
     get('/CityZmentures', '/ZMEJELOV_njam_njam.php');
-    get('/intro', '/index.php');
+    get('/', '/index.php');
     get('/user', '/user.php');
     post('/zmentures', '/zmejelov_basic.php');
     get('/contact', '/SHARED/contact.php');
