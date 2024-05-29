@@ -18,7 +18,7 @@ get('../SHARED/header.php', '../SHARED/header.php');
 get('/SERVER/logout.php', '/SERVER/logout.php');
 post('/register', '/SERVER/register.php');
 get('/register', '/SERVER/register.php');
-get('/login', '/SERVER/login.php');
+get(__DIR__.'/login', '/SERVER/login.php');
 get('/language.php', '/language.php');
 get('/translations/language.php', '/translations/language.php');
 //get('/translations/language.php?language=en', '/translations/language.php?language=en');
