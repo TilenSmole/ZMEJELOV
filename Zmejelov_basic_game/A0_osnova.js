@@ -253,17 +253,17 @@ class A0_osnova extends Phaser.Scene {
 		var achievementsUpdated = achievements;
 
 		if (ruins)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 0, "1");
-		if (deaths)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 1, "1");
-		if (secret)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 2, "1");
-		if (city)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 3, "1");
-		if (hardMode)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 4, "1");
-		if (easyMode)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 5, "1");
+		if (deaths)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 2, "1");
+		if (secret)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 1, "1");
+		if (city)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 4, "1");
+		if (hardMode)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 0, "1");
+		if (easyMode)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 3, "1");
 
 		achievements = achievementsUpdated;
 	}

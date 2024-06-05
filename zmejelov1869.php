@@ -33,19 +33,17 @@ $translations = loadTranslations();
   <meta charset="utf-8" />
   <title>Zmejelov</title>
   <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/osnova.js"></script>
-
-  <script type="text/javascript" src="zmejelov_OG/scena2.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/scena1.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/uvod.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/scena6.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/scena3.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/scena4.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/scena5.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/konec.js"></script>
-  <script type="text/javascript" src="zmejelov_OG/osnova.js"></script>
-
-  <script type="text/javascript" src="zmejelov_OG/game.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/osnova.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/scena2.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/scena1.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/uvod.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/scena6.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/scena3.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/scena4.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/scena5.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/konec.js"></script>
+  <script type="text/javascript" src="ZMEJELOV_OG/osnova.js"></script>  
+  <script type="text/javascript" src="ZMEJELOV_OG/game.js"></script>
   <link rel="preload" as="font" href="assets\uvod\Cinzel-Regular.ttf" type="font/ttf" />
 </head>
 
@@ -117,7 +115,7 @@ $translations = loadTranslations();
     <div class="introduction" id="introduction_OG">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php
+        <p><b><span style="font-size: 50px;"> ZMEJELOV 1869</span></b> <?php
                                                                   echo $translations["1869_intro"] ?></p>
       </div>
     </div>
@@ -278,7 +276,7 @@ $translations = loadTranslations();
             echo $translations["KOMENTARJI"] ?></h1>
         <div>
           <div class="alignCommentAdd">
-            <form action="Zmejelov1869" method="GET" class="commentsForm">
+            <form action="zmejelov1869.php" method="GET" class="commentsForm">
               <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
                                                                                         echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
               <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
@@ -335,7 +333,7 @@ WHERE RowNum BETWEEN ? AND ?";
           echo '<div class="full_comment">
             <span class="commentAuthor"> 
             <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
+            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
             </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
         }
         echo '</div>';
@@ -364,7 +362,7 @@ WHERE RowNum BETWEEN ? AND ?";
         echo '<div class="pagination">';
         for ($i = 1; $i <= $totalPages; $i++) {
           // Add onclick event to each pagination link to scroll to the comment section
-          echo '<a href="Zmejelov1869?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
+          echo '<a href="zmejelov1869.php?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
         }
         echo '</div>';
         echo '</div>';
@@ -399,7 +397,7 @@ if (isset($_GET["submitCommentZmejelov"])) {
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/Zmejelov1869#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/zmejelov1869.php#comments_OG>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

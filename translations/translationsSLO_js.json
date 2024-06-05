@@ -2,6 +2,7 @@
     "slo": {
         "next": "NAPREJ",
         "play": "IGRAJ",
+        "play2": "IGRAJ v2",
         "last_version": "Ali hočeš naložiti zadnjo igrano verzijo na nivoju",
         "last_version_date": "iz dne",
         "no": "NE",
@@ -99,9 +100,9 @@
         "ach_hard": "HARD MODE",
         "ach_easy": "EASY MODE",
 
-        "ach_stars": "ZVEZDE",
+        "ach_stars": "ODKRIJ ZVEZDE",
         "ach_all": "RAZNOLIKOST",
-        "ach_finish": "DOKONČAJ",
+        "ach_finish": "OPRAVI IGRO",
         "ach_speed": "HITROST",
         "ach_death" : "UMRI 20x",
         "ach_ship" : "BRRRRRRRRR",

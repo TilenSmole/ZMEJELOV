@@ -1,6 +1,6 @@
 <?php
-    include(__DIR__ . '/../SHARED/header.php');
-    include("database.php");
+    include(__DIR__ . '/SHARED/header.php');
+    include(__DIR__ . "/SERVER/database.php");
     $translations = loadTranslations();
 ?>
 <html lang="en">
@@ -90,5 +90,5 @@
  </div>
 
  <?php
-include(__DIR__ . '/../SHARED/footer.php');
+include(__DIR__ . '/SHARED/footer.php');
 ?>

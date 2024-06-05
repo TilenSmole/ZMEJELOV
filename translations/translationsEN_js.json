@@ -2,6 +2,7 @@
     "en":{
     "next": "NEXT",
     "play": "PLAY",
+    "play2": "PLAY v2",
     "last_version": "Do you want to load a save from",
     "last_version_date": "from",
     "no": "NO",

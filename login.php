@@ -1,8 +1,8 @@
 <?php
 
-include(__DIR__ . '/../SHARED/header.php');
-include("database.php");
-include("generalData.php");
+include(__DIR__ . '/SHARED/header.php');
+include(__DIR__ ."/SERVER/database.php");
+include(__DIR__ ."/SERVER/generalData.php");
 $translations = loadTranslations();
 ?>
 <html lang="en">
@@ -18,7 +18,7 @@ $translations = loadTranslations();
 
 <body>
     <div id="loginForm">
-        <form action="/login" method="POST">
+        <form action="/login.php" method="POST">
             <div class="username"> 🧛‍♀️<input type="text" name="username" placeholder=<?php echo $translations["username"] ?>><br>
             </div>
             <div class="password">
@@ -92,6 +92,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </div>
 <?php
-include(__DIR__ . '/../SHARED/footer.php');
+include(__DIR__ . '/SHARED/footer.php');
 
 ?>

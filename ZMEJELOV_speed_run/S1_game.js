@@ -9,6 +9,7 @@ var muska = 1 //da ne ponavla muske vsakic ko gres na main
 var enkratt = 1 //ce je 1 je default, pomeni pa da odklenemo 2 easter egg na 4 nivoju
 var stSmrti = 0
 var deathVarient = ""
+var uploaded = false
 
 // Languages
 var language = "slo"

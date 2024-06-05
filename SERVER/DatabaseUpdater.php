@@ -31,5 +31,4 @@ if ($data) {
     echo json_encode(array("error" => "No data received"));
 }
 
-mysqli_close($conn);
-?>
+

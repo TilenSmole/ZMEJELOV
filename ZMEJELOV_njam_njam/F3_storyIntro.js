@@ -6,12 +6,10 @@ class F3_storyIntro extends Phaser.Scene {
 	    this.load.audio('glavna', ['assets/uvod/glavna.mp3',"assets/uvod/glavna.ogg"]);
 		this.load.image("gumb","assets/uvod/gumb.png")
         this.load.image("zmeja","assets/uvod/zmeja.png")
-        this.load.video('video2', 'assets/uvod/story intro.mp4');
 	   }
  create() {
-    this.video = this.add.video(GAME_WIDTH/2, GAME_HEIGHT/2, 'video2');
-    this.video.setScale(.65)
-    this.video.play()
+   
+
 
 
         
@@ -23,6 +21,12 @@ class F3_storyIntro extends Phaser.Scene {
         this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65, 'СЛЕДУЮЩИЙ',{ fontSize: '20px', fill: '#E950F4' });}
     else{
         this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65, 'NAPREJ',{ fontSize: '40px', fill: '#E950F4' });}
+
+        
+
+
+
+
 
         
         countdown = false

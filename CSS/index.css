@@ -862,7 +862,5 @@ p: nth-child(2)
 
 
 @media screen and (min-width: 3500px) {
-  body {
-    background-color: lightgreen;
-  }
+  
 }
