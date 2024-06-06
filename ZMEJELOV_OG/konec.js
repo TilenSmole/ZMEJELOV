@@ -4,6 +4,7 @@ class konec extends osnova {
 	}
 	preload() {
 		this.load.audio('egg', ['assets/uvod/easterEgg(1).mp3', "assets/uvod/easterEgg(1).ogg"]);
+		
 	}
 	create() {
 

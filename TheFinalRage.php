@@ -88,7 +88,7 @@ if (session_status() === PHP_SESSION_NONE)
     <div class="introduction" id="introduction_OG">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">CityZmentures</span></b> <?php   $translations = loadTranslations();
+        <p><b><span style="font-size: 50px;">TheFinalRage</span></b> <?php   $translations = loadTranslations();
                                                                       echo $translations["crackelov_intro"] ?></p>
       </div>
     </div>
@@ -320,7 +320,7 @@ if (session_status() === PHP_SESSION_NONE)
         $translations = loadTranslations();
         if ($_SESSION["achievements"][7] === "1") {
           echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\rainbown.png" alt="Achievement Picture 1">';
+          echo '<img src="assets\achivments\rainbow.png" alt="Achievement Picture 1">';
           echo '<div class="tooltip">';
           echo '<b><p>' . $translations["rainbow"] . '</p></b>';
           echo '<p>' . $translations["rainbowA"] . '</p>';
@@ -382,7 +382,7 @@ if (session_status() === PHP_SESSION_NONE)
           echo $translations["KOMENTARJI"] ?></h1>
       <div>
         <div class="alignCommentAdd">
-          <form action="CityZmentures" method="GET" class="commentsForm">
+          <form action="TheFinalRage.php" method="GET" class="commentsForm">
             <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
                                                                                       echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
             <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
@@ -467,7 +467,7 @@ WHERE RowNum BETWEEN ? AND ?";
       echo '<div class="pagination">';
       for ($i = 1; $i <= $totalPages; $i++) {
         // Add onclick event to each pagination link to scroll to the comment section
-        echo '<a href="CityZmentures?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
+        echo '<a href="TheFinalRage.php?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
       }
       echo '</div>';
       echo '</div>';
@@ -502,7 +502,7 @@ if (isset($_GET["submitCommentZmejelov"])) {
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/CityZmentures#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/TheFinalRage.php#comments_OG>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

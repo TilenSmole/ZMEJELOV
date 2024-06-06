@@ -90,7 +90,8 @@
         "speedrun_win_med": "Še kar OK rezultat",
         "speedrun_win_slow": "No, smo saj prišli saj do konca 🙊",
         "speedrun_win_slow2x": "Wow, nisem si mislil, da se bo tole sporočilo kdaj prikazalo na zaslonu, tole je pa bilo kar počasi za igrico, kjer si dolžan biti hiter",
-       
+        "city_intro": "Joj kako lep dan, mar ga ne bi bilo vredno počastiti z enim prijetnim kosilom????? Mislim, da je čas, da greš v nabavno, daj nakupi čim več dobrega! Srečno! ",
+        
        
        
         "ach_ruins": "RUŠEVINE",
@@ -106,7 +107,9 @@
         "ach_speed": "HITROST",
         "ach_death" : "UMRI 20x",
         "ach_ship" : "BRRRRRRRRR",
-        "ach_OG": "OG "
+        "ach_OG": "OG ",
+        "store": "razlaga",
+        "bought" : "aktivirano"
 
 
 

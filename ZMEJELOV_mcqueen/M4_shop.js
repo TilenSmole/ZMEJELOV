@@ -1,6 +1,7 @@
 
 var item1, item2, item3,item4,item6,item5,item7,item8
-var  userCoins2 = 1000 
+
+
 var money
 class M4_shop extends M0_shared {
 	constructor(){
@@ -20,15 +21,13 @@ class M4_shop extends M0_shared {
 
 	   }
  create() {
-    this.video = this.add.video(GAME_WIDTH/2, GAME_HEIGHT/2, 'video2');
-    this.video.setScale(.65)
-    this.video.play()
+
 
 
         
     this.zacetek = this.add.sprite(GAME_WIDTH-100,GAME_HEIGHT - 50, 'gumb').setInteractive();
     this.zacetek.setScale(0.8)
-    this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65, 'DOMOV',{ fontSize: '30px', fill: '#E950F4' });
+    this.add.text(GAME_WIDTH-165,GAME_HEIGHT - 65,this.loadText("home"),{ fontSize: '30px', fill: '#E950F4' });
 
      
 
@@ -86,8 +85,8 @@ class M4_shop extends M0_shared {
 
     
 
-
-     gameState.text = this.add.text(GAME_WIDTH-200, 20, 'Stanje: '+ userCoins2,{ fontSize: '30px', fill: '#E950F4' ,  fontFamily: 'CustomFont'});
+    console.log('userCoins'+ userCoins);
+     gameState.text = this.add.text(GAME_WIDTH-200, 20, 'Stanje: '+ userCoins,{ fontSize: '30px', fill: '#E950F4' ,  fontFamily: 'CustomFont'});
 
 
     this.zacetek.on('pointerup', () => {
@@ -96,91 +95,17 @@ class M4_shop extends M0_shared {
         })
     
 
+       
 
-    item1.on('pointerup', () => {
-        if(userCoins2 -100 >= 0)
-            userCoins2 -= 100
-
-        if(storage.chest == 0)
-            storage.chest = 0
-        else
-            storage.chest++ 
-    })
-
-    item2.on('pointerup', () => {
-        if(userCoins2 -100 >= 0)
-            userCoins2 -= 100
-
-        if(storage.shield == 0)
-            storage.shield = 0
-        else
-            storage.shield++ 
-    })
-
-    item3.on('pointerup', () => {
-        if(userCoins2 -100 >= 0)
-            userCoins2 -= 100
-
-        if(storage.ghost == 0)
-            storage.ghost = 0
-        else
-            storage.ghost++ 
-    })
-
-    item4.on('pointerup', () => {
-        if(userCoins2 -100 >= 0)
-            userCoins2 -= 100
-
-        if(storage.shroom == 0)
-            storage.shroom = 0
-        else
-            storage.shroom++ 
-    })
-    item5.on('pointerup', () => {
-        if(userCoins2 -100 >= 0)
-            userCoins2 -= 100
-
-        if(storage.potion == 0)
-            storage.potion = 0
-        else
-            storage.potion++ 
-    })
-
-    item6.on('pointerup', () => {
-        if(userCoins2 -100 >= 0)
-            userCoins2 -= 100
-
-        if(storage.rocket == 0)
-            storage.rocket = 0
-        else
-            storage.rocket++ 
-    })
-
-    item7.on('pointerup', () => {
-        if(userCoins2 -100 >= 0)
-            userCoins2 -= 100
-
-        if(storage.spaceship == 0)
-            storage.spaceship = 0
-        else
-            storage.spaceship++ 
-    })
-
-
-
-
-
-  }
-
-  update() {
- 
-    gameState.text.setText('Stanje: ' + userCoins2);
-
-   
     
 
 
 
+  
+
+
+
+   
 }
 
 }

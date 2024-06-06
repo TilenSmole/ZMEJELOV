@@ -136,12 +136,7 @@ class F2_inicial extends Phaser.Scene {
             K = true;
         if (ach7 == 1)
             tfK = true;
-        if (ach8 == 1)
-            fK = true;
-        if (ach9 == 1)
-            HK = true;
-        if (ach10 == 1)
-            fT = true;
+
 
 
 

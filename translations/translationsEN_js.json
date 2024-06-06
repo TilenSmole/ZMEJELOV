@@ -89,9 +89,24 @@
     "speedrun_win_fast": "WOW that was fast",
     "speedrun_win_med": "Quite OK timing",
     "speedrun_win_slow": "Well, at leats you have finished 🙊",
-    "speedrun_win_slow2x": "Wow, nisem si mislil, da se bo tole sporočilo kdaj prikazalo na zaslonu, tole je pa bilo kar počasi za igrico, kjer si dolžan biti hiter"
+    "speedrun_win_slow2x": "Wow, nisem si mislil, da se bo tole sporočilo kdaj prikazalo na zaslonu, tole je pa bilo kar počasi za igrico, kjer si dolžan biti hiter",
+    "city_intro": "Oh, what a beautiful day, wouldn't it be worth celebrating with a nice lunch????? I think it's time to go shopping, buy as much good stuff as you can! Good luck!",
 
+    "ach_ruins": "RUINS",
+    "ach_50deaths": "50 DEATHS",
+    "ach_secret": "SECRET LEVEL",
+    "ach_city": "CITY",
+    "ach_hard": "HARD MODE",
+    "ach_easy": "EASY MODE",
 
+    "ach_stars": "DISCOVER STARS",
+    "ach_all": "VARIETY",
+    "ach_finish": "FINISH THE GAME",
+    "ach_speed": "SPEED",
+    "ach_death": "DIE 20x",
+    "ach_ship": "BRRRRRRRRR",
+    "ach_OG": "OG",        "store": "explanation",
+    "bought" : "activated"
 
 
     }}

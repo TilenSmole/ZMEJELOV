@@ -1,8 +1,8 @@
-class M2_inicial extends Phaser.Scene {
-    constructor() {
-        super({ key: 'M2_inicial' });
-    }
 
+class M2_inicial extends M0_shared {
+    constructor() {
+        super("M2_inicial")
+    }
     preload() {
         this.load.audio('glavna', ['assets/uvod/glavna.mp3', "assets/uvod/glavna.ogg"]);
         this.load.image("gumb", "assets/uvod/gumb.png")
@@ -16,20 +16,33 @@ class M2_inicial extends Phaser.Scene {
         this.load.image("gumb2", "assets/uvod/gumbVeliki.png")
         this.load.image("mute", "assets/uvod/mute.png")
         this.load.image("unmute", "assets/uvod/umute.png")
-        this.load.json('textSlo', 'translations/translationsSLO_js.json');
-        this.load.json('textEn', 'translations/translationsEN_js.json');
-    }/*
-loadText(text_to_translate) {
-    if (language === "en") {
-        return this.cache.json.get('textEn')["en"][text_to_translate];
-    } else {
-        return this.cache.json.get('textSlo')["slo"][text_to_translate];
+        this.load.json('textEn', '/translations/translationsEN_js.json');
+        this.load.json('textSlo', '/translations/translationsSLO_js.json');
     }
-}*/
+
+    loadText(text_to_translate) {
+        let textEn = this.cache.json.get('textEn');
+        let textSlo = this.cache.json.get('textSlo');
+        if (language === "en") {
+            return textEn["en"][text_to_translate];
+        } else {
+            return textSlo["slo"][text_to_translate];
+        }
+    }
+
+
     create() {
         this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
         var verzija = Math.floor(Math.random() * 3)
+
+
+
+    
+        userCoins =   this.getMoney();
+
+    
+
 
 
         if (verzija == 0) {
@@ -90,7 +103,7 @@ loadText(text_to_translate) {
             noPops = true;
         if (ach2 == 1)
             rainbow = true;
-     
+
 
 
 
@@ -109,7 +122,7 @@ loadText(text_to_translate) {
 
 
         this.igra = this.add.sprite(GAME_WIDTH / odmik, pozicija1, 'gumb2').setInteractive();
-        this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20, "igraj", { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20, this.loadText("play"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
 
         this.igraTimer = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();

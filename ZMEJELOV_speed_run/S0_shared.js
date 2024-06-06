@@ -132,7 +132,7 @@ class S0_shared extends Phaser.Scene {
 		var achievementsUpdated = achievements;
 		console.log(achievements)
 		if (completedSpeedy)
-			completedSpeedy = this.replaceCharAt(achievementsUpdated, 17, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 17, "1");
 		if (completedGame)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 18, "1");
 		if (dieDiverse)
