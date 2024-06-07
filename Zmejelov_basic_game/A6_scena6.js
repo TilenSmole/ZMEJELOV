@@ -38,7 +38,7 @@ class A6_scena6 extends A0_osnova {
 			trenutnaScena = "A4_scena4"
 		}
 
-		this.save("A6_scena6", dificulty)
+		this.save("A6_scena6", difficulty)
 
 		//ozadje full screen
 		this.bg = this.add.image(dolzina / 2, visina / 2, 'ozadje6');

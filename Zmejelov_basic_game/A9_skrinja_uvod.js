@@ -40,7 +40,7 @@ class A9_skrinja_uvod extends Phaser.Scene {
       this.updateDificulty()
       const data = {
         lastLevel: "A9_skrinja_uvod",
-        dificulty: dificulty
+        difficulty: difficulty
       };
 
       this.updateDataBase(data)

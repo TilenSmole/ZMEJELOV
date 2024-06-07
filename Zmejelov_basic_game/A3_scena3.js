@@ -79,7 +79,7 @@ create(){
 	
 })
 
-this.save("A3_scena3", dificulty)
+this.save("A3_scena3", difficulty)
 
 
 

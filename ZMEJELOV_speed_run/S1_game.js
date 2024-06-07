@@ -114,7 +114,7 @@ class getStuff {
   }
   
 var lastLevel = "";
-var dificulty = "";
+var difficulty = "";
 var achievements = "";
 var DATE = "";
 const dataRetrieval = new getStuff();
@@ -128,7 +128,7 @@ dataRetrieval.getPhpStuff()
     achievements = data.achievements;
     /* console.log(username);
      console.log(lastLevel);
-     console.log(dificulty);
+     console.log(difficulty);
      console.log(DATE);
      console.log(achievements);*/
     if (user !== undefined) {

@@ -53,7 +53,7 @@ create(){
     this.updateDificulty()
     const data = {
     lastLevel: "A8_plavanje" ,
-    dificulty: dificulty
+    difficulty: difficulty
     };
 
 this.updateDataBase(data)

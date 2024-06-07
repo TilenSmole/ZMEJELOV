@@ -150,9 +150,10 @@ class A0_osnova extends Phaser.Scene {
 	save(_scene, _dificulty) {
 		if (!vrniNaPogoj) {
 			this.updateDificulty()
+
 			const data = {
 				lastLevel: _scene,
-				dificulty: _dificulty
+				difficulty: _dificulty
 			};
 
 			this.updateDataBase(data)
@@ -239,7 +240,7 @@ class A0_osnova extends Phaser.Scene {
 		}
 
 
-		dificulty = dificultyUpdated;
+		difficulty = dificultyUpdated;
 	}
 
 	replaceCharAt(str, index, replacement) {

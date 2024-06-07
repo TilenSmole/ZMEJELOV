@@ -1,6 +1,5 @@
 
 .achievementsDisplayProfile{
-    border: 2px solid red;
     margin: 3%;
    }
 
@@ -35,3 +34,22 @@ img{
     max-width: 100%; 
     display: block; 
 }
+
+
+#profileTop {
+    display: flex;
+    justify-content: center;
+    margin-top: 250px;
+    background-color: #4d4455;
+    padding: 50px;
+    margin: 0 500px;
+    border-radius: 50px; /* Adding 'px' unit for border-radius */
+}
+
+
+.profile {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+}
+
+

@@ -61,14 +61,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 session_start();
             }
             $_SESSION["username"] = $username;
-            $getLastLevel = "SELECT lastLevel, dificulty, DATE, achievements,money  FROM users WHERE username='$username'";
+            $getLastLevel = "SELECT lastLevel, difficulty, DATE, achievements,money  FROM users WHERE username='$username'";
             $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
 
             // Fetch a row from the result set as an associative array
             $row = sqlsrv_fetch_array($getLastLevel_result);
             // Access the column containing the integer value 
             $_SESSION["lastLevel"] = $row['lastLevel'];
-            $_SESSION["dificulty"] = $row['dificulty'];
+            $_SESSION["difficulty"] = $row['difficulty'];
             $_SESSION["DATE"] = $row['DATE'];
             $_SESSION["achievements"] = $row['achievements'];
             $_SESSION["money"] = $row['money'];

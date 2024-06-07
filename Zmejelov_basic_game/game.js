@@ -53,7 +53,7 @@ var zmaga = true   //ce zmagamo skrvini nivo bo true
 
 var trenutnaScena = "" //na kero sceno vrnt, ce odklene easter egg za smrt
 var checkpoint = false
-var pogojSmrtLevel = 1 //pogoj za aktivacijo easter egga 
+var pogojSmrtLevel = 25 //pogoj za aktivacijo easter egga 
 
 var spawnP = false  //pogoj za spown point A8_plavanje 
 var spawn6 = false  //pogoj za spown point lvl6 
@@ -150,10 +150,10 @@ class getStuff {
           var username = sessionData.username;
           user = sessionData.username;
           var lastLevel = sessionData.lastLevel;
-          var dificulty = sessionData.dificulty;
+          var difficulty = sessionData.difficulty;
           const DATE = sessionData.DATE;
           const achievements = sessionData.achievements;
-          resolve({ username, lastLevel, dificulty, DATE, achievements, user }); // Resolve with username and lastLevel
+          resolve({ username, lastLevel, difficulty, DATE, achievements, user }); // Resolve with username and lastLevel
         } else {
           // Handle error
           reject(new Error('Failed to retrieve username')); // Reject with an error
@@ -169,7 +169,7 @@ class getStuff {
 }
 
 var lastLevel = "";
-var dificulty = "";
+var difficulty = "00000";
 var achievements = "0000000";
 var DATE = "";
 const dataRetrieval = new getStuff();
@@ -187,12 +187,12 @@ dataRetrieval.getPhpStuff()
   .then(data => {
     username = data.username;
     lastLevel = data.lastLevel;
-    dificulty = data.dificulty;
+    difficulty = data.difficulty;
     achievements = data.achievements;
     DATE = data.DATE;
     /* console.log(username);
      console.log(lastLevel);
-     console.log(dificulty);
+     console.log(difficulty);
      console.log(DATE);
      console.log(achievements);*/
     if (user !== undefined) {

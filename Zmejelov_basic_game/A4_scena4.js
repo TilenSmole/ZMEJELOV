@@ -22,7 +22,7 @@ class A4_scena4 extends A0_osnova {
 		super.create()
 
 		trenutnaScena = "A4_scena4"
-		this.save("A4_scena4", dificulty)
+		this.save("A4_scena4", difficulty)
 
 		//ozadje full screen
 		this.bg = this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'ozadje4');
@@ -219,7 +219,7 @@ class A4_scena4 extends A0_osnova {
 		this.updateDificulty()
 		const data = {
 			lastLevel: "A4_scena4",
-			dificulty: dificulty
+			difficulty: difficulty
 		};
 
 		this.updateDataBase(data)

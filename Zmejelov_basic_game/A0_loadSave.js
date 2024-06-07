@@ -63,7 +63,8 @@ create() {
   
     this.yes.on('pointerup', () => {
         this.scene.stop('A0_zacetniZaslon ')
-        var dificultySplit = dificulty;
+        console.log('difficulty' + difficulty );
+        var dificultySplit = difficulty;
         const dificultyPrevious = dificultySplit.substring(0, 1); 
         const secretLevelCompletedPrevious = dificultySplit.substring(1, 2); 
         const checkPoints = dificultySplit.substring(2, 3);

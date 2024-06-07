@@ -26,7 +26,7 @@ create(){
 			}
 
 		
-	this.save("A5_scena5", dificulty)
+	this.save("A5_scena5", difficulty)
 
 
 

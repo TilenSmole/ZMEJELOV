@@ -38,11 +38,11 @@ class smrt extends A0_osnova {
 
     this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
 
-    quote = this.loadText("quote_intro") + sloQuoti[stSLO]
+    var quote = this.loadText("quote_intro") + sloQuoti[stSLO]
 
-    if (languge == "en")
+    if (language == "en")
       quote = this.loadText("quote_intro") + angQuoti[stUSA]
-    else if (languge == "rus")
+    else if (language == "rus")
       quote = this.loadText("quote_intro") + rusQuoti[stRUS]
 
 

@@ -29,7 +29,7 @@ create(){
     this.bg = this.add.image(dolzina/2, visina /2, 'ozadje2');
     this.bg.setDisplaySize(dolzina, visina)
     var kolider = []
-    this.save("A9_cilj", dificulty)
+    this.save("A9_cilj", difficulty)
 
     //platforma
     const platforms = this.physics.add.staticGroup();

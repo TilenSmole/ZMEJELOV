@@ -56,7 +56,7 @@ class A7_droperTroll extends Phaser.Scene{
     this.updateDificulty()
     const data = {
     lastLevel: "A7_droperUvod" ,
-    dificulty: dificulty
+    difficulty: difficulty
     };
 
     this.updateDataBase(data)

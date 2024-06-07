@@ -1,110 +1,126 @@
 <?php
 include("SERVER/database.php");
 include('translations/load_translations.php');
-
+$translations = loadTranslations();
+$username = $_SESSION['username'];
+if (isset($_GET['user'])) {
+  $username = $_GET['user'];
+}
 if (session_status() === PHP_SESSION_NONE)
   session_start();
+
+$sql = "SELECT achievements, creation_date FROM users WHERE username='{$username}'";
+$result = sqlsrv_query($conn, $sql);
+
+if ($result) {
+
+  if (sqlsrv_has_rows($result) > 0) {
+    $achievements = "";
+    $date = "";
+
+    while ($row = sqlsrv_fetch_array($result)) {
+      $achievements .= $row["achievements"] . "<br>";
+      $date .= $row["creation_date"]->format('Y-m-d H:i:s') . "<br>";
+    }
+
 ?>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZMEJELOV</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet" href="/CSS/index.css">
-  <link rel="stylesheet" href="/CSS/common.css">
-  <link rel="stylesheet" href="/CSS/profileCSS.css">
-</head>
+    <html lang="en">
 
-<body>
-  <script>
-    $(document).ready(function() {
-      $("#header").load("SHARED/header.php");
-      $("#footer").load("SHARED/footer.php");
-    });
-  </script>
-  <div id="header"></div>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ZMEJELOV</title>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <link rel="stylesheet" href="/CSS/index.css">
+      <link rel="stylesheet" href="/CSS/common.css">
+      <link rel="stylesheet" href="/CSS/profileCSS.css">
+    </head>
+
+    <body>
+      <script>
+        $(document).ready(function() {
+          $("#header").load("SHARED/header.php");
+          $("#footer").load("SHARED/footer.php");
+        });
+      </script>
+      <div id="header"></div>
+      <div id="profileTop">
+        <div class="profile">
+          <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 150px; height: 200px; background-color: #605966; border-radius: 100%;">
+          <div>
+        <h1> <?php echo $username; ?></h1>
+        <p>zmejeloving since <?php echo $date; ?></p>
+    </div>
+        </div>
+      </div>
 
 
 
-  <?php
-  $username = $_SESSION['username'];
-  $translations = loadTranslations();
-  if (isset($_GET['user'])) {
-    $username = $_GET['user'];
-  }
-  echo "<h1>ZMEJELOVER: " . $username . "</h1>";
-  $sql = "SELECT achievements, creation_date FROM users WHERE username='{$username}'";
-  $result = sqlsrv_query($conn, $sql);
-
-  if ($result) {
-    if (sqlsrv_has_rows($result) > 0) {
-      $achievements = "0000000000000000000000000000000000000000000000000000000000000000000000";
-      $date = "";
-
-      while ($row = sqlsrv_fetch_array($result)) {
-        $achievements .= $row["achievements"] . "<br>";
-        $date .= $row["creation_date"]->format('Y-m-d H:i:s') . "<br>";
-      }
-      echo "zmejeloving since " . $date;
-  ?>
       <div class="achievementsDisplayProfile">
         <h2>ZMENTURES</h2>
         <?php
-        $finalScore = substr($achievements, 0, 5);
+        $finalScore = substr($achievements, 0, 6);
         $finalScore = substr_count($finalScore, '1');
         ?>
         <p>odklenjenih <?php echo $finalScore ?>/5 </p>
         <?php
         if ($achievements[0] === "1") {
           echo '<div class="achievement-container">';
-          echo '<img src="assets/achivments/zmejelov_clasic/8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
+          echo '<img src="assets/achivments/zmejelov_clasic/8664840_face_grin_beam_sweat_icon.png"  alt="Achievement Picture 1">';
           echo "<p class='hover-text'>" . $translations["ach_OG1"] . '</p>';
           echo '</div>';
         }
-        ?>
-        <?php
+
+
         if ($achievements[1] === "1") {
           echo '<div class="achievement-container">';
-          echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
-          echo '<p class="hover-text">' . $translations["ach_OG2"] . '</p>';
+          echo '<img src="assets/achivments/zmejelov_clasic/8665591_ghost_halloween_icon.png" alt="Achievement Picture 1">';
+          echo "<p class='hover-text'>" . $translations["ach_OG2"] . '</p>';
           echo '</div>';
         }
         ?>
         <?php
         if ($achievements[2] === "1") {
           echo '<div class="achievement-container">';
-          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
-          echo '<p class="hover-text">'  . $translations["ach_OG3"] . '</p>';
+          echo '<img src="assets\achivments\zmejelov_clasic\9035903_skull_sharp_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="hover-text">' . $translations["ach_OG3"] . '</p>';
           echo '</div>';
         }
         ?>
         <?php
         if ($achievements[3] === "1") {
           echo '<div class="achievement-container">';
+          echo '<img src="assets\achivments\zmejelov_clasic\8665591_ghost_halloween_icon.png"  alt="Achievement Picture 1">';
+          echo '<p class="hover-text">'  . $translations["ach_OG4"] . '</p>';
+          echo '</div>';
+        }
+        ?>
+        <?php
+        if ($achievements[4] === "1") {
+          echo '<div class="achievement-container">';
           echo '<img src="assets\achivments\zmejelov_clasic\8665817_store_shopping_icon.png"  alt="Achievement Picture 1">';
-          echo '<p class="hover-text">' . $translations["ach_OG4"] . '</p>';
+          echo '<p class="hover-text">' . $translations["ach_OG5"] . '</p>';
           echo '</div>';
         }
 
         ?>
         <?php
-        if ($achievements[4] === "1") {
+        if ($achievements[5] === "1") {
           echo '<div class="achievement-container">';
           echo '<img src="assets\achivments\zmejelov_clasic\9035826_earth_sharp_icon.png"  alt="Achievement Picture 1">';
-          echo '<p class="hover-text">' . $translations["ach_OG5"] . '</p>';
+          echo '<p class="hover-text">' . $translations["ach_OG6"] . '</p>';
           echo '</div>';
         }
         ?>
       </div>
       <div class="achievementsDisplayProfile">
-        <h2>SPEEDRUN </h2>
+        <h2>CR*CKELOV </h2>
         <?php
-        $finalScore = substr($achievements, 5, 6);
+        $finalScore = substr($achievements, 16, 7);
         $finalScore = substr_count($finalScore, '1');
         ?>
-        <p>odklenjenih <?php echo $finalScore ?>/6 </p>
+        <p>odklenjenih <?php echo $finalScore ?>/7 </p>
         <?php
         if ($achievements[17] === "1") {
           echo '<div class="achievement-container">';
@@ -175,10 +191,10 @@ if (session_status() === PHP_SESSION_NONE)
       <div class="achievementsDisplayProfile">
         <h2>CITY ZMENTURES </h2>
         <?php
-        $finalScore = substr($achievements, 11, 1);
+        $finalScore = substr($achievements, 8, 7);
         $finalScore = substr_count($finalScore, '1');
         ?>
-        <p>odklenjenih <?php echo $finalScore ?>/1 </p>
+        <p>odklenjenih <?php echo $finalScore ?>/7 </p>
 
 
         <?php
@@ -246,14 +262,14 @@ if (session_status() === PHP_SESSION_NONE)
       <div class="achievementsDisplayProfile">
         <h2>THE FINAL RAGE </h2>
         <?php
-        $finalScore = substr($achievements, 11, 1);
+        $finalScore = substr($achievements, 7, 3);
         $finalScore = substr_count($finalScore, '1');
         ?>
-        <p>odklenjenih <?php echo $finalScore ?>/1 </p>
+        <p>odklenjenih <?php echo $finalScore ?>/3 </p>
 
 
         <?php
- 
+
         if ($_SESSION["achievements"][6] === "1") {
           echo '<div class="achievement-container">';
           echo '<img src="assets/achivments/money.png"  alt="Achievement Picture 1">';
@@ -284,12 +300,12 @@ if (session_status() === PHP_SESSION_NONE)
 
 
   <?php
-    } else {
-      echo "Username doesn't exist";
-    }
   } else {
-    echo "Error";
+    echo "Username doesn't exist";
   }
+} else {
+  echo "Error";
+}
 
 
 
@@ -371,6 +387,6 @@ if (session_status() === PHP_SESSION_NONE)
 
 
   <div id="footer"></div>
-</body>
+    </body>
 
-</html>
+    </html>
