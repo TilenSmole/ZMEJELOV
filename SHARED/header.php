@@ -151,14 +151,14 @@
           </li>
           <li class="has-subnav"><a href="/zmentures.php" onclick="closeNav()">ZMENTURES</a>
             <ul class="subnav">
-              <li><a href="/zmentures#introduction" onclick="closeNav()"><?php ;
+              <li><a href="/zmentures.php#introduction" onclick="closeNav()"><?php ;
                                                                           echo $translations['about_the_game']; ?></a></li>
-              <li><a href="/zmentures#game_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmentures.php#game_OG" onclick="closeNav()"><?php ;
                                                                     echo $translations['game']; ?></a></li>
-              <li><a href="/zmentures#QnA_OG" onclick="closeNav()">Q&A</a></li>
-              <li><a href="/zmentures#comments_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmentures.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
+              <li><a href="/zmentures.php#comments_OG" onclick="closeNav()"><?php ;
                                                                         echo $translations['KOMENTARJI']; ?></a></li>
-              <li><a href="/zmentures#dosezki_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmentures.php#dosezki_OG" onclick="closeNav()"><?php ;
                                                                         echo $translations['achivements']; ?></a></li>
             </ul>
           </li>
@@ -225,7 +225,7 @@
             <?php print_r($_SESSION);
             if (empty($_SESSION["username"])) : ?>
               <li> <a href="/login.php" onclick="closeNav()"><?php ;
-                                                              echo $translations['login.php']; ?></a></li>
+                                                              echo $translations['login']; ?></a></li>
             <?php else : ?>
               <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php ;
                                                                                                             echo $translations['logout']; ?></a></li>
