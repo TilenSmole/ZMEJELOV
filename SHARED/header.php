@@ -4,10 +4,7 @@
   if (session_status() == PHP_SESSION_NONE) {
     session_start();
   }
-  include(__DIR__ . '/SHARED/header.php');
-include(__DIR__ ."/SERVER/database.php");
-include(__DIR__ ."/SERVER/generalData.php");
-
+  include(__DIR__ . '/../translations/load_translations.php');
   $translations = loadTranslations();
   print_r($_SESSION);
   echo "Username: " . $_SESSION["username"] ?? 'Not set';
