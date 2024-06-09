@@ -1,9 +1,8 @@
   <?php
 
 
-  if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-  }
+  session_start();
+  
   include(__DIR__ . '/translations/load_translations.php');
   $translations = loadTranslations();
   print_r($_SESSION);
