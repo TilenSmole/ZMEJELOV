@@ -36,7 +36,7 @@ if (session_status() === PHP_SESSION_NONE)
     <script type="text/javascript"src = "zmejelov_mcqueen/M0_shared.js"></script>
     <script type="text/javascript"src = "zmejelov_mcqueen/M2_inicial.js"></script>
     <script type="text/javascript"src = "zmejelov_mcqueen/M3_storyIntro.js"></script>
-    <script type="text/javascript"src = "zmejelov_mcqueen/M4_gamePlayStart.js"></script>
+    <script type="text/javascript"src = "zmejelov_mcqueen/M4_red.js"></script>
     <script type="text/javascript"src = "zmejelov_mcqueen/M5_konec.js"></script>
     <script type="text/javascript"src = "zmejelov_mcqueen/M4_deathScreen.js"></script>
     <script type="text/javascript"src = "zmejelov_mcqueen/M4_shop.js"></script>

@@ -16,7 +16,14 @@
     "individual_level": "LEVELS",
     "individual_level_descr": "For those who want to enjoy the beauty of one level",
     "easy": "EASY",
+   " the_final_rage_end" :  "finally... the end",
     "easy_desc": "play with spawnpoints and extra lifes",
+    "rainbow": "Discover the rainbow",
+    "money_ach": "Buy the achievement",
+    "no_pups": "Achieve 10000 without additional abilities",
+    "rainbowA": "🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈",
+    "money_achA": "Money rules the world",
+    "no_pupsA": "Pooowwwweeeeeerrrrrrrr",
     "game_intro": "Ponovno, to  je Zmeja, prikupen mlad vesoljček, ki pa je na misiji, da najde pot domov. No še dobro, da je našla TEBE, da ji boš pomagal! Za premikanje uporabi ➡️⬆️⬇️⬅️ & 🌌. SREČNO! (mislim, da jo boš rabil)",
     "space_start": "click SPACE to start",
     "space": "click SPACE to continue",
@@ -106,7 +113,8 @@
     "ach_death": "DIE 20x",
     "ach_ship": "BRRRRRRRRR",
     "ach_OG": "OG",        "store": "explanation",
-    "bought" : "activated"
+    "bought" : "activated",
+    "not_ava" : "not available"
 
 
     }}

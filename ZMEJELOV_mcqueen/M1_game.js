@@ -19,11 +19,11 @@ var coinsNewGame = 0
 var score = 0
 var didntCheat = true
 var storage = {}
-
+var rainbowUnlocked = false
 var buy   = false
 var rainbow = false
 var noCheat = false
-
+var saveResOnce = false
 
 var shieldAbility = false
 var ghostAbility= false
@@ -33,12 +33,20 @@ var rocketAbility= false
 var spaceshipAbility = false
 
 
+var shieldStart = false
+var ghostStart = false
+var shroomStart = false
+var potionStart = false
+var rocketStart = false
+var spaceshipStart = false
+
 var shield = false
 var ghost = false
 var shroom = false
-var potion = false
-var rocket = false
-var spaceship = false
+var heart = false
+var spaceShip = false
+var speedShip = false
+
 
 
 
@@ -87,7 +95,7 @@ const config = {
   type: Phaser.AUTO,
   height: GAME_HEIGHT,
   width: GAME_WIDTH,
-  scene: [M2_inicial, M4_shop, M0_shared, M3_storyIntro, M4_gamePlayStart, M4_deathScreen, M5_konec],
+  scene: [M2_inicial, M4_shop, M0_shared, M3_storyIntro, M4_red, M4_deathScreen, M5_konec],
   physics: {
     default: 'arcade',
     arcade: {

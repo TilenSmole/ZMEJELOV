@@ -14,7 +14,7 @@ class M3_storyIntro extends M0_shared {
             this.load.image("r1 (" + i + ')', "assets/a_TheFinalRage/r1 (" + i + ").png");
         }
         this.load.audio('egg', ['assets/uvod/easterEgg(1).mp3', "assets/uvod/easterEgg(1).ogg"]);
-        this.load.image("ach","assets/achivments/money.png")
+        this.load.image("ach", "assets/achivments/money.png")
 
 
     }
@@ -22,7 +22,7 @@ class M3_storyIntro extends M0_shared {
 
 
 
-    
+
     create() {
 
         //NAREDIMO, DA IGRALEC NE DOBI PONOVNO OBVESTIL O DOSEZENIH ACHIVEMENTIH
@@ -105,50 +105,63 @@ class M3_storyIntro extends M0_shared {
 
         this.zacetek.on('pointerup', () => {
             this.scene.stop('M4_shop')
-            this.scene.start('M4_gamePlayStart')
+            this.scene.start('M4_red')
         })
 
 
 
 
         item0.on('pointerup', () => {
-            if (userCoins - 100 >= 0)
-                userCoins -= 100
-            this.updateBalance()
-            var random = Math.floor(Math.random() * (6));
+            if (!shieldStart && !ghostStart && !shroomStart && !potionStart && !rocketStart && !spaceshipStart) {
+                if (userCoins - 100 >= 0) {
+                    userCoins -= 100
 
-            if (random == 0){  shield= true
-                item1.setText(this.loadText("bought"))
-                this.updateBalance()
-            } 
-              
-            else if (random == 1){ ghost= true
-                item2.setText(this.loadText("bought"))
-                this.updateBalance()
-            } 
-               
-            else if (random == 2){  shrrom= true
-                item3.setText(this.loadText("bought"))
-                this.updateBalance()
-            } 
-              
-            else if (random == 3){  potion= true
-                item4.setText(this.loadText("bought"))
-                this.updateBalance()
-            } 
-              
-            else if (random == 4){
-                rocket= true
-                item5.setText(this.loadText("bought"))
-                this.updateBalance()
-            } 
-            else if (random == 5){
-                spaceship= true
-                item6.setText(this.loadText("bought"))
-                this.updateBalance()
-            } 
-               
-       
+                    this.updateBalance()
+                    var random = Math.floor(Math.random() * (6));
+
+                    if (random == 0) {
+                        shieldStart = true
+                        item1.setText(this.loadText("bought"))
+                        this.updateBalance()
+                    }
+
+                    else if (random == 1) {
+                        ghostStart = true
+                        item2.setText(this.loadText("bought"))
+                        this.updateBalance()
+                    }
+
+                    else if (random == 2) {
+                        shroomStart = true
+                        item3.setText(this.loadText("bought"))
+                        this.updateBalance()
+                    }
+
+                    else if (random == 3) {
+                        potionStart = true
+                        item4.setText(this.loadText("bought"))
+                        this.updateBalance()
+                    }
+
+                    else if (random == 4) {
+                        rocketStart = true
+                        item5.setText(this.loadText("bought"))
+                        this.updateBalance()
+                    }
+                    else if (random == 5) {
+                        spaceshipStart = true
+                        item6.setText(this.loadText("bought"))
+                        this.updateBalance()
+                    }
+
+                }
+
+            }
+            else {
+                item0.setText(this.loadText("not_ava"))
+            }
+
+
 
 
         })
@@ -156,8 +169,9 @@ class M3_storyIntro extends M0_shared {
         item1.on('pointerup', () => {
             if (userCoins - 100 >= 0) {
                 userCoins -= 100
+                item0.setText(this.loadText("not_ava"))
 
-                shield= true
+                shieldStart = true
                 item1.setText(this.loadText("bought"))
                 item1.setInteractive = false
                 this.updateBalance()
@@ -169,8 +183,10 @@ class M3_storyIntro extends M0_shared {
             if (userCoins - 100 >= 0) {
                 userCoins -= 100
                 item2.setText(this.loadText("bought"))
-                ghost= true
+                ghostStart = true
                 this.updateBalance()
+                item0.setText(this.loadText("not_ava"))
+
             }
         })
 
@@ -178,8 +194,10 @@ class M3_storyIntro extends M0_shared {
             if (userCoins - 100 >= 0) {
                 userCoins -= 100
                 item3.setText(this.loadText("bought"))
-                shrrom= true
+                shroomStart = true
                 this.updateBalance()
+                item0.setText(this.loadText("not_ava"))
+
             }
 
         })
@@ -187,8 +205,10 @@ class M3_storyIntro extends M0_shared {
             if (userCoins - 100 >= 0) {
                 userCoins -= 100
                 item4.setText(this.loadText("bought"))
-                potion= true
+                potionStart = true
                 this.updateBalance()
+                item0.setText(this.loadText("not_ava"))
+
             }
         })
 
@@ -196,8 +216,10 @@ class M3_storyIntro extends M0_shared {
             if (userCoins - 100 >= 0) {
                 userCoins -= 100
                 item5.setText(this.loadText("bought"))
-                rocket= true
+                rocketStart = true
                 this.updateBalance()
+                item0.setText(this.loadText("not_ava"))
+
             }
 
         })
@@ -206,8 +228,10 @@ class M3_storyIntro extends M0_shared {
             if (userCoins - 100 >= 0) {
                 userCoins -= 100
                 item6.setText(this.loadText("bought"))
-                spaceship= true
+                spaceshipStart = true
                 this.updateBalance()
+                item0.setText(this.loadText("not_ava"))
+
             }
 
 
@@ -236,13 +260,13 @@ class M3_storyIntro extends M0_shared {
         };
 
 
-      
 
 
 
 
 
-        if(!buy){
+
+        if (!buy) {
             item7.on('pointerup', () => {
                 if (userCoins - 100 >= 0) {
                     userCoins -= 100
@@ -256,13 +280,13 @@ class M3_storyIntro extends M0_shared {
                         achievements: achievements,
                     };
                     this.updateDataBaseAchivements(dataAchievements)
-    
+
                 }
-    
-    
+
+
             })
         }
-   
+
 
 
 
@@ -274,10 +298,10 @@ class M3_storyIntro extends M0_shared {
 
 
 
-        
+
 
     }
-    updateBalance(){
+    updateBalance() {
         const data = {
             money: userCoins,
         };
