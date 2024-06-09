@@ -1,13 +1,14 @@
   <?php
 
 
-    session_start();
-  
+  session_start();
+
   include(__DIR__ . '/../translations/load_translations.php');
   $translations = loadTranslations();
   print_r($_SESSION);
-  //echo "Username: " . $_SESSION["username"] ?? 'Not set';
-  // echo "money: " . $_SESSION["money"] ?? 'money set';
+  echo "Username: " . (isset($_SESSION["username"]) ? $_SESSION["username"] : 'Not set');
+  echo "money: " . (isset($_SESSION["money"]) ? $_SESSION["money"] : 'money set');
+
 
 
   //https://www.w3schools.com/howto/howto_js_sidenav.asp
