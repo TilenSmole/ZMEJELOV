@@ -222,7 +222,7 @@
 
 
 
-            <?php echo  $_SESSION["username"];
+            <?php 
             if (empty($_SESSION["username"])) : ?>
               <li> <a href="/login.php" onclick="closeNav()"><?php ;
                                                               echo $translations['login']; ?></a></li>

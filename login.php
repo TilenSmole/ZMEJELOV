@@ -70,7 +70,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $hashed_password)) {
             
-            $_SESSION["username"] = $username;
             $getLastLevel = "SELECT lastLevel, difficulty, DATE, achievements,money  FROM users WHERE username='$username'";
             $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
             // Fetch a row from the result set as an associative array
@@ -82,12 +81,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["DATE"] = $row['DATE'];
             $_SESSION["achievements"] = $row['achievements'];
             $_SESSION["money"] = $row['money'];
-
+            $_SESSION["username"] = $username;
+            echo $username;
 
             print_r($_SESSION);
 
-            echo "<p class='response'>" . $translations['login_succ'] . "</p>";
-            echo "<meta http-equiv=Refresh content=0;url=/>";
+           echo "<p class='response'>" . $translations['login_succ'] . "</p>";
+            //echo "<meta http-equiv=Refresh content=0;url=/>";
         } else {
             echo  $translations["incorect_pass"];
         }
