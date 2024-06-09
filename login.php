@@ -1,13 +1,17 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 include(__DIR__ . '/SHARED/header.php');
 include(__DIR__ ."/SERVER/database.php");
 include(__DIR__ ."/SERVER/generalData.php");
 $translations = loadTranslations();
 
 
-if (isset($_SESSION['username'])) 
-echo "<meta http-equiv=Refresh content=0;url=../>";
+if (isset($_SESSION['username'])) {
+    echo "<meta http-equiv=Refresh content=0;url=../>";
+    exit(); // Add exit to stop script execution after redirection
+}
 
 
 
@@ -65,9 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $user_data['password'];
 
         if (password_verify($password, $hashed_password)) {
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
+            
             $_SESSION["username"] = $username;
             $getLastLevel = "SELECT lastLevel, difficulty, DATE, achievements,money  FROM users WHERE username='$username'";
             $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
@@ -80,6 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["DATE"] = $row['DATE'];
             $_SESSION["achievements"] = $row['achievements'];
             $_SESSION["money"] = $row['money'];
+
+
+            print_r($_SESSION);
 
             echo "<p class='response'>" . $translations['login_succ'] . "</p>";
             echo "<meta http-equiv=Refresh content=0;url=/>";
