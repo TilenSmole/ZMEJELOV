@@ -19,7 +19,7 @@ include('translations/load_translations.php');
 <body>
     <script>
         $(document).ready(function() {
-            $("#header").load("SHARED/header.php");
+            $("#header").load("/header.php");
             $("#footer").load("SHARED/footer.php");
         });
     </script>
