@@ -31,7 +31,8 @@ print_r($_SESSION);
 
     <script>
         $(document).ready(function() {
-            $("#header").load("/header.php");
+            var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
+            $("#header").load("/header.php?username=" + username);
             $("#footer").load("SHARED/footer.php");
         });
     </script>
@@ -128,13 +129,13 @@ print_r($_SESSION);
             <img src="assets/uvod/Screenshot 2023-01-27 at 16-50-18 Untitled-11.pdf.png" alt="zmentures" width="800" height="500">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/uvod/rage.png" alt="the final rage" width="800" height="500"  >
+            <img src="assets/uvod/rage.png" alt="the final rage" width="800" height="500">
         </div>
         <div class="pictureSlider fade">
             <img src="assets/uvod/basic.png" alt="zmejelov" width="800" height="500">
         </div>
         <div class="pictureSlider fade">
-        <img src="assets/PROMO/keepOn.png.png" alt="zmejelov keep on" width="800" height="500">
+            <img src="assets/PROMO/keepOn.png.png" alt="zmejelov keep on" width="800" height="500">
         </div>
         <script>
             let slideIndex = 0;

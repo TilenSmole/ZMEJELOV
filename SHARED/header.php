@@ -1,15 +1,13 @@
   <?php
 
 
-  session_start();
 
   include(__DIR__ . '/../translations/load_translations.php');
   $translations = loadTranslations();
-  print_r($_SESSION);
-  echo "Username: " . (isset($_SESSION["username"]) ? $_SESSION["username"] : 'Not set');
-  echo "money: " . (isset($_SESSION["money"]) ? $_SESSION["money"] : 'money set');
 
 
+  $username = isset($_GET['username']) ? $_GET['username'] : '';
+  echo " username " .  $username ;
 
   //https://www.w3schools.com/howto/howto_js_sidenav.asp
   ?>
@@ -234,7 +232,7 @@
                                                               echo $translations['login'];
                                                               echo $_SESSION["username"]; ?></a></li>
             <?php else : ?>
-              <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php
+              <li><a href="/user.php"><?php echo $_SESSION["username"]; echo  $username ; ?></a><a href="/SERVER/logout.php"><?php
                                                                                                             echo $translations['logout']; ?></a></li>
             <?php endif; ?>
             <li><a href="/#about_proyect" id="logo">Zmejelov © 2024</a></li>
