@@ -32,7 +32,7 @@ print_r($_SESSION);
     <script>
         $(document).ready(function() {
             var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
-            $("#header").load("SHAREDSHARED/header.php?username=" + username);
+            $("#header").load("SHARED/header.php?username=" + username);
             $("#footer").load("SHARED/footer.php");
         });
     </script>
