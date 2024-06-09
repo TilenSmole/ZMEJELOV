@@ -1,15 +1,19 @@
   <?php
 
 
-    if (session_status() == PHP_SESSION_NONE) {
-      session_start();
+  if (session_status() == PHP_SESSION_NONE) {
+    session_start();
   }
-  include(__DIR__ . '/../translations/load_translations.php');
+  include(__DIR__ . '/SHARED/header.php');
+include(__DIR__ ."/SERVER/database.php");
+include(__DIR__ ."/SERVER/generalData.php");
+
   $translations = loadTranslations();
   print_r($_SESSION);
   echo "Username: " . $_SESSION["username"] ?? 'Not set';
-  
-  
+  echo "money: " . $_SESSION["money"] ?? 'money set';
+
+
   //https://www.w3schools.com/howto/howto_js_sidenav.asp
   ?>
   <!DOCTYPE html>
@@ -146,7 +150,7 @@
           <li class="title">
             <a href="/" onclick="closeNav()" style="font-size: 50px; color: #4d1451;  margin-left: -15px  ; ">ZMEJELOV</a>
           </li>
-          <li class="has-subnav"><a href="/" id="mainPageReturn" onclick="closeNav()"><?php ;
+          <li class="has-subnav"><a href="/" id="mainPageReturn" onclick="closeNav()"><?php
                                                                                       echo $translations['home']; ?></a>
             <ul class="subnav">
               <li><a href="/" onclick="closeNav()"><?php echo $translations['intro']; ?></a></li>
@@ -156,65 +160,65 @@
           </li>
           <li class="has-subnav"><a href="/zmentures.php" onclick="closeNav()">ZMENTURES</a>
             <ul class="subnav">
-              <li><a href="/zmentures.php#introduction" onclick="closeNav()"><?php ;
-                                                                          echo $translations['about_the_game']; ?></a></li>
-              <li><a href="/zmentures.php#game_OG" onclick="closeNav()"><?php ;
-                                                                    echo $translations['game']; ?></a></li>
+              <li><a href="/zmentures.php#introduction" onclick="closeNav()"><?php
+                                                                              echo $translations['about_the_game']; ?></a></li>
+              <li><a href="/zmentures.php#game_OG" onclick="closeNav()"><?php
+                                                                        echo $translations['game']; ?></a></li>
               <li><a href="/zmentures.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
-              <li><a href="/zmentures.php#comments_OG" onclick="closeNav()"><?php ;
-                                                                        echo $translations['KOMENTARJI']; ?></a></li>
-              <li><a href="/zmentures.php#dosezki_OG" onclick="closeNav()"><?php ;
-                                                                        echo $translations['achivements']; ?></a></li>
+              <li><a href="/zmentures.php#comments_OG" onclick="closeNav()"><?php
+                                                                            echo $translations['KOMENTARJI']; ?></a></li>
+              <li><a href="/zmentures.php#dosezki_OG" onclick="closeNav()"><?php
+                                                                            echo $translations['achivements']; ?></a></li>
             </ul>
           </li>
           <li class="has-subnav"><a href="/Crackelov.php" onclick="closeNav()">CRA*KELOV</a>
             <ul class="subnav">
-              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php
                                                                                     echo $translations['about_the_game']; ?></a></li>
-              <li><a href="/zmejelov1869.php#game_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#game_OG" onclick="closeNav()"><?php
                                                                             echo $translations['game']; ?></a></li>
               <li><a href="/zmejelov1869.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
-              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php
                                                                                 echo $translations['KOMENTARJI']; ?></a></li>
-              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php
                                                                               echo $translations['achivements']; ?></a></li>
             </ul>
           </li>
           <li class="has-subnav"><a href="/TheFinalRage.php" onclick="closeNav()">THE FINAL RAGE </a>
             <ul class="subnav">
-              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php
                                                                                     echo $translations['about_the_game']; ?></a></li>
               <li><a href="/zmejelov1869.php#game_OG" onclick="closeNav()"><?php echo $translations['game']; ?></a></li>
               <li><a href="/zmejelov1869.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
-              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php
                                                                                 echo $translations['KOMENTARJI']; ?></a></li>
-              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php
                                                                               echo $translations['achivements']; ?></a></li>
             </ul>
           </li>
           <li class="has-subnav"><a href="/CityZmentures.php" onclick="closeNav()">CITY ZMENTURES</a>
             <ul class="subnav">
-              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php
                                                                                     echo $translations['about_the_game']; ?></a></li>
-              <li><a href="/zmejelov1869.php#game_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#game_OG" onclick="closeNav()"><?php
                                                                             echo $translations['game']; ?></a></li>
               <li><a href="/zmejelov1869.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
-              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php
                                                                                 echo $translations['KOMENTARJI']; ?></a></li>
-              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php
                                                                               echo $translations['achivements']; ?></a></li>
             </ul>
           </li>
           <li class="has-subnav"><a href="/zmejelov1869.php" onclick="closeNav()">ZMEJELOV 1869 </a>
             <ul class="subnav">
-              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#introduction_OG" onclick="closeNav()"><?php
                                                                                     echo $translations['about_the_game']; ?></a></li>
-              <li><a href="/zmejelov1869.php#game_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#game_OG" onclick="closeNav()"><?php
                                                                             echo $translations['game']; ?></a></li>
               <li><a href="/zmejelov1869.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
-              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php
                                                                                 echo $translations['KOMENTARJI']; ?></a></li>
-              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php ; 
+              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php
                                                                               echo $translations['achivements']; ?></a></li>
             </ul>
           </li>
@@ -227,11 +231,14 @@
 
 
 
-            <?php 
+            <?php
             if (empty($_SESSION["username"])) : ?>
-              <li> <a href="/login.php" onclick="closeNav()"><?php ; echo $translations['login'];  echo $_SESSION["username"]; ?></a></li>
+              <li> <a href="/login.php" onclick="closeNav()"><?php
+                                                              echo $translations['login'];
+                                                              echo $_SESSION["username"]; ?></a></li>
             <?php else : ?>
-              <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php ;   echo $translations['logout']; ?></a></li>
+              <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php
+                                                                                                            echo $translations['logout']; ?></a></li>
             <?php endif; ?>
             <li><a href="/#about_proyect" id="logo">Zmejelov © 2024</a></li>
           </div>
