@@ -1,10 +1,15 @@
   <?php
-  if (session_status() === PHP_SESSION_NONE)
-    session_start();
+
+
+    if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+  }
   include(__DIR__ . '/../translations/load_translations.php');
   $translations = loadTranslations();
   print_r($_SESSION);
-  echo $_SESSION["username"];
+  echo "Username: " . $_SESSION["username"] ?? 'Not set';
+  
+  
   //https://www.w3schools.com/howto/howto_js_sidenav.asp
   ?>
   <!DOCTYPE html>
