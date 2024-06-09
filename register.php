@@ -2,6 +2,12 @@
     include(__DIR__ . '/SHARED/header.php');
     include(__DIR__ . "/SERVER/database.php");
     $translations = loadTranslations();
+
+    if (isset($_SESSION['username'])) 
+    echo "<meta http-equiv=Refresh content=0;url=../>";
+
+
+
 ?>
 <html lang="en">
 <head>
@@ -74,7 +80,7 @@
                 
              
                 echo "<p class='response''>Registracija uspešna, prenaslavlanje!<p>";
-                echo "<meta http-equiv=Refresh content=1;url=../>";
+                echo "<meta http-equiv=Refresh content=0;url=../>";
          
 
         }

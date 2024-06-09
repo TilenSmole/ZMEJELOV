@@ -70,17 +70,14 @@ class A10_konec extends A0_osnova {
 		if (usa == true) {
 			this.add.text(10, 400, 'Hooray Zmeja has found a way home\n thanks for playing :)', { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
 			this.add.text(10, 570, 'You died ' + stSmrti + "x times 😲, not bad 😝...", { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
-			this.add.text(10, 650, "You have found " + EasterEgg + "/" + StEasterEgg + " easter eggs.", { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
 		}
 		else if (rus == true) {
 			this.add.text(10, 400, 'Змея нашла дорогу домой, спасипо за играние :)', { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
 			this.add.text(10, 570, 'Ты умер ' + stSmrti + " x 😲, не плохо 😝...", { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
-			this.add.text(10, 650, "Ты нашел " + EasterEgg + "/" + StEasterEgg + " секретов.", { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
 		}
 		else {
 			this.add.text(15, 400, 'Jej! Zmeja je našla pot domov!\nhvala za igranje :)', { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
 			this.add.text(15, 570, 'Umrl si ' + stSmrti + "x 😲, ni slabo 😝... ", { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
-			this.add.text(15, 650, "Odkril si " + EasterEgg + "/" + StEasterEgg + " skrivnosti.", { fontSize: '60px', fill: '#A996BC', fontFamily: 'CustomFont' });
 		}
 
 

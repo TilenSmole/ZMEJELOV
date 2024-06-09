@@ -153,6 +153,7 @@ class getStuff {
           var difficulty = sessionData.difficulty;
           const DATE = sessionData.DATE;
           const achievements = sessionData.achievements;
+          console.log('difficulty  v game' + difficulty );
           resolve({ username, lastLevel, difficulty, DATE, achievements, user }); // Resolve with username and lastLevel
         } else {
           // Handle error

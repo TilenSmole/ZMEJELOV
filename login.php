@@ -4,6 +4,14 @@ include(__DIR__ . '/SHARED/header.php');
 include(__DIR__ ."/SERVER/database.php");
 include(__DIR__ ."/SERVER/generalData.php");
 $translations = loadTranslations();
+
+
+if (isset($_SESSION['username'])) 
+echo "<meta http-equiv=Refresh content=0;url=../>";
+
+
+
+
 ?>
 <html lang="en">
 
@@ -63,10 +71,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["username"] = $username;
             $getLastLevel = "SELECT lastLevel, difficulty, DATE, achievements,money  FROM users WHERE username='$username'";
             $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
-
             // Fetch a row from the result set as an associative array
             $row = sqlsrv_fetch_array($getLastLevel_result);
             // Access the column containing the integer value 
+
             $_SESSION["lastLevel"] = $row['lastLevel'];
             $_SESSION["difficulty"] = $row['difficulty'];
             $_SESSION["DATE"] = $row['DATE'];
@@ -74,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["money"] = $row['money'];
 
             echo "<p class='response'>" . $translations['login_succ'] . "</p>";
-            echo "<meta http-equiv=Refresh content=2;url=/>";
+            echo "<meta http-equiv=Refresh content=0;url=/>";
         } else {
             echo  $translations["incorect_pass"];
         }

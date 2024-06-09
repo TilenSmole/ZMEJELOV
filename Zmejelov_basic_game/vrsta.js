@@ -70,60 +70,68 @@ class vrsta extends Phaser.Scene {
             var text = ""
 
             if (vrstaTeksta == "sovraznik" || vrstaTeksta === "sovraznik5") {
-                this.add.text(100 , GAME_HEIGHT - 300, enemyDeath(), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10 , GAME_HEIGHT - 300, this.enemyDeath(), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
             }
             else if (vrstaTeksta == "level4smrt") {
-                this.add.text(100 , GAME_HEIGHT - 300, this.loadText("level4smrt"), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10 , GAME_HEIGHT - 300, this.loadText("level4smrt"), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
 
             }
             else if (vrstaTeksta == "level4smrt") {
-                this.add.text(100 , GAME_HEIGHT - 300, this.loadText("leve6smrt"), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10 , GAME_HEIGHT - 300, this.loadText("leve6smrt"), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
             }
             else if (vrstaTeksta == "level6Vojak") {
-                this.add.text(100 - 200, GAME_HEIGHT - 300, 'hihihi🙈🙊', { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10 - 200, GAME_HEIGHT - 300, 'hihihi🙈🙊', { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
                 if (stSmrtiPrVojski > 5) {
-                    this.add.text(100, GAME_HEIGHT - 400, this.loadText("soldier_hint"), {
+                    this.add.text(10, GAME_HEIGHT - 400, this.loadText("soldier_hint"), {
                         fontSize: '40px',
                         fill: '#A996BC',
                         fontFamily: 'CustomFont',
-                        wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                        wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
                     });
                 }
             }
             else if (vrstaTeksta == "level4smrt") {
-                this.add.text(100, GAME_HEIGHT - 400, this.loadText("level4smrt"), {
+                this.add.text(10, GAME_HEIGHT - 400, this.loadText("level4smrt"), {
                     fontSize: '40px',
                     fill: '#A996BC',
                     fontFamily: 'CustomFont',
-                    wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
+                });
+            }
+            else if (vrstaTeksta == "level6Znak") {
+                this.add.text(10, GAME_HEIGHT - 400, this.loadText("leve6smrt"), {
+                    fontSize: '40px',
+                    fill: '#A996BC',
+                    fontFamily: 'CustomFont',
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
                 });
             }
             else if (vrstaTeksta == "level6Kip") {
-                this.add.text(100, GAME_HEIGHT - 400, this.loadText("level6Kip"), {
+                this.add.text(10, GAME_HEIGHT - 400, this.loadText("level6Kip"), {
                     fontSize: '40px',
                     fill: '#A996BC',
                     fontFamily: 'CustomFont',
-                    wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
                 });
             }
             else if (vrstaTeksta == "level6Znak2") {
-                this.add.text(100, GAME_HEIGHT - 400, this.loadText("evil_sign"), {
+                this.add.text(10, GAME_HEIGHT - 400, this.loadText("evil_sign"), {
                     fontSize: '40px',
                     fill: '#A996BC',
                     fontFamily: 'CustomFont',
-                    wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
                 });
             }
             else if (vrstaTeksta == "level6Brsljan") {
-                this.add.text(100, GAME_HEIGHT - 400, this.loadText("level6Brsljan"), {
+                this.add.text(10, GAME_HEIGHT - 400, this.loadText("level6Brsljan"), {
                     fontSize: '40px',
                     fill: '#A996BC',
                     fontFamily: 'CustomFont',
-                    wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
                 });
             }
             else{
-                this.add.text(100 , GAME_HEIGHT - 300, this.enemyDeath(), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10 , GAME_HEIGHT - 300, this.enemyDeath(), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
 
             }
 
@@ -147,11 +155,11 @@ class vrsta extends Phaser.Scene {
 
 
         else if (vrstaTeksta == "padec") {
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("cloud_death"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("cloud_death"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
             vrsta_smrt = false
@@ -172,11 +180,11 @@ class vrsta extends Phaser.Scene {
             }
         }
         else if (vrstaTeksta == "A8_udar") {
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("death_ocean"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("death_ocean"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
             vrsta_smrt = false
@@ -198,11 +206,11 @@ class vrsta extends Phaser.Scene {
 
         }
         else if (vrstaTeksta == "A8_udarHuman") {
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("death_ocean2"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("death_ocean2"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
             vrsta_smrt = false
@@ -223,11 +231,11 @@ class vrsta extends Phaser.Scene {
 
         }
         else if (vrstaTeksta == "level6Brsljan") {
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("death_ocean2"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("death_ocean2"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -255,11 +263,11 @@ class vrsta extends Phaser.Scene {
             const number = Math.floor(Math.random() * 1);
             const textToShow = number === 0 ? this.loadText("swamp") : this.loadText("swamp2");
 
-            this.add.text(100, GAME_HEIGHT - 400, textToShow, {
+            this.add.text(10, GAME_HEIGHT - 400, textToShow, {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -290,11 +298,11 @@ class vrsta extends Phaser.Scene {
         }
         else if (vrstaTeksta == "bar") {
 
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("bar"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("bar"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -327,11 +335,11 @@ class vrsta extends Phaser.Scene {
 
         else if (vrstaTeksta == "level_1_konec") {
             vrstaTeksta = ""
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_1_konec"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_1_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -349,11 +357,11 @@ class vrsta extends Phaser.Scene {
         }
         else if (vrstaTeksta == "level_2_konec") {
             vrstaTeksta = ""
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_2_konec"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_2_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -370,11 +378,11 @@ class vrsta extends Phaser.Scene {
         }
         else if (vrstaTeksta == "level_3_konec") {
 
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_3_konec"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_3_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -398,11 +406,11 @@ class vrsta extends Phaser.Scene {
                 text = text + " " + this.loadText("secret_level_missed")
             }
 
-            this.add.text(100, GAME_HEIGHT - 400, text, {
+            this.add.text(10, GAME_HEIGHT - 400, text, {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -420,11 +428,11 @@ class vrsta extends Phaser.Scene {
             }
         }
         else if (vrstaTeksta == "level_5_konec") {
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_5_konec"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_5_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -440,11 +448,11 @@ class vrsta extends Phaser.Scene {
             }
         }
         else if (vrstaTeksta == "level_6_konec") {
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_6_konec"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_6_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -463,11 +471,11 @@ class vrsta extends Phaser.Scene {
         else if (vrstaTeksta == "level_7_konecTroll") {
 
 
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_7_konecTroll"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_7_konecTroll"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
 
@@ -485,11 +493,11 @@ class vrsta extends Phaser.Scene {
         }
         else if (vrstaTeksta == "level_7_konec") {
 
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_7_konec"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_7_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
             if (vrniNaPogoj == true) {
@@ -515,11 +523,11 @@ class vrsta extends Phaser.Scene {
             }
         }
         else if (vrstaTeksta == "level_9_konec") {
-            this.add.text(100, GAME_HEIGHT - 400, this.loadText("level_9_konec"), {
+            this.add.text(10, GAME_HEIGHT - 400, this.loadText("level_9_konec"), {
                 fontSize: '40px',
                 fill: '#A996BC',
                 fontFamily: 'CustomFont',
-                wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+                wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
             });
 
             if (vrniNaPogoj == true) {

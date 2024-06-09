@@ -1,9 +1,32 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
+
+
 include("SERVER/database.php");
 include('translations/load_translations.php');
-if (session_status() === PHP_SESSION_NONE)
-  session_start();
+
 $translations = loadTranslations();
+
+/*
+if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty'], $_SESSION['DATE'], $_SESSION['achievements'])) {
+  $response = array(
+      'username' => $_SESSION['username'],
+      'lastLevel' => $_SESSION['lastLevel'],
+      'difficulty' => $_SESSION['difficulty'],
+      'DATE' => $_SESSION['DATE'],
+      'achievements' => $_SESSION['achievements']
+  );
+  echo json_encode($response);
+} else {
+  echo json_encode(array('error' => 'Session variables not set'));
+}
+
+*/
+
+
+
 ?>
 
 
