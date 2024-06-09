@@ -224,11 +224,9 @@
 
             <?php 
             if (empty($_SESSION["username"])) : ?>
-              <li> <a href="/login.php" onclick="closeNav()"><?php ;
-                                                              echo $translations['login']; ?></a></li>
+              <li> <a href="/login.php" onclick="closeNav()"><?php ; echo $translations['login']; ?></a></li>
             <?php else : ?>
-              <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php ;
-                                                                                                            echo $translations['logout']; ?></a></li>
+              <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php ;   echo $translations['logout']; ?></a></li>
             <?php endif; ?>
             <li><a href="/#about_proyect" id="logo">Zmejelov © 2024</a></li>
           </div>

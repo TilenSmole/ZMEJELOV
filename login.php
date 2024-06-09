@@ -1,110 +1,196 @@
 <?php
-if (session_status() == PHP_SESSION_NONE) {
+// Start the session at the very beginning
+if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-include(__DIR__ . '/SHARED/header.php');
-include(__DIR__ ."/SERVER/database.php");
-include(__DIR__ ."/SERVER/generalData.php");
+
+// Include translations and other necessary files
+include(__DIR__ . '/../translations/load_translations.php');
 $translations = loadTranslations();
 
-
-if (isset($_SESSION['username'])) {
-    echo "<meta http-equiv=Refresh content=0;url=../>";
-    exit(); // Add exit to stop script execution after redirection
-}
-
-
-
-
+// For debugging: Print session variables to verify they are set
+print_r($_SESSION);
 ?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZMEJELOV</title>
-    <link rel="stylesheet" href="/SERVER/server.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/common.css">
+    <style>
+        /* Your existing styles */
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 50px;
+        }
 
+        .sidenav a {
+            padding: 0px 8px 8px 32px;
+            text-decoration: none;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+            font-size: 25px;
+        }
+
+        .sidenav a:hover {
+            color: #4d1451;
+            transition: 0.65s;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .has-subnav .subnav {
+            display: none;
+        }
+
+        .has-subnav:hover .subnav {
+            display: block;
+        }
+
+        .subnav>li>a {
+            font-size: 15px;
+        }
+
+        .bottom-element {
+            position: absolute;
+            bottom: 10%;
+        }
+
+        .title {
+            color: #4d1451;
+            font-size: 50px;
+            padding: 0;
+            margin: 10px 0 0px 10px;
+        }
+
+        #container {
+            position: relative;
+            /* Create a positioning context for its children */
+        }
+
+        #meniIcon {
+            position: fixed;
+            margin: 0px 0 0px 10px;
+        }
+
+        #meni {
+            position: absolute;
+            left: 40px;
+            top: 6px
+        }
+
+        #language_selection {
+            margin-left: 30px;
+        }
+
+        .button_language {
+            border: none;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            background-color: inherit;
+        }
+    </style>
+    <script src="/translations/language_functions.js"></script>
 </head>
 
 <body>
-    <div id="loginForm">
-        <form action="/login.php" method="POST">
-            <div class="username"> 🧛‍♀️<input type="text" name="username" placeholder=<?php echo $translations["username"] ?>><br>
-            </div>
-            <div class="password">
-                &#128274;<input type="password" name="password" placeholder=<?php echo $translations["password"] ?>><br>
-            </div>
-            <div class="submitAbove">
-                <input type="submit" name="submit" value=<?php echo $translations["login"] ?> class="submitData"><br>
-            </div>
-            <div class="textForm">
-                <p><?php echo $translations["not_yet_user"] ?></p>
-            </div>
-        </form>
+    <p class="title"><a href="/" onclick="closeNav()">ZMEJELOV</a></p>
+    <div id="mySidenav" class="sidenav">
+        <div id="gamePlayStuff">
+            <ul>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <li class="title">
+                    <a href="/" onclick="closeNav()" style="font-size: 50px; color: #4d1451; margin-left: -15px;">ZMEJELOV</a>
+                </li>
+                <li class="has-subnav">
+                    <a href="/" id="mainPageReturn" onclick="closeNav()"><?php echo $translations['home']; ?></a>
+                    <ul class="subnav">
+                        <li><a href="/" onclick="closeNav()"><?php echo $translations['intro']; ?></a></li>
+                        <li><a href="/#videos" onclick="closeNav()"><?php echo $translations['video_library']; ?></a></li>
+                        <li><a href="/#about_proyect" onclick="closeNav()"><?php echo $translations['about']; ?></a></li>
+                    </ul>
+                </li>
+                <li class="has-subnav">
+                    <a href="/zmentures.php" onclick="closeNav()">ZMENTURES</a>
+                    <ul class="subnav">
+                        <li><a href="/zmentures.php#introduction" onclick="closeNav()"><?php echo $translations['about_the_game']; ?></a></li>
+                        <li><a href="/zmentures.php#game_OG" onclick="closeNav()"><?php echo $translations['game']; ?></a></li>
+                        <li><a href="/zmentures.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
+                        <li><a href="/zmentures.php#comments_OG" onclick="closeNav()"><?php echo $translations['KOMENTARJI']; ?></a></li>
+                        <li><a href="/zmentures.php#dosezki_OG" onclick="closeNav()"><?php echo $translations['achivements']; ?></a></li>
+                    </ul>
+                </li>
+                <!-- Repeat for other sections -->
+                <div class="bottom-element">
+                    <div id="language_selection">
+                        <button class="button_language" id="english_button" onclick="setLanguage('en')">🇺🇸</button>
+                        <button class="button_language" id="slovenian_button" onclick="setLanguage('slo')">🇸🇮</button>
+                    </div>
+                    <?php if (empty($_SESSION["username"])) : ?>
+                        <li><a href="/login.php" onclick="closeNav()"><?php echo $translations['login']; ?></a></li>
+                    <?php else : ?>
+                        <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php echo $translations['logout']; ?></a></li>
+                    <?php endif; ?>
+                    <li><a href="/#about_proyect" id="logo">Zmejelov © 2024</a></li>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+    <div id="container">
+        <span style="font-size:30px;cursor:pointer; color:#4d1451" onclick="openNav()">
+            <span id="meniIcon">&#9776;</span>
+            <span id="meni">MENU</span>
+        </span>
+    </div>
+
+    <script>
+        getLanguage(function(language) {
+            var languageObj = JSON.parse(language);
+            if (languageObj.language == "en") {
+                document.getElementById("english_button").style.display = "none";
+                document.getElementById("slovenian_button").style.display = "block";
+            } else {
+                document.getElementById("english_button").style.display = "block";
+                document.getElementById("slovenian_button").style.display = "none";
+            }
+        });
+
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "25%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 
 </body>
 
 </html>
-
-
-
-
-
-<?php
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
-    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
-
-    $check_user_query = "SELECT * FROM users WHERE username='$username'";
-    $check_user_result = sqlsrv_query($conn, $check_user_query);
-
-
-
-    if ($check_user_result && sqlsrv_has_rows($check_user_result) > 0) {
-        $user_data = sqlsrv_fetch_array($check_user_result);
-        $hashed_password = $user_data['password'];
-
-        if (password_verify($password, $hashed_password)) {
-            
-            $getLastLevel = "SELECT lastLevel, difficulty, DATE, achievements,money  FROM users WHERE username='$username'";
-            $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
-            // Fetch a row from the result set as an associative array
-            $row = sqlsrv_fetch_array($getLastLevel_result);
-            // Access the column containing the integer value 
-
-            $_SESSION["lastLevel"] = $row['lastLevel'];
-            $_SESSION["difficulty"] = $row['difficulty'];
-            $_SESSION["DATE"] = $row['DATE'];
-            $_SESSION["achievements"] = $row['achievements'];
-            $_SESSION["money"] = $row['money'];
-            $_SESSION["username"] = $username;
-            echo $username;
-
-            print_r($_SESSION);
-
-           echo "<p class='response'>" . $translations['login_succ'] . "</p>";
-            //echo "<meta http-equiv=Refresh content=0;url=/>";
-        } else {
-            echo  $translations["incorect_pass"];
-        }
-    } else {
-        echo $translations["user_not"];
-    }
-}
-//mysqli_close($conn);
-
-
-?>
-
-
-
-
-</div>
-<?php
-include(__DIR__ . '/SHARED/footer.php');
-
-?>
