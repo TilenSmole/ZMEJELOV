@@ -230,9 +230,9 @@ echo " username " .  $username ;
           if (!$username) : ?>
             <li> <a href="/login.php" onclick="closeNav()"><?php
                                                             echo $translations['login'];
-                                                            echo $_SESSION["username"]; ?></a></li>
+                                                            ?></a></li>
           <?php else : ?>
-            <li><a href="/user.php"><?php echo $_SESSION["username"]; echo  $username ; ?></a><a href="/SERVER/logout.php"><?php
+            <li><a href="/user.php"><?php echo $_SESSION["username"];  ; ?></a><a href="/SERVER/logout.php"><?php
                                                                                                           echo $translations['logout']; ?></a></li>
           <?php endif; ?>
           <li><a href="/#about_proyect" id="logo">Zmejelov © 2024</a></li>
