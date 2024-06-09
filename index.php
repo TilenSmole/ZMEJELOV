@@ -8,6 +8,7 @@ if (!isset($_SESSION['visited_before'])) {
     exit();
 }
 
+print_r($_SESSION);
 
 
 

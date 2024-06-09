@@ -6,6 +6,7 @@ include(__DIR__ . '/SHARED/header.php');
 include(__DIR__ ."/SERVER/database.php");
 include(__DIR__ ."/SERVER/generalData.php");
 $translations = loadTranslations();
+print_r($_SESSION);
 
 
 if (isset($_SESSION['username'])) {
@@ -82,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["achievements"] = $row['achievements'];
             $_SESSION["money"] = $row['money'];
             $_SESSION["username"] = $username;
-            echo $username;
+            echo $username .  "username";
 
             print_r($_SESSION);
 

@@ -4,7 +4,7 @@
   include(__DIR__ . '/../translations/load_translations.php');
   $translations = loadTranslations();
   print_r($_SESSION);
-
+  echo $_SESSION["username"];
   //https://www.w3schools.com/howto/howto_js_sidenav.asp
   ?>
   <!DOCTYPE html>
@@ -209,7 +209,7 @@
               <li><a href="/zmejelov1869.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
               <li><a href="/zmejelov1869.php#comments_OG" onclick="closeNav()"><?php ;
                                                                                 echo $translations['KOMENTARJI']; ?></a></li>
-              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php ;
+              <li><a href="/zmejelov1869.php#dosezki_OG" onclick="closeNav()"><?php ; 
                                                                               echo $translations['achivements']; ?></a></li>
             </ul>
           </li>
@@ -224,7 +224,7 @@
 
             <?php 
             if (empty($_SESSION["username"])) : ?>
-              <li> <a href="/login.php" onclick="closeNav()"><?php ; echo $translations['login']; ?></a></li>
+              <li> <a href="/login.php" onclick="closeNav()"><?php ; echo $translations['login'];  echo $_SESSION["username"]; ?></a></li>
             <?php else : ?>
               <li><a href="/user.php"><?php echo $_SESSION["username"]; ?></a><a href="/SERVER/logout.php"><?php ;   echo $translations['logout']; ?></a></li>
             <?php endif; ?>
