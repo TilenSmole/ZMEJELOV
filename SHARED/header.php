@@ -1,7 +1,7 @@
   <?php
 
 
-
+  ob_start();
   include(__DIR__ . '/../translations/load_translations.php');
   $translations = loadTranslations();
 
@@ -227,7 +227,7 @@
 
 
             <?php
-            if (empty($_SESSION["username"])) : ?>
+            if (!$username) : ?>
               <li> <a href="/login.php" onclick="closeNav()"><?php
                                                               echo $translations['login'];
                                                               echo $_SESSION["username"]; ?></a></li>

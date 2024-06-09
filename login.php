@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include(__DIR__ . '//header.php');
+include(__DIR__ . '/SHARED/header.php');
 include(__DIR__ ."/SERVER/database.php");
 include(__DIR__ ."/SERVER/generalData.php");
 $translations = loadTranslations();

@@ -74,7 +74,7 @@ if (session_status() === PHP_SESSION_NONE)
   <div id="fullBody">
     <script>
       $(document).ready(function() {
-        $("#header").load("/header.php");
+        $("#header").load("SHARED/header.php");
         $("#footer").load("SHARED/footer.php");
 
       });

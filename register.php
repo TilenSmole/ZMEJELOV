@@ -1,5 +1,5 @@
 <?php
-    include(__DIR__ . '//header.php');
+    include(__DIR__ . '/SHARED/header.php');
     include(__DIR__ . "/SERVER/database.php");
     $translations = loadTranslations();
 

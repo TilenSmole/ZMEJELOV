@@ -166,7 +166,7 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
 
     <script>
       $(document).ready(function() {
-        $("#header").load("/header.php");
+        $("#header").load("SHARED/header.php");
         $("#footer").load("SHARED/footer.php");
 
       });

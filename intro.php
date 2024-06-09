@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include('translations/load_translations.php');
 $translations = loadTranslations();
 ?>
