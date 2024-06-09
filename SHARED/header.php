@@ -2,8 +2,8 @@
   if (session_status() === PHP_SESSION_NONE)
     session_start();
   include(__DIR__ . '/../translations/load_translations.php');
-  $translations = loadTranslations()
-
+  $translations = loadTranslations();
+  print_r($_SESSION);
 
   //https://www.w3schools.com/howto/howto_js_sidenav.asp
   ?>
@@ -222,7 +222,7 @@
 
 
 
-            <?php print_r($_SESSION);
+            <?php echo  $_SESSION["username"]);
             if (empty($_SESSION["username"])) : ?>
               <li> <a href="/login.php" onclick="closeNav()"><?php ;
                                                               echo $translations['login']; ?></a></li>
