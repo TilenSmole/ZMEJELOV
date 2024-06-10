@@ -500,7 +500,7 @@ class S4_gamePlayStart extends S0_shared {
 
 
 
-        if (!canWin) {
+        if (canWin) {
             this.physics.add.overlap(gameState.junak, gameState.spaceship, () => {
                 this.stopWatchStop()
                 this.scene.stop('S4_gamePlayStart')

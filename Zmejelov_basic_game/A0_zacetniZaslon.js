@@ -6,9 +6,11 @@ class A0_zacetniZaslon extends Phaser.Scene {
         this.load.audio('glavna', ['/assets/uvod/glavna.mp3', "/assets/uvod/glavna.ogg"]);
         this.load.image("gumb", "/assets/uvod/gumb.png")
         this.load.image("zmeja", "/assets/uvod/zmeja.png")
-        this.load.image("zmentures", "/assets/uvod/Screenshot 2023-01-27 at 16-50-18 Untitled-11.pdf.png")
-        this.load.image("rage", "/assets/uvod/rage.png")
-        this.load.image("basic", "/assets/uvod/basic.png")
+        this.load.image("zmentures", "assets/zmejelov/1 (7).png")
+        this.load.image("zmentures2", "assets/zmejelov/1 (8).png")
+        this.load.image("zmentures3", "assets/zmejelov/1 (2).png")
+
+
         this.load.image("gumb2", "/assets/uvod/gumbVeliki.png")
         this.load.image("mute", "/assets/uvod/mute.png")
         this.load.image("unmute", "/assets/uvod/umute.png")
@@ -17,9 +19,7 @@ class A0_zacetniZaslon extends Phaser.Scene {
     }
 
     loadText(text_to_translate) {
-        console.log("Klicem")
-        console.log(text_to_translate)
-        console.log(this.cache.json.get('textEn'))
+
 
 
 
@@ -40,17 +40,18 @@ class A0_zacetniZaslon extends Phaser.Scene {
         var verzija = Math.floor(Math.random() * 3)
 
 
+
         if (verzija == 0) {
             var zmentures = this.add.image(GAME_WIDTH / 2, 200, "zmentures");
-            zmentures.setScale(.7)
+            zmentures.setScale(1.7)
         }
         else if (verzija == 1) {
-            var rage = this.add.image(GAME_WIDTH / 2, 200, "rage");
-            rage.setScale(.7)
+            var rage = this.add.image(GAME_WIDTH / 2, 200, "zmentures2");
+            rage.setScale(1.7)
         }
         else if (verzija == 2) {
-            var basic = this.add.image(GAME_WIDTH / 2, 200, "basic");
-            basic.setScale(.7)
+            var basic = this.add.image(GAME_WIDTH / 2, 200, "zmentures3");
+            basic.setScale(1.7)
         }
 
 

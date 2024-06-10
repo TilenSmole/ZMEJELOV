@@ -7,9 +7,9 @@ class S2_inicial extends Phaser.Scene {
         this.load.audio('glavna', ['assets/uvod/glavna.mp3',"assets/uvod/glavna.ogg"]);
         this.load.image("gumb","assets/uvod/gumb.png")
         this.load.image("zmeja","assets/uvod/zmeja.png")
-        this.load.image("zmentures","assets/uvod/Screenshot 2023-01-27 at 16-50-18 Untitled-11.pdf.png")
-        this.load.image("rage","assets/uvod/rage.png")
-        this.load.image("basic","assets/uvod/basic.png")
+        this.load.image("zmentures", "assets/zmejelov/1 (4).png")
+        this.load.image("zmentures2", "assets/zmejelov/1 (3).png")
+
         this.load.image("usa","assets/uvod/United_States.jpg")
         this.load.image("rus","assets/uvod/Russia.jpg")
         this.load.image("slo","assets/uvod/Slovenia.jpg")
@@ -29,23 +29,18 @@ class S2_inicial extends Phaser.Scene {
     create() {
         this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
-        var verzija = Math.floor(Math.random() * 3)
+        var verzija = Math.floor(Math.random() * 2)
 
     
-        if(verzija == 0){
-
-            var zmentures = this.add.image(GAME_WIDTH/2,150,"zmentures");
-            zmentures.setScale(.7)
+        if (verzija == 0) {
+            var zmentures = this.add.image(GAME_WIDTH / 2, 150, "zmentures");
+            zmentures.setScale(1.7)
         }
-        else if(verzija == 1){
-            var rage = this.add.image(GAME_WIDTH/2,150,"rage");
-            rage.setScale(.7)
+        else if (verzija == 1) {
+            var rage = this.add.image(GAME_WIDTH / 2, 150, "zmentures2");
+            rage.setScale(1.7)
         }
-        else if(verzija == 2){
-            var basic = this.add.image(GAME_WIDTH/2,150,"basic");
-            basic.setScale(.7)
-        }
-
+       
 
 
         //zvok

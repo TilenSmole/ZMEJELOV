@@ -875,6 +875,7 @@ p: nth-child(2)
   cursor: pointer;
   z-index: 1;
   font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 #prev {
