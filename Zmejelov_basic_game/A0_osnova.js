@@ -147,14 +147,15 @@ class A0_osnova extends Phaser.Scene {
 
 
 
-	save(_scene, _dificulty) {
+	save(_scene, _difficulty) {
 		if (!vrniNaPogoj) {
 			this.updateDificulty()
+
 			const data = {
 				lastLevel: _scene,
-				dificulty: _dificulty
+				difficulty: difficulty,
 			};
-
+			console.log('difficulty FINAL CALL' + difficulty);
 			this.updateDataBase(data)
 				.then(response => {
 					console.log("progress saved!");
@@ -216,30 +217,30 @@ class A0_osnova extends Phaser.Scene {
 
 
 	updateDificulty() {
-		var dificultyUpdated = "0000";
+		var difficultyUpdated = "0000";
 
 		if (easy) {
-			dificultyUpdated = this.replaceCharAt(dificultyUpdated, 0, "0");
+			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 0, "0");
 		} else {
-			dificultyUpdated = this.replaceCharAt(dificultyUpdated, 0, "1");
+			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 0, "1");
 		}
 
 		if (zmaga) {
-			dificultyUpdated = this.replaceCharAt(dificultyUpdated, 1, "1");
+			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 1, "1");
 		}
 
 		if (spawn6 && !spawnP) {
-			dificultyUpdated = this.replaceCharAt(dificultyUpdated, 2, "1");
+			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 2, "1");
 		} else if (spawnP) {
-			dificultyUpdated = this.replaceCharAt(dificultyUpdated, 2, "2");
+			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 2, "2");
 		}
 
 		if (zaprto) {
-			dificultyUpdated = this.replaceCharAt(dificultyUpdated, 3, "1");
+			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 3, "1");
 		}
 
-
-		dificulty = dificultyUpdated;
+		console.log('difficultyUpdated' + difficultyUpdated);
+		difficulty = difficultyUpdated;
 	}
 
 	replaceCharAt(str, index, replacement) {
@@ -253,17 +254,17 @@ class A0_osnova extends Phaser.Scene {
 		var achievementsUpdated = achievements;
 
 		if (ruins)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 0, "1");
-		if (deaths)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 1, "1");
-		if (secret)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 2, "1");
-		if (city)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 3, "1");
-		if (hardMode)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 4, "1");
-		if (easyMode)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 5, "1");
+		if (deaths)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 2, "1");
+		if (secret)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 1, "1");
+		if (city)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 4, "1");
+		if (hardMode)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 0, "1");
+		if (easyMode)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 3, "1");
 
 		achievements = achievementsUpdated;
 	}

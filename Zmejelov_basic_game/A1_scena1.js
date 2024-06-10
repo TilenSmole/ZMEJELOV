@@ -79,8 +79,9 @@ this.physics.add.overlap(gameState.junak, izhod, () => {
   this.scene.start('vrsta')
 
 })
+console.log('difficulty' + difficulty);
 
-this.save("A1_scena1", dificulty)
+this.save("A1_scena1", difficulty)
 
 }
 update(){

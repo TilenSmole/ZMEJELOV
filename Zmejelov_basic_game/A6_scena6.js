@@ -37,8 +37,7 @@ class A6_scena6 extends A0_osnova {
 		else {
 			trenutnaScena = "A4_scena4"
 		}
-
-		this.save("A6_scena6", dificulty)
+		
 
 		//ozadje full screen
 		this.bg = this.add.image(dolzina / 2, visina / 2, 'ozadje6');
@@ -411,6 +410,9 @@ class A6_scena6 extends A0_osnova {
 
 		var x = 300
 		var y = visina - 300
+		console.log('spawn6'+ spawn6);
+		console.log('easy'+ easy);
+
 		if (spawn6 == true && (easy == true || zmaga == true)) {
 			x = 100
 			y = visina - 3900
@@ -506,7 +508,7 @@ class A6_scena6 extends A0_osnova {
 
 		if (pogoj == true) {
 			this.physics.add.overlap(gameState.junak, obvestilo2, () => {
-				this.add.text(800, visina - 6400, this.loadText("terracota"), {
+				this.add.text(500, visina - 6400, this.loadText("terracota"), {
 					fontSize: '40px',
 					fill: '#A996BC',
 					fontFamily: 'CustomFont',
@@ -761,7 +763,8 @@ class A6_scena6 extends A0_osnova {
 			});
 
 
-
+			console.log('difficulty' + difficulty);
+			this.save("A6_scena6", difficulty)
 
 	}
 

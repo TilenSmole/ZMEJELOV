@@ -115,8 +115,9 @@ class A0_zacetniZaslon extends Phaser.Scene {
         
 
         this.igra.setScale(1)
-        console.log(lastLevel)
-        if (lastLevel != 0) {
+        console.log("lastLevel" + lastLevel)
+        console.log(lastLevel != "undefined");
+        if (lastLevel ) {
             this.igra.on('pointerup', () => {
                 this.scene.stop('A0_zacetniZaslon ')
                 this.scene.start('A0_loadSave')

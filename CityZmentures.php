@@ -74,7 +74,8 @@ if (session_status() === PHP_SESSION_NONE)
   <div id="fullBody">
     <script>
       $(document).ready(function() {
-        $("#header").load("SHARED/header.php");
+        var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
+        $("#header").load("SHARED/header.php?username=" + username);
         $("#footer").load("SHARED/footer.php");
 
       });
@@ -86,7 +87,7 @@ if (session_status() === PHP_SESSION_NONE)
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
         <p><b><span style="font-size: 50px;">CityZmentures</span></b> <?php $translations = loadTranslations();
-                                                                      echo $translations["zmejelov_intro_OG"] ?></p>
+                                                                      echo $translations["cityzmentures_intro"] ?></p>
       </div>
     </div>
 
@@ -108,7 +109,7 @@ if (session_status() === PHP_SESSION_NONE)
     </div>
 
     <div class="speed_running_split">
-      <div class="QnA_split" ">
+      <div class="QnA_split">
         <h1>Q&N</h1>
         <div>
           <div class=" QN_field">
@@ -199,7 +200,7 @@ if (session_status() === PHP_SESSION_NONE)
     <h1>LEADERBOARD</h1>
 
     <div class="leaderboard_buttons">
-      <form method="get" action="CityZmentures">
+      <form method="get" action="CityZmentures.php">
         <button type="submit" name="button20" class="leaderboard_button"> 20s</button>
         <button type="submit" name="button60" class="leaderboard_button">60s</button>
         <button type="submit" name="button120" class="leaderboard_button">120s</button>
@@ -227,7 +228,7 @@ if (session_status() === PHP_SESSION_NONE)
         $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 2";
         $resultCount = sqlsrv_query($conn, $sqlCount);
         $rowCount = sqlsrv_fetch_array($resultCount);
-        echo "<meta http-equiv=Refresh content=2;url=/zmejelov_basic.php#comments_OG>";
+       // echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#button60>";
       } elseif (isset($_GET['button120'])) {
         // Fetch leaderboard entries
         $sql = "SELECT * FROM leaderboard WHERE type = 3";
@@ -237,6 +238,8 @@ if (session_status() === PHP_SESSION_NONE)
         $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 3";
         $resultCount = sqlsrv_query($conn, $sqlCount);
         $rowCount = sqlsrv_fetch_array($resultCount);
+        //echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#button120>";
+
       } else {
         // Fetch leaderboard entries
         $sql = "SELECT * FROM leaderboard WHERE type = 1";
@@ -246,6 +249,8 @@ if (session_status() === PHP_SESSION_NONE)
         $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 1";
         $resultCount = sqlsrv_query($conn, $sqlCount);
         $rowCount = sqlsrv_fetch_array($resultCount);
+        ///echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#button20>";
+
       }
 
       $rows = [];
@@ -276,7 +281,7 @@ if (session_status() === PHP_SESSION_NONE)
       // Display the sorted results with consistent player ranking
       echo '<div class="Leaderbord_result">';
       foreach ($paginatedRows as $row) {
-        echo '<div><span ><a href="user?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
+        echo '<div><span ><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
         $startingRank++; // Increment the player ranking
       }
       echo '</div>';
@@ -286,7 +291,7 @@ if (session_status() === PHP_SESSION_NONE)
 
       echo '<div class="pagination">';
       for ($i = 1; $i <= $totalPages; $i++) {
-        echo '<a href="?page=' . $i . '#leaderboard">' . $i . '</a> ';
+        echo '<a href="?  =' . $i . '#leaderboard">' . $i . '</a> ';
       }
       echo '</div>';
 
@@ -320,7 +325,7 @@ if (session_status() === PHP_SESSION_NONE)
       <div class="achievements">
         <?php
         $translations = loadTranslations();
-        if (4$_SESSION["achievements"][9] === "1") {
+        if ($_SESSION["achievements"][9] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<p class="ach_num">50</p>          ';
           echo '<div class="tooltip">';
@@ -479,13 +484,13 @@ if (session_status() === PHP_SESSION_NONE)
 
   </div>
 
-  <div class="comments_DIV" id="comments_OG">
+  <div class="comments_DIV" id="comments_city">
     <?php if (isset($_SESSION["username"])) : ?>
       <h1><?php
           echo $translations["KOMENTARJI"] ?></h1>
       <div>
         <div class="alignCommentAdd">
-          <form action="CityZmentures" method="GET" class="commentsForm">
+          <form action="CityZmentures.php" method="GET" class="commentsForm">
             <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
                                                                                       echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
             <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
@@ -517,7 +522,8 @@ if (session_status() === PHP_SESSION_NONE)
 WITH PaginationCTE AS (
     SELECT *, ROW_NUMBER() OVER (ORDER BY date DESC) AS RowNum
     FROM comments
-    WHERE type = 1
+    WHERE type = 3
+
 )
 SELECT *
 FROM PaginationCTE
@@ -542,7 +548,7 @@ WHERE RowNum BETWEEN ? AND ?";
         echo '<div class="full_comment">
             <span class="commentAuthor"> 
             <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
+            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
             </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
       }
       echo '</div>';
@@ -553,7 +559,7 @@ WHERE RowNum BETWEEN ? AND ?";
 
 
     // Query to count total number of comments
-    $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=1";
+    $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=3";
     $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
     $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
     $totalComments = $totalCommentsRow['total'];
@@ -570,7 +576,7 @@ WHERE RowNum BETWEEN ? AND ?";
       echo '<div class="pagination">';
       for ($i = 1; $i <= $totalPages; $i++) {
         // Add onclick event to each pagination link to scroll to the comment section
-        echo '<a href="CityZmentures?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
+        echo '<a href="CityZmentures.php?page=' . $i . '#comments_city">' . $i . "&nbsp;   "  . '</a>';
       }
       echo '</div>';
       echo '</div>';
@@ -598,14 +604,14 @@ if (isset($_GET["submitCommentZmejelov"])) {
     $comment = $_GET["addCommentZmejelov"];
 
     // Prepare the SQL statement with placeholders
-    $sql = "INSERT INTO comments ([user], comment, date, type) VALUES (?, ?, GETDATE(), 1)";
+    $sql = "INSERT INTO comments ([user], comment, date, type) VALUES (?, ?, GETDATE(), 3)";
 
     // Prepare the statement
     $stmt = sqlsrv_prepare($conn, $sql, array(&$user, &$comment));
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/ZMEJELOV_njam_njam.php#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#comments_city>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

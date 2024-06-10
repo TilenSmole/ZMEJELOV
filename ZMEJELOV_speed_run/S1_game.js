@@ -9,6 +9,7 @@ var muska = 1 //da ne ponavla muske vsakic ko gres na main
 var enkratt = 1 //ce je 1 je default, pomeni pa da odklenemo 2 easter egg na 4 nivoju
 var stSmrti = 0
 var deathVarient = ""
+var uploaded = false
 
 // Languages
 var language = "slo"
@@ -113,7 +114,7 @@ class getStuff {
   }
   
 var lastLevel = "";
-var dificulty = "";
+var difficulty = "";
 var achievements = "";
 var DATE = "";
 const dataRetrieval = new getStuff();
@@ -127,7 +128,7 @@ dataRetrieval.getPhpStuff()
     achievements = data.achievements;
     /* console.log(username);
      console.log(lastLevel);
-     console.log(dificulty);
+     console.log(difficulty);
      console.log(DATE);
      console.log(achievements);*/
     if (user !== undefined) {

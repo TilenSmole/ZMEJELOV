@@ -1,9 +1,10 @@
 const dolzina = 1000000
-
+var freshlyRocketDone = false
 var allPlatforms = [];
+var finalPlatform = [];
+var playOnce = false
 var coins = [];
 var enemies = [];
-var score = 0
 var shield = false
 var ghost = false
 var shroom = false
@@ -12,7 +13,7 @@ var spaceShip = false
 var speedShip = false
 var zen = false
 var buffs = []
-
+var distance = 0
 var shieldIcon = ""
 var startTimeShield = 0
 
@@ -28,11 +29,31 @@ var startTimeshroom = 0
 var ghostIcon = ""
 var startTimeGhost = 0
 
-var distance = 0
-
-class M4_gamePlayStart extends M0_shared {
+class M4_red extends M0_shared {
     constructor() {
-        super("M4_gamePlayStart")
+        super("M4_red")
+    }
+
+    showPopupAchievements(text) {
+        const rectangle = this.add.rectangle(999833, 2827, dolzina, 3000, 0XAAAAFF);
+        rectangle.setOrigin(0.5, 0);
+
+        const graphics = this.add.graphics();
+        graphics.fillStyle(0x000000, 1);
+        graphics.fillRect(rectangle.x - rectangle.width / 2, rectangle.y, rectangle.width, rectangle.height);
+
+        const popup = this.add.text(999833, 2827, text, {
+            fontSize: '32px',
+            color: '#980a69',
+            align: 'center',
+            wordWrap: { width: rectangle.width - 20, useAdvancedWrap: true }
+        });
+
+        this.time.delayedCall(4000, () => {
+            popup.destroy();
+            rectangle.destroy();
+            graphics.destroy();
+        });
     }
     preload() {
         super.preload()
@@ -65,6 +86,26 @@ class M4_gamePlayStart extends M0_shared {
         }
 
     }
+    createRectanglePlatform(x, y) {
+        var graphics = this.add.graphics();
+        var rectWidth = 300
+            ;  // Width of the rectangle
+        var rectHeight = 20;  // Height of the rectangle
+        var rectColor = 0x00FF00;  // Color of the rectangle
+
+        graphics.fillStyle(rectColor, 1);  // Color and alpha
+        graphics.fillRect(0, 0, rectWidth, rectHeight);  // Position and size of the rectangle
+        graphics.generateTexture('rectPlatform', rectWidth, rectHeight);
+
+        var platform = this.physics.add.sprite(x, y, 'rectPlatform');
+        platform.setImmovable(true);
+        platform.body.allowGravity = false;
+        platform.body.setSize(rectWidth, rectHeight);
+
+        return platform;
+    }
+
+
     create() {
         super.create();
         allPlatforms = [];
@@ -106,8 +147,6 @@ class M4_gamePlayStart extends M0_shared {
 
 
         // Fill the graphics object with the desired color
-
-
         this.cameras.main.setBounds(0, 0, dolzina, visina)
         this.physics.world.setBounds(0, 0, dolzina, visina)
 
@@ -118,25 +157,29 @@ class M4_gamePlayStart extends M0_shared {
 
         gameState.spaceship = this.physics.add.sprite(dolzina - 200, visina - 400, "spaceship")
         gameState.spaceship.body.allowGravity = false;
-        //gameState.junak  = this.physics.add.sprite(dolzina-6000, visina-4000, "Zmeja")
         gameState.junak = this.physics.add.sprite(200, visina - 400, "Zmeja")
-
+        //  gameState.junak = this.physics.add.sprite(dolzina-800, visina - 400, "Zmeja")
+        gameState.junak.setCollideWorldBounds(true)
         gameState.junak.setScale(.40)// pomanjsa
         this.cameras.main.startFollow(gameState.junak)
 
 
 
-        const platformsOptions = ["platform1", "platform1", "platform4"];
 
-        const platforms = this.physics.add.staticGroup();
 
-        var distance = 0
         for (var i = 0; i < 5; i++) {
-            var startPlatfrom = platforms.create(200 + distance, visina - 200, "platform4");
-            allPlatforms.push(startPlatfrom);
+            var startPlatform = this.createRectanglePlatform(200 + distance, visina - 200);
+            allPlatforms.push(startPlatform);
             distance += 200
         }
 
+        var distanceEnd = 200
+        for (var i = 0; i < 7; i++) {
+            var startPlatform = this.createRectanglePlatform(dolzina - distanceEnd, visina - 100);
+            finalPlatform.push(startPlatform);
+            distanceEnd -= 200
+
+        }
 
         gameState.spawnEvent = this.time.addEvent({
             delay: 100,
@@ -147,241 +190,31 @@ class M4_gamePlayStart extends M0_shared {
 
 
 
-
-
-
-
-        /*startPlatfrom =  platforms.create(dolzina-1200,    visina-200,     "platform4")
-        startPlatfrom.setAlpha(0)
-        allPlatforms.push(startPlatfrom)
-    
-        startPlatfrom =  platforms.create(dolzina-2100,    visina-200,     "platform4")
-        allPlatforms.push(startPlatfrom)
-    
-        startPlatfrom =  platforms.create(dolzina-2800,    visina-400,    "platform4")
-        startPlatfrom.setAlpha(0)
-        allPlatforms.push(startPlatfrom)
-    
-        startPlatfrom =  platforms.create(dolzina-3400,    visina-600,     "platform4")
-        allPlatforms.push(startPlatfrom)
-    
-        startPlatfrom =  platforms.create(dolzina-4000,    visina-800,     "platform4")
-        allPlatforms.push(startPlatfrom)
-    
-        startPlatfrom =  platforms.create(dolzina-5000,    visina-600,     "platform4")
-        allPlatforms.push(startPlatfrom)
-    
-        startPlatfrom =  platforms.create(dolzina-5700,    visina-800,     "platform4")
-        allPlatforms.push(startPlatfrom)
-    
-        startPlatfrom =  platforms.create(dolzina-6000,    visina-1000,     "platform4")
-        allPlatforms.push(startPlatfrom)
-    
-       
-    
-        var position =  visina-1500;
-        var position2 =  visina-1200;
-    
-    
-        var platformCodeLoad = [0,1,1,0,1,0]   //0 generates left, 1 right platform
-        for(var i = 0; i < 6; i++){
-            startPlatfrom =  platforms.create(dolzina-6000,    position,     "platform1")
-            position-=500
-            allPlatforms.push(startPlatfrom)
-            if(i == 3){
-                var platformPos = 0
-                for(var l = 0; l < 3; l++){
-                    startPlatfrom =  platforms.create(dolzina-6600 +platformPos,    position2,     "platform1")
-                    allPlatforms.push(startPlatfrom)
-                    platformPos -= 400
-             }
-            }
-            else{
-                startPlatfrom =  platforms.create(dolzina-6600,    position2,     "platform1")
-                if(platformCodeLoad[i] != 1 )
-                    allPlatforms.push(startPlatfrom)
-            }
-            startPlatfrom =  platforms.create(dolzina-5400,    position2,     "platform1")
-            if(platformCodeLoad[i] != 0)
-                allPlatforms.push(startPlatfrom)
-            position2-=500
-        }
-    
-        var platfromActivater =  platforms.create(dolzina-6000,    position+500,     "platform1")
-        allPlatforms.push(platfromActivater)
-    
-    
-    
-        var distance = 400
-        for(var i = 0; i < 6; i++){
-            startPlatfrom =  platforms.create(dolzina-6000 + distance, position+500,     "platform1")
-            if(i != 4 && i != 2) 
-                allPlatforms.push(startPlatfrom)
-            distance += 400
-        }
-        
-        //ubijalne kocke
-        const ubijejo = [];
-        for (let x = 64; x <= dolzina; x = x + 220 ){
-            const podenj =  platforms.create(x, visina-10, 'skeli')
-            podenj.setAlpha(0);
-            ubijejo.push(podenj)}
-    
-    
-    
-        
-            
-        const winnActivaters = [];
-        for (let x = dolzina-450; x <= dolzina; x = x + 150 ){
-                const podenj =  platforms.create(x, visina-3000, 'skeli')
-                podenj.allowGravity = false;
-               podenj.setAlpha(0);
-               winnActivaters.push(podenj)
-            }
-            
-    
-    
-    
-        //ALL MOVING ENEMIES    
-        gameState.vulture  = this.physics.add.sprite(dolzina-5800, visina-1000, 'vulture');
-        gameState.vulture.body.allowGravity = false;
-        gameState.vulture.setScale(2)
-    
-    
-        gameState.vulture1  = this.physics.add.sprite(dolzina-2000, visina-1800, 'vulture');
-        gameState.vulture1.body.allowGravity = false;
-        gameState.vulture1.setScale(2)
-    
-        gameState.reaper  = this.physics.add.sprite(dolzina-6400, visina-2800, 'reaper');
-        gameState.reaper.body.allowGravity = false;
-        gameState.reaper.setScale(0.2)
-        
-        gameState.reaper1  = this.physics.add.sprite(dolzina-6500, visina-4125, 'reaper');
-        gameState.reaper1.body.allowGravity = false;
-        gameState.reaper1.setScale(0.2)
-    
-        gameState.spaceShip  = this.physics.add.sprite(dolzina-7150, visina-3800, 'spaceShipAttackerIdle');
-        gameState.spaceShip.body.allowGravity = false;
-        gameState.spaceShip.setScale(1)
-    
-        gameState.spaceShipKiller  = this.physics.add.sprite( dolzina+100, visina-4050, 'quickKillerRockerIdle');
-        gameState.spaceShipKiller.body.allowGravity = false;
-        gameState.spaceShipKiller.setScale(1.7)
-    
-    
-    
-        
-    
-        this.anims.create({
-            key: 'vultureMovement',
-            frames: this.anims.generateFrameNumbers('vultureMovement', { start: 0, end: 3 }), // Adjust the range as needed
-            frameRate: 10,
-            repeat: -1
-        });*/
-
-        this.anims.create({
-            key: 'reaperMovement',
-            frames: this.anims.generateFrameNumbers('reaperMovement', { start: 0, end: 9 }), // Adjust the range as needed
-            frameRate: 8,
-            repeat: -1
-        });
-
-        /*  this.anims.create({
-              key: 'spaceShipAttacker',
-              frames: this.anims.generateFrameNumbers('spaceShipAttacker', { start: 0, end: 5 }),  
-              frameRate: 8,
-              repeat: -1
-          });
-      
-      
-          this.anims.create({
-              key: 'quickKillerRocker',
-              frames: this.anims.generateFrameNumbers('quickKillerRocker', { start: 0, end: 5 }),  
-              frameRate: 8,
-              repeat: -1
-          });
-      
-        //COLLIDERS AND OVERLAPS
-        this.physics.add.overlap(gameState.junak, platfromActivater, () => {
-             disableReturnBack = true 
-         })
-        */
-        this.physics.add.collider(gameState.junak, allPlatforms)
-        gameState.junak.setCollideWorldBounds(true) //ne more vn past
-
-
-
-
-
-
-
-        /*
-            //INTERACTION 
-            this.physics.add.overlap(gameState.junak, ubijejo, () => {
-                deathByWho[0] = [1]
-                deathVarient = "sky"
-                this.scene.stop('S4_gamePlayStart')
-                this.scene.start('S4_deathScreen') 
-            });
-            this.physics.add.overlap(gameState.junak, boaster, () => {
-             this.setJumpingSpeed(-850)})
-        
-            
-            this.physics.add.overlap(gameState.junak, winnActivaters , () => {
-                canWin = true
-            })
-            this.physics.add.overlap(gameState.junak,  gameState.vulture1 , () => {
-                stSmrti++
-                deathByWho[1] = [1]
-                deathVarient = "bird" 
-                this.scene.stop('S4_gamePlayStart')
-                this.scene.start('S4_deathScreen') 
-               
-            })
-        +
-            this.physics.add.overlap(gameState.junak,  gameState.spaceShip , () => {
-                stSmrti++
-                deathByWho[3] = [1]
-                deathVarient = "spaceship" 
-                this.scene.stop('S4_gamePlayStart')
-                this.scene.start('S4_deathScreen') 
-                
-            })
-            this.physics.add.overlap(gameState.junak,  gameState.spaceShipKiller , () => {
-                stSmrti++
-                deathByWho[4] = [1]
-                deathVarient = "qucikSpaceship" 
-                this.scene.stop('S4_gamePlayStart')
-                this.scene.start('S4_deathScreen') 
-                
-            })
-            this.physics.add.overlap(gameState.junak,  gameState.reaper1 , () => {
-                stSmrti++
-                deathByWho[2] = [1]
-                deathVarient = "reaper" 
-                this.scene.stop('S4_gamePlayStart')
-                this.scene.start('S4_deathScreen') 
-                
-            })
-            this.physics.add.overlap(gameState.junak,  gameState.reaper , () => {
-                stSmrti++
-                deathByWho[2] = [1]
-                deathVarient = "reaper" 
-                this.scene.stop('S4_gamePlayStart')
-                this.scene.start('S4_deathScreen') 
-                
-            })*/
-
-
-        /* KO UMRE            stopChecking = false
-        disableReturnBack = false!!!!!!!!!!!!!!*/
-
-
-        gameState.text = this.add.text(GAME_WIDTH - 200, visina - 600, 'Coins: ', { fontSize: '30px', fill: '#000000', fontFamily: 'CustomFont' });
+        gameState.text = this.add.text(dolzina - 200, visina - 600, 'Coins: ', { fontSize: '30px', fill: '#000000', fontFamily: 'CustomFont' });
         gameState.text.setDepth(0)
 
-        gameState.coins = this.add.text(GAME_WIDTH - 200, visina - 800, 'Coins: ', { fontSize: '30px', fill: '#000000', fontFamily: 'CustomFont' });
+        gameState.coins = this.add.text(dolzina - 200, visina - 800, 'Coins: ', { fontSize: '30px', fill: '#000000', fontFamily: 'CustomFont' });
         gameState.coins.setDepth(0)
+
+
+        this.physics.add.overlap(gameState.junak, finalPlatform, () => {
+            if (!rainbow) {
+                rainbowUnlocked = true
+            }
+
+
+            this.scene.stop('M4_red');
+            this.scene.start('M5_konec');
+
+        })
+        /* var shield = false
+         var ghost = false
+         var shroom = false
+         var potion = false
+         var rocket = false
+         var spaceship = false*/
+
+
 
 
 
@@ -389,6 +222,66 @@ class M4_gamePlayStart extends M0_shared {
     }
 
     update() {
+        if (gameState.active) {
+            if ((gameState.cursors.up.isDown /*&& gameState.junak.body.touching.down*/)) {
+                gameState.junak.anims.play('skok', true);
+                gameState.junak.setVelocityY(this.getJumpingSpeed())
+            }
+
+
+            if (rocketStart) {
+                gameState.junak.setVelocityX(100000)
+                gameState.junak.x = gameState.junak.x++;
+                gameState.junak.y = visina - 400
+                for (let index = 55900; index <= 60000; index += 200) {
+                    var startPlatfrom = this.createRectanglePlatform(index, visina - 400);
+                    allPlatforms.push(startPlatfrom);
+                }
+                if (gameState.junak.x > 56000) {
+                    rocketStart = false
+                    freshlyRocketDone = true
+                }
+
+
+            }
+            else {
+                if (freshlyRocketDone) {
+                    gameState.junak.y = visina - 700
+                    freshlyRocketDone = false
+                }
+                else {
+                    gameState.junak.setVelocityX(1000)
+                }
+                //    gameState.junak.setVelocityX(1000)
+
+            }
+
+            gameState.junak.anims.play('walk', true)
+
+        }
+
+
+        if (!rocketStart) {
+            this.physics.add.collider(gameState.junak, allPlatforms)
+
+        }
+
+
+
+
+        if (didntCheat && !noCheat && score > 10000) {
+            this.showPopupAchievements("25000")
+            this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
+            this.titleMusic.play();
+            tfK = true
+            this.updateAchievements();
+            const dataAchievements = {
+                achievements: achievements,
+            };
+            this.updateDataBaseAchivements(dataAchievements)
+        }
+
+
 
         this.physics.add.overlap(gameState.junak, buffs, (user, buff) => {
             if (buff.value == 2) {
@@ -398,6 +291,7 @@ class M4_gamePlayStart extends M0_shared {
                     startTimeShield = this.getTimePassed()
                     shield = true
                     distance += 50
+                    didntCheat = false
                 }
             }
             else if (buff.value == 1) {
@@ -410,6 +304,7 @@ class M4_gamePlayStart extends M0_shared {
                     startTimeGhost = this.getTimePassed()
                     ghost = true
                     distance += 50
+                    didntCheat = false
 
                 }
             } else if (buff.value == 6) {
@@ -418,6 +313,7 @@ class M4_gamePlayStart extends M0_shared {
                     startTimeshroom = this.getTimePassed()
                     shroom = true
                     distance += 50
+                    didntCheat = false
 
                 }
             } else if (buff.value == 9 || buff.value == 10) {
@@ -425,31 +321,35 @@ class M4_gamePlayStart extends M0_shared {
                     startTimeheart = this.getTimePassed()
                     heart = true
                     distance += 50
-                    if(buff.value == 9){
+                    if (buff.value == 9) {
                         heartIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (10)")
                     }
-                    else{
-                        heartIcon =  this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (9)")
+                    else {
+                        heartIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (9)")
                         heartIcon.setScale(.5)
                     }
+                    didntCheat = false
 
 
                 }
             } else if (buff.value = 14) {
                 speedShip = true
+                didntCheat = false
+
 
             } else if (buff.value = 15) {
                 if (!spaceShip) {
                     spaceShipIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (15)")
                     startTimespaceShip = this.getTimePassed()
                     spaceShip = true
+                    didntCheat = false
 
                 }
             }
-            if (buff.value == 3 || buff.value == 12  || buff.value == 13  ) 
-                return
-            
-            
+            /*    if (buff.value == 3 || buff.value == 12 || buff.value == 13)
+                    return*/
+
+
             buff.destroy()
 
 
@@ -462,23 +362,28 @@ class M4_gamePlayStart extends M0_shared {
 
         borderLeft = gameState.junak.x - 1500
         gameState.text.setText('Score: ' + score++);
-        gameState.coins.setText('Coins: ' + userCoins);
+        gameState.coins.setText('Coins: ' + coinsNewGame);
 
         gameState.coins.x = this.cameras.main.scrollX + 1000;
         gameState.coins.y = this.cameras.main.scrollY + 100;
 
         gameState.text.x = this.cameras.main.scrollX + 1000;
         gameState.text.y = this.cameras.main.scrollY + 50;
-        if (gameState.junak.y >= 2940)
-            //this.scene.restart() 
 
 
 
-            allPlatforms.forEach(platform => {
-                if (platform.x < borderLeft) {
-                    platform.destroy();
-                }
-            });
+        if (gameState.junak.y >= 2940) {
+            // this.scene.stop('M4_red')
+            // this.scene.start('M5_konec')
+        }
+
+
+
+        allPlatforms.forEach(platform => {
+            if (platform.x < borderLeft) {
+                platform.destroy();
+            }
+        });
 
         coins.forEach(coin => {
             if (coin.x < borderLeft) {
@@ -492,11 +397,10 @@ class M4_gamePlayStart extends M0_shared {
 
 
         this.physics.add.overlap(gameState.junak, coins, (user, coin) => {
-            userCoins += coin.value;
+            coinsNewGame += coin.value;
             coin.destroy()
 
         })
-
 
 
 
@@ -525,9 +429,8 @@ class M4_gamePlayStart extends M0_shared {
 
 
         if (shield) {
-            shieldIcon.x = gameState.junak.x - 100 
+            shieldIcon.x = gameState.junak.x - 100
             shieldIcon.y = gameState.junak.y - 50;
-
             if (startTimeShield + 5 <= currentTime) {
                 shieldIcon.destroy()
                 shield = false
@@ -537,7 +440,6 @@ class M4_gamePlayStart extends M0_shared {
 
 
         if (ghost) {
-
             ghostIcon.x = gameState.junak.x - 200
             ghostIcon.y = gameState.junak.y - 50;
             if (startTimeGhost + 5 <= currentTime) {
@@ -560,8 +462,6 @@ class M4_gamePlayStart extends M0_shared {
         }
 
         if (heart) {
-
-
             heartIcon.x = gameState.junak.x - 150
             heartIcon.y = gameState.junak.y - 50;
             if (startTimeheart + 5 <= currentTime) {
@@ -639,7 +539,6 @@ class M4_gamePlayStart extends M0_shared {
                 coins.push(coin)
             }
             actualHeight -= 100
-            console.log(actualHeight)
         }
     }
 
@@ -730,9 +629,6 @@ class M4_gamePlayStart extends M0_shared {
 
     }
 
-
-
-
 }
 
 
@@ -752,25 +648,25 @@ function spawn() {
                 var limit = start + length
                 for (let index = lastPoint; index < limit; index += 600) {
                     var height = generateHeight()
-                    var startPlatfrom = platforms.create(index, height, "platform4");
+                    var startPlatfrom = this.createRectanglePlatform(index, height);
                     allPlatforms.push(startPlatfrom);
                     lastPoint += 600
                     this.generateCoins(index, index + 100, height)
                 }
-
                 break
-            case 1: //NARED VEČ VERJETNO!!!!!!
+            case 1: 
                 //standing platform
+
                 var start = lastPoint
                 var height = generateHeight()
                 var limit = start + length
                 var index = lastPoint;
                 for (index; index < limit; index += 300) {
-                    var startPlatfrom = platforms.create(index, height, "platform4");
+                    var startPlatfrom = this.createRectanglePlatform(index, height);
                     allPlatforms.push(startPlatfrom);
                     lastPoint += Math.floor(Math.random() * 100) + 350
                 }
-                var thing = 4 //Math.floor(Math.random() * 7)
+                var thing = Math.floor(Math.random() * 5)
 
                 //change probability
 
@@ -793,8 +689,9 @@ function spawn() {
                 var start = lastPoint
                 var height = generateHeight()
                 var limit = start + length
+
                 for (let index = lastPoint; index < limit + length; index += 600) {
-                    var startPlatfrom = platforms.create(index, height, "platform4");
+                    var startPlatfrom = this.createRectanglePlatform(index, height);
                     allPlatforms.push(startPlatfrom);
                     lastPoint += 600
                 }
@@ -802,6 +699,8 @@ function spawn() {
                 break
         }
     }
+
+
 
 
 
@@ -831,15 +730,3 @@ function generateHeight() {
 
 
 
-
-
-
-/*extra lives
-abilities
-achivments
-
-wall of coins
-
-
-
-*/

@@ -25,7 +25,6 @@ class uvod extends Phaser.Scene {
 
 
   create() {
-    console.log("uvod")
     const xKordinata = (Math.random() * 490)
     const yKordinata = (Math.random() * 350)
 
@@ -36,25 +35,21 @@ class uvod extends Phaser.Scene {
 
     const ach = achievements.substring(16, 17);
 
-
+    console.log('ach'+ach);
     if (ach == 1)
         completed = true;
-
+    else
+      completed = false
 
 
 
 
     this.input.on('pointerup', () => {
-      var achievementsSplit = achievements;
-      const prevCompleted = achievementsSplit.substring(11, 12);
-
-      if (prevCompleted == "1")
-        completed = true;
+    
 
 
-
-      this.scene.stop('uvod')
-      this.scene.start('scena1')
+      this.scene.stop('scena1')
+      this.scene.start('konec')
     });
   }
 }

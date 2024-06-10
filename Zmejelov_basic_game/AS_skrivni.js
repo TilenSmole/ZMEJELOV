@@ -164,7 +164,7 @@ create(){
 
 
 var  kordinata =  Math.floor(Math.random() * dolzina+50); 
-const napoj =  this.physics.add.sprite(sirina/2, -35500 , "napoj")
+const napoj =  this.physics.add.sprite(sirina/2, -34000 , "napoj")
 napoj.setScale(2)
 this.physics.add.collider(kolider, napoj)
 

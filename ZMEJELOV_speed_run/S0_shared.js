@@ -3,7 +3,6 @@ let minute = 0;
 let second = 0;
 let count = 0;
 timer = true
-var uploaded = false
 
 class S0_shared extends Phaser.Scene {
 	constructor(key) {
@@ -128,34 +127,35 @@ class S0_shared extends Phaser.Scene {
 		}
 
 
-
 	}
 	updateAchievements() {
 		var achievementsUpdated = achievements;
 		console.log(achievements)
 		if (completedSpeedy)
-			completedSpeedy = this.replaceCharAt(achievementsUpdated, 6, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 17, "1");
 		if (completedGame)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 7, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 18, "1");
 		if (dieDiverse)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 8, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 19, "1");
 		if (stars)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 9, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 20, "1");
 		if (dieALot)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 10, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 12, "1");
 		if (quickDeath)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 11, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 22, "1");
 		console.log(achievements)
 		achievements = achievementsUpdated;
 	}
 
 
 	resetGame() {
-		var disableReturnBack = false //player cant take the easy way out 
-		var stopChecking = false //so it doesnt dispplay every second if disableReturnBack
-		var hotdogShow = true //shows a hotdog
-		var canWin = false //if the player touches spaceship does he win
+		 disableReturnBack = false //player cant take the easy way out 
+		 stopChecking = false //so it doesnt dispplay every second if disableReturnBack
+		 hotdogShow = true //shows a hotdog
+		 canWin = false //if the player touches spaceship does he win
 		setJumpingSpeed(-650)
+		uploaded = false
+
 	}
 
 
@@ -248,8 +248,7 @@ class S0_shared extends Phaser.Scene {
 
 	}
 
-
-
+	
 
 
 }
@@ -292,30 +291,3 @@ function updateStopwatch() {
 
 
 
-showPopupAchievements = (text, onFinish) => {
-	const rectangle = this.add.rectangle(GAME_WIDTH - 300, 0, 700, 100, 0XFFFFFF);
-	rectangle.setOrigin(0.5, 0);
-
-	const graphics = this.add.graphics();
-	graphics.fillStyle(0xffffff, 1);
-	graphics.fillRect(rectangle.x - rectangle.width / 2, rectangle.y, rectangle.width, rectangle.height);
-
-	const popup = this.add.text(GAME_WIDTH - 300, 40, text, {
-		fontSize: '32px',
-		color: '#000000',
-		align: 'center',
-		wordWrap: { width: rectangle.width - 20, useAdvancedWrap: true }
-	});
-	popup.setOrigin(0.5);
-
-	this.time.delayedCall(4000, () => {
-		popup.destroy();
-		rectangle.destroy();
-		graphics.destroy();
-
-		// Call the onFinish function once the popup is closed
-		if (onFinish) {
-			onFinish();
-		}
-	});
-};

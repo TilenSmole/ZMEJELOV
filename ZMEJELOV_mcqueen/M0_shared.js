@@ -1,209 +1,279 @@
-let hour = 0; 
-let minute = 0; 
-let second = 0; 
-let count = 0; 
+let hour = 0;
+let minute = 0;
+let second = 0;
+let count = 0;
 timer = true
 var uploaded = false
 
 class M0_shared extends Phaser.Scene {
-    constructor(key) {
-        super({
-            key: key
-        })
-    }
+	constructor(key) {
+		super({
+			key: key
+		})
+	}
 	preload() {
-		this.load.atlas("Zmeja","assets/najdela/najdela.png","assets/najdela/najdela.json")
+		this.load.atlas("Zmeja", "assets/najdela/najdela.png", "assets/najdela/najdela.json")
 		this.load.spritesheet('ZmejaDyingAnimation', 'assets/ZMEJA/zmeja_death.png', {
-			frameWidth: 500,  
-			frameHeight: 420, 
+			frameWidth: 500,
+			frameHeight: 420,
 		});
 		this.load.spritesheet('ZmejaMoving', 'assets/ZMEJA/zmejaMoving.png', {
-			frameWidth: 220,  
-			frameHeight: 292, 
+			frameWidth: 220,
+			frameHeight: 292,
 		});
 		this.load.spritesheet('ZmejaIdle', 'assets/ZMEJA/zmejaIdle.png', {
-			frameWidth: 220,  
-			frameHeight: 302, 
+			frameWidth: 220,
+			frameHeight: 302,
 		});
+		this.load.json('textEn', '/translations/translationsEN_js.json');
+		this.load.json('textSlo', '/translations/translationsSLO_js.json');
+		this.load.image("platform1", "assets/a_speedRunning/platforms/Pad_3_3.png")
+        this.load.image("platform2", "assets/a_speedRunning/platforms/Pad_04_1.png")
+        this.load.image("platform3", "assets/a_speedRunning/platforms/Pad_01_1.png")
+        this.load.image("platform4", "assets/a_speedRunning/platforms/Pad_1_3.png")
+        this.load.audio('zmaga', ['assets/uvod/zmaga.mp3', "assets/uvod/zmaga.ogg"]);
+        this.load.image("spaceship", "assets/scena6/spaceship.png")
+        this.load.image("skeli", "assets/deco/Spikes.png")
+        this.load.image("boaster", "assets/a_speedRunning/boaster.png")
+        this.load.spritesheet('vultureMovement', 'assets/a_speedRunning/Vulture_walk.png', {
+            frameWidth: 48,
+            frameHeight: 48,
+        });
+        this.load.image("vulture", "assets/a_speedRunning/Vulture.png")
 
-	   }
-	 create() {
-	
-	gameState.active = true;
+        this.load.image("coin", "assets/scena3/Coin_01.png")
+        this.load.audio('egg', ['assets/uvod/easterEgg(1).mp3', "assets/uvod/easterEgg(1).ogg"]);
 
-	
 
+        this.load.image("reaper", "assets/a_speedRunning/0_Reaper_Man_Idle_000.png")
+		this.load.spritesheet('reaperMovement', 'assets/a_speedRunning/alienWalking.png', {
+            frameWidth: 616,
+            frameHeight: 587.3,
+        });
+
+        for (let i = 1; i <= 16; i++) {
+            this.load.image("r1 (" + i + ')', "assets/a_TheFinalRage/r1 (" + i + ").png");
+        }
+
+
+
+	}
 	
-	
-	this.anims.create({
+    generateCoins(min, max, height) {
+        var pos = Math.floor(Math.random() * 1000) + 1000
+        var distanceBetween = Math.floor(Math.random() * 250) + 120
+        for (var i = min; i <= max; i += distanceBetween) {
+            var coin = this.physics.add.sprite(i, height - 100, 'coin');
+            coin.body.allowGravity = false;
+            coin.value = 1;
+            coin.setScale(.67)
+            coins.push(coin)
+        }
+    }
+
+    generateEnemy(min, max, height) {
+        var enemy = this.physics.add.sprite(min, height - 100, 'reaper');
+        enemy.body.allowGravity = false;
+        enemy.setScale(0.2)
+        enemy.targetMax = max;
+        enemy.targetMin = min; // Store the target X coordinate as a property of the enemy
+        enemy.reachedTarget = false
+        enemies.push(enemy)
+    }
+
+    generateLineOFCoins(min, max, height) {
+        var index = 1
+        var distanceBetween = 200
+        for (var i = min; i <= max; i += distanceBetween) {
+            var coin = this.physics.add.sprite(i, height - index++ * 75, 'coin');
+            coin.body.allowGravity = false;
+            coin.setScale(.67)
+            coins.push(coin)
+            if (index > 7)
+                break
+        }
+    }
+
+    generateWallOFCoins(min, max, height) {
+        var distanceBetween = 200
+        var actualHeight = height - 50
+        for (var index = 0; index <= 5; index++) {
+            for (var i = min; i <= max; i += distanceBetween) {
+                var coin = this.physics.add.sprite(i, actualHeight, 'coin');
+                coin.body.allowGravity = false;
+                coin.setScale(.67)
+                coins.push(coin)
+            }
+            actualHeight -= 100
+        }
+    }
+
+    generateRandomCoins(min, max, height) {
+        var coordinatesX = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        var numberOfgenerated = Math.floor(Math.random() * 4) + 1;
+        for (var x = 0; x <= numberOfgenerated; x++) {
+            var coordinatesX = Math.floor(Math.random() * (max - min + 1)) + min;
+            var coin = this.physics.add.sprite(coordinatesX, height - (Math.floor(Math.random() * (400)) + 100), 'coin');
+            coin.body.allowGravity = false;
+            coin.setScale(.67)
+            coins.push(coin)
+
+
+        }
+
+
+
+
+
+
+    }
+
+    generateSpecialEffect(min, max, height) {
+        var coordinatesX = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        var numberOfgenerated = Math.floor(Math.random() * 4) + 1;
+
+        var possibleEle = ["fake", 'r1 (1)', 'r1 (2)', 'r1 (3)', 'r1 (4)', 'r1 (5)', 'r1 (6)', 'r1 (7)', 'r1 (8)', 'r1 (10)', 'r1 (9)', 'r1 (11)', 'r1 (12)', 'r1 (13)', 'r1 (14)', 'r1 (15)', 'r1 (16)']
+        var choosenEle =14// Math.floor(Math.random() * 15) + 1;
+
+
+        var coordinatesX = Math.floor(Math.random() * (max - min + 1)) + min;
+        //4 7 8 11
+        if (choosenEle === 4 || choosenEle === 7 || choosenEle === 8 || choosenEle === 11) {
+            var coin = this.physics.add.sprite(coordinatesX, height - (Math.floor(Math.random() * (400)) + 100), possibleEle[choosenEle]);
+            coin.setScale(3)
+
+            if (choosenEle === 7)
+                coin.value = 10;
+            else if (choosenEle === 4) {
+                coin.value = 1000;
+                coin.setScale(1)
+
+            }
+            else if (choosenEle === 8) {
+                coin.value = 50;
+            }
+            else if (choosenEle === 11) {
+                coin.value = 100;
+            }
+            coin.body.allowGravity = false;
+            coins.push(coin)
+
+        }
+        else {
+            var buff = this.physics.add.sprite(coordinatesX, height - 200, possibleEle[choosenEle]);
+            if (choosenEle === 14)
+                buff.setScale(3)
+            else if (choosenEle === 15)
+                buff.setScale(2)
+            else if (choosenEle === 16)
+                buff.setScale(.67)
+            else if (choosenEle === 10)
+                buff.setScale(2.2)
+            else if (choosenEle === 6)
+                buff.setScale(2.2)
+            /* else if (choosenEle === 11)
+                 buff.setScale(.67)*/
+
+
+
+            buff.body.allowGravity = false;
+            buff.value = choosenEle;
+            buffs.push(buff)
+
+        }
+
+
+
+
+
+
+
+
+
+
+    }
+	createRectanglePlatform(x, y) {
+        var graphics = this.add.graphics();
+        var rectWidth = 300
+            ;  // Width of the rectangle
+        var rectHeight = 20;  // Height of the rectangle
+        var rectColor = 0x00FF00;  // Color of the rectangle
+
+        graphics.fillStyle(rectColor, 1);  // Color and alpha
+        graphics.fillRect(0, 0, rectWidth, rectHeight);  // Position and size of the rectangle
+        graphics.generateTexture('rectPlatform', rectWidth, rectHeight);
+
+        var platform = this.physics.add.sprite(x, y, 'rectPlatform');
+        platform.setImmovable(true);
+        platform.body.allowGravity = false;
+        platform.body.setSize(rectWidth, rectHeight);
+
+        return platform;
+    }
+
+
+	loadText(text_to_translate) {
+		let textEn = this.cache.json.get('textEn');
+		let textSlo = this.cache.json.get('textSlo');
+		if (language === "en") {
+			return textEn["en"][text_to_translate];
+		} else {
+			return textSlo["slo"][text_to_translate];
+		}
+	}
+	create() {
+
+		gameState.active = true;
+
+
+
+
+
+		this.anims.create({
 			key: 'walk',
 			frames: [
-				{ key: 'Zmeja',frame:"Wraith_03_Moving Forward_000.png" },],
+				{ key: 'Zmeja', frame: "Wraith_03_Moving Forward_000.png" },],
 			frameRate: 8,
 			repeat: -1
 		});
-	
-	this.anims.create({
+
+		this.anims.create({
 			key: 'idle',
-			frames: this.anims.generateFrameNumbers('ZmejaIdle', { start: 0, end: 7 }), 
+			frames: this.anims.generateFrameNumbers('ZmejaIdle', { start: 0, end: 7 }),
 			frameRate: 4,
 			repeat: -1
 		});
 
-	this.anims.create({
-		key: 'dying',
-		frames: this.anims.generateFrameNumbers('ZmejaDyingAnimation', { start: 0, end: 12 }), // Adjust the range as needed
-		frameRate: 10,
-		repeat: -1
-	});
+		this.anims.create({
+			key: 'dying',
+			frames: this.anims.generateFrameNumbers('ZmejaDyingAnimation', { start: 0, end: 12 }), // Adjust the range as needed
+			frameRate: 10,
+			repeat: -1
+		});
 
 
-	this.anims.create({
+		this.anims.create({
 			key: 'umre',
 			frames: [
-				{ key: 'Zmeja',frame:"Wraith_03_Dying_000.png" },],
+				{ key: 'Zmeja', frame: "Wraith_03_Dying_000.png" },],
 			frameRate: 8,
 			repeat: -1
 		});
 
 
 
-	this.anims.create({
-				key: 'skok',
-				frames: [
-					{ key: 'Zmeja',frame:"Wraith_03_Idle_000.png" },],
-				frameRate: 8,
-				repeat: -1
-			});
-		
-
-	gameState.cursors = this.input.keyboard.createCursorKeys();
-	
-	
-	
-	
-	
-	
+		this.anims.create({
+			key: 'skok',
+			frames: [
+				{ key: 'Zmeja', frame: "Wraith_03_Idle_000.png" },],
+			frameRate: 8,
+			repeat: -1
+		});
 
 
-	  }
-
-update(arg) {
-	if (arg == "basic"){
-	if (gameState.active) {
-		if ((gameState.cursors.up.isDown) /*&& gameState.junak.body.touching.down*/) {
-			gameState.junak.anims.play('skok', true);
-			gameState.junak.setVelocityY(this.getJumpingSpeed())}
-		else if(gameState.cursors.right.isDown) {
-			gameState.junak.setVelocityX(2500)
-			gameState.junak.anims.play('walk', true)
-			gameState.junak.flipX = false;}
-		else if ( gameState.cursors.left.isDown) {
-			gameState.junak.setVelocityX(-2500);
-			gameState.junak.anims.play('walk', true);
-			gameState.junak.flipX = true;}
-		else {
-			gameState.junak.setVelocityX(0);
-			// Plays the idle animation if no arrow keys are pressed
-			gameState.junak.anims.play('idle', true);}
-
-}
-
-
-	
-
-}
-
-
-
-}
-updateAchievements() {
-    var achievementsUpdated = achievements;
-	console.log(achievements)
-    if (completedSpeedy) 
-        completedSpeedy = this.replaceCharAt(achievementsUpdated, 6, "1");
-	if (completedGame)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 7, "1");
-	if (dieDiverse)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 8, "1");
-	if (stars)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 9, "1");
-	if (dieALot)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 10, "1");
-	if (quickDeath)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 11, "1");
-		console.log(achievements)
-    achievements = achievementsUpdated;
-}
-
-
-resetGame(){
-}
-
-
-
-
-getJumpingSpeed(){
-	return gameState.speed;
-}
-
-setJumpingSpeed(speedNew){
-	gameState.speed = speedNew;
-}
-
-
- updateDataBase(data) {
-	return new Promise((resolve, reject) => {
-		var xhr = new XMLHttpRequest();	
-		xhr.open("POST", "/SERVER/resultUpdater.php", true);
-		xhr.setRequestHeader("Content-Type", "application/json");
-
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					console.log("Server Response:", xhr.responseText);
-					resolve("Database updated successfully");
-				} else {
-					reject("Failed to update database");
-				}
-			}
-		};
-
-		xhr.send(JSON.stringify(data));
-	});
-
-}
-
-updateDataBaseAchivements(data) {
-	return new Promise((resolve, reject) => {
-		var xhr = new XMLHttpRequest();	
-		xhr.open("POST", "/SERVER/achivmentsUpdater.php", true);
-		xhr.setRequestHeader("Content-Type", "application/json");
-
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState === XMLHttpRequest.DONE) {
-				if (xhr.status === 200) {
-					console.log("Server Response:", xhr.responseText);
-					resolve("Database updated successfully");
-				} else {
-					reject("Failed to update database");
-				}
-			}
-		};
-
-		xhr.send(JSON.stringify(data));
-	});
-
-}
-
-
-
-replaceCharAt(str, index, replacement) {
-    if (index < 0 || index >= str.length) {
-        return str; // Index out of range, return original string
-    }
-    return str.substring(0, index) + replacement + str.substring(index + 1);
-}
+		gameState.cursors = this.input.keyboard.createCursorKeys();
 
 
 
@@ -212,70 +282,215 @@ replaceCharAt(str, index, replacement) {
 
 
 
-stopWatchStop(){
-	timer = false;
-	//console.log(hour+" "+ minute+" "+second+count)
-	if(!uploaded){
-		uploaded = true
-		var timeToComplete = hour + " " + minute+ " " + second +" " + count
-		finalTime = parseInt(hour) * 3600 + parseInt(minute) * 60 + parseInt(second);
-
-		const data = {
-			time: timeToComplete ,
-		  };
-		  
-		  this.updateDataBase(data)
-			  .then(response => {
-				  console.log(response);
-			  })
-			  .catch(error => {
-				  console.error(error);
-			  });
 	}
+
+	update() {
 	
 
 
+
+	}
+	updateAchievements() {
+		var achievementsUpdated = achievements;
+
+
+		if (buy)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 6, "1");
+		if (rainbow)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 7, "1");
+		if (noCheat)
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 8, "1");
+
+		achievements = achievementsUpdated;
+	}
+	updateMoney(data) {
+		return new Promise((resolve, reject) => {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/SERVER/moneyUpdater.php", true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						console.log("Server Response:", xhr.responseText);
+						resolve("Database updated successfully");
+					} else {
+						reject("Failed to update database");
+					}
+				}
+			};
+
+			xhr.send(JSON.stringify(data));
+		});
+	}
+
+	getMoney() {
+		var xhr = new XMLHttpRequest();
+		xhr.open('POST', '/SERVER/getMoney.php', false);  // Set the third parameter to false for synchronous request
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		var data = JSON.stringify({ action: 'getMoney' });
+		xhr.send(data);
+
+		if (xhr.status === 200) {
+			console.log("Response from server:", xhr.responseText);
+			try {
+				var response = JSON.parse(xhr.responseText);
+				if (response.money !== undefined) {
+					return response.money;
+				} else {
+					console.error("Error: Money value not found in response");
+					return null;
+				}
+			} catch (error) {
+				console.error("Error parsing JSON:", error);
+				return null;
+			}
+		} else {
+			console.error("Failed to retrieve money. Status: " + xhr.status);
+			return null;
+		}
+
+	}
+
+
+
+
+
+
+
+	getJumpingSpeed() {
+		return gameState.speed;
+	}
+
+	setJumpingSpeed(speedNew) {
+		gameState.speed = speedNew;
+	}
+
+
+	updateDataBase(data) {
+		return new Promise((resolve, reject) => {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/SERVER/resultUpdaterCity.php", true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						console.log("Server Response:", xhr.responseText);
+						resolve("Database updated successfully");
+					} else {
+						reject("Failed to update database");
+					}
+				}
+			};
+
+			xhr.send(JSON.stringify(data));
+		});
+
+	}
+
+	updateDataBaseAchivements(data) {
+		return new Promise((resolve, reject) => {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/SERVER/achivmentsUpdater.php", true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						console.log("Server Response:", xhr.responseText);
+						resolve("Database updated successfully");
+					} else {
+						reject("Failed to update database");
+					}
+				}
+			};
+
+			xhr.send(JSON.stringify(data));
+		});
+
+	}
+
+
+
+	replaceCharAt(str, index, replacement) {
+		if (index < 0 || index >= str.length) {
+			return str; // Index out of range, return original string
+		}
+		return str.substring(0, index) + replacement + str.substring(index + 1);
+	}
+
+
+
+
+
+
+
+
+	stopWatchStop() {
+		timer = false;
+		//console.log(hour+" "+ minute+" "+second+count)
+		if (!uploaded) {
+			uploaded = true
+			var timeToComplete = hour + " " + minute + " " + second + " " + count
+			finalTime = parseInt(hour) * 3600 + parseInt(minute) * 60 + parseInt(second);
+
+			const data = {
+				time: timeToComplete,
+			};
+
+			this.updateDataBase(data)
+				.then(response => {
+					console.log(response);
+				})
+				.catch(error => {
+					console.error(error);
+				});
+		}
+
+
+
+	}
+
+	getTimePassed() {
+		return parseInt(hour) * 3600 + parseInt(minute) * 60 + parseInt(second);
+	}
+
+
+
 }
-
-getTimePassed(){
-	return parseInt(hour) * 3600 + parseInt(minute) * 60 + parseInt(second);
-}
-
-
-
-} 
 //https://www.geeksforgeeks.org/how-to-create-stopwatch-using-html-css-and-javascript/
-function stopWatchStart() { 	
-    setInterval(updateStopwatch, 10);
+function stopWatchStart() {
+	setInterval(updateStopwatch, 10);
 }
 
 function updateStopwatch() {
-    count++;
-	if(timer){
+	count++;
+	if (timer) {
 		if (count == 100) {
 			second++;
 			count = 0;
 		}
-	
+
 		if (second == 60) {
 			minute++;
 			second = 0;
 		}
-	
+
 		if (minute == 60) {
 			hour++;
 			minute = 0;
 			second = 0;
 		}
-	
+
 		let hrString = hour.toString().padStart(2, '0');
 		let minString = minute.toString().padStart(2, '0');
 		let secString = second.toString().padStart(2, '0');
 		let countString = count.toString().padStart(2, '0');
-	
-	
+
+
 	}
-    
+
 }
 
 

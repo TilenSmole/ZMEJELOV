@@ -2,6 +2,7 @@
     "slo": {
         "next": "NAPREJ",
         "play": "IGRAJ",
+        "play2": "IGRAJ v2",
         "last_version": "Ali hočeš naložiti zadnjo igrano verzijo na nivoju",
         "last_version_date": "iz dne",
         "no": "NE",
@@ -22,6 +23,12 @@
         "good_sings": "Zapomni si, da so znaki kot je ta edini, ki ti nikoli ne bodo škodili",
         "enemy_death_n0": "Udar sovražnika je bil fatalen...",
         "": "Še ena žrtev",
+        "rainbow": "Odkrij mavrico",
+        "money_ach": "Kupi dosežek ",
+        "no_pups": "Doseži 10000 brez dodatnih sposobnosti",
+        "rainbowA": "🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈",
+        "money_achA": "Denar sveta vladar",
+        "no_pupsA": "Močččččččččččččččččččččččččččččččč",
         "enemy_death_n2": "Ouch, telefon iz rok in začni gledati okoli sebe",
         "enemy_death_n3": "😫😪",
         "enemy_death_n4": "Udar sovražnika je bil fatalen... \n Ne bojim se smrti, vendar ko bo prišla, bi bil rajši odsoten. (Woody Allen)",
@@ -89,7 +96,8 @@
         "speedrun_win_med": "Še kar OK rezultat",
         "speedrun_win_slow": "No, smo saj prišli saj do konca 🙊",
         "speedrun_win_slow2x": "Wow, nisem si mislil, da se bo tole sporočilo kdaj prikazalo na zaslonu, tole je pa bilo kar počasi za igrico, kjer si dolžan biti hiter",
-       
+        "city_intro": "Joj kako lep dan, mar ga ne bi bilo vredno počastiti z enim prijetnim kosilom????? Mislim, da je čas, da greš v nabavno, daj nakupi čim več dobrega! Srečno! ",
+        "the_final_rage_end": "počil je lonec in sedaj je zares konec...",
        
        
         "ach_ruins": "RUŠEVINE",
@@ -99,13 +107,17 @@
         "ach_hard": "HARD MODE",
         "ach_easy": "EASY MODE",
 
-        "ach_stars": "ZVEZDE",
+        "ach_stars": "ODKRIJ ZVEZDE",
         "ach_all": "RAZNOLIKOST",
-        "ach_finish": "DOKONČAJ",
+        "ach_finish": "OPRAVI IGRO",
         "ach_speed": "HITROST",
         "ach_death" : "UMRI 20x",
         "ach_ship" : "BRRRRRRRRR",
-        "ach_OG": "OG "
+        "ach_OG": "OG ",
+        "store": "razlaga",
+        "bought" : "aktivirano",
+        "not_ava" : "ni na voljo"
+
 
 
 

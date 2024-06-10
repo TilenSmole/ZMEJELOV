@@ -25,6 +25,9 @@ class F0_shared extends Phaser.Scene {
 			frameWidth: 220,  
 			frameHeight: 302, 
 		});
+		this.load.json('textEn', '/translations/translationsSLO_js.json');
+		this.load.json('textSlo', '/translations/translationsEN_js.json');
+
 
 	   }
 	 create() {
@@ -88,6 +91,16 @@ class F0_shared extends Phaser.Scene {
 
 	  }
 
+	  loadText(text_to_translate) {
+		if (language === "en") {
+			return this.cache.json.get('textEn')["en"][text_to_translate];
+		} else {
+			return this.cache.json.get('textSlo')["slo"][text_to_translate];
+		}
+	}
+
+
+
 update(arg) {
 	if (gameState.active) {
 		
@@ -113,32 +126,33 @@ update(arg) {
 
 
 }
+
+
+
 updateAchievements() {
     var achievementsUpdated = achievements;
 	console.log(achievements)
-    if (completedSpeedy) 
-        completedSpeedy = this.replaceCharAt(achievementsUpdated, 6, "1");
-	if (completedGame)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 7, "1");
-	if (dieDiverse)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 8, "1");
-	if (stars)
-		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 9, "1");
-	if (dieALot)
+    if (H) 
+        achievementsUpdated = this.replaceCharAt(achievementsUpdated, 9, "1");
+	if (FH)
 		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 10, "1");
-	if (quickDeath)
+	if (T)
 		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 11, "1");
+	if (tfT)
+		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 12, "1");
+	if (fT)
+		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 13, "1");
+	if (K)
+		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 14, "1");
+	if (tfK)
+		achievementsUpdated = this.replaceCharAt(achievementsUpdated, 15, "1");
 		console.log(achievements)
     achievements = achievementsUpdated;
 }
 
 
 resetGame(){
-	var disableReturnBack = false //player cant take the easy way out 
-	var stopChecking = false //so it doesnt dispplay every second if disableReturnBack
-	var hotdogShow = true //shows a hotdog
-	var canWin = false //if the player touches spaceship does he win
-	setJumpingSpeed(-650)
+
 }
 
 
@@ -156,7 +170,7 @@ setJumpingSpeed(speedNew){
  updateDataBase(data) {
 	return new Promise((resolve, reject) => {
 		var xhr = new XMLHttpRequest();	
-		xhr.open("POST", "/SERVER/resultUpdater.php", true);
+		xhr.open("POST", "/SERVER/resultUpdaterCity.php", true);
 		xhr.setRequestHeader("Content-Type", "application/json");
 
 		xhr.onreadystatechange = function() {
@@ -232,7 +246,7 @@ stopWatchStop(){
 }
 
 getTimePassed(){
-	return parseInt(hour) * 3600 + parseInt(minute) * 60 + parseInt(second);
+	return parseInt(		) * 3600 + parseInt(minute) * 60 + parseInt(second);
 }
 
 

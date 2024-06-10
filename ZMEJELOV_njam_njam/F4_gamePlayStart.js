@@ -17,6 +17,7 @@ var multipliers = []
 var multiplier = false
 var startTimeMultiplayer = 0
 var scoreMultiplier = 1
+var time = 0 
 
 class F4_gamePlayStart extends F0_shared {
     constructor() {
@@ -27,7 +28,8 @@ class F4_gamePlayStart extends F0_shared {
         for (let i = 1; i <= 7; i++) {
             this.load.image("b" + i, "assets/a_njam_njam/background/" + i + ".png");
         }
-
+        if(timeToPlay)
+            time = timeToPlay 
         this.load.image("b_mesto", " assets/mesto/City2.png");
 
        
@@ -172,10 +174,24 @@ class F4_gamePlayStart extends F0_shared {
 
         })
 
+
+        this.time.addEvent({
+            delay: 1000,
+            callback: () => {
+                 time--
+            },
+            callbackScope: this,
+            loop: true
+        });
+
     }
 
     update() {
         var currentTime = this.getTimePassed()
+       
+
+
+
 
         if (shield) {
             shieldIcon.x = gameState.junak.x - 100
@@ -218,8 +234,8 @@ class F4_gamePlayStart extends F0_shared {
                 destoyer.destroy();
             }
             else {
-                //this.scene.stop('F4_gamePlayStart')
-                // this.scene.start('S5_konec') 
+                this.scene.stop('F4_gamePlayStart')
+                 this.scene.start('S5_konec') 
             }
 
         })
@@ -228,68 +244,119 @@ class F4_gamePlayStart extends F0_shared {
             score += (10 * scoreMultiplier)
         })
 
+        
         if(countdown){
-            var timeLeft = timeToPlay - currentTime
-            gameState.countdown.setText('Time left: ' + timeLeft);
-            if(timeLeft == 0){
+            var timeLeft =(timeToPlay - time);
+            gameState.countdown.setText('Time left: ' + time);
+            if(time == 0){
+                var type = 4
+                if(timeToPlay == 60)
+                    type = 3
+                else if(timeToPlay == 20)   
+                    type = 2
+                
+
+
+                const data = {
+                    type: type,
+                    score: score
+                };
+    
+                this.updateDataBase(data)
+                    .then(response => {
+                        console.log("progress saved!     " + response);
+                    })
+                    .catch(error => {
+                        console.error(error);
+                    });
+
+
+
+
                 this.scene.stop('F4_gamePlayStart')
-                this.scene.start('S5_konec')
+                this.scene.start('F5_konec')
             }
 
 
 
         }else{
-            if (!HK && score > 100000) {
-                this.showPopupAchievements(" 10")
-                this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
-                this.titleMusic.play();
-                HK = true
-            }
-            else if (!H && score > 100) {
-                this.showPopupAchievements("  100")
+            if (!H && score > 50) {
+                this.showPopupAchievements(" 50")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();
                 H = true
-            } else if (!FH && score > 500) {
-                this.showPopupAchievements("  500")
+                this.updateAchievements();
+                const dataAchievements = {
+                    achievements: achievements,
+                };
+                this.updateDataBaseAchivements(dataAchievements)
+            }
+            else if (!FH && score > 200) {
+                this.showPopupAchievements("  200")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();
                 FH = true
-            } else if (!T && score > 1000) {
-                this.showPopupAchievements("  1000")
+                this.updateAchievements();
+                const dataAchievements = {
+                    achievements: achievements,
+                };
+                this.updateDataBaseAchivements(dataAchievements)
+            } else if (!T && score > 500) {
+                this.showPopupAchievements("  500")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();
                 T = true
-            } else if (!tfT && score > 2500) {
-                this.showPopupAchievements("  2500")
+                this.updateAchievements();
+                const dataAchievements = {
+                    achievements: achievements,
+                };
+                this.updateDataBaseAchivements(dataAchievements)
+            } else if (!tfT && score > 1000) {
+                this.showPopupAchievements("  1000")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();
                 tfT = true
-            } else if (!fT && score > 5000) {
+                this.updateAchievements();
+                const dataAchievements = {
+                    achievements: achievements,
+                };
+                this.updateDataBaseAchivements(dataAchievements)
+            } 
+            else if (!fT && score > 5000) {
                 this.showPopupAchievements(" 5000")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();
                 fT = true
+                this.updateAchievements();
+                const dataAchievements = {
+                    achievements: achievements,
+                };
+                this.updateDataBaseAchivements(dataAchievements)
             } else if (!K && score == 10000) {
                 this.showPopupAchievements("  10000")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();
                 K = true
+                this.updateAchievements();
+                const dataAchievements = {
+                    achievements: achievements,
+                };
+                this.updateDataBaseAchivements(dataAchievements)
             } else if (!tfK && score > 25000) {
                 this.showPopupAchievements("  25000")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                 this.titleMusic.play();
                 tfK = true
-            } else if (!fK && score > 50000) {
-                this.showPopupAchievements("  50000")
-                this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
-                this.titleMusic.play();
-                fK = true
-            }
+                this.updateAchievements();
+                const dataAchievements = {
+                    achievements: achievements,
+                };
+                this.updateDataBaseAchivements(dataAchievements)
+         
     
         }
 
-
+    }
 
 
 

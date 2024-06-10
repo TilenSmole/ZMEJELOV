@@ -638,6 +638,7 @@ body {
 
 #about_proyect {
   font-size: 30px;
+  margin: 50px;
 }
 
 .pictureSlider img {
@@ -853,15 +854,48 @@ p: nth-child(2)
   display: inline-block;
   font-size: 50px;
   border: none;
-  padding: 10px;
+  background-color: hsl(272, 7%, 47%);;
 }
 
 
+#memes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 
+}
+
+.slider-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 24px;
+}
+
+#prev {
+  left: 0;
+}
+
+#next {
+  right: 0;
+}
+
+.memesSlider {
+  display: none;
+}
+
+.memesSlider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 
 @media screen and (min-width: 3500px) {
-  body {
-    background-color: lightgreen;
-  }
+  
 }

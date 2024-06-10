@@ -19,7 +19,8 @@ include('translations/load_translations.php');
 <body>
     <script>
         $(document).ready(function() {
-            $("#header").load("SHARED/header.php");
+            var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
+            $("#header").load("SHARED/header.php?username=" + username);
             $("#footer").load("SHARED/footer.php");
         });
     </script>
@@ -31,7 +32,7 @@ include('translations/load_translations.php');
             echo $translations["error"] ?></p>
 
 
-        <p><a href="index.php"><?php $translations = loadTranslations();
+        <p><a href="/"><?php $translations = loadTranslations();
                                 echo $translations["error_home"] ?></a></p>
     </div>
 

@@ -1,9 +1,21 @@
 <?php
-
-include(__DIR__ . '/../SHARED/header.php');
-include("database.php");
-include("generalData.php");
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+include(__DIR__ . '/SHARED/header.php');
+include(__DIR__ ."/SERVER/database.php");
+include(__DIR__ ."/SERVER/generalData.php");
 $translations = loadTranslations();
+
+
+if (isset($_SESSION['username'])) {
+    echo "<meta http-equiv=Refresh content=0;url=../>";
+    exit(); // Add exit to stop script execution after redirection
+}
+
+
+
+
 ?>
 <html lang="en">
 
@@ -18,7 +30,7 @@ $translations = loadTranslations();
 
 <body>
     <div id="loginForm">
-        <form action="/login" method="POST">
+        <form action="/login.php" method="POST">
             <div class="username"> 🧛‍♀️<input type="text" name="username" placeholder=<?php echo $translations["username"] ?>><br>
             </div>
             <div class="password">
@@ -57,24 +69,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $user_data['password'];
 
         if (password_verify($password, $hashed_password)) {
-            if (session_status() == PHP_SESSION_NONE) {
-                session_start();
-            }
-            $_SESSION["username"] = $username;
-            $getLastLevel = "SELECT lastLevel, dificulty, DATE, achievements  FROM users WHERE username='$username'";
+            
+            $getLastLevel = "SELECT lastLevel, difficulty, DATE, achievements,money  FROM users WHERE username='$username'";
             $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
-
             // Fetch a row from the result set as an associative array
             $row = sqlsrv_fetch_array($getLastLevel_result);
             // Access the column containing the integer value 
+
             $_SESSION["lastLevel"] = $row['lastLevel'];
-            $_SESSION["dificulty"] = $row['dificulty'];
+            $_SESSION["difficulty"] = $row['difficulty'];
             $_SESSION["DATE"] = $row['DATE'];
             $_SESSION["achievements"] = $row['achievements'];
+            $_SESSION["money"] = $row['money'];
+            $_SESSION["username"] = $username;
 
 
-            echo "<p class='response'>" . $translations['login_succ'] . "</p>";
-            echo "<meta http-equiv=Refresh content=2;url=/>";
+           echo "<p class='response'>" . $translations['login_succ'] . "</p>";
+        echo "<meta http-equiv=Refresh content=0;url=/>";
         } else {
             echo  $translations["incorect_pass"];
         }
@@ -92,6 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </div>
 <?php
-include(__DIR__ . '/../SHARED/footer.php');
+include(__DIR__ . '/SHARED/footer.php');
 
 ?>

@@ -12,6 +12,9 @@ if ($data) {
     $username = $_SESSION["username"];   
     $_SESSION["achievements"] = $achievements;
     
+   
+
+
     // Perform database update operation
     $query = "UPDATE users SET achievements = '$achievements' WHERE username = '$username'";
     $result = sqlsrv_query($conn, $query);
@@ -26,5 +29,4 @@ if ($data) {
     echo json_encode(array("error" => "No data received"));
 }
 
-mysqli_close($conn);
-?>
+

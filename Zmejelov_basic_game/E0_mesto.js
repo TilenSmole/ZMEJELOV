@@ -95,7 +95,7 @@ create(){
     this.bg2.setScale(.0005)
     this.bg2.setDisplaySize(dolzina, sirina)
 
-    this.save("E0_mesto", dificulty)
+    this.save("E0_mesto", difficulty)
 
     
     const platforms = this.physics.add.staticGroup();

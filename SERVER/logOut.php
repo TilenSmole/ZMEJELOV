@@ -11,7 +11,7 @@ class SessionManager {
 
         // Destroy the session
         session_destroy();
-        echo "<meta http-equiv=Refresh content=0;url=/login>";
+        echo "<meta http-equiv=Refresh content=0;url=/login.php>";
     }
 }
 
@@ -22,4 +22,4 @@ SessionManager::closeSession();
 ?>
 
 
-<a href="/login">return</a>
+<a href="/login.php">return</a>

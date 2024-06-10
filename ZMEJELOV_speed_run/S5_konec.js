@@ -14,35 +14,52 @@ class S5_konec extends S0_shared {
         var x = 150
         var y = 125
         var font = "80px"
-        this.add.text(x, y, 'Z', { fontSize: font, fill: '#A996BC', fontFamily: 'CustomFont' });
-        this.add.text(x, y + 60, 'M', { fontSize: font, fill: '#A996BC', fontFamily: 'CustomFont' });
-        this.add.text(x, y + 120, 'E', { fontSize: font, fill: '#A996BC', fontFamily: 'CustomFont' });
-        this.add.text(x, y + 180, 'J', { fontSize: '80px', fill: '#A996BC', fontFamily: 'CustomFont' });
-        this.add.text(x, y + 240, 'E', { fontSize: '80px', fill: '#A996BC', fontFamily: 'CustomFont' });
-        this.add.text(x, y + 300, 'L', { fontSize: '80px', fill: '#A996BC', fontFamily: 'CustomFont' });
-        this.add.text(x, y + 360, 'O', { fontSize: '80px', fill: '#A996BC', fontFamily: 'CustomFont' });
-        this.add.text(x, y + 420, 'V', { fontSize: '80px', fill: '#A996BC', fontFamily: 'CustomFont' })
+        this.add.text(x, y, 'Z', { fontSize: font, fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(x, y + 60, 'M', { fontSize: font, fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(x, y + 120, 'E', { fontSize: font, fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(x, y + 180, 'J', { fontSize: '80px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(x, y + 240, 'E', { fontSize: '80px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(x, y + 300, 'L', { fontSize: '80px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(x, y + 360, 'O', { fontSize: '80px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(x, y + 420, 'V', { fontSize: '80px', fill: '#E950F4', fontFamily: 'CustomFont' })
 
 
-        const xKordinata = (Math.random() * 490 + 200)
-        const yKordinata = (Math.random() * 350 + 200)
+        
 
-        this.add.text(xKordinata, yKordinata, this.loadText("space_restart"), { fontSize: '40px', fill: "#E950F4" })
+        this.add.text(300, 500, this.loadText("space_restart"), { fontSize: '30px', fill: "#A996BC" })
 
-        this.add.text(100, GAME_HEIGHT - 200, this.loadText("speedrun_win"), {
-            fontSize: '40px',
-            fill: '#A996BC',
-            fontFamily: 'CustomFont',
-            wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
-        });
+      
 
 
-        this.stopWatchStop()
 
+        const showPopupAchievements = (text) => {
+            const rectangle = this.add.rectangle(GAME_WIDTH - 300, 0, 700, 100, 0x4d4455);
+            rectangle.setOrigin(0.5, 0);
+        
+            const graphics = this.add.graphics();
+            graphics.fillStyle(0x000000, 1);
+            graphics.fillRect(rectangle.x - rectangle.width / 2, rectangle.y, rectangle.width, rectangle.height);
+        
+            const popup = this.add.text(GAME_WIDTH - 300, 40, text, {
+                fontSize: '32px',
+                color: '#980a69',
+                align: 'center',
+                wordWrap: { width: rectangle.width - 20, useAdvancedWrap: true }
+            });
+            popup.setOrigin(0.5);
+        
+            this.time.delayedCall(4000, () => {
+                popup.destroy();
+                rectangle.destroy();
+                graphics.destroy();
+            });
+        };
 
+        var speedrun_win = finalTime
+        	console.log(''+speedrun_win);
         var text = ""
         if (speedrun_win < 60)
-            text = this.loadText("speedrun_win")
+            text = this.loadText("speedrun_win_fast")
         else if (speedrun_win < 140)
             text = this.loadText("speedrun_win_med")
         else if (speedrun_win < 500)
@@ -53,8 +70,8 @@ class S5_konec extends S0_shared {
 
 
 
-        this.add.text(100, GAME_HEIGHT - 200, text, {
-            fontSize: '40px',
+        this.add.text(300, 440, text, {
+            fontSize: '45px',
             fill: '#A996BC',
             fontFamily: 'CustomFont',
             wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
@@ -63,7 +80,7 @@ class S5_konec extends S0_shared {
 
 
         if (stSmrti > 20 && !dieALot) {
-            this.showPopupAchievements( this.loadText("ach_death"))
+            showPopupAchievements( this.loadText("ach_death"))
 
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
@@ -76,8 +93,8 @@ class S5_konec extends S0_shared {
 
         }
 
-        if (finalTime > 60 && !completedSpeedy) {
-            this.showPopupAchievements( this.loadText("ach_speed"))
+        if (speedrun_win < 60 && !completedSpeedy) {
+            showPopupAchievements( this.loadText("ach_speed"))
 
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
@@ -90,9 +107,8 @@ class S5_konec extends S0_shared {
 
         }
 
-
         if (!completedGame) {
-            this.showPopupAchievements( this.loadText("ach_finish"))
+            showPopupAchievements( this.loadText("ach_finish"))
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
             completedGame = true;
@@ -101,11 +117,10 @@ class S5_konec extends S0_shared {
                 achievements: achievements,
             };
             this.updateDataBaseAchivements(dataAchievements)
-
         }
 
-        if (deathByWho = [1, 1, 1, 1, 1] && !dieDiverse) {
-            this.showPopupAchievements( this.loadText("ach_all"))
+        if (deathByWho == [1, 1, 1, 1, 1] && !dieDiverse) {
+            showPopupAchievements( this.loadText("ach_all"))
 
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
@@ -120,14 +135,9 @@ class S5_konec extends S0_shared {
 
 
 
-
-
-
-
-
         this.input.keyboard.on('keyup-SPACE', () => {
-            this.scene.stop('S5_konec.js')
-            this.scene.start('S2_inicial.js')
+            this.scene.stop('S5_konec')
+            this.scene.start('S2_inicial')
         });
 
 
@@ -137,7 +147,8 @@ class S5_konec extends S0_shared {
 
 
 
-
+        
+        
 
 
 

@@ -25,7 +25,61 @@ class A7_droper extends Phaser.Scene{
     this.load.image("znak","assets/Sign_01.png")
     this.load.audio('zmaga', ['assets/uvod/zmaga.mp3',"assets/uvod/zmaga.ogg"]);
     this.load.audio('poraz', ['assets/uvod/smrt.mp3',"assets/uvod/smrt.ogg"]);
-   }
+   }	
+   updateDataBase(data) {
+		return new Promise((resolve, reject) => {
+			var xhr = new XMLHttpRequest();
+			xhr.open("POST", "/SERVER/DatabaseUpdater.php", true);
+			xhr.setRequestHeader("Content-Type", "application/json");
+
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState === XMLHttpRequest.DONE) {
+					if (xhr.status === 200) {
+						console.log("Server Response:", xhr.responseText);
+						resolve("Database updated successfully");
+					} else {
+						reject("Failed to update database");
+					}
+				}
+			};
+
+			xhr.send(JSON.stringify(data));
+		});
+
+	}
+
+   replaceCharAt(str, index, replacement) {
+    if (index < 0 || index >= str.length) {
+        return str; // Index out of range, return original string
+    }
+    return str.substring(0, index) + replacement + str.substring(index + 1);
+}
+   updateDificulty() {
+    var difficultyUpdated = "0000";
+
+    if (easy) {
+        difficultyUpdated = this.replaceCharAt(difficultyUpdated, 0, "0");
+    } else {
+        difficultyUpdated = this.replaceCharAt(difficultyUpdated, 0, "1");
+    }
+
+    if (zmaga) {
+        difficultyUpdated = this.replaceCharAt(difficultyUpdated, 1, "1");
+    }
+
+    if (spawn6 && !spawnP) {
+        difficultyUpdated = this.replaceCharAt(difficultyUpdated, 2, "1");
+    } else if (spawnP) {
+        difficultyUpdated = this.replaceCharAt(difficultyUpdated, 2, "2");
+    }
+
+    if (zaprto) {
+        difficultyUpdated = this.replaceCharAt(difficultyUpdated, 3, "1");
+    }
+
+    console.log('difficultyUpdated' + difficultyUpdated);
+    difficulty = difficultyUpdated;
+}
   create(){
     if (easy == true){
         stZivljenj = 4
@@ -51,7 +105,7 @@ class A7_droper extends Phaser.Scene{
         this.updateDificulty()
         const data = {
         lastLevel: "A7_droperUvod" ,
-        dificulty: dificulty
+        difficulty: difficulty
         };
 
     this.updateDataBase(data)
