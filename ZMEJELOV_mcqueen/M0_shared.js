@@ -46,7 +46,7 @@ class M0_shared extends Phaser.Scene {
 
 
         this.load.image("reaper", "assets/a_speedRunning/0_Reaper_Man_Idle_000.png")
-        this.load.spritesheet('reaperMovement', 'assets/a_speedRunning/alienWalking.png', {
+		this.load.spritesheet('reaperMovement', 'assets/a_speedRunning/alienWalking.png', {
             frameWidth: 616,
             frameHeight: 587.3,
         });
@@ -135,7 +135,7 @@ class M0_shared extends Phaser.Scene {
         var numberOfgenerated = Math.floor(Math.random() * 4) + 1;
 
         var possibleEle = ["fake", 'r1 (1)', 'r1 (2)', 'r1 (3)', 'r1 (4)', 'r1 (5)', 'r1 (6)', 'r1 (7)', 'r1 (8)', 'r1 (10)', 'r1 (9)', 'r1 (11)', 'r1 (12)', 'r1 (13)', 'r1 (14)', 'r1 (15)', 'r1 (16)']
-        var choosenEle = Math.floor(Math.random() * 15) + 1;
+        var choosenEle =14// Math.floor(Math.random() * 15) + 1;
 
 
         var coordinatesX = Math.floor(Math.random() * (max - min + 1)) + min;

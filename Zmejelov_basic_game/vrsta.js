@@ -70,14 +70,29 @@ class vrsta extends Phaser.Scene {
             var text = ""
 
             if (vrstaTeksta == "sovraznik" || vrstaTeksta === "sovraznik5") {
-                this.add.text(10 , GAME_HEIGHT - 300, this.enemyDeath(), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10, GAME_HEIGHT - 400, this.enemyDeath(), {
+                    fontSize: '40px',
+                    fill: '#A996BC',
+                    fontFamily: 'CustomFont',
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
+                });
             }
             else if (vrstaTeksta == "level4smrt") {
-                this.add.text(10 , GAME_HEIGHT - 300, this.loadText("level4smrt"), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10, GAME_HEIGHT - 400, this.loadText("level4smrt"), {
+                    fontSize: '40px',
+                    fill: '#A996BC',
+                    fontFamily: 'CustomFont',
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
+                });
 
             }
             else if (vrstaTeksta == "level4smrt") {
-                this.add.text(10 , GAME_HEIGHT - 300, this.loadText("leve6smrt"), { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10, GAME_HEIGHT - 400, this.loadText("leve6smrt"), {
+                    fontSize: '40px',
+                    fill: '#A996BC',
+                    fontFamily: 'CustomFont',
+                    wordWrap: { width: GAME_WIDTH - 10, useAdvancedWrap: true }
+                });
             }
             else if (vrstaTeksta == "level6Vojak") {
                 this.add.text(10 - 200, GAME_HEIGHT - 300, 'hihihi🙈🙊', { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });

@@ -87,7 +87,12 @@ class M4_red extends M0_shared {
         // gameState.junak = this.physics.add.sprite(dolzina-800, visina - 400, "Zmeja")
         gameState.junak = this.physics.add.sprite(200, visina - 400, "zmeja")
 
-
+        this.anims.create({
+            key: 'reaperMovement',
+            frames: this.anims.generateFrameNumbers('reaperMovement', { start: 0, end: 9 }), // Adjust the range as needed
+            frameRate: 8,
+            repeat: -1
+        });
 
 
         gameState.junak.setCollideWorldBounds(true)
@@ -127,7 +132,7 @@ class M4_red extends M0_shared {
         gameState.coins = this.add.text(dolzina - 200, visina - 800, 'Coins: ', { fontSize: '30px', fill: '#000000', fontFamily: 'CustomFont' });
         gameState.coins.setDepth(0)
 
-
+        
 
 
 
@@ -147,9 +152,19 @@ class M4_red extends M0_shared {
             }
         });
         if (gameState.junak.x >= 49950) {
+           
             this.scene.stop('M4_red');
-            this.scene.start('M4_orange');
+            this.scene.start('M5_konec');
+
+            if(speedShip)
+                speedShip= false
+            if(spaceshipStart)
+                spaceshipStart = false
+
         }
+
+
+
         lowerPlatforms.forEach(platform => {
             if (platform.x + platform.width < gameState.junak.x - 1000) {
                 platform.destroy();
@@ -177,11 +192,18 @@ class M4_red extends M0_shared {
                     var startPlatfrom = this.createRectanglePlatform(index, visina - 400);
                     lowerPlatforms.push(startPlatfrom);
                 }
-                if (gameState.junak.x > 56000) {
+                if (gameState.junak.x > 49500) {
                     rocketStart = false
                     freshlyRocketDone = true
                 }
 
+
+            }
+            else if(speedShip ){
+                gameState.junak.setVelocityX(300000)
+                gameState.junak.x = gameState.junak.x++;
+                gameState.junak.y = visina - 400
+                console.log(gameState.junak.x);
 
             }
             else {
@@ -190,7 +212,7 @@ class M4_red extends M0_shared {
                     freshlyRocketDone = false
                 }
                 else if (!potionActivation) {
-                    gameState.junak.setVelocityX(500)
+                    gameState.junak.setVelocityX(600)
                 }
                 //    gameState.junak.setVelocityX(1000)
 
@@ -201,11 +223,11 @@ class M4_red extends M0_shared {
         }
 
 
-        if (!rocketStart) {
+        if (!rocketStart || !speedShip) {
             this.physics.add.collider(gameState.junak, lowerPlatforms)
 
         }
-
+      
 
 
 
@@ -224,6 +246,7 @@ class M4_red extends M0_shared {
 
 
         this.physics.add.overlap(gameState.junak, buffs, (user, buff) => {
+            console.log(''+ buff.value);
             if (buff.value == 2) {
                 if (!shield) {
                     shieldIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (2)")
@@ -275,6 +298,9 @@ class M4_red extends M0_shared {
             } else if (buff.value = 14) {
                 speedShip = true
                 didntCheat = false
+               
+
+
 
 
             } else if (buff.value = 15) {
@@ -313,7 +339,7 @@ class M4_red extends M0_shared {
 
 
 
-        if (gameState.junak.y >= visina - 100) {
+        if (gameState.junak.y >= visina - 70) {
             if (potionStart || spaceshipStart ||heart || spaceShip) {
                 potionActivation = true
                 gameState.junak.setVelocityX(0)
@@ -341,6 +367,7 @@ class M4_red extends M0_shared {
 
             }
             else {
+               
                 this.scene.stop('M4_red')
                 this.scene.start('M5_konec')
             }
@@ -384,9 +411,11 @@ class M4_red extends M0_shared {
 
 
         this.physics.add.overlap(gameState.junak, enemies, (user, enemy) => {
-            if (!shroomStart || !shieldStart || !spaceshipStart ||spaceShip ||shroom ||shield ) {
+            if (!shroomStart || !shieldStart || !spaceshipStart || !spaceShip || !shroom || !shield ) {
+               
                 this.scene.stop('M4_red')
                 this.scene.start('M5_konec')
+                console.log('¸buggg');
             }
             else {
                 enemy.destroy()
@@ -410,7 +439,7 @@ class M4_red extends M0_shared {
 
 
         this.physics.add.overlap(gameState.junak, upperPlatforms, (user, platform) => {
-            if (ghostStart || shieldStart || spaceshipStart ||shield || spaceShip || ghost) {
+            if (ghostStart || shieldStart || spaceshipStart ||shield || spaceShip || ghost || rocketStart  ||speedShip) {
                 upperPlatforms.forEach(platform => {
                     platform.destroy();
                 });
@@ -428,7 +457,7 @@ class M4_red extends M0_shared {
                     ghost = false
             }
             else {
-
+               
                 this.scene.stop('M4_red')
                 this.scene.start('M5_konec')
 
@@ -535,7 +564,7 @@ function spawn() {
     const platforms = this.physics.add.staticGroup();
     if (lastPoint - gameState.junak.x < 900) {
         var selection =  Math.floor(Math.random()*4)
-        var length = Math.floor(Math.random() * 1000) + 2000
+        var length = Math.floor(Math.random() * 1000) + 1000
         switch (selection) {
             case 0:
                 //zmeja has to be jumping
@@ -545,7 +574,7 @@ function spawn() {
                     var height = generateHeight()
                     var startPlatfrom = this.createRectanglePlatform(index, height);
                     lowerPlatforms.push(startPlatfrom);
-                    lastPoint += 400
+                    lastPoint += 600
                     this.generateCoins(index, index + 100, height)
                 }
                 break
@@ -559,7 +588,7 @@ function spawn() {
                 for (index; index < limit; index += 300) {
                     var startPlatfrom = this.createRectanglePlatform(index, height);
                     lowerPlatforms.push(startPlatfrom);
-                    lastPoint += Math.floor(Math.random() * 100) + 500
+                    lastPoint += Math.floor(Math.random() * 100) + 350
                 }
                 var thing = Math.floor(Math.random() * 5)
 
@@ -588,7 +617,7 @@ function spawn() {
                 for (let index = lastPoint; index < limit + length; index += 600) {
                     var startPlatfrom = this.createRectanglePlatform(index, height);
                     lowerPlatforms.push(startPlatfrom);
-                    lastPoint += 500
+                    lastPoint += 600
                 }
                 this.generateCoins(start, limit, height)
                 break

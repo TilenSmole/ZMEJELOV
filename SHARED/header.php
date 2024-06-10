@@ -7,7 +7,6 @@ $translations = loadTranslations();
 
 
 $username = isset($_GET['username']) ? $_GET['username'] : '';
-echo " username " .  $username ;
 
 //https://www.w3schools.com/howto/howto_js_sidenav.asp
 ?>
@@ -243,7 +242,7 @@ echo " username " .  $username ;
 
 
   <div id="container">
-    <span style="font-size:30px;cursor:pointer; color:#4d1451" onclick="openNav()">
+    <span style="font-size:30px;cursor:pointer; color:#680747" onclick="openNav()">
       <span id="meniIcon">&#9776;</span>
       <span id="meni">MENU</span>
     </span>

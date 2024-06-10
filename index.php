@@ -7,8 +7,8 @@ if (!isset($_SESSION['visited_before'])) {
     header("Location: intro.php");
     exit();
 }
+$translations = loadTranslations();
 
-print_r($_SESSION);
 
 
 
@@ -42,7 +42,7 @@ print_r($_SESSION);
         <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja" class="col-10">
         <div class="introductionText">
             <?php if (isset($_SESSION["username"])) : ?>
-                <p><?php $translations = loadTranslations();
+                <p><?php
                     echo $translations['welcome_again'] ?>
                 <ul id="options">
                     <li><a href="/zmentures.php">ZMENTURES</a></li>
@@ -51,11 +51,11 @@ print_r($_SESSION);
                     <li><a href="Crackelov.php">CRA*KELOV</a></li>
                     <li><a href="TheFinalRage.php">THE FINAL RAGE</a></li>
                 </ul>
-                <?php $translations = loadTranslations();
+                <?php
                 echo $translations['welcome_again2'] ?> <ul id="options">
                     </p>
                 <?php else : ?>
-                    <p> <?php $translations = loadTranslations();
+                    <p> <?php
                         echo $translations['welcome_again3'] ?>
                     <ul id="options">
                         </p>
@@ -63,13 +63,103 @@ print_r($_SESSION);
         </div>
     </div>
     </div>
+    <?php
 
-
-    <div id="memes">
+$language = isset($_SESSION['selectedLanguage']) ? $_SESSION['selectedLanguage'] : 'slo'; 
+?>
+    <div id="memes" style="position: relative; width: 1000px; height: 1000px; margin: auto; overflow: hidden;">
         <h1>MEMES</h1>
+        <button id="prev" class="slider-button" style="left: 0;">&lt;</button>
+        <button id="next" class="slider-button" style="right: 0;">&gt;</button>
 
 
+
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m1<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 1">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m2<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 2">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m4<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 4">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m5<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 5">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m6<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 6">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m7<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 7">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m8<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 8">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m9<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 9">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m10<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 10">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m11<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 11">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
+/m12<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 12">
+        </div>
+        <div class="memesSlider fade">
+            <img src="assets/PROMO/keepOn.png" alt="keepOn zmejeloving">
+        </div>
     </div>
+
+    <script>
+        let memeIndex = 0;
+        showMeme(memeIndex);
+
+        function showMeme(index) {
+            let memes = document.getElementsByClassName("memesSlider");
+            if (index >= memes.length) {
+                memeIndex = 0;
+            } else if (index < 0) {
+                memeIndex = memes.length - 1;
+            } else {
+                memeIndex = index;
+            }
+
+            for (let i = 0; i < memes.length; i++) {
+                memes[i].style.display = "none";
+            }
+
+            memes[memeIndex].style.display = "block";
+        }
+
+        document.getElementById("next").addEventListener("click", function() {
+            showMeme(memeIndex + 1);
+        });
+
+        document.getElementById("prev").addEventListener("click", function() {
+            showMeme(memeIndex - 1);
+        });
+    </script>
+
+
+
+
+
+
+
+
 
 
     <div id="videos">
@@ -123,20 +213,33 @@ print_r($_SESSION);
 
 
     <div id="about_proyect">
-        <h1><?php $translations = loadTranslations();
+        <h1><?php
             echo $translations['intro_essay'] ?></h1>
         <div class="pictureSlider fade">
-            <img src="assets/uvod/Screenshot 2023-01-27 at 16-50-18 Untitled-11.pdf.png" alt="zmentures" width="800" height="500">
+            <img src="assets/zmejelov/1 (1).png" alt="zmentures" width="800" height="500">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/uvod/rage.png" alt="the final rage" width="800" height="500">
+            <img src="assets/zmejelov/1 (2).png" alt="the final rage" width="800" height="500">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/uvod/basic.png" alt="zmejelov" width="800" height="500">
+            <img src="assets/zmejelov/1 (3).png" alt="zmejelov" width="800" height="500">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/PROMO/keepOn.png.png" alt="zmejelov keep on" width="800" height="500">
+            <img src="assets/zmejelov/1 (4).png" alt="zmejelov keep on" width="800" height="500">
         </div>
+        <div class="pictureSlider fade">
+            <img src="assets/zmejelov/1 (5).png" alt="zmejelov keep on" width="800" height="500">
+        </div>
+        <div class="pictureSlider fade">
+            <img src="assets/zmejelov/1 (6).png" alt="zmejelov keep on" width="800" height="500">
+        </div>
+        <div class="pictureSlider fade">
+            <img src="assets/zmejelov/1 (7).png" alt="zmejelov keep on" width="800" height="500">
+        </div>
+        <div class="pictureSlider fade">
+            <img src="assets/zmejelov/1 (8).png" alt="zmejelov keep on" width="800" height="500">
+        </div>
+
         <script>
             let slideIndex = 0;
             showSlides();
@@ -160,7 +263,7 @@ print_r($_SESSION);
         <p><?php
             echo $translations["my_intro"] ?>
 
-        <p><?php $translations = loadTranslations();
+        <p><?php
             echo $translations['github_essay'] ?></p>
 
     </div>
