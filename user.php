@@ -118,7 +118,7 @@ if ($result) {
       <div class="achievementsDisplayProfile">
         <h2>CR*CKELOV </h2>
         <?php
-        $finalScore = substr($achievements, 16, 7);
+        $finalScore = substr($achievements, 17, 7);
         $finalScore = substr_count($finalScore, '1');
         ?>
         <p>odklenjenih <?php echo $finalScore ?>/7 </p>
@@ -183,8 +183,8 @@ if ($result) {
         <?php
         if ($achievements[16] === "1") {
           echo '<div class="achievement-container">';
-          echo '<img src="assets\achivments\speedRun\dieALot.png"  alt="Achievement Picture 1">';
-          echo '<p class="hover-text">' . $translations["ach6_speed"] . '</p>';
+          echo '<img src="assets\achivments\old.png"  alt="Achievement Picture 1">';
+          echo '<p class="hover-text">' . $translations["aOG"] . '</p>';
           echo '</div>';
         }
         ?>
@@ -192,7 +192,7 @@ if ($result) {
       <div class="achievementsDisplayProfile">
         <h2>CITY ZMENTURES </h2>
         <?php
-        $finalScore = substr($achievements, 8, 7);
+        $finalScore = substr($achievements, 9, 7);
         $finalScore = substr_count($finalScore, '1');
         ?>
         <p>odklenjenih <?php echo $finalScore ?>/7 </p>
@@ -263,7 +263,7 @@ if ($result) {
       <div class="achievementsDisplayProfile">
         <h2>THE FINAL RAGE </h2>
         <?php
-        $finalScore = substr($achievements, 7, 3);
+        $finalScore = substr($achievements, 6, 3);
         $finalScore = substr_count($finalScore, '1');
         ?>
         <p>odklenjenih <?php echo $finalScore ?>/3 </p>
@@ -282,7 +282,7 @@ if ($result) {
         if ($_SESSION["achievements"][7] === "1") {
 
           echo '<div class="achievement-container">';
-          echo '<img src="assets\achivments\rainbown.png" alt="Achievement Picture 1">';
+          echo '<img src="assets\achivments\rainbow.png" alt="Achievement Picture 1">';
           echo '<p class="hover-text">' . $translations["rainbow"] . '</p>';
           echo '</div>';
         }
@@ -368,6 +368,7 @@ if ($result) {
   </div>
 
 
+  
 
   <script>
     function toggleAnswerVisibility(id) {
