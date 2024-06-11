@@ -196,8 +196,6 @@ class M4_red extends M0_shared {
                     rocketStart = false
                     freshlyRocketDone = true
                 }
-
-
             }
             else if(speedShip ){
                 gameState.junak.setVelocityX(300000)
@@ -340,7 +338,7 @@ class M4_red extends M0_shared {
 
 
         if (gameState.junak.y >= visina - 70) {
-            if (potionStart || spaceshipStart ||heart || spaceShip) {
+            if (potionStart || spaceshipStart ||heart || spaceShip  || rocketStart  ||speedShip) {
                 potionActivation = true
                 gameState.junak.setVelocityX(0)
                 gameStateStoredX = gameState.junak.x
@@ -411,11 +409,9 @@ class M4_red extends M0_shared {
 
 
         this.physics.add.overlap(gameState.junak, enemies, (user, enemy) => {
-            if (!shroomStart || !shieldStart || !spaceshipStart || !spaceShip || !shroom || !shield ) {
-               
+            if (!shroomStart || !shieldStart || !spaceshipStart || !spaceShip || !shroom || !shield  || !rocketStart  ||!speedShip ) {
                 this.scene.stop('M4_red')
                 this.scene.start('M5_konec')
-                console.log('¸buggg');
             }
             else {
                 enemy.destroy()

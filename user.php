@@ -22,7 +22,6 @@ if ($result) {
       $achievements .= $row["achievements"] . "<br>";
       $date .= $row["creation_date"]->format('Y-m-d H:i:s') . "<br>";
     }
-
 ?>
 
     <html lang="en">
@@ -57,14 +56,15 @@ if ($result) {
       </div>
 
 
-
+      <h1><?php $translations = loadTranslations();
+        echo $translations['achivements'] ?></h1>
       <div class="achievementsDisplayProfile">
         <h2>ZMENTURES</h2>
         <?php
         $finalScore = substr($achievements, 0, 6);
         $finalScore = substr_count($finalScore, '1');
         ?>
-        <p>odklenjenih <?php echo $finalScore ?>/5 </p>
+        <p>odklenjenih <?php echo $finalScore ?>/6 </p>
         <?php
         if ($achievements[0] === "1") {
           echo '<div class="achievement-container">';
@@ -201,14 +201,14 @@ if ($result) {
         <?php
 
         $translations = loadTranslations();
-        if ($_SESSION["achievements"][9] === "1") {
+        if ($achievements[9] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">50</p>';
           echo '<p class="hover-text">' . $translations["50"] . '</p>';
           echo '</div>';
         }
 
-        if ($_SESSION["achievements"][10] === "1") {
+        if ($achievements[10] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">200</p>';
           echo '<p class="hover-text">' . $translations["200"] . '</p>';
@@ -216,7 +216,7 @@ if ($result) {
         }
 
 
-        if ($_SESSION["achievements"][11] === "1") {
+        if ($achievements[11] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">500</p>';
           echo '<p class="hover-text">' . $translations["500"] . '</p>';
@@ -225,7 +225,7 @@ if ($result) {
 
 
 
-        if ($_SESSION["achievements"][12] === "1") {
+        if ($achievements[12] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">1000</p>';
           echo '<p class="hover-text">' . $translations["1000"] . '</p>';
@@ -233,14 +233,14 @@ if ($result) {
         }
 
 
-        if ($_SESSION["achievements"][13] === "1") {
+        if ($achievements[13] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">5000</p>';
           echo '<p class="hover-text">' . $translations["5000"] . '</p>';
           echo '</div>';
         }
 
-        if ($_SESSION["achievements"][14] === "1") {
+        if ($achievements[14] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">10000</p>';
           echo '<p class="hover-text">' . $translations["10000"] . '</p>';
@@ -248,7 +248,7 @@ if ($result) {
         }
 
 
-        if ($_SESSION["achievements"][15] === "1") {
+        if ($achievements[15] === "1") {
           echo '<div class="achievement-container">';
           echo '<p class="ach_num">25000</p>';
           echo '<p class="hover-text">' . $translations["25000"] . '</p>';
@@ -271,7 +271,7 @@ if ($result) {
 
         <?php
 
-        if ($_SESSION["achievements"][6] === "1") {
+        if ($achievements[6] === "1") {
           echo '<div class="achievement-container">';
           echo '<img src="assets/achivments/money.png"  alt="Achievement Picture 1">';
           echo '<p class="hover-text">' . $translations["money_ach"] . '</p>';
@@ -279,7 +279,7 @@ if ($result) {
         }
 
 
-        if ($_SESSION["achievements"][7] === "1") {
+        if ($achievements[7] === "1") {
 
           echo '<div class="achievement-container">';
           echo '<img src="assets\achivments\rainbow.png" alt="Achievement Picture 1">';
@@ -287,7 +287,7 @@ if ($result) {
           echo '</div>';
         }
 
-        if ($_SESSION["achievements"][8] === "1") {
+        if ($achievements[8] === "1") {
           echo '<div class="achievement-container">';
           echo '<img src="assets\achivments\broom.png"  alt="Achievement Picture 1">';
           echo '<p class="hover-text">' . $translations["no_pups"] . '</p>';
@@ -328,43 +328,7 @@ if ($result) {
     </div>
 
 
-    <div>
-      <div class="QN_field">
-        <div class="question_field">
-          <p class="question">Koliko časa je bilo posvečeno igri?</p>
-        </div>
-        <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('u1s')">&#9660;</button></div>
-      </div>
-      <div id="u1s" style="display: none;">
-        <p>Govorimo o več kot 200 urah</p>
-      </div>
-    </div>
-
-
-    <div>
-      <div class="QN_field">
-        <div class="question_field">
-          <p class="question">Ali je bilo po xx urah še vedno zabavno?</p>
-        </div>
-        <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('u2s')">&#9660;</button></div>
-      </div>
-      <div id="u2s" style="display: none;">
-        <p>Ddddddddd</p>
-      </div>
-    </div>
-
-    <div>
-      <div class="QN_field">
-        <div class="question_field">
-          <p class="question">Kako te lahko kontaktiram?</p>
-        </div>
-        <div class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibility('u3s')">&#9660;</button></div>
-      </div>
-      <div id="u3s" style="display: none;">
-        <p>PREKO OBRAZCA KI GA BOM PRIPORAL SEM</p>
-      </div>
-    </div>
-
+    
   </div>
 
 

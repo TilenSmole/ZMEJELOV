@@ -235,7 +235,7 @@ class F4_gamePlayStart extends F0_shared {
             }
             else {
                 this.scene.stop('F4_gamePlayStart')
-                 this.scene.start('S5_konec') 
+                 this.scene.start('F5_konec') 
             }
 
         })

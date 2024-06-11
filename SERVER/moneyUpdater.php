@@ -22,7 +22,7 @@ if ($data) {
 
     if ($stmt) {
         if (sqlsrv_execute($stmt)) {
-            echo json_encode(array("message" => "Database updated successfully"));
+            echo json_encode(array("message" => "Database updated successfully, you have more money"));
         } else {
             // Enhance error handling to get detailed error messages
             echo json_encode(array("error" => "Failed to execute SQL statement: " . print_r(sqlsrv_errors(), true)));
