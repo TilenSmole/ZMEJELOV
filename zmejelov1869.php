@@ -31,7 +31,7 @@ $translations = loadTranslations();
 
 
   <meta charset="utf-8" />
-  <title>Zmejelov</title>
+  <title>ZMEJELOV 1869</title>
   <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
   <script type="text/javascript" src="ZMEJELOV_OG/osnova.js"></script>
   <script type="text/javascript" src="ZMEJELOV_OG/scena2.js"></script>
@@ -42,9 +42,7 @@ $translations = loadTranslations();
   <script type="text/javascript" src="ZMEJELOV_OG/scena4.js"></script>
   <script type="text/javascript" src="ZMEJELOV_OG/scena5.js"></script>
   <script type="text/javascript" src="ZMEJELOV_OG/konec.js"></script>
-  <script type="text/javascript" src="ZMEJELOV_OG/osnova.js"></script>  
   <script type="text/javascript" src="ZMEJELOV_OG/game.js"></script>
-  <link rel="preload" as="font" href="assets\uvod\Cinzel-Regular.ttf" type="font/ttf" />
 </head>
 
 <body>
@@ -58,7 +56,6 @@ $translations = loadTranslations();
   <script>
     function showLoader() {
       document.getElementById("loader-wrapper").style.display = "flex";
-
     }
 
     function hideLoader() {
@@ -76,18 +73,12 @@ $translations = loadTranslations();
         // Extract the anchor part of the URL
         var anchor = url.substring(anchorIndex);
 
-        // Check if the anchor is '#comments_OG'
-        if (anchor === '#comments_OG') {
-          // Scroll to the comments section
-          var commentsSection = document.getElementById("comments_OG");
-          // Check if the comments section exists
-          if (commentsSection) {
-            // Scroll the comments section into view
-            commentsSection.scrollIntoView();
-          }
+        // Scroll to the corresponding section based on the anchor
+        var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
+        if (targetElement) {
+          targetElement.scrollIntoView();
         }
       }
-
     }
 
     window.onload = function() {
@@ -117,7 +108,7 @@ $translations = loadTranslations();
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
         <p><b><span style="font-size: 50px;"> ZMEJELOV 1869</span></b> <?php
-                                                                  echo $translations["1869_intro"] ?></p>
+                                                                        echo $translations["1869_intro"] ?></p>
       </div>
     </div>
 
@@ -169,7 +160,7 @@ $translations = loadTranslations();
           </div>
         </div>
 
-      
+
 
         <div>
           <div class="QN_field">
@@ -250,7 +241,7 @@ $translations = loadTranslations();
           }
           ?>
 
-         
+
 
         </div>
       <?php else : ?>
@@ -273,14 +264,12 @@ $translations = loadTranslations();
 
     <div class="comments_DIV" id="comments_OG">
       <?php if (isset($_SESSION["username"])) : ?>
-        <h1><?php
-            echo $translations["KOMENTARJI"] ?></h1>
+        <h1><?php echo $translations["KOMENTARJI"] ?></h1>
         <div>
           <div class="alignCommentAdd">
             <form action="zmejelov1869.php" method="GET" class="commentsForm">
-              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
-                                                                                        echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
-              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
+              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php echo $translations["write_comment"]; ?>" rows="3" cols="50"></textarea>
+              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton"><?php echo $translations["post"]; ?></button>
               </div>
           </div>
           </form>
@@ -296,10 +285,31 @@ $translations = loadTranslations();
       <?php endif; ?>
       <?php
       // Define the number of comments per page
-      $commentsPerPage = 3;
+      $commentsPerPage = 6;
+      // Query to count total number of comments
+      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type = 2";
+      $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
+
+      if ($totalCommentsResult === false) {
+        echo "Error counting total comments: " . print_r(sqlsrv_errors(), true);
+        exit();
+      }
+
+      $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
+      $totalComments = $totalCommentsRow['total'];
 
       // Calculate the current page number
       $page = isset($_GET['page']) ? $_GET['page'] : 1;
+      // Calculate the SQL LIMIT for pagination
+      $offset = ($page - 1) * $commentsPerPage;
+
+      // Query to fetch comments for the current page
+      $totalPages = ceil($totalComments / $commentsPerPage);
+
+      // Adjust the offset for the last page
+      if ($page == $totalPages && $totalComments % $commentsPerPage != 0) {
+        $commentsPerPage = $totalComments % $commentsPerPage;
+      }
 
       // Calculate the SQL LIMIT for pagination
       $offset = ($page - 1) * $commentsPerPage;
@@ -315,8 +325,7 @@ SELECT *
 FROM PaginationCTE
 WHERE RowNum BETWEEN ? AND ?";
 
-      // Prepare the statement
-      $stmt = sqlsrv_prepare($conn, $sql, array($offset, $commentsPerPage));
+      $stmt = sqlsrv_prepare($conn, $sql, array($offset + 1, $offset + $commentsPerPage));
 
       // Execute the statement
       try {
@@ -327,16 +336,18 @@ WHERE RowNum BETWEEN ? AND ?";
           exit();
         }
 
-
         // Display comments
         echo '<div id="comment_section" class="commentsZmejelov">';
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
           echo '<div class="full_comment">
-            <span class="commentAuthor"> 
-            <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
-            </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
-        }
+                  <span class="commentAuthor"> 
+                    <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
+                    <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a>      </span>
+                  <span class="commentText"><br>' . $row["comment"] . '</span><br><br>
+                  <span class="commentDate"><br>' . $row["date"]->format('d-m-Y')   . '</span>
+                </div><br><br>';
+      }
+      
         echo '</div>';
       } catch (Exception $e) {
         // Handle the exception
@@ -352,9 +363,6 @@ WHERE RowNum BETWEEN ? AND ?";
 
 
       if ($totalComments != 0) {
-       
-        
-
         // Calculate total number of pages
         $totalPages = ceil($totalComments / $commentsPerPage);
 
@@ -389,22 +397,26 @@ if (isset($_GET["submitCommentZmejelov"])) {
   if (isset($_GET["addCommentZmejelov"])) {
     $user = $_SESSION["username"];
     $comment = $_GET["addCommentZmejelov"];
+    if (strlen($comment) > 0) {
+      // Prepare the SQL statement with placeholders
+      $sql = "INSERT INTO comments ([user], comment, date, type) VALUES (?, ?, GETDATE(), 2)";
 
-    // Prepare the SQL statement with placeholders
-    $sql = "INSERT INTO comments ([user], comment, date, type) VALUES (?, ?, GETDATE(), 2)";
+      // Prepare the statement
+      $stmt = sqlsrv_prepare($conn, $sql, array(&$user, &$comment));
 
-    // Prepare the statement
-    $stmt = sqlsrv_prepare($conn, $sql, array(&$user, &$comment));
-
-    if ($stmt) {
-      if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/zmejelov1869.php#comments_OG>";
+      if ($stmt) {
+        if (sqlsrv_execute($stmt)) {
+          echo "<meta http-equiv=Refresh content=2;url=/zmejelov1869.php#comments_OG>";
+        } else {
+          echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
+        }
       } else {
-        echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
+        echo "Error preparing statement: " . print_r(sqlsrv_errors(), true);
       }
-    } else {
-      echo "Error preparing statement: " . print_r(sqlsrv_errors(), true);
     }
+
+
+    echo "<meta http-equiv=Refresh content=2;url=/zmejelov1869.php#comments_OG>";
   }
 }
 

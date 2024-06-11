@@ -118,45 +118,38 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
 
 
   <script>
-    function showLoader() {
-      document.getElementById("loader-wrapper").style.display = "flex";
+  function showLoader() {
+    document.getElementById("loader-wrapper").style.display = "flex";
+  }
 
-    }
+  function hideLoader() {
+    document.getElementById("loader-wrapper").style.display = "none";
+    document.getElementById("fullBody").style.display = "block";
 
-    function hideLoader() {
-      document.getElementById("loader-wrapper").style.display = "none";
-      document.getElementById("fullBody").style.display = "block";
+    // Get the current URL
+    var url = window.location.href;
 
-      // Get the current URL
-      var url = window.location.href;
+    // Find the index of the '#' character in the URL
+    var anchorIndex = url.indexOf('#');
 
-      // Find the index of the '#' character in the URL
-      var anchorIndex = url.indexOf('#');
+    // Check if the '#' character exists in the URL
+    if (anchorIndex !== -1) {
+      // Extract the anchor part of the URL
+      var anchor = url.substring(anchorIndex);
 
-      // Check if the '#' character exists in the URL
-      if (anchorIndex !== -1) {
-        // Extract the anchor part of the URL
-        var anchor = url.substring(anchorIndex);
-
-        // Check if the anchor is '#comments_OG'
-        if (anchor === '#comments_OG') {
-          // Scroll to the comments section
-          var commentsSection = document.getElementById("comments_OG");
-          // Check if the comments section exists
-          if (commentsSection) {
-            // Scroll the comments section into view
-            commentsSection.scrollIntoView();
-          }
-        }
+      // Scroll to the corresponding section based on the anchor
+      var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
+      if (targetElement) {
+        targetElement.scrollIntoView();
       }
-
     }
+  }
 
-    window.onload = function() {
-      setTimeout(hideLoader);
-    };
-    showLoader();
-  </script>
+  window.onload = function() {
+    setTimeout(hideLoader);
+  };
+  showLoader();
+</script>
 
 
 
@@ -300,7 +293,7 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
     </script>
 
 
-    <div class="achievementsMainBlock" id="dosezki_OG">
+    <div class="achievementsMainBlock" id="dosezki_zmentures">
       <h1><?php
           echo $translations['achivements'] ?></h1>
       <?php if (isset($_SESSION["username"])) : ?>

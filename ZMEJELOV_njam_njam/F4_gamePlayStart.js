@@ -68,13 +68,12 @@ class F4_gamePlayStart extends F0_shared {
         }
         for (let i = destoyers.length - 1; i >= 0; i--) {
             const destoyerItem = destoyers[i];
-
-            // Check if the food item has been on the screen for more than 5 seconds
-            if (currentTime - destoyerItem.creationTime >= 10) {
-                destoyerItem.destroy(); // Destroy the food item
-                destoyers.splice(i, 1); // Remove the food item from the array
+            if (currentTime - destoyerItem.creationTime >= 15) {
+                if (destoyerItem.body) destoyerItem.destroy(); // Ensure body exists
+                destoyers.splice(i, 1);
             }
         }
+    
     }
     create() {
         food = [];
@@ -217,7 +216,7 @@ class F4_gamePlayStart extends F0_shared {
 
         gameState.text.setText('Score: ' + score);
         gameState.spawnEvent.delay = delayTimer;
-        this.physics.add.overlap(gameState.junak, destoyers, (user, destoyer) => {
+        /*this.physics.add.overlap(gameState.junak, destoyers, (user, destoyer) => {
 
             if (heartsOnScreen.length !== 0) {
                 if (!shield) {
@@ -238,7 +237,7 @@ class F4_gamePlayStart extends F0_shared {
                  this.scene.start('F5_konec') 
             }
 
-        })
+        })*/
         this.physics.add.overlap(gameState.junak, food, (user, OnePiecefood) => {
             OnePiecefood.destroy()
             score += (10 * scoreMultiplier)

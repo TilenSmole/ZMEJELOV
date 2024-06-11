@@ -236,8 +236,11 @@ body {
 .achievementsMainBlock,
 .QN_field{
   background-color:  #2A282E;
- 
+}
 
+#addCommentZmejelov{
+  padding-top: 15px;
+  padding-left: 15px;
 }
 
 
@@ -288,12 +291,13 @@ body {
   color: black;
   padding: 10px 20px;
   font-size: 16px;
-  border: none;
+  border: 2px solid black; /* Added border style */
   cursor: pointer;
-
+  background-color: #211e24;
+  border-radius: 2px;
 }
 
-.dropbtn:hover {
+.dropbtn:hover, .dropbtnProfile:hover {
   background-color: hsl(244, 7%, 40%);
 
 }
@@ -387,14 +391,10 @@ body {
 }
 
 /*comments*/
-
-.comments_DIV {}
-
 .commentsForm,
 .commentsFormError {
   display: center;
   text-align: center;
-  margin-bottom: 100px;
 }
 
 .alignCommentAdd {
@@ -422,10 +422,9 @@ body {
 }
 
 
-
 .submitCommentButton {
   border: none;
-  padding: 1% 2% 1% 2%;
+  padding: 20px;
   border-radius: 10px 15px;
   cursor: pointer;
   color: black;
@@ -435,16 +434,6 @@ body {
   text-decoration: none;
 
 }
-
-
-
-
-
-
-
-
-
-
 
 .pagination-container {
   display: flex;
@@ -460,14 +449,18 @@ body {
 
 .commentAuthor,
 .commentText {
-  display: block;
-  padding: 1% 1% 0% 1%;
-
-
+  display: inline-block;;
 }
 
-.commentsFormErrorText {
+.commentText {
+  padding-left: 15px;
+  background-color: red;
+  margin-top:-50px;
+}
 
+
+
+.commentsFormErrorText {
   padding: 50px;
 }
 
@@ -478,9 +471,7 @@ body {
   align-items: center;
   margin: auto;
   border-radius: 10px;
-  /* Add border radius for curly edges */
   padding: 10px;
-  /* Add padding to create space between content and edges */
 }
 
 

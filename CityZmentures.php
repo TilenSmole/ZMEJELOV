@@ -51,23 +51,38 @@ if (session_status() === PHP_SESSION_NONE)
 
 
   <script>
-    function showLoader() {
-      document.getElementById("loader-wrapper").style.display = "flex";
+  function showLoader() {
+    document.getElementById("loader-wrapper").style.display = "flex";
+  }
 
+  function hideLoader() {
+    document.getElementById("loader-wrapper").style.display = "none";
+    document.getElementById("fullBody").style.display = "block";
+
+    // Get the current URL
+    var url = window.location.href;
+
+    // Find the index of the '#' character in the URL
+    var anchorIndex = url.indexOf('#');
+
+    // Check if the '#' character exists in the URL
+    if (anchorIndex !== -1) {
+      // Extract the anchor part of the URL
+      var anchor = url.substring(anchorIndex);
+
+      // Scroll to the corresponding section based on the anchor
+      var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
+      if (targetElement) {
+        targetElement.scrollIntoView();
+      }
     }
+  }
 
-    function hideLoader() {
-      document.getElementById("loader-wrapper").style.display = "none";
-      document.getElementById("fullBody").style.display = "block";
-
-
-    }
-
-    window.onload = function() {
-      setTimeout(hideLoader, 500);
-    };
-    showLoader();
-  </script>
+  window.onload = function() {
+    setTimeout(hideLoader);
+  };
+  showLoader();
+</script>
 
 
 
@@ -83,7 +98,7 @@ if (session_status() === PHP_SESSION_NONE)
     <div id="header"></div>
 
 
-    <div class="introduction" id="introduction_OG">
+    <div class="introduction" id="introduction_CityZmentures">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
         <p><b><span style="font-size: 50px;">CityZmentures</span></b> <?php $translations = loadTranslations();
@@ -94,7 +109,7 @@ if (session_status() === PHP_SESSION_NONE)
 
 
     <div class="game">
-      <div id="game_OG">
+      <div id="game_CityZmentures">
         <h1><?php $translations = loadTranslations();
             echo $translations['game'] ?></h1>
         <?php if (isset($_SESSION["username"])) : ?>
@@ -108,7 +123,7 @@ if (session_status() === PHP_SESSION_NONE)
       </div>
     </div>
 
-    <div class="speed_running_split">
+    <div class="speed_running_split" id="QnA_CityZmentures">
       <div class="QnA_split">
         <h1>Q&N</h1>
         <div>
@@ -318,7 +333,7 @@ if (session_status() === PHP_SESSION_NONE)
     }
   </script>
 
-  <div class="achievementsMainBlock" id="dosezki_OG">
+  <div class="achievementsMainBlock" id="dosezki_CityZmentures">
     <h1><?php $translations = loadTranslations();
         echo $translations['achivements'] ?></h1>
     <?php if (isset($_SESSION["username"])) : ?>
@@ -484,7 +499,7 @@ if (session_status() === PHP_SESSION_NONE)
 
   </div>
 
-  <div class="comments_DIV" id="comments_city">
+  <div class="comments_DIV" id="comments_CityZmentures">
     <?php if (isset($_SESSION["username"])) : ?>
       <h1><?php
           echo $translations["KOMENTARJI"] ?></h1>

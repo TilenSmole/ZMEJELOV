@@ -1,6 +1,7 @@
 
 .achievementsDisplayProfile{
-    margin: 3%;
+    margin-left: 3%;
+
    }
 
 .achievement-container {
@@ -40,12 +41,30 @@ img{
     display: flex;
     justify-content: center;
     margin-top: 250px;
-    background-color: #4d4455;
     padding: 50px;
     margin: 0 500px;
     border-radius: 50px; /* Adding 'px' unit for border-radius */
 }
+.QN_field,  #profileTop{
+    background-color: #4d4455;
 
+}
+
+
+.dropbtnProfile {
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid black; /* Added border style */
+    cursor: pointer;
+    background-color: #4d4455;
+    border-radius: 2px;
+  }
+
+
+  
+
+  
 
 .profile {
     display: flex;

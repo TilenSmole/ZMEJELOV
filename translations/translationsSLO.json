@@ -54,7 +54,7 @@
     "logout": "ODJAVA",
     "login": "PRIJAVA",
     "home": "DOMOV",
-    "intro": "uvod",
+    "intro": "UVOD",
     "about": " O PROJEKTU",
     "video_library": "VIDEO VSEBINA",
     "rOG": "ahhh to so bili časi",
@@ -102,6 +102,18 @@
     "no_pups": "Doseži 10000 brez dodatnih sposobnosti",
     "rainbowA": "🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈",
     "money_achA": "Denar sveta vladar",
-    "no_pupsA": "Močččččččččččččččččččččččččččččččč"
+    "no_pupsA": "Močččččččččččččččččččččččččččččččč",
+    "unlocked": "odklenjenih",
+    "since": "zmejelover od",
+    "change": "Ali lahko spremenim svoje ime in geslo? ",
+    "no": "Ne",
+    "dedicated" :" Koliko časa je bilo posvečeno igri?",
+    "alot" :"Preveč ",
+       "contact" :"Kako te lahko kontaktiram??",
+    "form" :"<a href='\\contact.php'>Preko obrazca</a>",
+    "post" : "KOMENTIRAJ"
+
+
+
   }
 }

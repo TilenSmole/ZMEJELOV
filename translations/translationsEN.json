@@ -101,6 +101,16 @@
     "no_pups": "Achieve 10000 without additional abilities",
     "rainbowA": "🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈",
     "money_achA": "Money rules the world",
-    "no_pupsA": "Pooowwwweeeeeerrrrrrrr"
+    "no_pupsA": "Pooowwwweeeeeerrrrrrrr",
+    "unlocked": "unlocked",
+    "since": "zmejeloving since",
+     "change": "Can I change my username or password?",
+    "no": "No",
+    "dedicated" :" How long did it take you to make this?",
+    "alot" :"A long time ",
+    "contact" :"Can I contact you?",
+    "form" :"<a href='\\contact.php'>With the form</a>",
+    "post" : "COMMENT"
+
   }
 }

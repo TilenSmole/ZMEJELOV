@@ -1,5 +1,9 @@
 <?php
 include('translations/load_translations.php');
+$translations = loadTranslations();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,21 +26,18 @@ include('translations/load_translations.php');
         background-color: #79747f;
     }
 
-
     .textMessage {
         resize: none;
         width: 50vw;
         height: 30vw;
         border: none;
         background-color: #79747f;
-
     }
 
     #loginForm,
     .response {
         margin: 2% 5% 2% 5%;
     }
-
 
     .password,
     .username {
@@ -45,51 +46,44 @@ include('translations/load_translations.php');
 </style>
 
 <body>
-<script>
-      $(document).ready(function() {
-        var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
-        $("#header").load("SHARED/header.php?username=" + username);
-        $("#footer").load("SHARED/footer.php");
-
-      });
+    <script>
+        $(document).ready(function() {
+            var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
+            $("#header").load("SHARED/header.php?username=" + username);
+            $("#footer").load("SHARED/footer.php");
+        });
     </script>
     <div id="header"></div>
     <div id="loginForm">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <label for="name"><?php $translations = loadTranslations();
-                                echo $translations["name"] ?>:</label><br>
+            <label for="name"><?php 
+                                echo $translations["name"]; ?>:</label><br>
             <input type="text" id="name" name="name" required class="username">
             <br>
-            <label for="subject"><?php $translations = loadTranslations();
-                                    echo $translations["subject"] ?>:</label><br>
+            <label for="subject"><?php 
+                                    echo $translations["subject"]; ?>:</label><br>
             <input type="text" id="subject" name="subject" required class="username">
             <br>
-            <label for="email"><?php $translations = loadTranslations();
-                                echo $translations["email"] ?>:</label><br>
+            <label for="email"><?php 
+                                echo $translations["email"]; ?>:</label><br>
             <input type="email" id="email" name="email" required class="username">
             <br>
-            <label for="message"><?php $translations = loadTranslations();
-                                    echo $translations["message"] ?>:</label><br>
+            <label for="message"><?php 
+                                    echo $translations["message"]; ?>:</label><br>
             <textarea id="message" name="message" required class="textMessage"></textarea>
             <br>
             <div class="submitAbove">
-                <button type="submit" class="submitData"><?php $translations = loadTranslations();
-                                                            echo $translations["send"] ?></button>
+                <button type="submit" class="submitData"><?php 
+                                                            echo $translations["send"]; ?></button>
             </div>
-
+        </form>
     </div>
-    </form>
-
- 
     <div id="footer"></div>
-
 </body>
 
 </html>
 
-
 <?php
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
 
@@ -110,7 +104,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = $_POST['message'];
 
         $recipient = "smoletilen@gmail.com";
-
         $headers = "From: $name <$email>";
 
         if (mail($recipient, $subject, $message, $headers)) {
@@ -120,5 +113,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
-
 ?>

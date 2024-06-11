@@ -3,7 +3,7 @@ include("SERVER/database.php");
 include('translations/load_translations.php');
 if (session_status() === PHP_SESSION_NONE)
   session_start();
-
+  $translations = loadTranslations();
 ?>
 
 
@@ -52,23 +52,38 @@ if (session_status() === PHP_SESSION_NONE)
 
 
   <script>
-    function showLoader() {
-      document.getElementById("loader-wrapper").style.display = "flex";
+  function showLoader() {
+    document.getElementById("loader-wrapper").style.display = "flex";
+  }
 
+  function hideLoader() {
+    document.getElementById("loader-wrapper").style.display = "none";
+    document.getElementById("fullBody").style.display = "block";
+
+    // Get the current URL
+    var url = window.location.href;
+
+    // Find the index of the '#' character in the URL
+    var anchorIndex = url.indexOf('#');
+
+    // Check if the '#' character exists in the URL
+    if (anchorIndex !== -1) {
+      // Extract the anchor part of the URL
+      var anchor = url.substring(anchorIndex);
+
+      // Scroll to the corresponding section based on the anchor
+      var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
+      if (targetElement) {
+        targetElement.scrollIntoView();
+      }
     }
+  }
 
-    function hideLoader() {
-      document.getElementById("loader-wrapper").style.display = "none";
-      document.getElementById("fullBody").style.display = "block";
-
-
-    }
-
-    window.onload = function() {
-      setTimeout(hideLoader, 500);
-    };
-    showLoader();
-  </script>
+  window.onload = function() {
+    setTimeout(hideLoader);
+  };
+  showLoader();
+</script>
 
 
 
@@ -84,10 +99,10 @@ if (session_status() === PHP_SESSION_NONE)
     <div id="header"></div>
 
 
-    <div class="introduction" id="introduction_OG">
+    <div class="introduction" id="introduction_crackelov">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php $translations = loadTranslations();
+        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php
                                                                   echo $translations["thefinalrage_intro"] ?></p>
       </div>
     </div>
@@ -99,9 +114,9 @@ if (session_status() === PHP_SESSION_NONE)
 
     <div class="game">
 
-      <div id="game_OG">
+      <div id="game_crackelov">
 
-        <h1><?php $translations = loadTranslations();
+        <h1><?php
             echo $translations['game'] ?></h1>
         <?php if (isset($_SESSION["username"])) : ?>
           <div id="time">
@@ -118,26 +133,26 @@ if (session_status() === PHP_SESSION_NONE)
 
         <?php else : ?>
           <div class="gameContainerError" class="col-10">
-            <p><?php $translations = loadTranslations();
+            <p><?php
                 echo $translations['please_login'] ?> </p>
           </div>
         <?php endif; ?>
       </div>
     </div>
 
-    <div class="speed_running_split">
-      <div class="QnA_split" ">
+    <div class="speed_running_split"id="QnA_crackelov">
+      <div class="QnA_split">
         <h1>Q&N</h1>
         <div>
           <div class=" QN_field">
         <div class="question_field">
-          <p><?php $translations = loadTranslations();
+          <p><?php
               echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a1b','a1bDiv')">&#9660;</button></span>
           </p>
         </div>
       </div>
       <div id="a1bDiv">
-        <p id="a1b" style="display: none; "><?php $translations = loadTranslations();
+        <p id="a1b" style="display: none; "><?php
                                             echo $translations['a1_OG'] ?></p>
       </div>
     </div>
@@ -146,13 +161,13 @@ if (session_status() === PHP_SESSION_NONE)
     <div>
       <div class="QN_field">
         <div class="question_field">
-          <p> <?php $translations = loadTranslations();
+          <p> <?php
               echo $translations['q2_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a2b','a2bDiv')">&#9660;</button></span>
           </p>
         </div>
       </div>
       <div id="a2bDiv">
-        <p id="a2b" style="display: none;"><?php $translations = loadTranslations();
+        <p id="a2b" style="display: none;"><?php
                                             echo $translations['a2_OG'] ?></p>
       </div>
     </div>
@@ -160,13 +175,13 @@ if (session_status() === PHP_SESSION_NONE)
     <div>
       <div class="QN_field">
         <div class="question_field">
-          <p> <?php $translations = loadTranslations();
+          <p> <?php
               echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a3b','a3bDiv')">&#9660;</button></span>
           </p>
         </div>
       </div>
       <div id="a3bDiv">
-        <p id="a3b" style="display: none;"><?php $translations = loadTranslations();
+        <p id="a3b" style="display: none;"><?php
                                             echo $translations['a3_OG'] ?></p>
       </div>
     </div>
@@ -174,13 +189,13 @@ if (session_status() === PHP_SESSION_NONE)
     <div>
       <div class="QN_field">
         <div class="question_field">
-          <p> <?php $translations = loadTranslations();
+          <p> <?php
               echo $translations['q4_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a4b','a4bDiv')">&#9660;</button></span>
           </p>
         </div>
       </div>
       <div id="a4bDiv">
-        <p id="a4b" style="display: none;"><?php $translations = loadTranslations();
+        <p id="a4b" style="display: none;"><?php
                                             echo $translations['a4_OG'] ?></p>
       </div>
     </div>
@@ -307,13 +322,13 @@ if (session_status() === PHP_SESSION_NONE)
   </script>
 
 
-  <div class="achievementsMainBlock" id="dosezki_OG">
-    <h1><?php $translations = loadTranslations();
+  <div class="achievementsMainBlock" id="dosezki_crackelov">
+    <h1><?php
         echo $translations['achivements'] ?></h1>
     <?php if (isset($_SESSION["username"])) : ?>
       <div class="achievements">
         <?php
-        $translations = loadTranslations();
+       
         if ($_SESSION["achievements"][17] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<img src="assets/achivments/speedRun/speed.png"    alt="Achievement Picture 1">';
@@ -333,7 +348,7 @@ if (session_status() === PHP_SESSION_NONE)
         ?>
 
         <?php
-        $translations = loadTranslations();
+       
         if ($_SESSION["achievements"][18] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<img src="assets\achivments\speedRun\complete.png" alt="Achievement Picture 1">';
@@ -353,7 +368,7 @@ if (session_status() === PHP_SESSION_NONE)
         ?>
 
         <?php
-        $translations = loadTranslations();
+       
         if ($_SESSION["achievements"][19] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<img src="assets\achivments\speedRun\allDeaths.png"  alt="Achievement Picture 1">';
@@ -373,7 +388,7 @@ if (session_status() === PHP_SESSION_NONE)
         ?>
 
         <?php
-        $translations = loadTranslations();
+       
 
         if ($_SESSION["achievements"][20] === "1") {
           echo "<div class='oneAchievements'>";
@@ -394,7 +409,7 @@ if (session_status() === PHP_SESSION_NONE)
         ?>
 
         <?php
-        $translations = loadTranslations();
+       
 
         if ($_SESSION["achievements"][21] === "1") {
           echo "<div class='oneAchievements'>";
@@ -415,7 +430,7 @@ if (session_status() === PHP_SESSION_NONE)
         ?>
 
         <?php
-        $translations = loadTranslations();
+       
         if ($_SESSION["achievements"][22] === "1") {
           echo "<div class='oneAchievements'>";
           echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
@@ -438,7 +453,7 @@ if (session_status() === PHP_SESSION_NONE)
     <?php else : ?>
       <div>
         <p>
-        <p><?php $translations = loadTranslations();
+        <p><?php
             echo $translations['please_login_achivements'] ?></p>
         </p>
       </div>
@@ -452,7 +467,7 @@ if (session_status() === PHP_SESSION_NONE)
 
   </div>
 
-  <div class="comments_DIV" id="comments_OG">
+  <div class="comments_DIV" id="comments_crackelov">
     <?php if (isset($_SESSION["username"])) : ?>
       <h1><?php
           echo $translations["KOMENTARJI"] ?></h1>
@@ -544,7 +559,7 @@ WHERE RowNum BETWEEN ? AND ?";
       echo '<div class="pagination">';
       for ($i = 1; $i <= $totalPages; $i++) {
         // Add onclick event to each pagination link to scroll to the comment section
-        echo '<a href="zmejelov1869.php?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
+        echo '<a href="zmejelov1869.php?page=' . $i . '#comments_crackelov">' . $i . "&nbsp;   "  . '</a>';
       }
       echo '</div>';
       echo '</div>';
@@ -581,7 +596,7 @@ if (isset($_GET["submitCommentZmejelov"])) {
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/zmejelov1869.php#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/zmejelov1869.php#comments_crackelov>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

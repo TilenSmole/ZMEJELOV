@@ -48,8 +48,8 @@ class uvod extends Phaser.Scene {
     
 
 
-      this.scene.stop('scena1')
-      this.scene.start('scena2')
+      this.scene.stop('uvod')
+      this.scene.start('scena1')
     });
   }
 }
