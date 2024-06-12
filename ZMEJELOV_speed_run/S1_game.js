@@ -10,6 +10,7 @@ var enkratt = 1 //ce je 1 je default, pomeni pa da odklenemo 2 easter egg na 4 n
 var stSmrti = 0
 var deathVarient = ""
 var uploaded = false
+var boosterOff = true
 
 // Languages
 var language = "slo"
@@ -113,15 +114,8 @@ class getStuff {
     }
   }
   
-var lastLevel = "";
-var difficulty = "";
-var achievements = "";
-var DATE = "";
 const dataRetrieval = new getStuff();
 
-
-  
-  
 dataRetrieval.getPhpStuff()
   .then(data => {
     username = data.username;

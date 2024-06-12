@@ -285,7 +285,8 @@ $translations = loadTranslations();
       <?php endif; ?>
       <?php
       // Define the number of comments per page
-      $commentsPerPage = 6;
+      $commentsPerPage = 7;
+
       // Query to count total number of comments
       $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type = 2";
       $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
@@ -335,7 +336,8 @@ WHERE RowNum BETWEEN ? AND ?";
           echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
           exit();
         }
-
+        $startPage = max(min($page- floor($commentsPerPage / 2), $totalPages - $commentsPerPage + 1), 1);
+        $endPage = min($startPage + $commentsPerPage - 1, $totalPages);
         // Display comments
         echo '<div id="comment_section" class="commentsZmejelov">';
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
@@ -346,8 +348,8 @@ WHERE RowNum BETWEEN ? AND ?";
                   <span class="commentText"><br>' . $row["comment"] . '</span><br><br>
                   <span class="commentDate"><br>' . $row["date"]->format('d-m-Y')   . '</span>
                 </div><br><br>';
-      }
-      
+        }
+
         echo '</div>';
       } catch (Exception $e) {
         // Handle the exception
@@ -367,12 +369,24 @@ WHERE RowNum BETWEEN ? AND ?";
         $totalPages = ceil($totalComments / $commentsPerPage);
 
         // Display pagination links
-        echo '<div class="pagination-container">';
+        echo '<div class="pagination_container_comments">';
         echo '<div class="pagination">';
-        for ($i = 1; $i <= $totalPages; $i++) {
-          // Add onclick event to each pagination link to scroll to the comment section
-          echo '<a href="zmejelov1869.php?page=' . $i . '#comments_OG">' . $i . "&nbsp;   "  . '</a>';
+
+        // Previous page link
+        if ($page > 1) {
+          echo '<a href="zmejelov1869.php?page=' . ($page- 1) . '#comments_OG"><&#160 &#160</a> ';
         }
+
+        // Pagination links
+        for ($i = $startPage; $i <= $endPage; $i++) {
+          echo '<a href="zmejelov1869.php?page=' . $i . '#comments_OG"' . ($i == $page? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
+        }
+
+        // Next page link
+        if ($page < $totalPages) {
+          echo '<a href="zmejelov1869.php?page=' . ($page+ 1) . '#comments_OG">&#160 &#160></a>';
+        }
+
         echo '</div>';
         echo '</div>';
       }

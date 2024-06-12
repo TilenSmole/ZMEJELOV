@@ -491,7 +491,10 @@ body {
 .pagination-container {
   margin-top: auto;
 }
-
+.pagination_container_comments{
+  margin: auto;
+  text-align: center;
+}
 .pagination {
     display: inline-block;
     padding-bottom: 20px; 

@@ -44,8 +44,8 @@ $translations = loadTranslations();
             <?php if (isset($_SESSION["username"])) : ?>
                 <p><?php   echo $translations['welcome_again'] ?><br>
                 <br><ul id="options">
-                    <li><a href="zmejelov1869.php">ZMEJELOV 1869 </a><?php echo $translations['welcome_zmentures'] ?></li>
-                    <li><a href="/zmentures.php">ZMENTURES</a> <?php echo $translations['welcome_1869'] ?></li>
+                    <li><a href="zmejelov1869.php">ZMEJELOV 1869 </a><?php echo $translations['welcome_1869'] ?></li>
+                    <li><a href="/zmentures.php">ZMENTURES</a> <?php echo $translations['welcome_zmentures'] ?></li>
                     <li><a href="Crackelov.php">CRA*KELOV</a> <?php echo $translations['welcome_crackelov'] ?> </li>
                     <li><a href="CityZmentures.php">CITY ZMENTURES </a><?php echo $translations['welcome_city'] ?></li>
                     <li><a href="TheFinalRage.php">THE FINAL RAGE</a> <?php echo $translations['welcome_rage'] ?></li>

@@ -39,47 +39,57 @@ class S0_shared extends Phaser.Scene {
 	create() {
 
 		gameState.active = true;
-
-		this.anims.create({
-			key: 'walk',
-			frames: [
-				{ key: 'Zmeja', frame: "Wraith_03_Moving Forward_000.png" },],
-			frameRate: 8,
-			repeat: -1
-		});
-
-		this.anims.create({
-			key: 'idle',
-			frames: this.anims.generateFrameNumbers('ZmejaIdle', { start: 0, end: 7 }),
-			frameRate: 4,
-			repeat: -1
-		});
-
-		this.anims.create({
-			key: 'dying',
-			frames: this.anims.generateFrameNumbers('ZmejaDyingAnimation', { start: 0, end: 12 }), // Adjust the range as needed
-			frameRate: 10,
-			repeat: -1
-		});
+		if (!this.anims.exists('walk')) {
+			this.anims.create({
+				key: 'walk',
+				frames: [
+					{ key: 'Zmeja', frame: "Wraith_03_Moving Forward_000.png" },],
+				frameRate: 8,
+				repeat: -1
+			});
+		}
+		if (!this.anims.exists('idle')) {
 
 
-		this.anims.create({
-			key: 'umre',
-			frames: [
-				{ key: 'Zmeja', frame: "Wraith_03_Dying_000.png" },],
-			frameRate: 8,
-			repeat: -1
-		});
+			this.anims.create({
+				key: 'idle',
+				frames: this.anims.generateFrameNumbers('ZmejaIdle', { start: 0, end: 7 }),
+				frameRate: 4,
+				repeat: -1
+			});
+		}
+		if (!this.anims.exists('dying')) {
 
 
+			this.anims.create({
+				key: 'dying',
+				frames: this.anims.generateFrameNumbers('ZmejaDyingAnimation', { start: 0, end: 11 }),
+				frameRate: 10,
+				repeat: -1
+			});
+		}
 
-		this.anims.create({
-			key: 'skok',
-			frames: [
-				{ key: 'Zmeja', frame: "Wraith_03_Idle_000.png" },],
-			frameRate: 8,
-			repeat: -1
-		});
+		if (!this.anims.exists('umre')) {
+
+			this.anims.create({
+				key: 'umre',
+				frames: [
+					{ key: 'Zmeja', frame: "Wraith_03_Dying_000.png" },],
+				frameRate: 8,
+				repeat: -1
+			});
+		}
+
+		if (!this.anims.exists('skok')) {
+
+			this.anims.create({
+				key: 'skok',
+				frames: [
+					{ key: 'Zmeja', frame: "Wraith_03_Idle_000.png" },],
+				frameRate: 8,
+				repeat: -1
+			});
+		}
 
 
 		gameState.cursors = this.input.keyboard.createCursorKeys();
@@ -99,7 +109,7 @@ class S0_shared extends Phaser.Scene {
 	update(arg) {
 		if (arg == "basic") {
 			if (gameState.active) {
-				if ((gameState.cursors.up.isDown) && gameState.junak.body.touching.down) {
+				if ((gameState.cursors.up.isDown)/* && gameState.junak.body.touching.down*/) {
 					gameState.junak.anims.play('skok', true);
 					gameState.junak.setVelocityY(this.getJumpingSpeed())
 				}
@@ -128,7 +138,22 @@ class S0_shared extends Phaser.Scene {
 
 
 	}
+
+	restart() {
+		disableReturnBack = false //player cant take the easy way out 
+		stopChecking = false //so it doesnt dispplay every second if disableReturnBack
+		hotdogShow = true //shows a hotdog
+		canWin = false //if the player touches spaceship does he win
+		finalTime = ""
+		deathByWho = [0, 0, 0, 0, 0] //ground, volture, alien, spaceship1, quick spaceship
+		stZvezd = 0
+		boosterOff = true
+
+	}
+
+
 	updateAchievements() {
+		console.log('¸w');
 		var achievementsUpdated = achievements;
 		console.log(achievements)
 		if (completedSpeedy)
@@ -140,7 +165,7 @@ class S0_shared extends Phaser.Scene {
 		if (stars)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 20, "1");
 		if (dieALot)
-			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 12, "1");
+			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 21, "1");
 		if (quickDeath)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 22, "1");
 		console.log(achievements)
@@ -149,10 +174,11 @@ class S0_shared extends Phaser.Scene {
 
 
 	resetGame() {
-		 disableReturnBack = false //player cant take the easy way out 
-		 stopChecking = false //so it doesnt dispplay every second if disableReturnBack
-		 hotdogShow = true //shows a hotdog
-		 canWin = false //if the player touches spaceship does he win
+		console.log('¸ow');
+		disableReturnBack = false //player cant take the easy way out 
+		stopChecking = false //so it doesnt dispplay every second if disableReturnBack
+		hotdogShow = true //shows a hotdog
+		canWin = false //if the player touches spaceship does he win
 		setJumpingSpeed(-650)
 		uploaded = false
 
@@ -248,7 +274,7 @@ class S0_shared extends Phaser.Scene {
 
 	}
 
-	
+
 
 
 }
@@ -275,7 +301,6 @@ function updateStopwatch() {
 			minute = 0;
 			second = 0;
 		}
-
 		let hrString = hour.toString().padStart(2, '0');
 		let minString = minute.toString().padStart(2, '0');
 		let secString = second.toString().padStart(2, '0');

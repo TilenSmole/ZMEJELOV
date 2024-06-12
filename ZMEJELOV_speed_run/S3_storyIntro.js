@@ -49,12 +49,13 @@ class S3_storyIntro extends S0_shared{
       text2 = this.add.text(xKordinata, yKordinata, this.loadText("space_start"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' }); // Create a new text object with updated content
 
 
+      var spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
-
-    this.input.keyboard.on('keyup-SPACE', () => {
-      this.scene.stop('S3_storyIntro')
-      this.scene.start('S4_gamePlayStart')
-    });
+      spaceBar.on('down', () => {
+        this.scene.stop('S3_storyIntro')
+        this.scene.start('S4_gamePlayStart')
+      });
+ 
   }    
   update() {
    

@@ -84,7 +84,7 @@
         "quote_intro": "Ammmmm sploh nisem vedu, da lahko nekdo tokrat umre😅. Očitno si zaslužiš malo spodbude:",
         "quote_intro_easy": "Ammmmm to je lahek način, kako lahko tokrat umreš🙄? Sploh nevem kako naj ti še pomagam. Mogoče s tem:'",
         "end": "KONEC",
-        "game_intro_speedrun": "Na hitro; To je Zmeja in to je igra katere cilj jo je čimhitreje opraviti. Veliko sreče pri igranju in čim manj težav! Daj že začni!!!!!!!! ",
+        "game_intro_speedrun": "Na hitro; Zmeja je na poti domov postala zelo lačna, čim hitreje ji pomagaj najdi hotdog in se vrniti na ladjo. Veliko sreče pri igranju in čim manj težav! Daj že začni!!!!!!!! ",
         "bird_death": "Joj te ptice, a res ne znajo nič paziti!",
         "sky_death": "Kdor visoka leta, nizko pade. Glej malo pod noge",
         "spaceship_death": "Ko se prečka cesto, se pogleda kam??? Odgovor je levo, desno, levo. Za v prihodnje ;)'",
@@ -111,12 +111,13 @@
         "ach_all": "RAZNOLIKOST",
         "ach_finish": "OPRAVI IGRO",
         "ach_speed": "HITROST",
-        "ach_death" : "UMRI 20x",
+        "ach_death" : "UMRI 20x V ENI IGRI",
         "ach_ship" : "BRRRRRRRRR",
         "ach_OG": "OG ",
         "store": "razlaga",
         "bought" : "aktivirano",
-        "not_ava" : "ni na voljo"
+        "not_ava" : "ni na voljo",
+        "booster" :"pospešek aktiviran"
 
 
 

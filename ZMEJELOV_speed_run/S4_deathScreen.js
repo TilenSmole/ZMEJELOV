@@ -1,9 +1,7 @@
-class S4_deathScreen extends Phaser.Scene {
-    constructor() {
-        super({
-            key: 'S4_deathScreen',
-        });
-    }
+class S4_deathScreen extends S0_shared{
+        constructor(){
+            super("S4_deathScreen");
+        }
     preload() {
 		this.load.json('textSlo', '/translations/translationsSLO_js.json');
 		this.load.json('textEn', '/translations/translationsEN_js.json');
@@ -19,6 +17,7 @@ class S4_deathScreen extends Phaser.Scene {
 		}
 	}
     create() {
+        this.restart()
         this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
         const xKordinata = (Math.random() * 490)
@@ -26,7 +25,28 @@ class S4_deathScreen extends Phaser.Scene {
 
         this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '40px', fill: "#E950F4" })
 
-
+        const showPopupAchievements = (text) => {
+            const rectangle = this.add.rectangle(GAME_WIDTH - 300, 0, 700, 100, 0x4d4455);
+            rectangle.setOrigin(0.5, 0);
+        
+            const graphics = this.add.graphics();
+            graphics.fillStyle(0x000000, 1);
+            graphics.fillRect(rectangle.x - rectangle.width / 2, rectangle.y, rectangle.width, rectangle.height);
+        
+            const popup = this.add.text(GAME_WIDTH - 300, 40, text, {
+                fontSize: '32px',
+                color: '#980a69',
+                align: 'center',
+                wordWrap: { width: rectangle.width - 20, useAdvancedWrap: true }
+            });
+            popup.setOrigin(0.5);
+        
+            this.time.delayedCall(4000, () => {
+                popup.destroy();
+                rectangle.destroy();
+                graphics.destroy();
+            });
+        };
 
 
 
@@ -63,7 +83,7 @@ class S4_deathScreen extends Phaser.Scene {
 
         }
         else if (deathVarient == "qucikSpaceship") {
-            this.showPopupAchievements( this.loadText("ach_ship"))
+            showPopupAchievements( this.loadText("ach_ship"))
 
             if (!quickDeath) {
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
@@ -106,8 +126,36 @@ class S4_deathScreen extends Phaser.Scene {
 
 
         }
+    
+
+        if (stSmrti >= 20 && !dieALot) {
+            showPopupAchievements( this.loadText("ach_death"))
+
+            this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
+            this.titleMusic.play();
+            dieALot = true;
+            this.updateAchievements();
+            const dataAchievements = {
+                achievements: achievements,
+            };
+            this.updateDataBaseAchivements(dataAchievements)
+
+        }
 
 
+        if (deathByWho == [1, 1, 1, 1, 1] && !dieDiverse) {
+            showPopupAchievements( this.loadText("ach_all"))
+
+            this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
+            this.titleMusic.play();
+            dieDiverse = true;
+            this.updateAchievements();
+            const dataAchievements = {
+                achievements: achievements,
+            };
+            this.updateDataBaseAchivements(dataAchievements)
+
+        }
 
         this.input.keyboard.on('keyup-SPACE', () => {
             this.scene.stop('S4_deathScreen')

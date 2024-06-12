@@ -4,6 +4,9 @@ var krog = true
 var krog1 = true
 var krog2 = true
 var krogSpaceship = true
+var krogSpaceship2 = true
+var vultureSpeed = 800
+var vultureFlip = false
 var krogReaper = true
 var krogReaper1 = true
 var hotdogShow = false;
@@ -57,6 +60,13 @@ class S4_gamePlayStart extends S0_shared {
             frameHeight: 587.3,
         });
 
+        this.load.spritesheet('reaperMovement1', 'assets/a_speedRunning/alienWalking.png', {
+            frameWidth: 616,
+            frameHeight: 587.3,
+        });
+
+
+
         this.load.image("spaceShipAttackerIdle", "assets/a_speedRunning/spaceShipAttackerIdle.png")
         this.load.spritesheet('spaceShipAttacker', 'assets/a_speedRunning/spaceShipAttacker.png', {
             frameWidth: 191.6,
@@ -86,9 +96,9 @@ class S4_gamePlayStart extends S0_shared {
         const lowerScreen = this.add.graphics();
         var upperScreenImage = this.add.sprite(0, 0, 'b1');
 
-        var b1 = this.add.image(0, 0, "b1").setOrigin(0, 0);
-        b1.displayWidth = dolzina;
-        b1.displayHeight = visina / 2;
+        //  var b1 = this.add.image(0, 0, "b1").setOrigin(0, 0);
+        //  b1.displayWidth = dolzina;
+        //b1.displayHeight = visina / 2;
 
 
         lowerScreen.fillStyle(0x87CEEB);
@@ -98,9 +108,8 @@ class S4_gamePlayStart extends S0_shared {
 
         var coorX = [0, 9500, 8700, 9200, 8500, 8300, 8400, 8000, 7100, 7800, 7000, 6700, 6420, 6200, 6010, 5800, 5500, 5200, 5000, 4850, 4650, 4125, 3800, 3650, 3700, 4000, 3900, 4200, 4350, 3800, 3900, 4166, 4000, 3700]
         var coorY = [0, 6100, 5800, 6400, 5500, 6400, 6000, 5700, 5950, 6000, 5500, 5700, 5900, 5400, 5000, 5900, 5700, 5500, 5800, 5300, 4900, 5020, 5100, 5000, 4800, 4500, 4300, 4000, 3800, 3900, 3500, 3600, 3700, 3800]
-        var clouds = [0, 11, 1, 3, 6, 5, 2, 1, 5, 1, 4, 3, 2, 11, 10, 8, 7, 6, 5, 4, 3, 9, 7, 8, 11, 7, 5, 1, , 2, 3, 8, 8, 11]
-
-        for (let x = 1; x <= coorX.length - 1; x++) {
+        var clouds = [0, 11, 1, 3, 6, 5, 2, 1, 5, 1, 4, 3, 2, 11, 10, 8, 7, 6, 5, 4, 3, 9, 7, 8, 11, 7, 5, 1, 2, 2, 3, 8, 8, 11]
+        for (let x = 1; x <= coorX.length - 2; x++) {
             this.add.image(coorX[x], coorY[x], "c" + clouds[x])
         }
 
@@ -110,9 +119,9 @@ class S4_gamePlayStart extends S0_shared {
         boaster.setScale(0.8)
         gameState.spaceship = this.physics.add.sprite(dolzina - 200, visina - 400, "spaceship")
         gameState.spaceship.body.allowGravity = false;
-        //gameState.junak = this.physics.add.sprite(dolzina - 6000, visina - 2700, "Zmeja")
-        gameState.junak  = this.physics.add.sprite(dolzina-200,    visina-400, "Zmeja")
-
+        gameState.junak = this.physics.add.sprite(dolzina - 6500, visina - 3800, "Zmeja")
+        // gameState.junak  = this.physics.add.sprite(dolzina-200,    visina-400, "Zmeja")
+        dolzina - 6500, visina - 3800
         gameState.junak.setScale(.40)// pomanjsa
         this.cameras.main.startFollow(gameState.junak)
 
@@ -235,19 +244,19 @@ class S4_gamePlayStart extends S0_shared {
         gameState.vulture.setScale(2)
 
 
-        gameState.vulture1 = this.physics.add.sprite(dolzina - 2000, visina - 1800, 'vulture');
+        gameState.vulture1 = this.physics.add.sprite(dolzina - 7300, visina - 1800, 'vulture');
         gameState.vulture1.body.allowGravity = false;
         gameState.vulture1.setScale(2)
 
-        gameState.reaper = this.physics.add.sprite(dolzina - 6400, visina - 2800, 'reaper');
+        gameState.reaper = this.physics.add.sprite(dolzina - 6550, visina - 2800, 'reaper');
         gameState.reaper.body.allowGravity = false;
         gameState.reaper.setScale(0.2)
 
-        gameState.reaper1 = this.physics.add.sprite(dolzina - 6500, visina - 4125, 'reaper');
+        gameState.reaper1 = this.physics.add.sprite(dolzina - 5500, visina - 4125, 'reaper');
         gameState.reaper1.body.allowGravity = false;
         gameState.reaper1.setScale(0.2)
 
-        gameState.spaceShip = this.physics.add.sprite(dolzina - 7150, visina - 3800, 'spaceShipAttackerIdle');
+        gameState.spaceShip = this.physics.add.sprite(dolzina - 6500, visina - 3800, 'spaceShipAttackerIdle');
         gameState.spaceShip.body.allowGravity = false;
         gameState.spaceShip.setScale(1)
 
@@ -258,35 +267,51 @@ class S4_gamePlayStart extends S0_shared {
 
 
 
+        if (!this.anims.exists('vultureMovement')) {
+            this.anims.create({
+                key: 'vultureMovement',
+                frames: this.anims.generateFrameNumbers('vultureMovement', { start: 0, end: 3 }), // Adjust the range as needed
+                frameRate: 10,
+                repeat: -1
+            });
+        }
+        if (!this.anims.exists('reaperMovement')) {
+            this.anims.create({
+                key: 'reaperMovement',
+                frames: this.anims.generateFrameNumbers('reaperMovement', { start: 0, end: 5 }), // Adjust the range as needed
+                frameRate: 8,
+                repeat: -1
+            });
+        }
 
-        this.anims.create({
-            key: 'vultureMovement',
-            frames: this.anims.generateFrameNumbers('vultureMovement', { start: 0, end: 3 }), // Adjust the range as needed
-            frameRate: 10,
-            repeat: -1
-        });
+        if (!this.anims.exists('reaperMovement1')) {
+            this.anims.create({
+                key: 'reaperMovement1',
+                frames: this.anims.generateFrameNumbers('reaperMovement1', { start: 0, end: 5 }), // Adjust the range as needed
+                frameRate: 8,
+                repeat: -1
+            });
 
-        this.anims.create({
-            key: 'reaperMovement',
-            frames: this.anims.generateFrameNumbers('reaperMovement', { start: 0, end: 9 }), // Adjust the range as needed
-            frameRate: 8,
-            repeat: -1
-        });
-
-        this.anims.create({
-            key: 'spaceShipAttacker',
-            frames: this.anims.generateFrameNumbers('spaceShipAttacker', { start: 0, end: 5 }),
-            frameRate: 8,
-            repeat: -1
-        });
+        }
 
 
-        this.anims.create({
-            key: 'quickKillerRocker',
-            frames: this.anims.generateFrameNumbers('quickKillerRocker', { start: 0, end: 5 }),
-            frameRate: 8,
-            repeat: -1
-        });
+        if (!this.anims.exists('spaceShipAttacker')) {
+            this.anims.create({
+                key: 'spaceShipAttacker',
+                frames: this.anims.generateFrameNumbers('spaceShipAttacker', { start: 0, end: 5 }),
+                frameRate: 8,
+                repeat: -1
+            });
+        }
+
+        if (!this.anims.exists('quickKillerRocker')) {
+            this.anims.create({
+                key: 'quickKillerRocker',
+                frames: this.anims.generateFrameNumbers('quickKillerRocker', { start: 0, end: 5 }),
+                frameRate: 8,
+                repeat: -1
+            });
+        }
 
         //COLLIDERS AND OVERLAPS
         this.physics.add.overlap(gameState.junak, platfromActivater, () => {
@@ -301,72 +326,121 @@ class S4_gamePlayStart extends S0_shared {
         //INTERACTION 
         this.physics.add.overlap(gameState.junak, ubijejo, () => {
             deathByWho[0] = [1]
+            stSmrti++
             deathVarient = "sky"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //this.scene.stop('S4_gamePlayStart')
+            //  this.scene.start('S4_deathScreen')
         });
         this.physics.add.overlap(gameState.junak, boaster, () => {
+            if (boosterOff) {
+                var booster = this.add.text(gameState.junak.x, gameState.junak.y - 20, this.loadText("booster"), {
+                    fontSize: '32px',
+                    color: '#980a69',
+                    align: 'center',
+                    wordWrap: { width: 275, useAdvancedWrap: true }
+                });
+                setTimeout(() => {
+                    booster.destroy();
+                }, 2800);
+                boosterOff = false
+
+            }
+
             this.setJumpingSpeed(-850)
+
+
+
         })
 
 
         this.physics.add.overlap(gameState.junak, winnActivaters, () => {
+            console.log('¸2');
+
             canWin = true
         })
         this.physics.add.overlap(gameState.junak, gameState.vulture1, () => {
+
             stSmrti++
             deathByWho[1] = [1]
             deathVarient = "bird"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //     this.scene.stop('S4_gamePlayStart')
+            //this.scene.start('S4_deathScreen')
 
         })
         this.physics.add.overlap(gameState.junak, gameState.vulture, () => {
+            console.log('¸3');
+
             stSmrti++
             deathByWho[1] = [1]
             deathVarient = "bird"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //    this.scene.stop('S4_gamePlayStart')
+            //   this.scene.start('S4_deathScreen')
 
         })
         this.physics.add.overlap(gameState.junak, gameState.spaceShip, () => {
+            console.log('¸5');
+
             stSmrti++
             deathByWho[3] = [1]
             deathVarient = "spaceship"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //   this.scene.stop('S4_gamePlayStart')
+            //  this.scene.start('S4_deathScreen')
 
         })
         this.physics.add.overlap(gameState.junak, gameState.spaceShipKiller, () => {
+            console.log('¸7');
+
             stSmrti++
             deathByWho[4] = [1]
             deathVarient = "qucikSpaceship"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //  this.scene.stop('S4_gamePlayStart')
+            //this.scene.start('S4_deathScreen')
 
         })
         this.physics.add.overlap(gameState.junak, gameState.reaper1, () => {
+            console.log('6');
+
             stSmrti++
             deathByWho[2] = [1]
             deathVarient = "reaper"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //  this.scene.stop('S4_gamePlayStart')
+            //  this.scene.start('S4_deathScreen')
 
         })
         this.physics.add.overlap(gameState.junak, gameState.reaper, () => {
             stSmrti++
             deathByWho[2] = [1]
             deathVarient = "reaper"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //   this.scene.stop('S4_gamePlayStart')
+            //  this.scene.start('S4_deathScreen')
+            console.log('¸9');
+
 
         })
 
 
 
+        gameState.vulture.anims.play('vultureMovement', true);
+        gameState.vulture.setVelocityX(-800);
+
+        gameState.vulture1.anims.play('vultureMovement', true);
+        gameState.vulture1.setVelocityX(-800);
+
+        gameState.spaceShip.anims.play('spaceShipAttacker', true);
+        gameState.spaceShip.setVelocityX(-800);
+
+        gameState.reaper.anims.playReverse('reaperMovement', true);
+        gameState.reaper.setVelocityX(-500);
+
+        gameState.reaper1.anims.playReverse('reaperMovement', true);
+        gameState.reaper1.setVelocityX(-500);
+
+       
 
 
-      
+
+
+
     }
 
     update() {
@@ -376,116 +450,99 @@ class S4_gamePlayStart extends S0_shared {
 
         const platforms = this.physics.add.staticGroup();
 
-        if (gameState.vulture.x >= dolzina) {
-            krog = false
-        }
-        //vulture1
-        if (gameState.vulture.x >= dolzina) {
-            krog = false
-        }
-        else if (gameState.vulture.x <= dolzina - 7000) {
-            krog = true
+        console.log(gameState.junak.y);
+
+
+        if (gameState.junak.y < 4125) {
+            //vulture1
+            if ((dolzina - 500) <= gameState.vulture.x && gameState.vulture.x <= dolzina) {
+                console.log('¸fas');
+                gameState.vulture.setVelocityX(-800);
+                gameState.vulture.flipX = false;
+                krog = false;
+            }
+            else if ((dolzina - 7300) <= gameState.vulture.x && gameState.vulture.x <= (dolzina - 6700)) {
+                console.log('şdfa');
+                gameState.vulture.setVelocityX(800);
+                gameState.vulture.flipX = true;
+            }
+            //vulture 2
+            if ((dolzina - 5100) <= gameState.vulture1.x && gameState.vulture1.x <= dolzina - 4900) {
+                console.log('¸1342');
+                gameState.vulture1.setVelocityX(-800);
+                gameState.vulture1.flipX = false;
+                krog = false;
+            }
+            else if ((dolzina - 6700) <= gameState.vulture1.x && gameState.vulture1.x <= (dolzina - 6500)) {
+                console.log('¸11');
+                gameState.vulture1.setVelocityX(800);
+                gameState.vulture1.flipX = true;
+            }
+
         }
 
-        if (gameState.vulture.x < dolzina && krog) {
-            gameState.vulture.anims.play('vultureMovement', true);
-            gameState.vulture.setVelocityX(800);
-            gameState.vulture.flipX = true;
-        } else if (gameState.vulture.x > dolzina - 6500) {
-            gameState.vulture.anims.playReverse('vultureMovement', true);
-            gameState.vulture.setVelocityX(-800);
-            gameState.vulture.flipX = false;
-        }
-        //vulture 2
-        if (gameState.vulture1.x >= dolzina - 5000) {
-            krog1 = false
-        }
-        else if (gameState.vulture1.x <= dolzina - 6500) {
-            krog1 = true
+
+        if (gameState.junak.y > 4125) {
+            //spaceship
+            if ((dolzina - 5100) <= gameState.spaceShip.x && gameState.spaceShip.x <= dolzina - 4900) {
+                console.log('¸54');
+                gameState.spaceShip.setVelocityX(-800);
+                gameState.spaceShip.flipX = true;
+            }
+            else if ((dolzina - 6700) <= gameState.spaceShip.x && gameState.spaceShip.x <= (dolzina - 6500)) {
+                console.log('¸5');
+                gameState.spaceShip.setVelocityX(800);
+                gameState.spaceShip.flipX = false;
+            }
+
         }
 
-        if (gameState.vulture1.x < dolzina - 5000 && krog1) {
-            gameState.vulture1.anims.play('vultureMovement', true);
-            gameState.vulture1.setVelocityX(800);
-            gameState.vulture1.flipX = true;
-        } else if (gameState.vulture1.x > dolzina - 7500) {
-            gameState.vulture1.anims.playReverse('vultureMovement', true);
-            gameState.vulture1.setVelocityX(-800);
-            gameState.vulture1.flipX = false;
-        }
-        //spaceship
-        if (gameState.spaceShip.x >= dolzina - 5000) {
-            krogSpaceship = false
-        }
-        else if (gameState.spaceShip.x <= dolzina - 7100) {
-            krogSpaceship = true
-        }
-        if (gameState.spaceShip.x < dolzina - 5000 && krogSpaceship) {
-            gameState.spaceShip.anims.play('spaceShipAttacker', true);
-            gameState.spaceShip.setVelocityX(800);
-            gameState.spaceShip.flipX = false;
-        } else if (gameState.spaceShip.x > dolzina - 7000) {
-            gameState.spaceShip.anims.playReverse('spaceShipAttacker', true);
-            gameState.spaceShip.setVelocityX(-800);
-            gameState.spaceShip.flipX = true;
-        }
+
+
         //reaper
-        if (gameState.reaper.x >= dolzina - 7000) {
-            krogReaper = false
-        }
-        else if (gameState.reaper.x <= dolzina - 6600) {
-            krogReaper = true
-        }
+        if (gameState.junak.y > 1200 &&  gameState.junak.y < 4000 ) {
 
-        if (gameState.reaper.x < dolzina - 5200 && krogReaper) {
-            gameState.reaper.anims.playReverse('reaperMovement', true);
-            gameState.reaper.setVelocityX(500);
-            gameState.reaper.flipX = false;
-        } else if (gameState.reaper.x >= dolzina - 6400) {
-            gameState.reaper.anims.playReverse('reaperMovement', true);
-            gameState.reaper.setVelocityX(-500);
-            gameState.reaper.flipX = true;
+            if ((dolzina - 7100) <= gameState.reaper.x && gameState.reaper.x <= dolzina - 7050) {
+                console.log('¸4');
+                gameState.reaper.setVelocityX(500);
+                gameState.reaper.flipX = false;
+            }
+            else if ((dolzina - 6400) <= gameState.reaper.x && gameState.reaper.x <= (dolzina - 6350)) {
+                console.log('¸3');
+                gameState.reaper.setVelocityX(-500);
+                gameState.reaper.flipX = true;
+            }
         }
+        if (gameState.junak.y > 4000) {
+            //reaper1
+            if ((dolzina - 6100) <= gameState.reaper1.x && gameState.reaper1.x <= dolzina - 6050) {
+                console.log('¸1');
+                gameState.reaper1.setVelocityX(500);
+                gameState.reaper1.flipX = false;
+            }
+            else if ((dolzina - 3600) <= gameState.reaper1.x && gameState.reaper1.x <= (dolzina - 3450)) {
+                console.log('¸žž');
+                console.log('¸22');
+                gameState.reaper1.setVelocityX(-500);
+                gameState.reaper1.flipX = true;
+            }
 
 
 
-        //reaper1
-        if (gameState.reaper1.x >= dolzina - 6000) {
-            krogReaper1 = false
-        }
-        else if (gameState.reaper1.x <= dolzina - 3500) {
-            krogReaper1 = true
-        }
-        if (gameState.reaper1.x < dolzina - 6000 && krogReaper1) {
-            gameState.reaper1.anims.playReverse('reaperMovement', true);
-            gameState.reaper1.setVelocityX(500);
-            gameState.reaper1.flipX = false;
-        } else if (gameState.reaper1.x >= dolzina - 3500) {
-            gameState.reaper1.anims.playReverse('reaperMovement', true);
-            gameState.reaper1.setVelocityX(-500);
-            gameState.reaper1.flipX = true;
         }
 
-
-
-
-        //  console.log(gameState.junak.y)
-        // console.log(visina-4100)
 
 
 
         const ubijejo = [];
         if (gameState.junak.y < visina - 4100 && !stopChecking) {
-            console.log("#activated")
-            console.log(gameState.junak.y)
-            console.log(visina - 4100)
-
             stopChecking = true
             this.setJumpingSpeed(-700)
+            console.log('¸only once');
             for (let x = 64; x <= dolzina - 400; x = x + 150) {
                 const podenj = platforms.create(x, visina - 3000, 'skeli')
                 podenj.allowGravity = false;
-                //  podenj.setAlpha(0);
+                podenj.setAlpha(0);
                 ubijejo.push(podenj)
             }
 
@@ -493,23 +550,27 @@ class S4_gamePlayStart extends S0_shared {
         }
 
         this.physics.add.overlap(gameState.junak, ubijejo, () => {
+            console.log('¸fds');
             deathVarient = "greediness"
-            this.scene.stop('S4_gamePlayStart')
-            this.scene.start('S4_deathScreen')
+            //   this.scene.stop('S4_gamePlayStart')
+            //      this.scene.start('S4_deathScreen')
         });
 
 
 
         if (canWin) {
             this.physics.add.overlap(gameState.junak, gameState.spaceship, () => {
+                console.log('¸fy');
                 this.stopWatchStop()
-                this.scene.stop('S4_gamePlayStart')
-                this.scene.start('S5_konec')
+                //    this.scene.stop('S4_gamePlayStart')
+                // this.scene.start('S5_konec')
 
             })
         }
+
         var position = visina - 4500
         if (hotdogShow) {
+            console.log('¸fa');
             hotdogShow = false
             gameState.hotdog = this.physics.add.sprite(dolzina - 3700, position, 'hotdog');
             this.physics.add.collider(gameState.hotdog, allPlatforms)
@@ -518,10 +579,12 @@ class S4_gamePlayStart extends S0_shared {
 
 
         this.physics.add.overlap(gameState.junak, gameState.hotdog, () => {
+            console.log('¸fdasdf');
             gameState.hotdog.destroy()
             var upDownPlanetsLocation = [500, 700, 1000, 1200]
             var planets;
             var distance = 2800
+            console.log('şam enkt naj bi blo');
             for (var i = 0; i < 4; i++) {
                 planets = platforms.create(dolzina - 6000 + distance, position + upDownPlanetsLocation[i], "planet" + i)
                 planets.setScale(1.5)
@@ -531,9 +594,11 @@ class S4_gamePlayStart extends S0_shared {
 
             //spaceship killer dolzina-3500, visina-4100
             if (gameState.spaceShipKiller.x < dolzina - 5500) {
+                console.log('¸fdas');
                 gameState.spaceShipKiller.destroy()
 
             } else if (gameState.spaceShipKiller.x > dolzina - 7000) {
+                console.log('¸fdsa');
                 gameState.spaceShipKiller.anims.playReverse('quickKillerRocker', true);
                 gameState.spaceShipKiller.setVelocityX(-8000);
                 gameState.spaceShipKiller.flipX = true;
@@ -542,12 +607,14 @@ class S4_gamePlayStart extends S0_shared {
         })
 
         this.physics.add.overlap(gameState.junak, gameState.stars, (user, star) => {
+            console.log('¸aaaa');
             stZvezd++
             star.destroy();
         });
 
 
-        if (stZvezd == 1 && !stars) {
+        if (stZvezd == 9 && !stars) {
+            console.log('¸aaaaa');
             const rectangle = this.add.rectangle(gameState.junak.x, gameState.junak.y, 300, 50, 0x4d4455);
 
             const popup = this.add.text(gameState.junak.x - 50, gameState.junak.y - 10, this.loadText("ach_stars"), {
@@ -577,6 +644,10 @@ class S4_gamePlayStart extends S0_shared {
             this.updateDataBaseAchivements(dataAchievements)
 
         }
+
+
+
+
 
 
         super.update("basic")

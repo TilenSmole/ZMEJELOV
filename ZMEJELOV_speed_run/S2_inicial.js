@@ -1,14 +1,14 @@
-class S2_inicial extends Phaser.Scene {
-        constructor() {
-          super({ key: 'S2_inicial' });
-        }
-      
+
+        class S2_inicial extends S0_shared{
+            constructor(){
+                super("S2_inicial");
+            }
     preload() {
         this.load.audio('glavna', ['assets/uvod/glavna.mp3',"assets/uvod/glavna.ogg"]);
         this.load.image("gumb","assets/uvod/gumb.png")
         this.load.image("zmeja","assets/uvod/zmeja.png")
-        this.load.image("zmentures", "assets/zmejelov/1 (4).png")
-        this.load.image("zmentures2", "assets/zmejelov/1 (3).png")
+        this.load.image("zmentures", "assets/zmejelov/1 (1).png")
+        this.load.image("zmentures2", "assets/zmejelov/1 (2).png")
 
         this.load.image("usa","assets/uvod/United_States.jpg")
         this.load.image("rus","assets/uvod/Russia.jpg")
@@ -126,7 +126,10 @@ class S2_inicial extends Phaser.Scene {
             if(prevQuickDeath == "1")
                  quickDeath  = true;
 
-            console.log(stars)
+
+            this.restart()
+
+           
 
             stopWatchStart()
             this.scene.stop('S2_inicial ')

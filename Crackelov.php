@@ -102,7 +102,7 @@ $translations = loadTranslations();
     <div class="introduction" id="introduction_crackelov">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php echo $translations["thefinalrage_intro"] ?></p>
+        <p><b><span style="font-size: 50px;">CR*CKELOV</span></b> <?php echo $translations["thefinalrage_intro"] ?></p>
       </div>
     </div>
 

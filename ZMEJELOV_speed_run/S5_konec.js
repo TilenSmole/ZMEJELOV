@@ -23,6 +23,7 @@ class S5_konec extends S0_shared {
         this.add.text(x, y + 360, 'O', { fontSize: '80px', fill: '#E950F4', fontFamily: 'CustomFont' });
         this.add.text(x, y + 420, 'V', { fontSize: '80px', fill: '#E950F4', fontFamily: 'CustomFont' })
 
+        this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
         
 
@@ -79,23 +80,10 @@ class S5_konec extends S0_shared {
 
 
 
-        if (stSmrti > 20 && !dieALot) {
-            showPopupAchievements( this.loadText("ach_death"))
-
-            this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
-            this.titleMusic.play();
-            dieALot = true;
-            this.updateAchievements();
-            const dataAchievements = {
-                achievements: achievements,
-            };
-            this.updateDataBaseAchivements(dataAchievements)
-
-        }
+       
 
         if (speedrun_win < 60 && !completedSpeedy) {
             showPopupAchievements( this.loadText("ach_speed"))
-
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
             completedSpeedy = true;
@@ -119,19 +107,7 @@ class S5_konec extends S0_shared {
             this.updateDataBaseAchivements(dataAchievements)
         }
 
-        if (deathByWho == [1, 1, 1, 1, 1] && !dieDiverse) {
-            showPopupAchievements( this.loadText("ach_all"))
-
-            this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
-            this.titleMusic.play();
-            dieDiverse = true;
-            this.updateAchievements();
-            const dataAchievements = {
-                achievements: achievements,
-            };
-            this.updateDataBaseAchivements(dataAchievements)
-
-        }
+       
 
 
 

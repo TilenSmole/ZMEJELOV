@@ -114,7 +114,8 @@
     "ach_ship": "BRRRRRRRRR",
     "ach_OG": "OG",        "store": "explanation",
     "bought" : "activated",
-    "not_ava" : "not available"
+    "not_ava" : "not available",
+    "booster" :"booster activated"
 
 
     }}
