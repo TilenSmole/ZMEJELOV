@@ -129,8 +129,8 @@ $translations = loadTranslations();
     </div>
 
     <div class="split">
-      <div class="QnA_split" class="col-10" id="QnA_OG">
-        <h1>Q&N</h1>
+      <div class="QnA_full" class="col-10" id="QnA_OG">
+        <h1>Q&A</h1>
         <div>
           <div class="QN_field">
             <div class="question_field">
@@ -280,7 +280,7 @@ $translations = loadTranslations();
         <div class="commentsFormError">
           <h1><?php
               echo $translations["KOMENTARJI"] ?></h1>
-          <p class="commentsFormErrorText">za komentiranje se prijavi</p>
+          <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
         </div>
       <?php endif; ?>
       <?php

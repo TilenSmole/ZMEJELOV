@@ -42,14 +42,13 @@ $translations = loadTranslations();
         <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja" class="col-10">
         <div class="introductionText">
             <?php if (isset($_SESSION["username"])) : ?>
-                <p><?php
-                    echo $translations['welcome_again'] ?>
-                <ul id="options">
-                    <li><a href="/zmentures.php">ZMENTURES</a></li>
-                    <li><a href="zmejelov1869.php">ZMEJELOV 1869</a></li>
-                    <li><a href="CityZmentures.php">CITY ZMENTURES</a></li>
-                    <li><a href="Crackelov.php">CRA*KELOV</a></li>
-                    <li><a href="TheFinalRage.php">THE FINAL RAGE</a></li>
+                <p><?php   echo $translations['welcome_again'] ?><br>
+                <br><ul id="options">
+                    <li><a href="zmejelov1869.php">ZMEJELOV 1869 </a><?php echo $translations['welcome_zmentures'] ?></li>
+                    <li><a href="/zmentures.php">ZMENTURES</a> <?php echo $translations['welcome_1869'] ?></li>
+                    <li><a href="Crackelov.php">CRA*KELOV</a> <?php echo $translations['welcome_crackelov'] ?> </li>
+                    <li><a href="CityZmentures.php">CITY ZMENTURES </a><?php echo $translations['welcome_city'] ?></li>
+                    <li><a href="TheFinalRage.php">THE FINAL RAGE</a> <?php echo $translations['welcome_rage'] ?></li>
                 </ul>
                 <?php
                 echo $translations['welcome_again2'] ?> <ul id="options">
@@ -65,8 +64,8 @@ $translations = loadTranslations();
     </div>
     <?php
 
-$language = isset($_SESSION['selectedLanguage']) ? $_SESSION['selectedLanguage'] : 'slo'; 
-?>
+    $language = isset($_SESSION['selectedLanguage']) ? $_SESSION['selectedLanguage'] : 'slo';
+    ?>
     <div id="memes" style="position: relative; width: 1000px; height: 1000px; margin: auto; overflow: hidden;">
         <h1>MEMES</h1>
         <button id="prev" class="slider-button" style="left: 0;">&lt;</button>

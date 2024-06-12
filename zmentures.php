@@ -193,8 +193,8 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
     </div>
 
     <div class="split">
-      <div class="QnA_split" class="col-10" id="QnA_OG">
-        <h1>Q&N</h1>
+      <div  class="col-12" id="QnA_OG">
+        <h1>Q&A</h1>
         <div>
           <div class="QN_field">
             <div class="question_field">

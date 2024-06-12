@@ -110,7 +110,13 @@
     "alot" :"A long time ",
     "contact" :"Can I contact you?",
     "form" :"<a href='\\contact.php'>With the form</a>",
-    "post" : "COMMENT"
+    "post" : "COMMENT",
+   "welcome_zmentures": " - enter the world of adventures and help Zmeja find her way home!",
+"welcome_1869": " - relive the very beginnings and experience the original version.",
+"welcome_crackelov": " - a fun and insanely fast-paced game that will keep you on the edge of your seat, especially ideal if you love competition.",
+"welcome_city": " - do you want to help Zmeja's friend prepare for the party?",
+"welcome_rage": " - have too much time? Try to find the pot of gold at the end of the rainbow."
+
 
   }
 }

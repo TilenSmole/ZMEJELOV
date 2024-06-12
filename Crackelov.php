@@ -3,7 +3,7 @@ include("SERVER/database.php");
 include('translations/load_translations.php');
 if (session_status() === PHP_SESSION_NONE)
   session_start();
-  $translations = loadTranslations();
+$translations = loadTranslations();
 ?>
 
 
@@ -31,7 +31,7 @@ if (session_status() === PHP_SESSION_NONE)
 
 
   <meta charset="utf-8" />
-  <title>Zmejelov</title>
+  <title>CR*CKELOV</title>
   <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
   <script type="text/javascript" src="zmejelov_speed_run/S0_shared.js"></script>
   <script type="text/javascript" src="zmejelov_speed_run/S2_inicial.js"></script>
@@ -52,38 +52,38 @@ if (session_status() === PHP_SESSION_NONE)
 
 
   <script>
-  function showLoader() {
-    document.getElementById("loader-wrapper").style.display = "flex";
-  }
+    function showLoader() {
+      document.getElementById("loader-wrapper").style.display = "flex";
+    }
 
-  function hideLoader() {
-    document.getElementById("loader-wrapper").style.display = "none";
-    document.getElementById("fullBody").style.display = "block";
+    function hideLoader() {
+      document.getElementById("loader-wrapper").style.display = "none";
+      document.getElementById("fullBody").style.display = "block";
 
-    // Get the current URL
-    var url = window.location.href;
+      // Get the current URL
+      var url = window.location.href;
 
-    // Find the index of the '#' character in the URL
-    var anchorIndex = url.indexOf('#');
+      // Find the index of the '#' character in the URL
+      var anchorIndex = url.indexOf('#');
 
-    // Check if the '#' character exists in the URL
-    if (anchorIndex !== -1) {
-      // Extract the anchor part of the URL
-      var anchor = url.substring(anchorIndex);
+      // Check if the '#' character exists in the URL
+      if (anchorIndex !== -1) {
+        // Extract the anchor part of the URL
+        var anchor = url.substring(anchorIndex);
 
-      // Scroll to the corresponding section based on the anchor
-      var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
-      if (targetElement) {
-        targetElement.scrollIntoView();
+        // Scroll to the corresponding section based on the anchor
+        var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
+        if (targetElement) {
+          targetElement.scrollIntoView();
+        }
       }
     }
-  }
 
-  window.onload = function() {
-    setTimeout(hideLoader);
-  };
-  showLoader();
-</script>
+    window.onload = function() {
+      setTimeout(hideLoader);
+    };
+    showLoader();
+  </script>
 
 
 
@@ -102,20 +102,13 @@ if (session_status() === PHP_SESSION_NONE)
     <div class="introduction" id="introduction_crackelov">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php
-                                                                  echo $translations["thefinalrage_intro"] ?></p>
+        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php echo $translations["thefinalrage_intro"] ?></p>
       </div>
     </div>
 
 
-
-
-
-
     <div class="game">
-
       <div id="game_crackelov">
-
         <h1><?php
             echo $translations['game'] ?></h1>
         <?php if (isset($_SESSION["username"])) : ?>
@@ -140,368 +133,359 @@ if (session_status() === PHP_SESSION_NONE)
       </div>
     </div>
 
-    <div class="speed_running_split"id="QnA_crackelov">
+    <div class="speed_running_split" id="QnA_crackelov">
       <div class="QnA_split">
-        <h1>Q&N</h1>
+        <h1>Q&A</h1>
         <div>
-          <div class=" QN_field">
-        <div class="question_field">
-          <p><?php
-              echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a1b','a1bDiv')">&#9660;</button></span>
-          </p>
-        </div>
-      </div>
-      <div id="a1bDiv">
-        <p id="a1b" style="display: none; "><?php
-                                            echo $translations['a1_OG'] ?></p>
-      </div>
-    </div>
-
-
-    <div>
-      <div class="QN_field">
-        <div class="question_field">
-          <p> <?php
-              echo $translations['q2_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a2b','a2bDiv')">&#9660;</button></span>
-          </p>
-        </div>
-      </div>
-      <div id="a2bDiv">
-        <p id="a2b" style="display: none;"><?php
-                                            echo $translations['a2_OG'] ?></p>
-      </div>
-    </div>
-
-    <div>
-      <div class="QN_field">
-        <div class="question_field">
-          <p> <?php
-              echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a3b','a3bDiv')">&#9660;</button></span>
-          </p>
-        </div>
-      </div>
-      <div id="a3bDiv">
-        <p id="a3b" style="display: none;"><?php
-                                            echo $translations['a3_OG'] ?></p>
-      </div>
-    </div>
-
-    <div>
-      <div class="QN_field">
-        <div class="question_field">
-          <p> <?php
-              echo $translations['q4_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a4b','a4bDiv')">&#9660;</button></span>
-          </p>
-        </div>
-      </div>
-      <div id="a4bDiv">
-        <p id="a4b" style="display: none;"><?php
-                                            echo $translations['a4_OG'] ?></p>
-      </div>
-    </div>
-
-
-
-
-
-
-
-  </div>
-
-  <script>
-    function toggleAnswerVisibilityZmentures(id, div) {
-      var myEle = document.getElementById(id);
-      var myDiv = document.getElementById(div);
-
-
-      if (myEle.style.display === "none") {
-        myEle.style.display = "inline";
-        myEle.classList.add("answer-visible");
-        myDiv.classList.add("answer-visible-div");
-
-      } else {
-        myEle.style.display = "none";
-        myEle.classList.remove("answer-visible"); // Remove the CSS class
-        myDiv.classList.remove("answer-visible-div"); // Remove the CSS class
-
-      }
-    }
-  </script>
-
-  <div id="leaderboard" class="leaderBoardSpeedRun">
-    <h1>LEADERBOARD</h1>
-    <div style="text-align: center;">
-      <?php
-
-      // Retrieve the current page number from the URL
-      $page = isset($_GET['page']) ? $_GET['page'] : 1;
-      $commentsPerPage = 5;
-      $offset = ($page - 1) * $commentsPerPage;
-
-      // Calculate the starting player ranking for the current page
-      $startingRank = ($page - 1) * $commentsPerPage + 1;
-
-      // Fetch leaderboard entries
-      $sql = "SELECT * FROM leaderboard WHERE type = 1";
-      $result = sqlsrv_query($conn, $sql);
-
-      $rows = [];
-      while ($row = sqlsrv_fetch_array($result)) {
-        $rows[] = $row;
-      }
-
-      // Custom time sorting function
-      function customTimeSort($a, $b)
-      {
-        $timeA = explode(" ", $a['time']);
-        $timeB = explode(" ", $b['time']);
-
-        // Compare hours
-        if ($timeA[0] != $timeB[0]) {
-          return $timeA[0] - $timeB[0];
-        }
-        // Compare minutes
-        if ($timeA[1] != $timeB[1]) {
-          return $timeA[1] - $timeB[1];
-        }
-        // Compare seconds
-        if ($timeA[2] != $timeB[2]) {
-          return $timeA[2] - $timeB[2];
-        }
-        // Compare milliseconds
-        return $timeA[3] - $timeB[3];
-      }
-
-      // Sort the rows
-      //
-      //  usort($rows, 'customTimeSort');
-
-      // Paginate the sorted results
-      $paginatedRows = array_slice($rows, $offset, $commentsPerPage);
-
-      // Display the sorted results with consistent player ranking
-      foreach ($paginatedRows as $row) {
-        echo '<div><span class="Leaderbord_result"><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s')  . '):</span><br><span class="">' . $row["time"] . '</span></div><br><br>';
-        $startingRank++; // Increment the player ranking
-      }
-
-      // Pagination
-      $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 1";
-      $resultCount = sqlsrv_query($conn, $sqlCount);
-      $rowCount = sqlsrv_fetch_array($resultCount);
-      $totalComments = $rowCount['all_leaderboard'];
-      $totalPages = ceil($totalComments / $commentsPerPage);
-
-      echo '<div class="pagination">';
-      for ($i = 1; $i <= $totalPages; $i++) {
-        echo '<a href="?page=' . $i . '#leaderboard">' . $i . '</a> ';
-      }
-      echo '</div>';
-
-      ?>
-    </div>
-
-
-
-  </div>
-
-  </div>
-
-
-  <script>
-    function toggleAnswerVisibility(id) {
-      var myEle = document.getElementById(id);
-      if (myEle.style.display === "none") {
-        myEle.style.display = "inline";
-        myEle.classList.add("answer-visible"); // Add the CSS class
-      } else {
-        myEle.style.display = "none";
-        myEle.classList.remove("answer-visible"); // Remove the CSS class
-      }
-    }
-  </script>
-
-
-  <div class="achievementsMainBlock" id="dosezki_crackelov">
-    <h1><?php
-        echo $translations['achivements'] ?></h1>
-    <?php if (isset($_SESSION["username"])) : ?>
-      <div class="achievements">
-        <?php
-       
-        if ($_SESSION["achievements"][17] === "1") {
-          echo "<div class='oneAchievements'>";
-          echo '<img src="assets/achivments/speedRun/speed.png"    alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach1_speed"] . '</p></b>';
-          echo '<p>' . $translations["ach1.1_speed"] . '</p>';
-          echo '</div>';
-          echo '</div>';
-        } else {
-          echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets/achivments/speedRun/speed.png"    alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach1_speed"] . '</p></b>';
-          echo '</div>';
-          echo '</div>';
-        }
-        ?>
-
-        <?php
-       
-        if ($_SESSION["achievements"][18] === "1") {
-          echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\speedRun\complete.png" alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach2_speed"] . '</p></b>';
-          echo '<p>' . $translations["ach2.2_speed"] . '</p>';
-          echo '</div>';
-          echo '</div>';
-        } else {
-          echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\speedRun\complete.png" alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach2_speed"] . '</p></b>';
-          echo '</div>';
-          echo '</div>';
-        }
-        ?>
-
-        <?php
-       
-        if ($_SESSION["achievements"][19] === "1") {
-          echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\speedRun\allDeaths.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach3_speed"] . '</p></b>';
-          echo '<p>' . $translations["ach3.3_speed"] . '</p>';
-          echo '</div>';
-          echo '</div>';
-        } else {
-          echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\speedRun\allDeaths.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach3_speed"] . '</p></b>';
-          echo '</div>';
-          echo '</div>';
-        }
-        ?>
-
-        <?php
-       
-
-        if ($_SESSION["achievements"][20] === "1") {
-          echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\speedRun\star.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach4_speed"] . '</p></b>';
-          echo '<p>' . $translations["ach4.4_speed"] . '</p>';
-          echo '</div>';
-          echo '</div>';
-        } else {
-          echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\speedRun\star.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach4_speed"] . '</p></b>';
-          echo '</div>';
-          echo '</div>';
-        }
-        ?>
-
-        <?php
-       
-
-        if ($_SESSION["achievements"][21] === "1") {
-          echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\speedRun\dieALot.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach5_speed"] . '</p></b>';
-          echo '<p>' . $translations["ach5.5_speed"] . '</p>';
-          echo '</div>';
-          echo '</div>';
-        } else {
-          echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\speedRun\dieALot.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach5_speed"] . '</p></b>';
-          echo '</div>';
-          echo '</div>';
-        }
-        ?>
-
-        <?php
-       
-        if ($_SESSION["achievements"][22] === "1") {
-          echo "<div class='oneAchievements'>";
-          echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach6_speed"] . '</p></b>';
-          echo '<p>' . $translations["ach6.6_speed"] . '</p>';
-          echo '</div>';
-          echo '</div>';
-        } else {
-          echo "<div class='achievementsNotLoggedIn'>";
-          echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
-          echo '<div class="tooltip">';
-          echo '<b><p>' . $translations["ach6_speed"] . '</p></b>';
-          echo '</div>';
-          echo '</div>';
-        }
-        ?>
-
-      </div>
-    <?php else : ?>
-      <div>
-        <p>
-        <p><?php
-            echo $translations['please_login_achivements'] ?></p>
-        </p>
-      </div>
-    <?php endif; ?>
-
-
-
-
-
-
-
-  </div>
-
-  <div class="comments_DIV" id="comments_crackelov">
-    <?php if (isset($_SESSION["username"])) : ?>
-      <h1><?php
-          echo $translations["KOMENTARJI"] ?></h1>
-      <div>
-        <div class="alignCommentAdd">
-          <form action="zmejelov1869.php" method="GET" class="commentsForm">
-            <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
-                                                                                      echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
-            <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
+          <div class="QN_field">
+            <div class="question_field_split">
+              <p class="q_field"><?php
+                                  echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a1b','a1bDiv')">&#9660;</button></span>
+              </p>
             </div>
+          </div>
+          <div id="a1bDiv">
+            <p id="a1b" style="display: none; "><?php
+                                                echo $translations['a1_OG'] ?></p>
+          </div>
         </div>
-        </form>
+
+
+        <div>
+          <div class="QN_field">
+            <div class="question_field_split">
+              <p class="q_field"> <?php
+                                  echo $translations['q2_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a2b','a2bDiv')">&#9660;</button></span>
+              </p>
+            </div>
+          </div>
+          <div id="a2bDiv">
+            <p id="a2b" style="display: none;"><?php
+                                                echo $translations['a2_OG'] ?></p>
+          </div>
+        </div>
+
+        <div>
+          <div class="QN_field">
+            <div class="question_field_split">
+              <p class="q_field"> <?php
+                                  echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a3b','a3bDiv')">&#9660;</button></span>
+              </p>
+            </div>
+          </div>
+          <div id="a3bDiv">
+            <p id="a3b" style="display: none;"><?php echo $translations['a3_OG'] ?></p>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
       </div>
 
+      <script>
+        function toggleAnswerVisibilityZmentures(id, div) {
+          var myEle = document.getElementById(id);
+          var myDiv = document.getElementById(div);
 
-    <?php else : ?>
-      <div class="commentsFormError">
+
+          if (myEle.style.display === "none") {
+            myEle.style.display = "inline";
+            myEle.classList.add("answer-visible_split");
+            myDiv.classList.add("answer-visible_split-div");
+
+          } else {
+            myEle.style.display = "none";
+            myEle.classList.remove("answer-visible_split"); // Remove the CSS class
+            myDiv.classList.remove("answer-visible_split-div"); // Remove the CSS class
+
+          }
+        }
+      </script>
+
+      <div id="leaderboard" class="leaderBoardSpeedRun">
+        <h1>LEADERBOARD</h1>
+        <div style="text-align: center;" class="board">
+    <?php
+    // Retrieve the current page number from the URL
+    $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+    $commentsPerPage = 7;
+
+    // Calculate the total number of pages
+    $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 1";
+    $resultCount = sqlsrv_query($conn, $sqlCount);
+    $rowCount = sqlsrv_fetch_array($resultCount);
+    $totalComments = $rowCount['all_leaderboard'];
+    $totalPages = ceil($totalComments / $commentsPerPage);
+
+    // Determine the range of pages to display
+    $numPaginationLinks = 5;
+    $startPage = max(min($currentPage - floor($numPaginationLinks / 2), $totalPages - $numPaginationLinks + 1), 1);
+    $endPage = min($startPage + $numPaginationLinks - 1, $totalPages);
+
+    // Fetch leaderboard entries for the current page
+    $offset = ($currentPage - 1) * $commentsPerPage;
+    $sql = "SELECT * FROM leaderboard WHERE type = 1 ORDER BY time OFFSET $offset ROWS FETCH NEXT $commentsPerPage ROWS ONLY";
+    $result = sqlsrv_query($conn, $sql);
+
+    $rows = [];
+    while ($row = sqlsrv_fetch_array($result)) {
+        $rows[] = $row;
+    }
+
+    // Custom time sorting function
+    function customTimeSort($a, $b)
+    {
+        $timeA = explode(" ", $a);
+        $timeB = explode(" ", $b);
+
+        // Convert time strings to milliseconds for comparison
+        $timeInMillisA = ($timeA[0] * 3600000) + ($timeA[1] * 60000) + ($timeA[2] * 1000) + intval($timeA[3]);
+        $timeInMillisB = ($timeB[0] * 3600000) + ($timeB[1] * 60000) + ($timeB[2] * 1000) + intval($timeB[3]);
+
+        // Compare milliseconds
+        return $timeInMillisA - $timeInMillisB;
+    }
+
+    // Sort the rows by "time" field
+    usort($rows, function($a, $b) {
+        return customTimeSort($a['time'], $b['time']);
+    });
+
+    // Display the paginated results with consistent player ranking
+    $startingRank = ($currentPage - 1) * $commentsPerPage + 1;
+    foreach ($rows as $row) {
+        echo '<div><span class="Leaderbord_result"><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . ". " . $row["user"] . '</a> (' . $row["date"]->format('d. m. Y')  . '):</span><br><span class="">' . $row["time"] . '</span></div><br><br>';
+        $startingRank++; // Increment the player ranking
+    }
+
+    // Pagination
+    echo '<div class="pagination">';
+    // Previous page link
+    if ($currentPage > 1) {
+        echo '<a href="?page=' . ($currentPage - 1) . '#leaderboard"><&#160 &#160</a> ';
+    }
+
+    // Pagination links
+    for ($i = $startPage; $i <= $endPage; $i++) {
+        echo '<a href="?page=' . $i . '#leaderboard"' . ($i == $currentPage ? ' class="active"' : '') . '>' . $i . '</a> ';
+    }
+
+    // Next page link
+    if ($currentPage < $totalPages) {
+        echo '<a href="?page=' . ($currentPage + 1) . '#leaderboard">&#160 &#160></a>';
+    }
+    echo '</div>';
+    ?>
+</div>
+
+
+
+
+      </div>
+
+    </div>
+
+
+    <script>
+      function toggleAnswerVisibility(id) {
+        var myEle = document.getElementById(id);
+        if (myEle.style.display === "none") {
+          myEle.style.display = "inline";
+          myEle.classList.add("answer-visible_split"); // Add the CSS class
+        } else {
+          myEle.style.display = "none";
+          myEle.classList.remove("answer-visible_split"); // Remove the CSS class
+        }
+      }
+    </script>
+
+
+    <div class="achievementsMainBlock" id="dosezki_crackelov">
+      <h1><?php
+          echo $translations['achivements'] ?></h1>
+      <?php if (isset($_SESSION["username"])) : ?>
+        <div class="achievements">
+          <?php
+
+          if ($_SESSION["achievements"][17] === "1") {
+            echo "<div class='oneAchievements'>";
+            echo '<img src="assets/achivments/speedRun/speed.png"    alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach1_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach1.1_speed"] . '</p>';
+            echo '</div>';
+            echo '</div>';
+          } else {
+            echo "<div class='achievementsNotLoggedIn'>";
+            echo '<img src="assets/achivments/speedRun/speed.png"    alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach1_speed"] . '</p></b>';
+            echo '</div>';
+            echo '</div>';
+          }
+          ?>
+
+          <?php
+
+          if ($_SESSION["achievements"][18] === "1") {
+            echo "<div class='oneAchievements'>";
+            echo '<img src="assets\achivments\speedRun\complete.png" alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach2_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach2.2_speed"] . '</p>';
+            echo '</div>';
+            echo '</div>';
+          } else {
+            echo "<div class='achievementsNotLoggedIn'>";
+            echo '<img src="assets\achivments\speedRun\complete.png" alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach2_speed"] . '</p></b>';
+            echo '</div>';
+            echo '</div>';
+          }
+          ?>
+
+          <?php
+
+          if ($_SESSION["achievements"][19] === "1") {
+            echo "<div class='oneAchievements'>";
+            echo '<img src="assets\achivments\speedRun\allDeaths.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach3_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach3.3_speed"] . '</p>';
+            echo '</div>';
+            echo '</div>';
+          } else {
+            echo "<div class='achievementsNotLoggedIn'>";
+            echo '<img src="assets\achivments\speedRun\allDeaths.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach3_speed"] . '</p></b>';
+            echo '</div>';
+            echo '</div>';
+          }
+          ?>
+
+          <?php
+
+
+          if ($_SESSION["achievements"][20] === "1") {
+            echo "<div class='oneAchievements'>";
+            echo '<img src="assets\achivments\speedRun\star.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach4_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach4.4_speed"] . '</p>';
+            echo '</div>';
+            echo '</div>';
+          } else {
+            echo "<div class='achievementsNotLoggedIn'>";
+            echo '<img src="assets\achivments\speedRun\star.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach4_speed"] . '</p></b>';
+            echo '</div>';
+            echo '</div>';
+          }
+          ?>
+
+          <?php
+
+
+          if ($_SESSION["achievements"][21] === "1") {
+            echo "<div class='oneAchievements'>";
+            echo '<img src="assets\achivments\speedRun\dieALot.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach5_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach5.5_speed"] . '</p>';
+            echo '</div>';
+            echo '</div>';
+          } else {
+            echo "<div class='achievementsNotLoggedIn'>";
+            echo '<img src="assets\achivments\speedRun\dieALot.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach5_speed"] . '</p></b>';
+            echo '</div>';
+            echo '</div>';
+          }
+          ?>
+
+          <?php
+
+          if ($_SESSION["achievements"][22] === "1") {
+            echo "<div class='oneAchievements'>";
+            echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach6_speed"] . '</p></b>';
+            echo '<p>' . $translations["ach6.6_speed"] . '</p>';
+            echo '</div>';
+            echo '</div>';
+          } else {
+            echo "<div class='achievementsNotLoggedIn'>";
+            echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
+            echo '<div class="tooltip">';
+            echo '<b><p>' . $translations["ach6_speed"] . '</p></b>';
+            echo '</div>';
+            echo '</div>';
+          }
+          ?>
+
+        </div>
+      <?php else : ?>
+        <div>
+          <p>
+          <p><?php
+              echo $translations['please_login_achivements'] ?></p>
+          </p>
+        </div>
+      <?php endif; ?>
+
+
+
+
+
+
+
+    </div>
+
+    <div class="comments_DIV" id="comments_crackelov">
+      <?php if (isset($_SESSION["username"])) : ?>
         <h1><?php
             echo $translations["KOMENTARJI"] ?></h1>
-        <p class="commentsFormErrorText">za komentiranje se prijavi</p>
-      </div>
-    <?php endif; ?>
-    <?php
-    // Define the number of comments per page
-    $commentsPerPage = 3;
+        <div>
+          <div class="alignCommentAdd">
+            <form action="zmejelov1869.php" method="GET" class="commentsForm">
+              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
+                                                                                        echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
+              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
+              </div>
+          </div>
+          </form>
+        </div>
 
-    // Calculate the current page number
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-    // Calculate the SQL LIMIT for pagination
-    $offset = ($page - 1) * $commentsPerPage;
+      <?php else : ?>
+        <div class="commentsFormError">
+          <h1><?php
+              echo $translations["KOMENTARJI"] ?></h1>
+          <p class="commentsFormErrorText">za komentiranje se prijavi</p>
+        </div>
+      <?php endif; ?>
+      <?php
+      // Define the number of comments per page
+      $commentsPerPage = 3;
 
-    // Query to fetch comments for the current page
-    $sql = "
+      // Calculate the current page number
+      $page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+      // Calculate the SQL LIMIT for pagination
+      $offset = ($page - 1) * $commentsPerPage;
+
+      // Query to fetch comments for the current page
+      $sql = "
 WITH PaginationCTE AS (
     SELECT *, ROW_NUMBER() OVER (ORDER BY date DESC) AS RowNum
     FROM comments
@@ -511,64 +495,64 @@ SELECT *
 FROM PaginationCTE
 WHERE RowNum BETWEEN ? AND ?";
 
-    // Prepare the statement
-    $stmt = sqlsrv_prepare($conn, $sql, array($offset, $commentsPerPage));
+      // Prepare the statement
+      $stmt = sqlsrv_prepare($conn, $sql, array($offset, $commentsPerPage));
 
-    // Execute the statement
-    try {
-      $result = sqlsrv_execute($stmt);
+      // Execute the statement
+      try {
+        $result = sqlsrv_execute($stmt);
 
-      if ($result === false) {
-        echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
-        exit();
-      }
+        if ($result === false) {
+          echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
+          exit();
+        }
 
 
-      // Display comments
-      echo '<div id="comment_section" class="commentsZmejelov">';
-      while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        echo '<div class="full_comment">
+        // Display comments
+        echo '<div id="comment_section" class="commentsZmejelov">';
+        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          echo '<div class="full_comment">
             <span class="commentAuthor"> 
             <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
             <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
             </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
+        }
+        echo '</div>';
+      } catch (Exception $e) {
+        // Handle the exception
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
       }
-      echo '</div>';
-    } catch (Exception $e) {
-      // Handle the exception
-      echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
 
 
-    // Query to count total number of comments
-    $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=2";
-    $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
-    $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
-    $totalComments = $totalCommentsRow['total'];
+      // Query to count total number of comments
+      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=2";
+      $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
+      $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
+      $totalComments = $totalCommentsRow['total'];
 
 
-    if ($totalComments != 0) {
+      if ($totalComments != 0) {
 
 
 
-      // Calculate total number of pages
-      $totalPages = ceil($totalComments / $commentsPerPage);
+        // Calculate total number of pages
+        $totalPages = ceil($totalComments / $commentsPerPage);
 
-      // Display pagination links
-      echo '<div class="pagination-container">';
-      echo '<div class="pagination">';
-      for ($i = 1; $i <= $totalPages; $i++) {
-        // Add onclick event to each pagination link to scroll to the comment section
-        echo '<a href="zmejelov1869.php?page=' . $i . '#comments_crackelov">' . $i . "&nbsp;   "  . '</a>';
+        // Display pagination links
+        echo '<div class="pagination-container">';
+        echo '<div class="pagination">';
+        for ($i = 1; $i <= $totalPages; $i++) {
+          // Add onclick event to each pagination link to scroll to the comment section
+          echo '<a href="zmejelov1869.php?page=' . $i . '#comments_crackelov">' . $i . "&nbsp;   "  . '</a>';
+        }
+        echo '</div>';
+        echo '</div>';
       }
-      echo '</div>';
-      echo '</div>';
-    }
 
 
-    ?>
+      ?>
 
-  </div>
+    </div>
   </div>
 
 

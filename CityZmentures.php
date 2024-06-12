@@ -125,7 +125,7 @@ if (session_status() === PHP_SESSION_NONE)
 
     <div class="speed_running_split" id="QnA_CityZmentures">
       <div class="QnA_split">
-        <h1>Q&N</h1>
+        <h1>Q&A</h1>
         <div>
           <div class=" QN_field">
         <div class="question_field">

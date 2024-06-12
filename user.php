@@ -314,7 +314,7 @@ if ($result) {
   ?>
 
   <div class="QnA" class="col-10" >
-    <h1>Q&N</h1>
+    <h1>Q&A</h1>
     <div>
       <div class="QN_field" style=" background-color: #4d4455;">
         <div class="question_field">
