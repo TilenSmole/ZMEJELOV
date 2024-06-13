@@ -414,8 +414,7 @@ $translations = loadTranslations();
           ?>
 
           <?php
-
-          if ($_SESSION["achievements"][22] === "1") {
+        if ($_SESSION["achievements"][22] === "1") {
             echo "<div class='oneAchievements'>";
             echo '<img src="assets\achivments\speedRun\spaceship.png"  alt="Achievement Picture 1">';
             echo '<div class="tooltip">';
@@ -451,16 +450,14 @@ $translations = loadTranslations();
 
     </div>
 
-    <div class="comments_DIV" id="comments_crackelov">
+    <div class="comments_DIV" id="comments_OG">
       <?php if (isset($_SESSION["username"])) : ?>
-        <h1><?php
-            echo $translations["KOMENTARJI"] ?></h1>
+        <h1><?php echo $translations["KOMENTARJI"] ?></h1>
         <div>
           <div class="alignCommentAdd">
-            <form action="zmejelov1869.php" method="GET" class="commentsForm">
-              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
-                                                                                        echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
-              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
+            <form action="Crackelov.php" method="GET" class="commentsForm">
+              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php echo $translations["write_comment"]; ?>" rows="3" cols="50"></textarea>
+              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton"><?php echo $translations["post"]; ?></button>
               </div>
           </div>
           </form>
@@ -471,15 +468,37 @@ $translations = loadTranslations();
         <div class="commentsFormError">
           <h1><?php
               echo $translations["KOMENTARJI"] ?></h1>
-          <p class="commentsFormErrorText">za komentiranje se prijavi</p>
+          <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
         </div>
       <?php endif; ?>
       <?php
       // Define the number of comments per page
-      $commentsPerPage = 3;
+      $commentsPerPage = 7;
+
+      // Query to count total number of comments
+      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type = 1";
+      $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
+
+      if ($totalCommentsResult === false) {
+        echo "Error counting total comments: " . print_r(sqlsrv_errors(), true);
+        exit();
+      }
+
+      $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
+      $totalComments = $totalCommentsRow['total'];
 
       // Calculate the current page number
       $page = isset($_GET['page']) ? $_GET['page'] : 1;
+      // Calculate the SQL LIMIT for pagination
+      $offset = ($page - 1) * $commentsPerPage;
+
+      // Query to fetch comments for the current page
+      $totalPages = ceil($totalComments / $commentsPerPage);
+
+      // Adjust the offset for the last page
+      if ($page == $totalPages && $totalComments % $commentsPerPage != 0) {
+        $commentsPerPage = $totalComments % $commentsPerPage;
+      }
 
       // Calculate the SQL LIMIT for pagination
       $offset = ($page - 1) * $commentsPerPage;
@@ -489,14 +508,13 @@ $translations = loadTranslations();
 WITH PaginationCTE AS (
     SELECT *, ROW_NUMBER() OVER (ORDER BY date DESC) AS RowNum
     FROM comments
-    WHERE type = 2
+    WHERE type = 1
 )
 SELECT *
 FROM PaginationCTE
 WHERE RowNum BETWEEN ? AND ?";
 
-      // Prepare the statement
-      $stmt = sqlsrv_prepare($conn, $sql, array($offset, $commentsPerPage));
+      $stmt = sqlsrv_prepare($conn, $sql, array($offset + 1, $offset + $commentsPerPage));
 
       // Execute the statement
       try {
@@ -506,17 +524,20 @@ WHERE RowNum BETWEEN ? AND ?";
           echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
           exit();
         }
-
-
+        $startPage = max(min($page- floor($commentsPerPage / 2), $totalPages - $commentsPerPage + 1), 1);
+        $endPage = min($startPage + $commentsPerPage - 1, $totalPages);
         // Display comments
         echo '<div id="comment_section" class="commentsZmejelov">';
         while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
           echo '<div class="full_comment">
-            <span class="commentAuthor"> 
-            <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
-            </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
+                  <span class="commentAuthor"> 
+                    <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
+                    <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a>      </span>
+                  <span class="commentText"><br>' . $row["comment"] . '</span><br><br>
+                  <span class="commentDate"><br>' . $row["date"]->format('d-m-Y')   . '</span>
+                </div><br><br>';
         }
+
         echo '</div>';
       } catch (Exception $e) {
         // Handle the exception
@@ -525,26 +546,35 @@ WHERE RowNum BETWEEN ? AND ?";
 
 
       // Query to count total number of comments
-      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=2";
+      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=1";
       $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
       $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
       $totalComments = $totalCommentsRow['total'];
 
 
       if ($totalComments != 0) {
-
-
-
         // Calculate total number of pages
         $totalPages = ceil($totalComments / $commentsPerPage);
 
         // Display pagination links
-        echo '<div class="pagination-container">';
+        echo '<div class="pagination_container_comments">';
         echo '<div class="pagination">';
-        for ($i = 1; $i <= $totalPages; $i++) {
-          // Add onclick event to each pagination link to scroll to the comment section
-          echo '<a href="zmejelov1869.php?page=' . $i . '#comments_crackelov">' . $i . "&nbsp;   "  . '</a>';
+
+        // Previous page link
+        if ($page > 1) {
+          echo '<a href="Crackelov.php?page=' . ($page- 1) . '#comments_OG"><&#160 &#160</a> ';
         }
+
+        // Pagination links
+        for ($i = $startPage; $i <= $endPage; $i++) {
+          echo '<a href="Crackelov.php?page=' . $i . '#comments_OG"' . ($i == $page? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
+        }
+
+        // Next page link
+        if ($page < $totalPages) {
+          echo '<a href="Crackelov.php?page=' . ($page+ 1) . '#comments_OG">&#160 &#160></a>';
+        }
+
         echo '</div>';
         echo '</div>';
       }
@@ -573,14 +603,14 @@ if (isset($_GET["submitCommentZmejelov"])) {
     $comment = $_GET["addCommentZmejelov"];
 
     // Prepare the SQL statement with placeholders
-    $sql = "INSERT INTO comments ([user], comment, date, type) VALUES (?, ?, GETDATE(), 2)";
+    $sql = "INSERT INTO comments ([user], comment, date, type) VALUES (?, ?, GETDATE(),1)";
 
     // Prepare the statement
     $stmt = sqlsrv_prepare($conn, $sql, array(&$user, &$comment));
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/zmejelov1869.php#comments_crackelov>";
+        echo "<meta http-equiv=Refresh content=2;url=/Crackelov.php#comments_crackelov>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

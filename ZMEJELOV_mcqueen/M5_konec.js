@@ -74,26 +74,7 @@ class M5_konec extends M0_shared {
         });
 
 
-        /* this.zacetek = this.add.sprite(GAME_WIDTH - 100, GAME_HEIGHT - 50, 'gumb').setInteractive();
-         this.zacetek.setScale(0.8)
-         if (usa == true) {
-             this.add.text(GAME_WIDTH - 165, GAME_HEIGHT - 65, 'START', { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
-         }
-         else if (rus == true) {
-             this.add.text(GAME_WIDTH - 165, GAME_HEIGHT - 65, 'СЛЕДУЮЩИЙ', { fontSize: '20px', fill: '#E950F4', fontFamily: 'CustomFont' });
-         }
-         else {
-             this.add.text(GAME_WIDTH - 165, GAME_HEIGHT - 65, 'START', { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
-         }
- 
- 
- 
- 
-         this.zacetek.on('pointerup', () => {
- 
-             this.scene.stop('M5_konec')
-             this.scene.start('M2_inicial')
-         })*/
+
 
 
 
@@ -112,9 +93,31 @@ class M5_konec extends M0_shared {
                 });
         }
 
+        const showPopupAchievements = (text) => {
+            const rectangle = this.add.rectangle(GAME_WIDTH - 300, 0, 700, 100, 0XFFFFFF);
+            rectangle.setOrigin(0.5, 0);
+
+            const graphics = this.add.graphics();
+            graphics.fillStyle(0x000000, 1);
+            graphics.fillRect(rectangle.x - rectangle.width / 2, rectangle.y, rectangle.width, rectangle.height);
+
+            const popup = this.add.text(GAME_WIDTH - 300, 40, text, {
+                fontSize: '32px',
+                color: '#980a69',
+                align: 'center',
+                wordWrap: { width: rectangle.width - 20, useAdvancedWrap: true }
+            });
+            popup.setOrigin(0.5);
+
+            this.time.delayedCall(4000, () => {
+                popup.destroy();
+                rectangle.destroy();
+                graphics.destroy();
+            });
+        };
 
         if (rainbowUnlocked) {
-            this.showPopupAchievements(this.loadText("rainbow"))
+            showPopupAchievements(this.loadText("rainbow"))
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
             rainbow = true;
@@ -126,19 +129,33 @@ class M5_konec extends M0_shared {
         }
 
 
+        if (canShowAnAchivement) {
+            showPopupAchievements(this.loadText("no_pups"))
+            this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
+            this.titleMusic.play();
+            tfK = true
+            this.updateAchievements();
+            const dataAchievements = {
+                achievements: achievements,
+            };
+            this.updateDataBaseAchivements(dataAchievements)
+            canShowAnAchivement = false
+        }
 
 
+        if (coinsNewGame) {
+            const money = {
+                money: userCoins + coinsNewGame,
+            };
+            this.updateMoney(money);
+            saveResOnce = true
+            coinsNewGame = 0;
 
-        const money = {
-            money: userCoins + coinsNewGame,
-        };
-        this.updateMoney(money);
-        saveResOnce = true
-        coinsNewGame = 0;
+        }
 
 
     }
 
-  
+
 
 }

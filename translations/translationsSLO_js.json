@@ -88,7 +88,7 @@
         "bird_death": "Joj te ptice, a res ne znajo nič paziti!",
         "sky_death": "Kdor visoka leta, nizko pade. Glej malo pod noge",
         "spaceship_death": "Ko se prečka cesto, se pogleda kam??? Odgovor je levo, desno, levo. Za v prihodnje ;)'",
-        "spaceship_death_quick": "Vrommmmmmmmmmmmmmmmmmmmmm  😇🚀",
+        "spaceship_death_quick": "Vrommmmmmmmmmmmmmmmmmmmmm,  povozila te je vesoljska ladja😇🚀",
         "reaper": "Chop, chop, chop, zgleda kot, da je nekdo postal kosilo 🤤",
         "greediness": "Ta nivo bi bil prelahek, če bi se lahko samo spustil v nižino, ali če citiram zakone fizike 'skozi zemljino orbito ne moraš pasti brez fatalnih poškdodb'",
         "space_restart": "pritisni space za ponovno igranje!",
@@ -112,13 +112,23 @@
         "ach_finish": "OPRAVI IGRO",
         "ach_speed": "HITROST",
         "ach_death" : "UMRI 20x V ENI IGRI",
-        "ach_ship" : "BRRRRRRRRR",
+        "ach_ship" : "UMRI ZARADI VESOLJSKE LADJE",
         "ach_OG": "OG ",
         "store": "razlaga",
         "bought" : "aktivirano",
         "not_ava" : "ni na voljo",
-        "booster" :"pospešek aktiviran"
+        "booster" :"pospešek aktiviran",
 
+        "wisdom1":" Življenje je potovanje, ne cilj. Vsak dan je priložnost za rast in učenje." ,
+        "wisdom2": "  Bodi prijazen do drugih, kajti vsak, ki ga srečaš, bije svojo bitko.",
+        "wisdom3": "   Iskrenost je osnova vseh dobrih odnosov.",
+        "wisdom4": "  Bodi potrpežljiv. Vse velike stvari potrebujejo čas." ,
+        "wisdom5":  "  Sprejmi spremembe; so edina stalnica v življenju.",
+        "wisdom6": "  Prisluhni več, kot govoriš. Naučiš se več, ko poslušaš." ,
+        "wisdom7": " Uči se iz preteklosti, živi v sedanjosti, načrtuj za prihodnost.",
+        "wisdom8": " Zdravje je največje bogastvo. Skrbi za svoje telo in duha." ,
+        "wisdom9": "Nikoli ne nehaj sanjati. Sanje so semena prihodnjih realnosti." ,
+        "wisdom10": "Bodi hvaležen za male stvari; so tiste, ki sestavljajo veliko srečo."
 
 
 

@@ -109,7 +109,7 @@ class S0_shared extends Phaser.Scene {
 	update(arg) {
 		if (arg == "basic") {
 			if (gameState.active) {
-				if ((gameState.cursors.up.isDown)/* && gameState.junak.body.touching.down*/) {
+				if ((gameState.cursors.up.isDown)&& gameState.junak.body.touching.down) {
 					gameState.junak.anims.play('skok', true);
 					gameState.junak.setVelocityY(this.getJumpingSpeed())
 				}
@@ -148,6 +148,7 @@ class S0_shared extends Phaser.Scene {
 		deathByWho = [0, 0, 0, 0, 0] //ground, volture, alien, spaceship1, quick spaceship
 		stZvezd = 0
 		boosterOff = true
+		hightLimit  = false
 
 	}
 

@@ -36,7 +36,7 @@ class smrt extends A0_osnova {
       this.updateDataBaseAchivements(dataAchievements)
     }
 
-    this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
+    this.add.text(xKordinata, yKordinata, this.loadText("space_restart"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
 
     var quote = this.loadText("quote_intro") + sloQuoti[stSLO]
 

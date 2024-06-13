@@ -53,7 +53,7 @@ var disableReturnBack = false //player cant take the easy way out
 var stopChecking = false //so it doesnt dispplay every second if disableReturnBack
 var hotdogShow = true //shows a hotdog
 var canWin = false //if the player touches spaceship does he win
-
+var stopCheckingOFstopChecking = false
 var finalTime = ""
 var deathByWho = [0,0,0,0,0] //ground, volture, alien, spaceship1, quick spaceship
 

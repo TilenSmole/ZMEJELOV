@@ -19,9 +19,7 @@ class M3_storyIntro extends M0_shared {
 
     }
 
-
-
-
+  
 
     create() {
 
@@ -94,12 +92,6 @@ class M3_storyIntro extends M0_shared {
             item7 = this.add.text(250, 750, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
 
-
-
-
-
-
-        console.log('userCoins' + userCoins);
         gameState.text = this.add.text(GAME_WIDTH - 400, 20, 'Stanje: ' + userCoins, { fontSize: '30px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
 
@@ -108,51 +100,46 @@ class M3_storyIntro extends M0_shared {
             this.scene.start('M4_red')
         })
 
+        const chooseRandom = () => {
+            var random = Math.floor(Math.random() * 6);
+        
+            if (random === 0) {
+                shieldStart = true;
+                item1.setText(this.loadText("bought"));
+                this.updateBalance();
+            } else if (random === 1) {
+                ghostStart = true;
+                item2.setText(this.loadText("bought"));
+                this.updateBalance();
+            } else if (random === 2) {
+                shroomStart = true;
+                item3.setText(this.loadText("bought"));
+                this.updateBalance();
+            } else if (random === 3) {
+                potionStart = true;
+                item4.setText(this.loadText("bought"));
+                this.updateBalance();
+            } else if (random === 4) {
+                rocketStart = true;
+                item5.setText(this.loadText("bought"));
+                this.updateBalance();
+            } else if (random === 5) {
+                spaceshipStart = true;
+                item6.setText(this.loadText("bought"));
+                this.updateBalance();
+            }
+            item0.setText(this.loadText("not_ava"))
 
+        };
+        
 
 
         item0.on('pointerup', () => {
             if (!shieldStart && !ghostStart && !shroomStart && !potionStart && !rocketStart && !spaceshipStart) {
                 if (userCoins - 100 >= 0) {
                     userCoins -= 100
-
+                    chooseRandom()
                     this.updateBalance()
-                    var random = Math.floor(Math.random() * (6));
-
-                    if (random == 0) {
-                        shieldStart = true
-                        item1.setText(this.loadText("bought"))
-                        this.updateBalance()
-                    }
-
-                    else if (random == 1) {
-                        ghostStart = true
-                        item2.setText(this.loadText("bought"))
-                        this.updateBalance()
-                    }
-
-                    else if (random == 2) {
-                        shroomStart = true
-                        item3.setText(this.loadText("bought"))
-                        this.updateBalance()
-                    }
-
-                    else if (random == 3) {
-                        potionStart = true
-                        item4.setText(this.loadText("bought"))
-                        this.updateBalance()
-                    }
-
-                    else if (random == 4) {
-                        rocketStart = true
-                        item5.setText(this.loadText("bought"))
-                        this.updateBalance()
-                    }
-                    else if (random == 5) {
-                        spaceshipStart = true
-                        item6.setText(this.loadText("bought"))
-                        this.updateBalance()
-                    }
 
                 }
 
@@ -165,6 +152,23 @@ class M3_storyIntro extends M0_shared {
 
 
         })
+
+        if (chestPickedInGame) {
+            chestPickedInGame = false
+            chooseRandom()
+
+
+
+        }
+
+
+
+
+
+
+
+
+
 
         item1.on('pointerup', () => {
             if (userCoins - 100 >= 0) {

@@ -215,7 +215,7 @@ if (session_status() === PHP_SESSION_NONE)
     <h1>LEADERBOARD</h1>
 
     <div class="leaderboard_buttons">
-      <form method="get" action="CityZmentures.php">
+      <form method="get" action="CityZmentures.php#leaderboard">
         <button type="submit" name="button20" class="leaderboard_button"> 20s</button>
         <button type="submit" name="button60" class="leaderboard_button">60s</button>
         <button type="submit" name="button120" class="leaderboard_button">120s</button>
@@ -224,94 +224,82 @@ if (session_status() === PHP_SESSION_NONE)
     </div>
 
 
-    <div style="text-align: center;" >
-      <?php
-      // Retrieve the current page number from the URL
-      $page = isset($_GET['page']) ? $_GET['page'] : 1;
-      $commentsPerPage = 5;
-      $offset = ($page - 1) * $commentsPerPage;
+    <div style="text-align: center;" class="board">
+    <?php
+    // Retrieve the current page number from the URL
+    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+    $commentsPerPage = 5;
+    $offset = ($page - 1) * $commentsPerPage;
 
-      // Calculate the starting player ranking for the current page
-      $startingRank = ($page - 1) * $commentsPerPage + 1;
+    // Calculate the starting player ranking for the current page
+    $startingRank = ($page - 1) * $commentsPerPage + 1;
 
-      if (isset($_GET['button60'])) {
-        // Fetch leaderboard entries
-        $sql = "SELECT * FROM leaderboard WHERE type = 2";
-        $result = sqlsrv_query($conn, $sql);
+    // Determine which leaderboard type to fetch based on button clicks or default
+    if (isset($_GET['button60'])) {
+        $type = 2; // Assuming button60 corresponds to type 2 leaderboard
+    } elseif (isset($_GET['button120'])) {
+        $type = 3; // Assuming button120 corresponds to type 3 leaderboard
+    } else {
+        $type = 1; // Default to type 1 leaderboard
+    }
 
-        // Pagination
-        $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 2";
-        $resultCount = sqlsrv_query($conn, $sqlCount);
-        $rowCount = sqlsrv_fetch_array($resultCount);
-       // echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#button60>";
-      } elseif (isset($_GET['button120'])) {
-        // Fetch leaderboard entries
-        $sql = "SELECT * FROM leaderboard WHERE type = 3";
-        $result = sqlsrv_query($conn, $sql);
+   // Retrieve the current page number from the URL
+   $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+   $commentsPerPage = 7;
 
-        // Pagination
-        $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 3";
-        $resultCount = sqlsrv_query($conn, $sqlCount);
-        $rowCount = sqlsrv_fetch_array($resultCount);
-        //echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#button120>";
+   // Calculate the total number of pages
+   $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = ?";
+   $params = array($type);
+   $resultCount = sqlsrv_query($conn, $sqlCount, $params);
+   $rowCount = sqlsrv_fetch_array($resultCount);
+   $totalComments = $rowCount['all_leaderboard'];
+   $totalPages = ceil($totalComments / $commentsPerPage);
 
-      } else {
-        // Fetch leaderboard entries
-        $sql = "SELECT * FROM leaderboard WHERE type = 1";
-        $result = sqlsrv_query($conn, $sql);
+   // Determine the range of pages to display
+   $numPaginationLinks = 5;
+   $startPage = max(min($currentPage - floor($numPaginationLinks / 2), $totalPages - $numPaginationLinks + 1), 1);
+   $endPage = min($startPage + $numPaginationLinks - 1, $totalPages);
 
-        // Pagination
-        $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = 1";
-        $resultCount = sqlsrv_query($conn, $sqlCount);
-        $rowCount = sqlsrv_fetch_array($resultCount);
-        ///echo "<meta http-equiv=Refresh content=2;url=/CityZmentures.php#button20>";
+   // Fetch leaderboard entries for the current page
+   $offset = ($currentPage - 1) * $commentsPerPage;
+   $sql = "SELECT TOP ({$commentsPerPage}) *
+           FROM (
+               SELECT ROW_NUMBER() OVER (ORDER BY [score] DESC) AS RowNum, *
+               FROM [dbo].[leaderboard]
+               WHERE type = ?
+           ) AS RowConstrainedResult
+           WHERE RowNum > ?
+           ORDER BY RowNum";
+   $params = array($type, $offset);
+   $result = sqlsrv_query($conn, $sql, $params);
 
-      }
+   $startingRank = ($currentPage - 1) * $commentsPerPage + 1;
+   while ($row = sqlsrv_fetch_array($result)) {
+       echo '<div><span class="Leaderbord_result"><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . ". " . $row["user"] . '</a> (' . $row["date"]->format('d. m. Y')  . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
+       $startingRank++;
+   }
 
-      $rows = [];
-      while ($row = sqlsrv_fetch_array($result)) {
-        $rows[] = $row;
-      }
+   // Pagination
+   echo '<div class="pagination">';
+   // Previous page link
+   if ($currentPage > 1) {
+       echo '<a href="?page=' . ($currentPage - 1) . '#leaderboard"><&#160 &#160</a> ';
+   }
 
-      // Custom time sorting function
-      function customTimeSort($a, $b)
-      {
-        $dateA = $a['date'];
-        $dateB = $b['date'];
+   // Pagination links
+   for ($i = $startPage; $i <= $endPage; $i++) {
+       echo '<a href="?page=' . $i . '#leaderboard"' . ($i == $currentPage ? ' class="active"' : '') . '>' . $i . '</a> ';
+   }
 
-        if ($dateA == $dateB) {
-          return 0;
-        }
+   // Next page link
+   if ($currentPage < $totalPages) {
+       echo '<a href="?page=' . ($currentPage + 1) . '#leaderboard">&#160 &#160></a>';
+   }
+   echo '</div>';
+   ?>
+    ?>
+</div>
 
-        return ($dateA < $dateB) ? -1 : 1;
-      }
-
-
-      // Sort the rows
-      usort($rows, 'customTimeSort');
-
-      // Paginate the sorted results
-      $paginatedRows = array_slice($rows, $offset, $commentsPerPage);
-
-      // Display the sorted results with consistent player ranking
-      echo '<div class="Leaderbord_result">';
-      foreach ($paginatedRows as $row) {
-        echo '<div><span ><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . " " . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
-        $startingRank++; // Increment the player ranking
-      }
-      echo '</div>';
-      // Pagination;
-      $totalComments = $rowCount['all_leaderboard'];
-      $totalPages = ceil($totalComments / $commentsPerPage);
-
-      echo '<div class="pagination">';
-      for ($i = 1; $i <= $totalPages; $i++) {
-        echo '<a href="?  =' . $i . '#leaderboard">' . $i . '</a> ';
-      }
-      echo '</div>';
-
-      ?>
-    </div>
 
 
 
@@ -499,108 +487,139 @@ if (session_status() === PHP_SESSION_NONE)
 
   </div>
 
-  <div class="comments_DIV" id="comments_CityZmentures">
-    <?php if (isset($_SESSION["username"])) : ?>
-      <h1><?php
-          echo $translations["KOMENTARJI"] ?></h1>
-      <div>
-        <div class="alignCommentAdd">
-          <form action="CityZmentures.php" method="GET" class="commentsForm">
-            <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php
-                                                                                      echo $translations["write_comment"]; ?>" rows="6" cols="50"></textarea>
-            <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton">Post Comment</button>
-            </div>
+  <div class="comments_DIV" id="comments_OG">
+      <?php if (isset($_SESSION["username"])) : ?>
+        <h1><?php echo $translations["KOMENTARJI"] ?></h1>
+        <div>
+          <div class="alignCommentAdd">
+            <form action="CityZmentures.php" method="GET" class="commentsForm">
+              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php echo $translations["write_comment"]; ?>" rows="3" cols="50"></textarea>
+              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton"><?php echo $translations["post"]; ?></button>
+              </div>
+          </div>
+          </form>
         </div>
-        </form>
-      </div>
 
 
-    <?php else : ?>
-      <div class="commentsFormError">
-        <h1><?php
-            echo $translations["KOMENTARJI"] ?></h1>
-        <p class="commentsFormErrorText">za komentiranje se prijavi</p>
-      </div>
-    <?php endif; ?>
-    <?php
-    // Define the number of comments per page
-    $commentsPerPage = 3;
+      <?php else : ?>
+        <div class="commentsFormError">
+          <h1><?php
+              echo $translations["KOMENTARJI"] ?></h1>
+          <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
+        </div>
+      <?php endif; ?>
+      <?php
+      // Define the number of comments per page
+      $commentsPerPage = 7;
 
-    // Calculate the current page number
-    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+      // Query to count total number of comments
+      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type = 3";
+      $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
 
-    // Calculate the SQL LIMIT for pagination
-    $offset = ($page - 1) * $commentsPerPage;
+      if ($totalCommentsResult === false) {
+        echo "Error counting total comments: " . print_r(sqlsrv_errors(), true);
+        exit();
+      }
 
-    // Query to fetch comments for the current page
-    $sql = "
+      $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
+      $totalComments = $totalCommentsRow['total'];
+
+      // Calculate the current page number
+      $page = isset($_GET['page']) ? $_GET['page'] : 1;
+      // Calculate the SQL LIMIT for pagination
+      $offset = ($page - 1) * $commentsPerPage;
+
+      // Query to fetch comments for the current page
+      $totalPages = ceil($totalComments / $commentsPerPage);
+
+      // Adjust the offset for the last page
+      if ($page == $totalPages && $totalComments % $commentsPerPage != 0) {
+        $commentsPerPage = $totalComments % $commentsPerPage;
+      }
+
+      // Calculate the SQL LIMIT for pagination
+      $offset = ($page - 1) * $commentsPerPage;
+
+      // Query to fetch comments for the current page
+      $sql = "
 WITH PaginationCTE AS (
     SELECT *, ROW_NUMBER() OVER (ORDER BY date DESC) AS RowNum
     FROM comments
     WHERE type = 3
-
 )
 SELECT *
 FROM PaginationCTE
 WHERE RowNum BETWEEN ? AND ?";
 
-    // Prepare the statement
-    $stmt = sqlsrv_prepare($conn, $sql, array($offset, $commentsPerPage));
+      $stmt = sqlsrv_prepare($conn, $sql, array($offset + 1, $offset + $commentsPerPage));
 
-    // Execute the statement
-    try {
-      $result = sqlsrv_execute($stmt);
+      // Execute the statement
+      try {
+        $result = sqlsrv_execute($stmt);
 
-      if ($result === false) {
-        echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
-        exit();
+        if ($result === false) {
+          echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
+          exit();
+        }
+        $startPage = max(min($page- floor($commentsPerPage / 2), $totalPages - $commentsPerPage + 1), 1);
+        $endPage = min($startPage + $commentsPerPage - 1, $totalPages);
+        // Display comments
+        echo '<div id="comment_section" class="commentsZmejelov">';
+        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
+          echo '<div class="full_comment">
+                  <span class="commentAuthor"> 
+                    <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
+                    <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a>      </span>
+                  <span class="commentText"><br>' . $row["comment"] . '</span><br><br>
+                  <span class="commentDate"><br>' . $row["date"]->format('d-m-Y')   . '</span>
+                </div><br><br>';
+        }
+
+        echo '</div>';
+      } catch (Exception $e) {
+        // Handle the exception
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
       }
 
 
-      // Display comments
-      echo '<div id="comment_section" class="commentsZmejelov">';
-      while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-        echo '<div class="full_comment">
-            <span class="commentAuthor"> 
-            <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-            <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a> (' . $row["date"]->format('Y-m-d H:i:s') . '):
-            </span><span class="commentText"><br>' . $row["comment"] . '</div><br><br></span>';
+      // Query to count total number of comments
+      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=3";
+      $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
+      $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
+      $totalComments = $totalCommentsRow['total'];
+
+
+      if ($totalComments != 0) {
+        // Calculate total number of pages
+        $totalPages = ceil($totalComments / $commentsPerPage);
+
+        // Display pagination links
+        echo '<div class="pagination_container_comments">';
+        echo '<div class="pagination">';
+
+        // Previous page link
+        if ($page > 1) {
+          echo '<a href="CityZmentures.php?page=' . ($page- 1) . '#comments_OG"><&#160 &#160</a> ';
+        }
+
+        // Pagination links
+        for ($i = $startPage; $i <= $endPage; $i++) {
+          echo '<a href="CityZmentures.php?page=' . $i . '#comments_OG"' . ($i == $page? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
+        }
+
+        // Next page link
+        if ($page < $totalPages) {
+          echo '<a href="CityZmentures.php?page=' . ($page+ 1) . '#comments_OG">&#160 &#160></a>';
+        }
+
+        echo '</div>';
+        echo '</div>';
       }
-      echo '</div>';
-    } catch (Exception $e) {
-      // Handle the exception
-      echo 'Caught exception: ',  $e->getMessage(), "\n";
-    }
 
 
-    // Query to count total number of comments
-    $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=3";
-    $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
-    $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
-    $totalComments = $totalCommentsRow['total'];
+      ?>
 
-
-    if ($totalComments != 0) {
-    
-
-      // Calculate total number of pages
-      $totalPages = ceil($totalComments / $commentsPerPage);
-
-      // Display pagination links
-      echo '<div class="pagination-container">';
-      echo '<div class="pagination">';
-      for ($i = 1; $i <= $totalPages; $i++) {
-        // Add onclick event to each pagination link to scroll to the comment section
-        echo '<a href="CityZmentures.php?page=' . $i . '#comments_city">' . $i . "&nbsp;   "  . '</a>';
-      }
-      echo '</div>';
-      echo '</div>';
-    }
-
-
-    ?>
-
-  </div>
+    </div>
 
   </div>
   <div id="footer"></div>

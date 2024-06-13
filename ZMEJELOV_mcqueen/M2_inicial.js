@@ -7,7 +7,7 @@ class M2_inicial extends M0_shared {
         this.load.audio('glavna', ['assets/uvod/glavna.mp3', "assets/uvod/glavna.ogg"]);
         this.load.image("gumb", "assets/uvod/gumb.png")
         this.load.image("zmeja", "assets/uvod/zmeja.png")
-        this.load.image("zmentures", "assets/zmejelov/1 (1).png")
+        this.load.image("zmentures", "assets/zmejelov/1 (4).png")
         this.load.image("zmentures2", "assets/zmejelov/1 (2).png")
 
 
@@ -113,7 +113,7 @@ class M2_inicial extends M0_shared {
         var razmikMedBloki = 150
 
         this.igra = this.add.sprite(GAME_WIDTH / odmik, pozicija1, 'gumb2').setInteractive();
-        this.igraTimer = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
+        this.shop = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
 
 
 
@@ -123,7 +123,7 @@ class M2_inicial extends M0_shared {
         this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20, this.loadText("play"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
 
-        this.igraTimer = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
+        this.shop = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
         this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20 + razmikMedBloki, "TRGOVINA", { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
 
@@ -131,18 +131,17 @@ class M2_inicial extends M0_shared {
 
 
         this.igra.on('pointerup', () => {
-            var achievementsSplit = achievements;
+            
+            this.restart()
+
 
             stopWatchStart()
-
             this.scene.stop('M2_inicial')
             this.scene.start('M3_storyIntro')
         })
 
 
-        this.igraTimer.on('pointerup', () => {
-            //countdown = true
-            var achievementsSplit = achievements;
+        this.shop.on('pointerup', () => {
 
             this.scene.stop('M2_inicial')
             this.scene.start('M4_shop')

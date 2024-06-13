@@ -27,7 +27,7 @@ class S5_konec extends S0_shared {
 
         
 
-        this.add.text(300, 500, this.loadText("space_restart"), { fontSize: '30px', fill: "#A996BC" })
+        this.add.text(300, 200, this.loadText("space_restart"), { fontSize: '30px', fill: "#A996BC" })
 
       
 
@@ -71,8 +71,8 @@ class S5_konec extends S0_shared {
 
 
 
-        this.add.text(300, 440, text, {
-            fontSize: '45px',
+        this.add.text(300, 350, text, {
+            fontSize: '40px',
             fill: '#A996BC',
             fontFamily: 'CustomFont',
             wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }

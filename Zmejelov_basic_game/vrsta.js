@@ -62,7 +62,7 @@ class vrsta extends Phaser.Scene {
         const xKordinata = (Math.random() * 490)
         const yKordinata = (Math.random() * 300)
 
-        this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
+        this.add.text(xKordinata, yKordinata, this.loadText("space_restart"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
         console.log(vrstaTeksta+ "vrstaTeksta");
         if (vrstaTeksta === "sovraznik" || vrstaTeksta === "sovraznik5" || vrstaTeksta === "level4smrt" || vrstaTeksta === "level6Znak" ||
             vrstaTeksta == "level6Vojak" || vrstaTeksta == "level6Brsljan" || vrstaTeksta == "level6Kip" || vrstaTeksta == "level6Znak2") {

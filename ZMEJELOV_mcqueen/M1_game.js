@@ -13,6 +13,7 @@ const visina = 3000
 var heightPlatform = visina - 200 //kok visok je platforma, dinamicno spreminja
 var userCoins = 0
 var inventory = []
+var chestPickedInGame = false
 var wisdom = false
 var chests = []
 var coinsNewGame = 0
@@ -24,7 +25,7 @@ var buy   = false
 var rainbow = false
 var noCheat = false
 var saveResOnce = false
-
+var canShowAnAchivement = false //if we can display an achivement, so we are not displaying it while playing but at the end
 var shieldAbility = false
 var ghostAbility= false
 var shroomAbility= false

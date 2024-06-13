@@ -134,6 +134,18 @@
             stopWatchStart()
             this.scene.stop('S2_inicial ')
             this.scene.start('S3_storyIntro')
+             hour = 0;
+             minute = 0;
+             second = 0;
+             count = 0;
+            timer = true
+
+            document.getElementById('hr').innerHTML = '00';
+            document.getElementById('min').innerHTML = '00';
+            document.getElementById('sec').innerHTML = '00';
+            document.getElementById('count').innerHTML = '00';
+
+
         })
         
 
