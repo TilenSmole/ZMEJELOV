@@ -2,9 +2,9 @@ var item1, item2, item3, item4, item6, item5, item7, item8, item0
 
 
 var money
-class M3_storyIntro extends M0_shared {
+class M3_shop extends M0_shared {
     constructor() {
-        super("M3_storyIntro")
+        super("M3_shop")
     }
     preload() {
         this.load.audio('glavna', ['assets/uvod/glavna.mp3', "assets/uvod/glavna.ogg"]);
@@ -22,6 +22,7 @@ class M3_storyIntro extends M0_shared {
   
 
     create() {
+        this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
         //NAREDIMO, DA IGRALEC NE DOBI PONOVNO OBVESTIL O DOSEZENIH ACHIVEMENTIH
         const ach1 = achievements.substring(6, 7);
@@ -96,7 +97,7 @@ class M3_storyIntro extends M0_shared {
 
 
         this.zacetek.on('pointerup', () => {
-            this.scene.stop('M4_shop')
+            this.scene.stop('M3_shop')
             this.scene.start('M4_red')
         })
 

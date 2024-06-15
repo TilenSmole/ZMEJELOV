@@ -24,22 +24,28 @@ if (session_status() === PHP_SESSION_NONE)
 
     gtag('config', 'G-TH6M7HMG59');
   </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
   <link rel="stylesheet" href="/CSS/index.css">
   <link rel="stylesheet" href="/CSS/common.css">
   <link rel="stylesheet" href="/CSS/common.css">
-
+  <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
 
   <meta charset="utf-8" />
-  <title>Zmejelov</title>
+  <title>CITY ZMENTURES</title>
   <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
   <script type="text/javascript" src="zmejelov_njam_njam/F0_shared.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F5_konec.js"></script>
+
   <script type="text/javascript" src="zmejelov_njam_njam/F2_inicial.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F2_time_intro.js"></script>
   <script type="text/javascript" src="zmejelov_njam_njam/F3_storyIntro.js"></script>
   <script type="text/javascript" src="zmejelov_njam_njam/F4_gamePlayStart.js"></script>
-  <script type="text/javascript" src="zmejelov_njam_njam/F5_konec.js"></script>
-  <script type="text/javascript" src="zmejelov_njam_njam/F2_time_intro.js"></script>
+  <script type="text/javascript" src="zmejelov_njam_njam/F3_explanation.js"></script>
   <script type="text/javascript" src="zmejelov_njam_njam/F1_game.js"></script>
+
+
+
 </head>
 
 <body>

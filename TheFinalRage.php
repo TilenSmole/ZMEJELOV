@@ -24,7 +24,8 @@ if (session_status() === PHP_SESSION_NONE)
 
     gtag('config', 'G-TH6M7HMG59');
   </script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
   <link rel="stylesheet" href="/CSS/index.css">
   <link rel="stylesheet" href="/CSS/common.css">
   <link rel="stylesheet" href="/CSS/common.css">
@@ -35,12 +36,19 @@ if (session_status() === PHP_SESSION_NONE)
   <script type="text/javascript" src="Zmejelov_basic_game/phaser.min.js"></script>
   <script type="text/javascript" src="zmejelov_mcqueen/M0_shared.js"></script>
   <script type="text/javascript" src="zmejelov_mcqueen/M2_inicial.js"></script>
-  <script type="text/javascript" src="zmejelov_mcqueen/M3_storyIntro.js"></script>
+  <script type="text/javascript" src="zmejelov_mcqueen/M3_shop.js"></script>
   <script type="text/javascript" src="zmejelov_mcqueen/M4_red.js"></script>
+  <script type="text/javascript" src="zmejelov_mcqueen/M4_orange.js"></script>
+  <script type="text/javascript" src="zmejelov_mcqueen/M4_yellow.js"></script>
+  <script type="text/javascript" src="zmejelov_mcqueen/M4_green.js"></script>
+  <script type="text/javascript" src="zmejelov_mcqueen/M4_blue.js"></script>
+  <script type="text/javascript" src="zmejelov_mcqueen/M4_indigo.js"></script>
+
+  <script type="text/javascript" src="zmejelov_mcqueen/M4_violet.js"></script>
+
   <script type="text/javascript" src="zmejelov_mcqueen/M5_konec.js"></script>
   <script type="text/javascript" src="zmejelov_mcqueen/M4_deathScreen.js"></script>
-  <script type="text/javascript" src="zmejelov_mcqueen/M4_shop.js"></script>
-
+  <script type="text/javascript" src="zmejelov_mcqueen/M3_explanation.js"></script>
   <script type="text/javascript" src="zmejelov_mcqueen/M1_game.js"></script>
 
 </head>
@@ -214,31 +222,31 @@ if (session_status() === PHP_SESSION_NONE)
         }
       </script>
 
-<div id="leaderboard" class="leaderBoardSpeedRun">
-    <h1>LEADERBOARD</h1>
-    <div style="text-align: center;" class="board">
-        <?php
-        // Retrieve the current page number from the URL
-        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-        $commentsPerPage = 7;
-        $typeFilter = 5; // Specify the type filter here
+      <div id="leaderboard" class="leaderBoardSpeedRun">
+        <h1>LEADERBOARD</h1>
+        <div style="text-align: center;" class="board">
+          <?php
+          // Retrieve the current page number from the URL
+          $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+          $commentsPerPage = 7;
+          $typeFilter = 5; // Specify the type filter here
 
-        // Calculate the total number of pages
-        $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = ?";
-        $params = array($typeFilter);
-        $resultCount = sqlsrv_query($conn, $sqlCount, $params);
-        $rowCount = sqlsrv_fetch_array($resultCount);
-        $totalComments = $rowCount['all_leaderboard'];
-        $totalPages = ceil($totalComments / $commentsPerPage);
+          // Calculate the total number of pages
+          $sqlCount = "SELECT COUNT(*) AS all_leaderboard FROM leaderboard WHERE type = ?";
+          $params = array($typeFilter);
+          $resultCount = sqlsrv_query($conn, $sqlCount, $params);
+          $rowCount = sqlsrv_fetch_array($resultCount);
+          $totalComments = $rowCount['all_leaderboard'];
+          $totalPages = ceil($totalComments / $commentsPerPage);
 
-        // Determine the range of pages to display
-        $numPaginationLinks = 5;
-        $startPage = max(min($currentPage - floor($numPaginationLinks / 2), $totalPages - $numPaginationLinks + 1), 1);
-        $endPage = min($startPage + $numPaginationLinks - 1, $totalPages);
+          // Determine the range of pages to display
+          $numPaginationLinks = 5;
+          $startPage = max(min($currentPage - floor($numPaginationLinks / 2), $totalPages - $numPaginationLinks + 1), 1);
+          $endPage = min($startPage + $numPaginationLinks - 1, $totalPages);
 
-        // Fetch leaderboard entries for the current page
-        $offset = ($currentPage - 1) * $commentsPerPage;
-        $sql = "SELECT TOP ({$commentsPerPage}) *
+          // Fetch leaderboard entries for the current page
+          $offset = ($currentPage - 1) * $commentsPerPage;
+          $sql = "SELECT TOP ({$commentsPerPage}) *
                 FROM (
                     SELECT ROW_NUMBER() OVER (ORDER BY [score] DESC) AS RowNum, *
                     FROM [dbo].[leaderboard]
@@ -246,35 +254,35 @@ if (session_status() === PHP_SESSION_NONE)
                 ) AS RowConstrainedResult
                 WHERE RowNum > ?
                 ORDER BY RowNum";
-        $params = array($typeFilter, $offset);
-        $result = sqlsrv_query($conn, $sql, $params);
+          $params = array($typeFilter, $offset);
+          $result = sqlsrv_query($conn, $sql, $params);
 
-        $startingRank = ($currentPage - 1) * $commentsPerPage + 1;
-        while ($row = sqlsrv_fetch_array($result)) {
+          $startingRank = ($currentPage - 1) * $commentsPerPage + 1;
+          while ($row = sqlsrv_fetch_array($result)) {
             echo '<div><span class="Leaderbord_result"><a href="user.php?user=' . urlencode($row["user"]) . '">' . $startingRank . ". " . $row["user"] . '</a> (' . $row["date"]->format('d. m. Y')  . '):</span><br><span class="">' . $row["score"] . '</span></div><br><br>';
             $startingRank++;
-        }
+          }
 
-        // Pagination
-        echo '<div class="pagination">';
-        // Previous page link
-        if ($currentPage > 1) {
+          // Pagination
+          echo '<div class="pagination">';
+          // Previous page link
+          if ($currentPage > 1) {
             echo '<a href="?page=' . ($currentPage - 1) . '#leaderboard"><&#160 &#160</a> ';
-        }
+          }
 
-        // Pagination links
-        for ($i = $startPage; $i <= $endPage; $i++) {
+          // Pagination links
+          for ($i = $startPage; $i <= $endPage; $i++) {
             echo '<a href="?page=' . $i . '#leaderboard"' . ($i == $currentPage ? ' class="active"' : '') . '>' . $i . '</a> ';
-        }
+          }
 
-        // Next page link
-        if ($currentPage < $totalPages) {
+          // Next page link
+          if ($currentPage < $totalPages) {
             echo '<a href="?page=' . ($currentPage + 1) . '#leaderboard">&#160 &#160></a>';
-        }
-        echo '</div>';
-        ?>
-    </div>
-</div>
+          }
+          echo '</div>';
+          ?>
+        </div>
+      </div>
 
 
 

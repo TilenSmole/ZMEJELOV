@@ -106,45 +106,33 @@ class M2_inicial extends M0_shared {
 
 
 
-
         score = 0
         var odmik = 2
         var pozicija1 = 400
         var razmikMedBloki = 150
 
         this.igra = this.add.sprite(GAME_WIDTH / odmik, pozicija1, 'gumb2').setInteractive();
-        this.shop = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
-
-
-
-
-
-        this.igra = this.add.sprite(GAME_WIDTH / odmik, pozicija1, 'gumb2').setInteractive();
-        this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20, this.loadText("play"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(GAME_WIDTH / 2 -75, pozicija1 - 20, this.loadText("play"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
 
         this.shop = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
-        this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20 + razmikMedBloki, "TRGOVINA", { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(GAME_WIDTH / 2-75 , pozicija1 - 20 + razmikMedBloki, this.loadText("explanation"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
 
-        this.igra.setScale(1)
 
 
         this.igra.on('pointerup', () => {
-            
             this.restart()
-
-
             stopWatchStart()
             this.scene.stop('M2_inicial')
-            this.scene.start('M3_storyIntro')
+            this.scene.start('M3_shop')
         })
 
 
         this.shop.on('pointerup', () => {
 
             this.scene.stop('M2_inicial')
-            this.scene.start('M4_shop')
+            this.scene.start('M3_explanation')
         })
 
 

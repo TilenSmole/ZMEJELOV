@@ -16,6 +16,30 @@ var speedOfDrops = 300
 var timeToPlay = 0
 var countdown = false
 
+// GAME
+var food = [];
+var destoyers = [];
+var allPlatforms = []
+var star = false
+var heart = false
+var shield = false
+var shieldIcon = ""
+var multiplierIcon = ""
+var hearts = []
+var shields = []
+var distanceHeart = 0
+var heartsOnScreen = []
+var startTime = 0
+var multipliers = []
+var multiplier = false
+var startTimeMultiplayer = 0
+var time = 0
+var scoreMultiplier = 1 //how much multiplayer a player has 
+let countdownEvent;
+
+
+
+
 const gameState = {
    speed: -650, //650!!!!!!!!!!!!!!!
    
@@ -66,7 +90,7 @@ const config = {
     type: Phaser.AUTO,
     height:  GAME_HEIGHT, 
     width: GAME_WIDTH ,  
-    scene:[F2_inicial, F0_shared, F3_storyIntro, F4_gamePlayStart,F5_konec, F2_time_intro],
+    scene:[F2_inicial, F0_shared, F4_gamePlayStart,F3_explanation, F3_storyIntro, F2_time_intro,F5_konec],
     physics: {
       default: 'arcade',
       arcade: {

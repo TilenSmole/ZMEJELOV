@@ -1,13 +1,13 @@
-class F2_inicial extends Phaser.Scene {
-    constructor() {
-        super({ key: 'F2_inicial' });
-    }
 
+class F2_inicial extends F0_shared {
+    constructor() {
+        super("F2_inicial");
+    }
     preload() {
         this.load.audio('glavna', ['assets/uvod/glavna.mp3', "assets/uvod/glavna.ogg"]);
         this.load.image("gumb", "assets/uvod/gumb.png")
         this.load.image("zmeja", "assets/uvod/zmeja.png")
-        this.load.image("zmentures", "assets/zmejelov/1 (1).png")
+        this.load.image("zmentures", "assets/zmejelov/1 (2).png")
         this.load.image("zmentures2", "assets/zmejelov/1 (3).png")
 
         this.load.image("usa", "assets/uvod/United_States.jpg")
@@ -40,7 +40,7 @@ class F2_inicial extends Phaser.Scene {
             var rage = this.add.image(GAME_WIDTH / 2, 150, "zmentures2");
             rage.setScale(1.7)
         }
-       
+
 
 
 
@@ -84,30 +84,55 @@ class F2_inicial extends Phaser.Scene {
         var pozicija1 = 400
         var razmikMedBloki = 150
 
-        this.igra = this.add.sprite(GAME_WIDTH / odmik, pozicija1, 'gumb2').setInteractive();
-        this.igraTimer = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
+        this.igra = this.add.sprite(GAME_WIDTH / odmik - 200, pozicija1, 'gumb2').setInteractive();
+        this.igra.setScale(0.5, this.igra.scaleY);
+
+
+        this.igraTimer = this.add.sprite(GAME_WIDTH / odmik + 200, pozicija1, 'gumb2').setInteractive();
+        this.igraTimer.setScale(0.5, this.igra.scaleY,);
+
+
+        this.explanation = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
 
 
 
 
 
-        this.igra = this.add.sprite(GAME_WIDTH / odmik, pozicija1, 'gumb2').setInteractive();
-        this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20, this.loadText("play"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(GAME_WIDTH / 2 - 250, pozicija1 - 20, this.loadText("play"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.add.text(GAME_WIDTH / 2 + 150, pozicija1 - 20, this.loadText("play2"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
 
-        this.igraTimer = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
-        this.add.text(GAME_WIDTH / 2 - 50, pozicija1 - 20 + razmikMedBloki, this.loadText("play"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
+        this.explanation = this.add.sprite(GAME_WIDTH / odmik, pozicija1 + razmikMedBloki, 'gumb2').setInteractive();
+        this.add.text(GAME_WIDTH / 2 - 80, pozicija1 - 20 + razmikMedBloki, this.loadText("explanation"), { fontSize: '40px', fill: '#E950F4', fontFamily: 'CustomFont' });
 
-
-        this.igra.setScale(1)
+        this.resetGame()
 
 
         this.igra.on('pointerup', () => {
-     
             stopWatchStart()
             this.scene.stop('F2_inicial')
             this.scene.start('F3_storyIntro')
         })
+
+
+        this.igraTimer.on('pointerup', () => {
+            countdown = true
+            stopWatchStart()
+            this.scene.stop('F2_inicial')
+            this.scene.start('F2_time_intro')
+        })
+
+
+        this.explanation.on('pointerup', () => {
+            stopWatchStart()
+            this.scene.stop('F2_inicial')
+            this.scene.start('F3_explanation')
+        })
+
+
+
+
+
 
         //NAREDIMO, DA IGRALEC NE DOBI PONOVNO OBVESTIL O DOSEZENIH ACHIVEMENTIH
         const ach1 = achievements.substring(9, 10);
@@ -133,34 +158,6 @@ class F2_inicial extends Phaser.Scene {
             K = true;
         if (ach7 == 1)
             tfK = true;
-
-
-
-
-
-
-
-
-
-
-
-        this.igraTimer.on('pointerup', () => {
-            countdown = true
-         
-
-            stopWatchStart()
-            this.scene.stop('F2_inicial')
-            this.scene.start('F2_time_intro')
-        })
-
-
-
-
-
-
-
-
-
 
 
 

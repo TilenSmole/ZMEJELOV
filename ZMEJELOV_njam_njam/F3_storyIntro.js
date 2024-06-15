@@ -43,7 +43,7 @@ class F3_storyIntro extends F0_shared {
         })
 
 
-        const text = this.add.text(10, 500, this.loadText("city_intro"), {
+        const text = this.add.text(10, 400, this.loadText("city_intro"), {
             fontSize: '40px',
             fill: '#A996BC',
             fontFamily: 'CustomFont',
@@ -55,15 +55,25 @@ class F3_storyIntro extends F0_shared {
     
     
         this.add.text(xKordinata, yKordinata, this.loadText("space_start"), { fontSize: '40px', fill: "#E950F4", fontFamily: 'CustomFont' }); // Create a new text object with updated content
-
-
+     
+        this.domov = this.add.sprite(GAME_WIDTH-200,GAME_HEIGHT - 175, 'gumb').setInteractive();
+        this.domov.setScale(0.8)
+        this.add.text(GAME_WIDTH-265,GAME_HEIGHT - 190, this.loadText("home"),{ fontSize: '40px',fill: '#B637BF',  fontFamily: 'CustomFont' });
+        
+        this.domov.on('pointerup', () => {
+            this.scene.stop('F3_storyIntro')
+            this.scene.start('F2_inicial')
+            })
 
         countdown = false
 
-        this.input.keyboard.on('keyup-SPACE', () => {
-            this.scene.stop('F3_storyIntro')
-            this.scene.start('F4_gamePlayStart')
+        var spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+        spaceBar.on('down', () => {
+          this.scene.stop('F3_storyIntro')
+          this.scene.start('F4_gamePlayStart')
         });
+
 
 
 

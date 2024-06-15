@@ -59,37 +59,98 @@ class M0_shared extends Phaser.Scene {
 
 	}
 	restart() {
+		lastPoint = 1600
+		borderLeft = 0
+		generated = false
+		inventory = []
+		chestPickedInGame = false
+		wisdom = false
+		coinsNewGame = 0
+		score = 0
+		saveResOnce = false
+		shieldAbility = false
+		ghostAbility = false
+		shroomAbility = false
+		potionAbility = false
+		rocketAbility = false
+		spaceshipAbility = false
+		shieldStart = false
+		ghostStart = false
+		shroomStart = false
+		potionStart = false
+		rocketStart = false
+		spaceshipStart = false
+		shield = false
+		ghost = false
+		shroom = false
+		heart = false
+		spaceShip = false
+		speedShip = false
+		enemies = []
+		 coins = [];
+		 buffs = []
+		 distance = 0
+		 finalPlatform = [];
+		 playOnce = false;
+		 coins = [];
+		 objectsFloor = []
+		 lowerCollider = []
+		 zen = false
+		 buffs = []
+		 distance = 0
+		 shieldIcon = ""
+		 startTimeShield = 0
+		 gameStateStoredX = 0
+		 heartIcon = ""
+		 spaceShipIcon = ""
+		 startTimeheart = 0
+		 potionActivation = false
+		 spaceShipIcon = ""
+		 startTimespaceShip =
+			 shroomIcon = ""
+		 startTimeshroom =
+			 ghostIcon = ""
+		 startTimeGhost = 0
+		 canStart = false
+		 canShowAnAchivement = false
+		 heightPlatform = visina - 200
+		  lastPoint = 1600
+		  borderLeft = 0
+		  generated = false
+
+	}
+	reset() {
+		finalPlatform = [];
+		playOnce = false;
+		coins = [];
+		enemies = []
+		objectsFloor = []
+		lowerCollider = []
+		zen = false
+		buffs = []
+		distance = 0
+		shieldIcon = ""
+		startTimeShield = 0
+		gameStateStoredX = 0
+		heartIcon = ""
+		spaceShipIcon = ""
+		startTimeheart = 0
+		potionActivation = false
+		spaceShipIcon = ""
+		startTimespaceShip =
+			shroomIcon = ""
+		startTimeshroom =
+			ghostIcon = ""
+		startTimeGhost = 0
+		canStart = false
+		canShowAnAchivement = false
+		heightPlatform = visina - 200
 		 lastPoint = 1600
 		 borderLeft = 0
 		 generated = false
-		 inventory = []
-		 chestPickedInGame = false
-		 wisdom = false
-		 coinsNewGame = 0
-		 score = 0
-		 saveResOnce = false
-		 shieldAbility = false
-		 ghostAbility = false
-		 shroomAbility = false
-		 potionAbility = false
-		 rocketAbility = false
-		 spaceshipAbility = false
-		 shieldStart = false
-		 ghostStart = false
-		 shroomStart = false
-		 potionStart = false
-		 rocketStart = false
-		 spaceshipStart = false
-		 shield = false
-		 ghost = false
-		 shroom = false
-		 heart = false
-		 spaceShip = false
-		 speedShip = false
-
-
-
 	}
+
+
 	generateCoins(min, max, height) {
 		var pos = Math.floor(Math.random() * 1000) + 1000
 		var distanceBetween = Math.floor(Math.random() * 250) + 120
@@ -103,12 +164,12 @@ class M0_shared extends Phaser.Scene {
 	}
 
 	generateEnemy(min, max, height) {
-		var enemy = this.physics.add.sprite(min, height - 100, 'reaper');
+		var enemy = this.physics.add.sprite((min+max)/2, height - 105, 'reaper');
 		enemy.body.allowGravity = false;
-		enemy.setScale(0.2)
-		enemy.targetMax = max;
-		enemy.targetMin = min; // Store the target X coordinate as a property of the enemy
-		enemy.reachedTarget = false
+		enemy.setScale(0.15)
+	//	enemy.targetMax = max;
+	//	enemy.targetMin = min; // Store the target X coordinate as a property of the enemy
+	//	enemy.reachedTarget = false
 		enemies.push(enemy)
 	}
 
@@ -255,6 +316,7 @@ class M0_shared extends Phaser.Scene {
 
 
 	loadText(text_to_translate) {
+		console.log('¸evo klicem json');
 		let textEn = this.cache.json.get('textEn');
 		let textSlo = this.cache.json.get('textSlo');
 		if (language === "en") {
@@ -270,47 +332,49 @@ class M0_shared extends Phaser.Scene {
 
 
 
-
-		this.anims.create({
-			key: 'walk',
-			frames: [
-				{ key: 'Zmeja', frame: "Wraith_03_Moving Forward_000.png" },],
-			frameRate: 8,
-			repeat: -1
-		});
-
-		this.anims.create({
+		if(!this.anims.exists('walk')){
+			this.anims.create({
+				key: 'walk',
+				frames: [
+					{ key: 'Zmeja', frame: "Wraith_03_Moving Forward_000.png" },],
+				frameRate: 8,
+				repeat: -1
+			});
+		}
+		
+		if(!this.anims.exists('idle'))
+		{this.anims.create({
 			key: 'idle',
 			frames: this.anims.generateFrameNumbers('ZmejaIdle', { start: 0, end: 7 }),
 			frameRate: 4,
 			repeat: -1
-		});
-
-		this.anims.create({
+		});}
+		if(!this.anims.exists('dying'))
+	{	this.anims.create({
 			key: 'dying',
 			frames: this.anims.generateFrameNumbers('ZmejaDyingAnimation', { start: 0, end: 11 }), // Adjust the range as needed
 			frameRate: 10,
 			repeat: -1
-		});
+		});}
 
-
-		this.anims.create({
+		if(!this.anims.exists('umre'))
+		{this.anims.create({
 			key: 'umre',
 			frames: [
 				{ key: 'Zmeja', frame: "Wraith_03_Dying_000.png" },],
 			frameRate: 8,
 			repeat: -1
-		});
+		});}
 
 
-
-		this.anims.create({
+		if(!this.anims.exists('skok'))
+{		this.anims.create({
 			key: 'skok',
 			frames: [
 				{ key: 'Zmeja', frame: "Wraith_03_Idle_000.png" },],
 			frameRate: 8,
 			repeat: -1
-		});
+		});}
 
 
 		gameState.cursors = this.input.keyboard.createCursorKeys();

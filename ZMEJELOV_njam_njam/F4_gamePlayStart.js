@@ -1,23 +1,6 @@
 var visina = 800
 var dolzina = 1300
-var food = [];
-var destoyers = [];
-var allPlatforms = []
-var star = false
-var heart = false
-var shield = false
-var shieldIcon = ""
-var multiplierIcon = ""
-var hearts = []
-var shields = []
-var distanceHeart = 0
-var heartsOnScreen = []
-var startTime = 0
-var multipliers = []
-var multiplier = false
-var startTimeMultiplayer = 0
-var scoreMultiplier = 1
-var time = 0 
+
 
 class F4_gamePlayStart extends F0_shared {
     constructor() {
@@ -28,18 +11,18 @@ class F4_gamePlayStart extends F0_shared {
         for (let i = 1; i <= 7; i++) {
             this.load.image("b" + i, "assets/a_njam_njam/background/" + i + ".png");
         }
-        if(timeToPlay)
-            time = timeToPlay 
+        if (timeToPlay)
+            time = timeToPlay
         this.load.image("b_mesto", " assets/mesto/City2.png");
 
-       
+
 
         this.load.image("platform2", "assets/a_speedRunning/platforms/Pad_04_1.png")
 
         for (let i = 1; i <= 101; i++) {
             this.load.image("f" + i, "assets/a_njam_njam/foods/1 (" + i + ").png");
         }
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 16; i++) {
             this.load.image("s" + i, "assets/a_njam_njam/bad/s" + i + ".png");
         }
 
@@ -53,50 +36,33 @@ class F4_gamePlayStart extends F0_shared {
 
 
     }
-    removeExpiredFood() {
-        const currentTime = this.getTimePassed();
 
-        // Loop through each food item
-        for (let i = food.length - 1; i >= 0; i--) {
-            const foodItem = food[i];
-
-            // Check if the food item has been on the screen for more than 5 seconds
-            if (currentTime - foodItem.creationTime >= 10) {
-                foodItem.destroy(); // Destroy the food item
-                food.splice(i, 1); // Remove the food item from the array
-            }
-        }
-        for (let i = destoyers.length - 1; i >= 0; i--) {
-            const destoyerItem = destoyers[i];
-            if (currentTime - destoyerItem.creationTime >= 15) {
-                if (destoyerItem.body) destoyerItem.destroy(); // Ensure body exists
-                destoyers.splice(i, 1);
-            }
-        }
-    
-    }
     create() {
         food = [];
         destoyers = [];
+        allPlatforms = []
+        star = false
+        heart = false
+        shield = false
+        hearts = []
+        shields = []
+        distanceHeart = 0
+        heartsOnScreen = []
+        startTime = 0
+        startTimeMultiplayer = 0
+        scoreMultiplier = 1 //how much multiplayer a player has 
         super.create();
 
         gameState.bg = this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'b2');
-       
 
-        if(countdown)
-        gameState.bg.setTexture('b_mesto');;
+
+        if (countdown)
+            gameState.bg.setTexture('b_mesto');;
 
         gameState.bg.setDisplaySize(GAME_WIDTH, GAME_HEIGHT)
 
         this.cameras.main.setBounds(0, 0, dolzina, visina)
         this.physics.world.setBounds(0, 0, dolzina, visina)
-
-        this.time.addEvent({
-            delay: 15000, // Adjust the interval as needed
-            callback: this.removeExpiredFood,
-            callbackScope: this,
-            loop: true
-        });
 
         gameState.junak = this.physics.add.sprite(GAME_WIDTH / 2, GAME_HEIGHT - 200, "Zmeja")
         gameState.junak.setScale(.6)// pomanjsa
@@ -121,13 +87,14 @@ class F4_gamePlayStart extends F0_shared {
         });
 
 
-        if(countdown){
+        if (countdown) {
             gameState.countdown = this.add.text(GAME_WIDTH - 200, 50, 'Time left: ', { fontSize: '30px', fill: '#E950F4', fontFamily: 'CustomFont' });
             gameState.countdown.setDepth(0)
         }
-      
+
 
         gameState.text = this.add.text(GAME_WIDTH - 200, 0, 'Score: ', { fontSize: '30px', fill: '#E950F4', fontFamily: 'CustomFont' });
+
         gameState.text.setDepth(0)
 
 
@@ -152,8 +119,6 @@ class F4_gamePlayStart extends F0_shared {
             var newHeart = this.add.image(distanceHeart, 35, "heart");
             newHeart.setScale(0.1);
             hearts.push(newHeart);
-
-
             heartsOnScreen.push(newHeart)
             heart.destroy()
 
@@ -161,23 +126,26 @@ class F4_gamePlayStart extends F0_shared {
 
 
         this.physics.add.overlap(gameState.junak, multipliers, (user, Onemultiplier) => {
-            if (!multiplier) {
-                multiplierIcon = this.add.image(gameState.junak.x - 200, gameState.junak.y - 150, "multiplier")
-                multiplierIcon.setScale(.5)
-                Onemultiplier.destroy()
-                multiplier = true
-                startTimeMultiplayer = this.getTimePassed()
-                scoreMultiplier = 2
-            }
-
-
+            Onemultiplier.destroy()
+            scoreMultiplier++;
         })
 
+        this.foodPool = this.physics.add.group();
 
-        this.time.addEvent({
+        // Create a pool of 100 food sprites
+        for (var i = 1; i <= 100; i++) {
+            var pieceOfFood = this.foodPool.create(-100, -100, 'f' + i);
+            pieceOfFood.setActive(false);
+            pieceOfFood.setVisible(false);
+            pieceOfFood.setScale(2.5);
+        }
+
+
+
+        countdownEvent = this.time.addEvent({
             delay: 1000,
             callback: () => {
-                 time--
+                time--
             },
             callbackScope: this,
             loop: true
@@ -186,81 +154,93 @@ class F4_gamePlayStart extends F0_shared {
     }
 
     update() {
+
+        if (gameState.active && gameState.junak) {
+
+            if (gameState.cursors.right.isDown) {
+                gameState.junak.setVelocityX(600)
+                gameState.junak.anims.play('walk', true)
+                gameState.junak.flipX = false;
+            }
+            else if (gameState.cursors.left.isDown) {
+                gameState.junak.setVelocityX(-600);
+                gameState.junak.anims.play('walk', true);
+                gameState.junak.flipX = true;
+            }
+            else {
+                gameState.junak.setVelocityX(0);
+                gameState.junak.anims.play('idle', true);
+            }
+
+        }
+
+
+
+
         var currentTime = this.getTimePassed()
-       
-
-
-
-
+        //
         if (shield) {
             shieldIcon.x = gameState.junak.x - 100
             shieldIcon.y = gameState.junak.y - 50;
 
-            if (startTime + 5 <= currentTime) {
+            if (startTime + 15 <= currentTime) {
                 shieldIcon.destroy()
                 shield = false
             }
 
         }
-        if (multiplier) {
 
-            multiplierIcon.x = gameState.junak.x - 200
-            multiplierIcon.y = gameState.junak.y - 50;
-
-            if (startTimeMultiplayer + 5 <= currentTime) {
-                multiplier = false
-                multiplierIcon.destroy()
-                scoreMultiplier = 1
-            }
-        }
 
         gameState.text.setText('Score: ' + score);
         gameState.spawnEvent.delay = delayTimer;
-        /*this.physics.add.overlap(gameState.junak, destoyers, (user, destoyer) => {
-
-            if (heartsOnScreen.length !== 0) {
-                if (!shield) {
-                    distanceHeart -= 40
-                    var removedHeart = heartsOnScreen.pop();
-                    destoyer.destroy();
-                    removedHeart.destroy();
-                }
-
-
-            }  else if (countdown) {
+          this.physics.add.overlap(gameState.junak, destoyers, (user, destoyer) => {
+              if (heartsOnScreen.length !== 0) {
+                  if (!shield) {
+                      distanceHeart -= 40
+                      var removedHeart = heartsOnScreen.pop();
+                      destoyer.destroy();
+                      removedHeart.destroy();
+                  }
+  
+  
+              } else if (countdown) {
+                  destoyer.destroy();
+                  score -= 50
+              }
+              else {
+                console.log('¸pain');
                 destoyer.destroy();
-                score -= 50
-                destoyer.destroy();
-            }
-            else {
-                this.scene.stop('F4_gamePlayStart')
-                 this.scene.start('F5_konec') 
-            }
 
-        })*/
+                 // this.stopWatchStop()
+                 // this.scene.stop('F4_gamePlayStart')
+                 // this.scene.start('F5_konec')
+              }
+  
+          })
+
         this.physics.add.overlap(gameState.junak, food, (user, OnePiecefood) => {
             OnePiecefood.destroy()
             score += (10 * scoreMultiplier)
         })
 
-        
-        if(countdown){
-            var timeLeft =(timeToPlay - time);
+
+        if (countdown) {
             gameState.countdown.setText('Time left: ' + time);
-            if(time == 0){
+            if (time <= 0) {
+
                 var type = 4
-                if(timeToPlay == 60)
+                if (timeToPlay == 60)
                     type = 3
-                else if(timeToPlay == 20)   
+                else if (timeToPlay == 20)
                     type = 2
-                
+
 
 
                 const data = {
                     type: type,
                     score: score
                 };
-    
+
                 this.updateDataBase(data)
                     .then(response => {
                         console.log("progress saved!     " + response);
@@ -269,16 +249,15 @@ class F4_gamePlayStart extends F0_shared {
                         console.error(error);
                     });
 
-
-
-
+                countdownEvent.remove();
+                this.stopWatchStop()
                 this.scene.stop('F4_gamePlayStart')
                 this.scene.start('F5_konec')
             }
 
 
 
-        }else{
+        } else {
             if (!H && score > 50) {
                 this.showPopupAchievements(" 50")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
@@ -320,7 +299,7 @@ class F4_gamePlayStart extends F0_shared {
                     achievements: achievements,
                 };
                 this.updateDataBaseAchivements(dataAchievements)
-            } 
+            }
             else if (!fT && score > 5000) {
                 this.showPopupAchievements(" 5000")
                 this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
@@ -351,15 +330,15 @@ class F4_gamePlayStart extends F0_shared {
                     achievements: achievements,
                 };
                 this.updateDataBaseAchivements(dataAchievements)
-         
-    
+
+
+            }
+
         }
 
-    }
 
 
 
-       
 
 
 
@@ -368,22 +347,29 @@ class F4_gamePlayStart extends F0_shared {
     }
 
     spawnJackpot() {
-        var yLength = Math.round(Math.random() * 10) + 30
-        var distance = 0
+        var yLength = Math.round(Math.random() * 10) + 30;
+        var distance = 0;
         var randomPosXInside = Math.round(Math.random() * GAME_WIDTH);
+
         for (var i = 0; i < yLength; i++) {
             var foodNum = Math.floor(Math.random() * 100) + 1;
-            var pieceOfFood = this.physics.add.sprite(randomPosXInside, 0 + distance, "f" + foodNum);
-            pieceOfFood.setVelocityY(speedOfDrops);
-            pieceOfFood.setScale(2.5);
-            food.push(pieceOfFood);
-            distance -= 60
+
+            // Get the first dead piece of food from the pool
+            var pieceOfFood = this.foodPool.getFirstDead();
+
+            // If a dead piece of food is found, revive and position it
+            if (pieceOfFood) {
+                pieceOfFood.setTexture('f' + foodNum); // Set the correct texture
+                pieceOfFood.setPosition(randomPosXInside, 0 + distance);
+                pieceOfFood.setVelocityY(speedOfDrops);
+                pieceOfFood.setActive(true);
+                pieceOfFood.setVisible(true);
+                food.push(pieceOfFood);
+                distance -= 60;
+            }
         }
-
-
-
-
     }
+
 
 
     activateSpawn() {
@@ -393,22 +379,22 @@ class F4_gamePlayStart extends F0_shared {
 
 
         if (buff == 0) {
-            var buffType = Math.round(Math.random() * 3)
+            var buffType = Math.round(Math.random() * 7)
             if (buffType == 0) {
                 this.spawnJackpot();
-            } else if (buffType == 1) {
+            } else if (buffType == 1 || buffType == 2) {
                 var heart = this.physics.add.sprite(randomPosX, 0 - randomPosY, "heart")
                 heart.setVelocityY(speedOfDrops);
                 heart.setScale(0.1)
                 hearts.push(heart)
 
             }
-            else if (buffType == 2) {
+            else if (buffType == 3 || buffType == 4) {
                 var shield = this.physics.add.sprite(randomPosX, 0 - randomPosY, "shield")
                 shield.setVelocityY(speedOfDrops);
                 shields.push(shield)
             }
-            else if (buffType == 3) {
+            else if (buffType == 5 || buffType == 6) {
                 var multiplier = this.physics.add.sprite(randomPosX, 0 - randomPosY, "multiplier")
                 multiplier.setScale(.5)
                 multiplier.setVelocityY(speedOfDrops);
@@ -473,39 +459,37 @@ class F4_gamePlayStart extends F0_shared {
 function spawn() {
     timer = this.getTimePassed()
 
-
+   console.log('food '    + food.length);
     if (!countdown) {
-        if (timer < 5) {
+        if (timer < 15) {
             this.activateSpawn()
             gameState.bg.setTexture('b2');;
 
         }
-        else if (timer > 5 && timer < 15) {
+        else if (timer > 15 && timer < 50) {
             food = [];
             destoyers = []; for (var i = 0; i < 2; i++) {
                 this.activateSpawn()
             }
-            console.log(food)
             gameState.bg.setTexture('b3');;
             speedOfDrops = 320
         }
-        else if (timer > 15 && timer < 30) {
+        else if (timer > 50 && timer < 80) {
             food = [];
             destoyers = []; for (var i = 0; i < 3; i++) {
                 this.activateSpawn()
             }
-            console.log(food)
             gameState.bg.setTexture('b4');;
             speedOfDrops = 350
         }
-        else if (timer > 30 && timer < 60) {
+        else if (timer > 80 && timer < 120) {
             food = [];
             destoyers = []; for (var i = 0; i < 4; i++) {
                 this.activateSpawn()
             }
             gameState.bg.setTexture('b5');;
         }
-        else if (timer > 60 && timer < 75) {
+        else if (timer > 120 && timer < 170) {
             food = [];
             destoyers = [];
             for (var i = 0; i < 4; i++) {
@@ -515,31 +499,21 @@ function spawn() {
             gameState.bg.setTexture('b6');;
             speedOfDrops = 400
         }
-        else if (timer > 75 && timer < 100) {
-            food = [];
-            destoyers = [];
-            for (var i = 0; i < 4; i++) {
-
-                this.activateSpawn()
-            }
-            gameState.bg.setTexture('b7');;
-        }
         else {
             food = [];
             destoyers = [];
-            if (timer % 30 == 0) {
+            if (timer % 60 == 0) {
                 this.changeBc()
             }
-
-
-
 
             for (var i = 0; i < 4; i++) {
                 this.activateSpawn()
             }
- 
+
 
         }
+        console.log('food2 ' + food.length);
+        console.log('');
 
     }
     else {
@@ -573,13 +547,12 @@ function spawn() {
             for (var i = 0; i < 4; i++) {
                 this.activateSpawn()
             }
-        }
-        else {
+        } else {
 
-            if (timer % 30 == 0) {
-                food = [];
-                destoyers = [];
-            }
+
+            food = [];
+            destoyers = [];
+
 
 
             speedOfDrops = 420
@@ -588,6 +561,7 @@ function spawn() {
             for (var i = 0; i < 4; i++) {
                 this.activateSpawn()
             }
+
 
         }
     }

@@ -98,40 +98,61 @@
         "speedrun_win_slow2x": "Wow, nisem si mislil, da se bo tole sporočilo kdaj prikazalo na zaslonu, tole je pa bilo kar počasi za igrico, kjer si dolžan biti hiter",
         "city_intro": "Joj kako lep dan, mar ga ne bi bilo vredno počastiti z enim prijetnim kosilom????? Mislim, da je čas, da greš v nabavno, daj nakupi čim več dobrega! Srečno! ",
         "the_final_rage_end": "počil je lonec in sedaj je zares konec...",
-       
-       
+        "explanation": "RAZLAGA",
+        "game": "IGRA",
         "ach_ruins": "RUŠEVINE",
         "ach_50deaths": "50 SMRTI",
         "ach_secret": "SKRIVNI NIVO",
-        "ach_city" : "MESTO",
+        "ach_city": "MESTO",
         "ach_hard": "HARD MODE",
         "ach_easy": "EASY MODE",
-
         "ach_stars": "ODKRIJ ZVEZDE",
         "ach_all": "RAZNOLIKOST",
         "ach_finish": "OPRAVI IGRO",
         "ach_speed": "HITROST",
-        "ach_death" : "UMRI 20x V ENI IGRI",
-        "ach_ship" : "UMRI ZARADI VESOLJSKE LADJE",
+        "ach_death": "UMRI 20x V ENI IGRI",
+        "ach_ship": "UMRI ZARADI VESOLJSKE LADJE",
         "ach_OG": "OG ",
-        "store": "razlaga",
-        "bought" : "aktivirano",
-        "not_ava" : "ni na voljo",
-        "booster" :"pospešek aktiviran",
+        "randomPrize": "naključna izbira ",
 
-        "wisdom1":" Življenje je potovanje, ne cilj. Vsak dan je priložnost za rast in učenje." ,
+        "shield": "zaščita pred ovirami in sovražnikom",
+        "ghost": "zaščita pred ovirami",
+        "shroom": "zaščita pred sovražnikom",
+        "potion": "dodatno življenje",
+        "quickShip": "velikooo pospeška",
+        "spaceShip": "zaščita pred vsem",
+
+
+        "shieldCity": "zavaruje pred slabimi stvarmi za določen čas",
+        "heart": "dodatno življenje",
+        "multiplier": "vrednost hrane se izboljša",
+
+
+
+
+        "yourScore" : "tvoj rezultat je: ",
+            "feast1" : "mmmm, tole bo pa kar dobra pojedina. Hvala za igranje!",
+            "feast2" : "njami, še bi mami! Hvala za igranje",
+            "feast3" : "nama z Zmejo se kar cedijo sline, pa tebi?",
+
+
+
+
+    
+        "store": "razlaga",
+        "bought": "aktivirano",
+        "not_ava": "ni na voljo",
+        "booster": "pospešek aktiviran",
+        "wisdom1": " Življenje je potovanje, ne cilj. Vsak dan je priložnost za rast in učenje.",
         "wisdom2": "  Bodi prijazen do drugih, kajti vsak, ki ga srečaš, bije svojo bitko.",
         "wisdom3": "   Iskrenost je osnova vseh dobrih odnosov.",
-        "wisdom4": "  Bodi potrpežljiv. Vse velike stvari potrebujejo čas." ,
-        "wisdom5":  "  Sprejmi spremembe; so edina stalnica v življenju.",
-        "wisdom6": "  Prisluhni več, kot govoriš. Naučiš se več, ko poslušaš." ,
+        "wisdom4": "  Bodi potrpežljiv. Vse velike stvari potrebujejo čas.",
+        "wisdom5": "  Sprejmi spremembe; so edina stalnica v življenju.",
+        "wisdom6": "  Prisluhni več, kot govoriš. Naučiš se več, ko poslušaš.",
         "wisdom7": " Uči se iz preteklosti, živi v sedanjosti, načrtuj za prihodnost.",
-        "wisdom8": " Zdravje je največje bogastvo. Skrbi za svoje telo in duha." ,
-        "wisdom9": "Nikoli ne nehaj sanjati. Sanje so semena prihodnjih realnosti." ,
+        "wisdom8": " Zdravje je največje bogastvo. Skrbi za svoje telo in duha.",
+        "wisdom9": "Nikoli ne nehaj sanjati. Sanje so semena prihodnjih realnosti.",
         "wisdom10": "Bodi hvaležen za male stvari; so tiste, ki sestavljajo veliko srečo."
-
-
-
 
     }
 }

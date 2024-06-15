@@ -3,6 +3,7 @@
         "next": "NEXT",
         "play": "PLAY",
         "play2": "PLAY v2",
+        "game": "GAME",
         "last_version": "Do you want to load a save from",
         "last_version_date": "from",
         "no": "NO",
@@ -124,6 +125,25 @@
         "wisdom7": "Learn from the past, live in the present, plan for the future.",
         "wisdom8": "Health is the greatest wealth. Take care of your body and mind.",
         "wisdom9": "Never stop dreaming. Dreams are the seeds of future realities.",
-        "wisdom10": "Be grateful for the small things; they are what make up great happiness."
+        "wisdom10": "Be grateful for the small things; they are what make up great happiness.",
+        "explanation": "EXPLANATION",
+        "randomPrize": "random prize",
+        "shield": "protection from obstacles and enemies",
+        "ghost": "protection from obstacles",
+        "shroom": "protection from enemies",
+        "potion": "extra life",
+        "quickShip": "lots of speed boost",
+        "spaceShip": "protection from everything",
+        "achievementBuy": "buy achievement",
+        "shieldCity": "protects against bad things for a certain time",
+"heart": "gives you an extra life",
+"multiplier": "improves the value of food",
+
+"yourScore" : "your score is:  ",
+"feast1": "Mmmm, this will be quite a feast. Thanks for playing!",
+"feast2": "Yummy, I want to eat even more! Thanks for playing.",
+"feast3": "Zmeja and I are drooling, how about you?"
+
+
     }
 }

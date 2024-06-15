@@ -80,7 +80,7 @@ class F2_time_intro extends Phaser.Scene {
     this.nivoji.setScale(1.5)
     this.nivoji.on('pointerup', () => {
         stopWatchStart()
-        timeToPlay = 60
+        timeToPlay = 120
         this.scene.stop('F2_time_intro')
         this.scene.start('F4_gamePlayStart')
 	})
@@ -88,14 +88,14 @@ class F2_time_intro extends Phaser.Scene {
     this.lahko.setScale(1.5)
     this.lahko.on('pointerup', () => {
         stopWatchStart()
-        timeToPlay = 22
+        timeToPlay = 20
 
         this.scene.stop('F2_time_intro')
         this.scene.start('F4_gamePlayStart')
 	})
     this.city.setScale(1.5)
 	this.city.on('pointerup', () => {
-        timeToPlay = 120
+        timeToPlay = 60
         stopWatchStart()
         this.scene.stop('F2_time_intro')
         this.scene.start('F4_gamePlayStart')

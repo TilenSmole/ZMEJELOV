@@ -116,7 +116,7 @@ class M5_konec extends M0_shared {
             });
         };
 
-        if (rainbowUnlocked) {
+        if (rainbowUnlocked && !rainbow) {
             showPopupAchievements(this.loadText("rainbow"))
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
@@ -129,11 +129,11 @@ class M5_konec extends M0_shared {
         }
 
 
-        if (canShowAnAchivement) {
+        if (canShowAnAchivement && !noPops) {
             showPopupAchievements(this.loadText("no_pups"))
             this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
             this.titleMusic.play();
-            tfK = true
+            noPops = true
             this.updateAchievements();
             const dataAchievements = {
                 achievements: achievements,

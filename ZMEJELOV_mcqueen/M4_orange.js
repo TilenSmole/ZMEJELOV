@@ -1,11 +1,10 @@
-
-class M4_red extends M0_shared {
-
+class M4_orange extends M0_shared {
     constructor() {
-        super("M4_red")
+        super("M4_orange")
     }
 
-  
+    dolzina = 20000
+
     preload() {
         super.preload()
         this.load.image('ship', "assets/a_TheFinalRage/r1 (15).png");
@@ -37,21 +36,38 @@ class M4_red extends M0_shared {
         });
     }
 
+	createRectanglePlatform(x, y) {
+		var graphics = this.add.graphics();
+		var rectWidth = 300;  // Width of the rectangle
+		var rectHeight = 20;  // Height of the rectangle
+		var rectColor = 0xFF7F50;  // Color of the rectangle
 
+		graphics.fillStyle(rectColor, 1);  // Color and alpha
+		graphics.fillRect(0, 0, rectWidth, rectHeight);  // Position and size of the rectangle
+		graphics.generateTexture('rectPlatform', rectWidth, rectHeight);
+
+		var platform = this.physics.add.sprite(x, y, 'rectPlatform');
+		platform.setImmovable(true);
+		platform.body.allowGravity = false;
+		platform.body.setSize(rectWidth, rectHeight);
+
+		return platform;
+	}
     create() {
 
+        
 
         super.create();
         lowerPlatforms = [];
 
         //ozadje rainbow
-        var rainbowWidth = 32000; // Width of each color segment
+        var rainbowWidth = 22000; // Width of each color segment
 
         var p1 = this.add.graphics();
 
 
         // Fill the graphics objects with gradient fills representing the colors of the rainbow
-        p1.fillStyle(0xFF0000, 1); // Red
+        p1.fillStyle(0xFFA500, 1); 
         p1.fillRect(0, 0, rainbowWidth, visina);
 
 
@@ -64,14 +80,12 @@ class M4_red extends M0_shared {
         // gameState.junak = this.physics.add.sprite(dolzina-800, visina - 400, "Zmeja")
         gameState.junak = this.physics.add.sprite(200, visina - 400, "zmeja")
 
-
-        if(!this.anims.exists('reaperMovement'))
-      {  this.anims.create({
+        this.anims.create({
             key: 'reaperMovement',
             frames: this.anims.generateFrameNumbers('reaperMovement', { start: 0, end: 5 }), // Adjust the range as needed
             frameRate: 8,
             repeat: -1
-        });}
+        });
 
 
         gameState.junak.setCollideWorldBounds(true)
@@ -134,22 +148,16 @@ class M4_red extends M0_shared {
                     coin.destroy();
                 }
             });
-            if (gameState.junak.x >= 29500) {
-                /*if (rocketStart)
-                    rocketStart = false*/
-             
+            if (gameState.junak.x >=19500) {
+
+                this.scene.stop('M4_orange');
+                this.scene.start('M4_yellow');
+                this.reset()
+
                 if (speedShip)
                     speedShip = false
                 if (spaceshipStart)
                     spaceshipStart = false
-
-
-                this.reset()
-
-                this.scene.stop('M4_red');
-                this.scene.start('M4_orange');
-
-               
 
             }
             lowerPlatforms.forEach(platform => {
@@ -313,10 +321,7 @@ class M4_red extends M0_shared {
 
 
             if (gameState.junak.y >= visina - 70) {
-                if(rocketStart){
-
-                }
-                if (potionStart || spaceshipStart || heart || spaceShip ) {
+                if (potionStart || spaceshipStart || heart || spaceShip || rocketStart) {
                     potionActivation = true
                     gameState.junak.setVelocityX(0)
                     gameStateStoredX = gameState.junak.x
@@ -379,7 +384,7 @@ class M4_red extends M0_shared {
 
             })
             
-           /* enemies.forEach(enemy => {
+            enemies.forEach(enemy => {
                 if (enemy.x >= enemy.targetMax) {
                     enemy.reachedTarget = true
                 }
@@ -401,7 +406,7 @@ class M4_red extends M0_shared {
 
 
 
-        });*/
+        });
 
             this.physics.add.overlap(gameState.junak, enemies, (user, enemy) => {
                 if (!shroomStart && !shieldStart && !spaceshipStart && !spaceShip && !shroom && !shield && !rocketStart && !speedShip) {
@@ -446,8 +451,7 @@ class M4_red extends M0_shared {
                         shield = false
                     if (ghost)
                         ghost = false
-
-
+                    console.log('oh wow unic');
                 }
                 else {
                     this.scene.stop('M4_red')
@@ -571,11 +575,11 @@ function spawn() {
                     lowerPlatforms.push(startPlatfrom);
                     lastPoint += Math.floor(Math.random() * 100) + 350
                 }
-                var thing = Math.floor(Math.random() * 5)
+                var thing = Math.floor(Math.random() * 6)
 
                 //change probability
 
-                if (thing == 0)
+                if (thing == 0 || thing == 5)
                     this.generateEnemy(start, limit, height)
                 else if (thing == 1)
                     this.generateCoins(start, limit, height)

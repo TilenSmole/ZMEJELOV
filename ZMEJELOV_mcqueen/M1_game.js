@@ -48,6 +48,44 @@ var heart = false
 var spaceShip = false
 var speedShip = false
 
+//for game 
+const dolzina = 30000
+var freshlyRocketDone = false
+var lowerPlatforms = [];
+var upperPlatforms = [];
+
+var finalPlatform = [];
+var playOnce = false
+var coins = [];
+var enemies = [];
+
+var objectsFloor = []
+var lowerCollider
+
+var zen = false
+var buffs = []
+var distance = 0
+var shieldIcon = ""
+var startTimeShield = 0
+var gameStateStoredX = 0
+var heartIcon = ""
+var spaceShipIcon = ""
+var startTimeheart = 0
+var potionActivation = false
+var spaceShipIcon = ""
+var startTimespaceShip = 0
+
+var shroomIcon = ""
+var startTimeshroom = 0
+var countdownText
+var ghostIcon = ""
+var startTimeGhost = 0
+var canStart = false
+
+
+
+
+
 
 
 
@@ -96,7 +134,7 @@ const config = {
   type: Phaser.AUTO,
   height: GAME_HEIGHT,
   width: GAME_WIDTH,
-  scene: [M2_inicial, M4_shop, M0_shared, M3_storyIntro, M4_red, M4_deathScreen, M5_konec],
+  scene: [M2_inicial, M3_shop, M0_shared, M3_explanation, M4_red, M4_orange, M4_yellow , M4_green,M4_blue,M4_indigo,M4_violet, M4_deathScreen, M5_konec],
   physics: {
     default: 'arcade',
     arcade: {
