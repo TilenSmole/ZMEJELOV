@@ -152,7 +152,8 @@
         "wisdom7": " Uči se iz preteklosti, živi v sedanjosti, načrtuj za prihodnost.",
         "wisdom8": " Zdravje je največje bogastvo. Skrbi za svoje telo in duha.",
         "wisdom9": "Nikoli ne nehaj sanjati. Sanje so semena prihodnjih realnosti.",
-        "wisdom10": "Bodi hvaležen za male stvari; so tiste, ki sestavljajo veliko srečo."
+        "wisdom10": "Bodi hvaležen za male stvari; so tiste, ki sestavljajo veliko srečo.",
+        "explanation_city" : "cilj igre je pobirati hrano, ki pade z neba. Stik z njo ti bo prinesel 10 točk, v kolikor igraš v2, ob stiku s slabimi zadevami izgubiš 50 točk. V normalni verziji pa izgubiš igro. Seveda pa tudi bodi pozoren na ti powerups, ki ti bodo olajšale igranje. Srečno"
 
     }
 }

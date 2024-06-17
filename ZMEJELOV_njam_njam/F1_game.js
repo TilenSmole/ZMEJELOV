@@ -9,13 +9,13 @@ var muska = 1 //da ne ponavla muske vsakic ko gres na main
 var spawnFood = true
 var score = 0
 var currentTimer = 0
-var delayTimer = 2500
+var delayTimer = 3000
 var typeOfBc = [1,2,3,4,5,6,7]
 var typeOfBcIndex = 0
 var speedOfDrops = 300
 var timeToPlay = 0
 var countdown = false
-
+var lastSwitch =  0 //how long has it been since last change of the scene
 // GAME
 var food = [];
 var destoyers = [];
@@ -36,10 +36,10 @@ var startTimeMultiplayer = 0
 var time = 0
 var scoreMultiplier = 1 //how much multiplayer a player has 
 let countdownEvent;
-
-
-
-
+ 
+let startX = GAME_WIDTH / 2   //start x coordiante for zmeja
+let startY =  GAME_HEIGHT - 200 //start y coordiante for zmeja
+let type = 4 //which type of v2 we r playing
 const gameState = {
    speed: -650, //650!!!!!!!!!!!!!!!
    
@@ -90,7 +90,7 @@ const config = {
     type: Phaser.AUTO,
     height:  GAME_HEIGHT, 
     width: GAME_WIDTH ,  
-    scene:[F2_inicial, F0_shared, F4_gamePlayStart,F3_explanation, F3_storyIntro, F2_time_intro,F5_konec],
+    scene:[F2_inicial, F0_shared, F4_gamePlayStart,F3_explanation,F4_gamePlayStart2, F3_storyIntro, F2_time_intro,F5_konec],
     physics: {
       default: 'arcade',
       arcade: {

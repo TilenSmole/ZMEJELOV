@@ -73,7 +73,16 @@ class F2_time_intro extends Phaser.Scene {
    
      this.add.text(GAME_WIDTH-265,GAME_HEIGHT - 190, this.loadText("home"),{ fontSize: '40px',fill: '#B637BF',  fontFamily: 'CustomFont' });
 
-        
+     star = false
+     heart = false
+     shield = false
+     hearts = []
+     shields = []
+     distanceHeart = 0
+     heartsOnScreen = []
+     startTime = 0
+     startTimeMultiplayer = 0
+     scoreMultiplier = 1 //how much multiplayer a player has    
     
 
     this.nivoji.setScale(1.5)
@@ -81,24 +90,29 @@ class F2_time_intro extends Phaser.Scene {
     this.nivoji.on('pointerup', () => {
         stopWatchStart()
         timeToPlay = 120
+        time = timeToPlay
+        type = 4
         this.scene.stop('F2_time_intro')
         this.scene.start('F4_gamePlayStart')
 	})
     
     this.lahko.setScale(1.5)
     this.lahko.on('pointerup', () => {
+        timeToPlay = 2
+        time = timeToPlay
         stopWatchStart()
-        timeToPlay = 20
-
+        type = 2
         this.scene.stop('F2_time_intro')
         this.scene.start('F4_gamePlayStart')
 	})
     this.city.setScale(1.5)
 	this.city.on('pointerup', () => {
         timeToPlay = 60
+        time = timeToPlay
         stopWatchStart()
         this.scene.stop('F2_time_intro')
         this.scene.start('F4_gamePlayStart')
+        type = 3
 	})
     
    
@@ -111,9 +125,6 @@ class F2_time_intro extends Phaser.Scene {
 
 
     
-
-
-  
 
 
     

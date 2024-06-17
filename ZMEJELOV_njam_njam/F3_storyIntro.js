@@ -70,6 +70,17 @@ class F3_storyIntro extends F0_shared {
         var spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
         spaceBar.on('down', () => {
+            star = false
+            heart = false
+            shield = false
+            hearts = []
+            shields = []
+            distanceHeart = 0
+            heartsOnScreen = []
+            startTime = 0
+            startTimeMultiplayer = 0
+            scoreMultiplier = 1 //how much multiplayer a player has 
+            stopWatchStart()
           this.scene.stop('F3_storyIntro')
           this.scene.start('F4_gamePlayStart')
         });

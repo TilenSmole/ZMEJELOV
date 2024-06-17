@@ -19,8 +19,8 @@ $translations = loadTranslations();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZMEJELOV</title>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
     <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/common.css">
 
@@ -38,13 +38,20 @@ $translations = loadTranslations();
         });
     </script>
 
+    <div class="mobileContainer">
+        <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmejaMobile">
+        <span class="mobile"><?php echo $translations['mobile_too_small'] ?></span>
+    </div>
+
+
 
     <div class="introduction" id="introduction_OG">
         <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja" class="col-10">
         <div class="introductionText">
             <?php if (isset($_SESSION["username"])) : ?>
-                <p><?php   echo $translations['welcome_again'] ?><br>
-                <br><ul id="options">
+                <p><?php echo $translations['welcome_again'] ?><br>
+                    <br>
+                <ul id="options">
                     <li><a href="zmejelov1869.php">ZMEJELOV 1869 </a><?php echo $translations['welcome_1869'] ?></li>
                     <li><a href="/zmentures.php">ZMENTURES</a> <?php echo $translations['welcome_zmentures'] ?></li>
                     <li><a href="Crackelov.php">CRA*KELOV</a> <?php echo $translations['welcome_crackelov'] ?> </li>
@@ -65,16 +72,17 @@ $translations = loadTranslations();
     </div>
     <?php
 
+
     $language = isset($_SESSION['selectedLanguage']) ? $_SESSION['selectedLanguage'] : 'slo';
     ?>
-    <div id="memes" style="position: relative; width: 1000px; height: 1000px; margin: auto; overflow: hidden;">
+    <div id="memes" style="position: relative; margin: auto; overflow: hidden;">
         <h1>MEMES</h1>
-        <button id="prev" class="slider-button" style="left: 0;">&lt;</button>
-        <button id="next" class="slider-button" style="right: 0;">&gt;</button>
+        <button id="prev" class="slider-button">&lt;</button>
+        <button id="next" class="slider-button" >&gt;</button>
 
 
 
-        <div class="memesSlider fade">
+        <div class="memesSlider fade memesSlider2">
             <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
 /m1<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 1">
         </div>
@@ -166,19 +174,19 @@ $translations = loadTranslations();
         <h1>VIDEO VSEBINA</h1>
         <div>
             <div class="pictureSliderVideo fade">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WkpYCOwkyK4?si=BSql_6SpqcIPEFWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/WkpYCOwkyK4?si=BSql_6SpqcIPEFWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div class="text">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse sunt, facere accusamus ipsa assumenda repellendus nisi ullam. Blanditiis consequuntur, voluptatum minus neque porro doloribus voluptatibus impedit, ab amet totam quaerat?</p>
                 </div>
             </div>
             <div class="pictureSliderVideo fade">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/WkpYCOwkyK4?si=BSql_6SpqcIPEFWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/WkpYCOwkyK4?si=BSql_6SpqcIPEFWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div class="text">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse sunt, facere accusamus ipsa assumenda repellendus nisi ullam. Blanditiis consequuntur, voluptatum minus neque porro doloribus voluptatibus impedit, ab amet totam quaerat?</p>
                 </div>
             </div>
             <div class="pictureSliderVideo fade">
-                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nN8u2-mLYUY?si=ppCsG7ehGV1jXwW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <iframe src="https://www.youtube-nocookie.com/embed/nN8u2-mLYUY?si=ppCsG7ehGV1jXwW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                 <div class="text">
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse sunt, facere accusamus ipsa assumenda repellendus nisi ullam. Blanditiis consequuntur, voluptatum minus neque porro doloribus voluptatibus impedit, ab amet totam quaerat?</p>
                 </div>
@@ -216,28 +224,28 @@ $translations = loadTranslations();
         <h1><?php
             echo $translations['intro_essay'] ?></h1>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (1).png" alt="zmentures" width="800" height="500">
+            <img src="assets/zmejelov/1 (1).png" alt="zmentures">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (2).png" alt="the final rage" width="800" height="500">
+            <img src="assets/zmejelov/1 (2).png" alt="the final rage">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (3).png" alt="zmejelov" width="800" height="500">
+            <img src="assets/zmejelov/1 (3).png" alt="zmejelov">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (4).png" alt="zmejelov keep on" width="800" height="500">
+            <img src="assets/zmejelov/1 (4).png" alt="zmejelov keep on">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (5).png" alt="zmejelov keep on" width="800" height="500">
+            <img src="assets/zmejelov/1 (5).png" alt="zmejelov keep on">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (6).png" alt="zmejelov keep on" width="800" height="500">
+            <img src="assets/zmejelov/1 (6).png" alt="zmejelov keep on">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (7).png" alt="zmejelov keep on" width="800" height="500">
+            <img src="assets/zmejelov/1 (7).png" alt="zmejelov keep on">
         </div>
         <div class="pictureSlider fade">
-            <img src="assets/zmejelov/1 (8).png" alt="zmejelov keep on" width="800" height="500">
+            <img src="assets/zmejelov/1 (8).png" alt="zmejelov keep on">
         </div>
 
         <script>
@@ -260,11 +268,11 @@ $translations = loadTranslations();
             }
         </script>
 
-        <p><?php
-            echo $translations["my_intro"] ?>
+        <p class="my_intro"><?php
+                            echo $translations["my_intro"] ?>
 
-        <p><?php
-            echo $translations['github_essay'] ?></p>
+        <p class="my_intro"><?php
+                            echo $translations['github_essay'] ?></p>
 
     </div>
 

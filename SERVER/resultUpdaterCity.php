@@ -19,9 +19,13 @@ if ($data) {
     $query = "INSERT INTO leaderboard ([user], score, type, date) VALUES (?, ?, ?, GETDATE())";
 
     $stmt = sqlsrv_prepare($conn, $query, array(&$user, &$score, &$type));
-
+    echo "jej";
     if ($stmt) {
         if (sqlsrv_execute($stmt)) {
+            echo  $user;
+
+echo $score;
+
             echo json_encode(array("message" => "Database with result updated successfully"));
         } else {
             // Enhance error handling to get detailed error messages

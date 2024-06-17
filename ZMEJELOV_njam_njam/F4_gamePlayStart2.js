@@ -1,16 +1,16 @@
 var visina = 800
 var dolzina = 1300
 
-class F4_gamePlayStart extends F0_shared {
+class F4_gamePlayStart2 extends F0_shared {
     constructor() {
-        super("F4_gamePlayStart")
+        super("F4_gamePlayStart2")
     }
     preload() {
         super.preload()
         for (let i = 1; i <= 7; i++) {
             this.load.image("b" + i, "assets/a_njam_njam/background/" + i + ".png");
         }
-    
+        
         this.load.image("b_mesto", " assets/mesto/City2.png");
 
 
@@ -39,8 +39,8 @@ class F4_gamePlayStart extends F0_shared {
         food = [];
         destoyers = [];
         allPlatforms = []
-        super.create();
 
+        super.create();
         gameState.bg = this.add.image(GAME_WIDTH / 2, GAME_HEIGHT / 2, 'b2');
         if (!countdown)
             this.changeBc()
@@ -48,6 +48,10 @@ class F4_gamePlayStart extends F0_shared {
             gameState.bg.setTexture('b_mesto');;
 
         gameState.bg.setDisplaySize(GAME_WIDTH, GAME_HEIGHT)
+
+
+
+
 
         this.cameras.main.setBounds(0, 0, dolzina, visina)
         this.physics.world.setBounds(0, 0, dolzina, visina)
@@ -138,7 +142,6 @@ class F4_gamePlayStart extends F0_shared {
             callbackScope: this,
             loop: true
         });
-      
     }
 
     update() {
@@ -166,21 +169,7 @@ class F4_gamePlayStart extends F0_shared {
 
 
         var currentTime = this.getTimePassed()
-        
-        console.log("currentTime" + currentTime);
-        if(currentTime % 40 == 0 && currentTime != 0 && lastSwitch +10 < currentTime ){
-       
-            lastSwitch = currentTime
-            startX = gameState.junak.x
-            startY = gameState.junak.y
-
-             this.scene.stop('F4_gamePlayStart')
-             this.scene.start('F4_gamePlayStart2')
-             
-        }
-
-
-
+        //
         if (shield) {
             shieldIcon.x = gameState.junak.x - 100
             shieldIcon.y = gameState.junak.y - 50;
@@ -191,29 +180,48 @@ class F4_gamePlayStart extends F0_shared {
             }
 
         }
+console.log(currentTime);
+
+if(currentTime % 40 == 0 && currentTime != 0 && lastSwitch +10 < currentTime ){
+    console.log('Evaluating condition:');
+    console.log('currentTime:', currentTime);
+    console.log('lastSwitch:', lastSwitch);
+    console.log('currentTime % 40:', currentTime % 40);
+    console.log('lastSwitch + 10 < currentTime:', lastSwitch + 10 < currentTime);
+    lastSwitch = currentTime
+    startX = gameState.junak.x
+    startY = gameState.junak.y
+    console.log(lastSwitch);
+    console.log(currentTime);
+    console.log('¸nova scenaaa');
+     this.scene.stop('F4_gamePlayStart2')
+     this.scene.start('F4_gamePlayStart')
+     
+}
+
+
 
 
         gameState.text.setText('Score: ' + score);
           this.physics.add.overlap(gameState.junak, destoyers, (user, destoyer) => {
+            destoyer.destroy();
+
               if (heartsOnScreen.length !== 0) {
                   if (!shield) {
                       distanceHeart -= 40
                       var removedHeart = heartsOnScreen.pop();
-                      destoyer.destroy();
                       removedHeart.destroy();
                   }
   
   
               } else if (countdown) {
-                  destoyer.destroy();
                   score -= 50
               }
               else {
                 console.log('¸pain');
-                destoyer.destroy();
 
                   this.stopWatchStop()
-                 this.scene.stop('F4_gamePlayStart')
+                  this.scene.stop('F4_gamePlayStart')
                   this.scene.start('F5_konec')
               }
   
@@ -229,14 +237,16 @@ class F4_gamePlayStart extends F0_shared {
             gameState.countdown.setText('Time left: ' + time);
             if (time <= 0) {
 
+               
+
 
 
                 const data = {
                     type: type,
                     score: score
                 };
-
-
+                console.log('¸DELA TOOO');  
+                console.log(data.score);
                 this.updateDataBase(data)
                     .then(response => {
                         console.log("progress saved!     " + response);
@@ -244,7 +254,6 @@ class F4_gamePlayStart extends F0_shared {
                     .catch(error => {
                         console.error(error);
                     });
-                
 
                 countdownEvent.remove();
                 this.stopWatchStop()
@@ -334,8 +343,7 @@ class F4_gamePlayStart extends F0_shared {
         }
 
 
-   
-        
+
 
 
 
@@ -460,32 +468,34 @@ function spawn() {
         food = [];
         destoyers = [];
 
-       
+     
+
 
         if (timer < 15) {
             this.activateSpawn()
-          //  gameState.bg.setTexture('b2');;
+           // gameState.bg.setTexture('b2');;
 
         }
         else if (timer > 5 && timer < 10) {
         for (var i = 0; i < 2; i++) {
                 this.activateSpawn()
             }
-          //  gameState.bg.setTexture('b3');;
-            speedOfDrops = 320
+           // gameState.bg.setTexture('b3');;
+            speedOfDrops = 150
         }
         else if (timer > 10 && timer < 30) {
             for (var i = 0; i < 3; i++) {
                 this.activateSpawn()
             }
-        //    gameState.bg.setTexture('b4');;
-            speedOfDrops = 350
+          //  gameState.bg.setTexture('b4');;
+            speedOfDrops = 200
         }
         else if (timer > 30 && timer < 60) {
              for (var i = 0; i < 4; i++) {
                 this.activateSpawn()
             }
-          //  gameState.bg.setTexture('b5');;
+           // gameState.bg.setTexture('b5');;
+            speedOfDrops = 250
         }
         else if (timer > 60 && timer < 100) {
    
@@ -493,13 +503,12 @@ function spawn() {
                 this.activateSpawn()
             }
 
-          //  gameState.bg.setTexture('b6');;
-            speedOfDrops = 400
+           // gameState.bg.setTexture('b6');;
         }
         else {
          
 
-            for (var i = 0; i < 4; i++) {
+            for (var i = 0; i < 5; i++) {
                 this.activateSpawn()
             }
 
@@ -528,7 +537,7 @@ function spawn() {
         else if (timer > 40 && timer <= 60) {
             food = [];
             destoyers = [];
-            speedOfDrops = 400
+            speedOfDrops = 350
             for (var i = 0; i < 3; i++) {
                 this.activateSpawn()
             }
@@ -547,7 +556,7 @@ function spawn() {
 
 
 
-            speedOfDrops = 420
+            speedOfDrops = 380
 
 
             for (var i = 0; i < 4; i++) {

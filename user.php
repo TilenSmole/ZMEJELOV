@@ -2,7 +2,10 @@
 include("SERVER/database.php");
 include('translations/load_translations.php');
 $translations = loadTranslations();
-$username = $_SESSION['username'];
+if (isset( $_SESSION['username'])) {
+  $username = $_SESSION['username'];
+
+}
 if (isset($_GET['user'])) {
   $username = $_GET['user'];
 }
@@ -46,6 +49,8 @@ if ($result) {
         });
       </script>
       <div id="header"></div>
+
+      
       <div id="profileTop">
         <div class="profile">
           <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 150px; height: 200px; background-color: #605966; border-radius: 100%;">

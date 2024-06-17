@@ -58,7 +58,15 @@ class F3_explanation extends F0_shared {
 
 
 
-
+  
+     this.add.text(100, 500, this.loadText("explanation_city"), { 
+        fontSize: '35px',
+        fill: '#B637BF',
+        fontFamily: 'CustomFont',
+        wordWrap: { width: GAME_WIDTH-200, useAdvancedWrap: true }
+    });
+ 
+    
 
 
     this.zacetek.on('pointerup', () => {

@@ -38,6 +38,14 @@
         
 
 
+        
+
+
+
+
+
+
+
 
 
         this.space =   this.add.text(300, 200, this.loadText("space_restart"), { fontSize: '30px', fill: "#B637BF" })

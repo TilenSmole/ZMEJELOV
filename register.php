@@ -18,7 +18,17 @@
 
 </head>
 <body>
+<script>
+    function checkScreenSizeAndRedirect() {
+        var screenWidth = window.innerWidth;
+        if (screenWidth <= 1200)
+            window.location.href = "index.php"; 
+       
+    }
 
+    window.onload = checkScreenSizeAndRedirect;
+    window.onresize = checkScreenSizeAndRedirect;
+</script>
     <div id="loginForm">
         <form action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" method="POST"> 
         <div class="username">        🧛‍♀️<input type="text" name="username" placeholder=<?php echo $translations["username"] ?> ><br>

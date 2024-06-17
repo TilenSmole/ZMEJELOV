@@ -158,7 +158,11 @@ class F0_shared extends Phaser.Scene {
 		minute = 0;
 		second = 0;
 		count = 0;
-
+		 startX = GAME_WIDTH / 2   //start x coordiante for zmeja
+ startY =  GAME_HEIGHT - 200 //start y coordiante for zmeja
+ timer = true
+  uploaded = false
+  lastSwitch = 0
 	}
 
 

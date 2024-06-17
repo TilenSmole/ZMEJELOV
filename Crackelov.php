@@ -99,6 +99,11 @@ $translations = loadTranslations();
     </script>
     <div id="header"></div>
 
+    <div class="mobileContainer">
+        <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmejaMobile">
+        <span class="mobile"><?php echo $translations['thefinalrage_intro_mobile'] ?></span>
+        
+    </div>
 
     <div class="introduction" id="introduction_crackelov">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
@@ -132,6 +137,10 @@ $translations = loadTranslations();
           </div>
         <?php endif; ?>
       </div>
+    </div>
+
+    <div class="game_mobile">
+      <span><?php echo $translations['mobile_too_small2'] ?></span>
     </div>
 
     <div class="speed_running_split" id="QnA_crackelov">
@@ -452,8 +461,9 @@ $translations = loadTranslations();
     </div>
 
     <div class="comments_DIV" id="comments_OG">
+    <h1><?php
+              echo $translations["KOMENTARJI"] ?></h1>
       <?php if (isset($_SESSION["username"])) : ?>
-        <h1><?php echo $translations["KOMENTARJI"] ?></h1>
         <div>
           <div class="alignCommentAdd">
             <form action="Crackelov.php" method="GET" class="commentsForm">
@@ -467,8 +477,7 @@ $translations = loadTranslations();
 
       <?php else : ?>
         <div class="commentsFormError">
-          <h1><?php
-              echo $translations["KOMENTARJI"] ?></h1>
+         
           <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
         </div>
       <?php endif; ?>

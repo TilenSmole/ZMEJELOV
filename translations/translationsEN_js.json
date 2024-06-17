@@ -136,14 +136,14 @@
         "spaceShip": "protection from everything",
         "achievementBuy": "buy achievement",
         "shieldCity": "protects against bad things for a certain time",
-"heart": "gives you an extra life",
-"multiplier": "improves the value of food",
+        "heart": "gives you an extra life",
+        "multiplier": "improves the value of food",
+        "yourScore": "your score is:  ",
+        "feast1": "Mmmm, this will be quite a feast. Thanks for playing!",
+        "feast2": "Yummy, I want to eat even more! Thanks for playing.",
+        "feast3": "Zmeja and I are drooling, how about you?",
 
-"yourScore" : "your score is:  ",
-"feast1": "Mmmm, this will be quite a feast. Thanks for playing!",
-"feast2": "Yummy, I want to eat even more! Thanks for playing.",
-"feast3": "Zmeja and I are drooling, how about you?"
-
+        "explanation_city" : "cilj igre je pobirati hrano, ki pade z neba. Stik z njo ti bo prinesel 10 točk, v kolikor igraš v2, ob stiku z slabimi zadevami izgubiš 50 točk. V normalni verziji pa izgubiš igro. Seveda pa tudi bodi pozoren na ti powerups, ki ti bodo olajšale igranje. Srečno"
 
     }
 }

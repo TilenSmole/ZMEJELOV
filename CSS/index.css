@@ -1,3 +1,234 @@
+@media screen and (max-width: 1200px) {
+  .zmejaMobile,
+  .mobile {
+      display: inline-block;
+  }
+
+  .mobile{
+    color: black;
+    display: flex;
+    margin: 100px 20px 0 20px
+  }
+  .introduction, .memesSlider, .game, .split, .alignCommentAdd, .commentsFormError, .achievementsMainBlock, .QnA_split{
+    display: none;
+  }
+
+  .mobileContainer {
+    display: flex;
+    align-items: center; 
+}
+.zmejaMobile {
+  width: 100px;
+  height: 100px;
+}
+
+.memes{
+  width: 100px;
+  height: 500px;
+}
+
+.pictureSliderVideo iframe {
+  width: 300px;
+  height: 315px;
+  display: block;
+  margin: 0 auto;
+}
+
+.pictureSliderVideo {
+  width: 100%;
+  float: center;
+
+}
+.pictureSliderVideo .text {
+  width: 100%;
+  float: center;
+  margin: 10px;
+
+}
+
+.my_intro{
+  margin: 10px;
+}
+
+.pictureSlider img {
+  width: 300px;
+  height: auto
+
+}
+
+#prev{
+  left: 0;
+}
+#next{
+  right: 0
+
+}
+.game_mobile{
+  margin: 40px 0 40px 0;
+  padding: 20px ;
+}
+
+.leaderBoardSpeedRun {
+  width: 100%;
+
+}
+
+
+}
+
+
+
+/*mobile end*/
+@media screen and (min-width: 1200px) {
+  .mobile, .zmejaMobile, .mobileContainer, .game_mobile{
+    display:none
+  }
+  #addCommentZmejelov {
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+/* introduction */
+.introduction {
+  color: black;
+  display: flex;
+  margin-right: 50px;
+}
+
+.introductionText {
+  font-size: 30px;
+  margin-top: 5%;
+}
+
+.zmeja {
+  padding: 5%;
+  padding-right: 2%;
+}
+
+
+.memes{
+  width: 1000px;
+  height: 1000px;
+}
+
+.pictureSlider img {
+  width: 800px;
+  height: 500px
+
+}
+.commentsForm {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+#addCommentZmejelov {
+  border: none;
+  resize: none;
+  border-radius: 15px 15px;
+  font-size: 25px;
+}
+
+.submitButtonClass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.submitCommentButton {
+  border: none;
+  padding: 20px;
+  border-radius: 10px 15px;
+  cursor: pointer;
+  color: black;
+  font-size: 25PX;
+  text-align: center;
+  margin-left: 100px;
+  text-decoration: none;
+
+}
+
+
+.alignCommentAdd {
+  display: flex;
+  justify-content: center;
+}
+
+.pictureSliderVideo iframe {
+  width: 560px;
+  height: 315px;
+}
+
+.pictureSliderVideo {
+  overflow: hidden;
+  margin: 0px 100px 0px 100px;
+}
+
+.pictureSliderVideo iframe {
+  float: left;
+  margin-right: 20px;
+}
+
+.pictureSliderVideo .text {
+  overflow: hidden;
+}
+#about_proyect {
+  margin: 50px;
+}
+
+
+
+#prev{
+  left: 300;
+}
+#next{
+  right: 300
+
+}
+
+
+.achievementsMainBlock {
+  display: grid;
+  text-align: center;
+
+}.achievementsMainBlock {
+  display: grid;
+  text-align: center;
+
+}
+
+.leaderBoardSpeedRun {
+  width: 40%;
+
+}
+
+}
+
+#about_proyect {
+  font-size: 30px;
+}
+
+
+
+
+
+
+/* BORDER */ 
+
+
+.leaderBoardSpeedRun {
+  padding: 20px;
+
+}
+
+
+
+.zmeja img {
+  display: block;
+}
+
+
+
 .comments_DIV,
 body {
   background-color: hsl(272, 7%, 47%);
@@ -203,24 +434,8 @@ body {
 
 
 
-/* introduction */
-.introduction {
-  color: black;
-  display: flex;
-  margin-right: 50px;
-}
-
-.introductionText {
-  font-size: 30px;
-  margin-top: 5%;
-}
 
 
-
-.introduction {
-  display: flex;
-
-}
 
 
 
@@ -232,16 +447,13 @@ body {
 }
 
 #loader-wrapper, .dropbtn, #addCommentZmejelov, .full_comment,
-.commentsFormErrorText, .board, .game,
+.commentsFormErrorText, .board, .game,  .game_mobile,
 .achievementsMainBlock,
 .QN_field {
   background-color: #2A282E;
 }
 
-#addCommentZmejelov {
-  padding-top: 15px;
-  padding-left: 15px;
-}
+
 
 
 
@@ -274,11 +486,7 @@ body {
   padding: 20px;
 }
 
-.leaderBoardSpeedRun {
-  width: 40%;
-  padding: 20px;
 
-}
 .board {
   height: 850px;
   padding-top: 40px;
@@ -384,11 +592,7 @@ body {
 }
 
 
-.achievementsMainBlock {
-  display: grid;
-  text-align: center;
 
-}
 
 
 
@@ -445,43 +649,8 @@ body {
   text-align: center;
 }
 
-.alignCommentAdd {
-  display: flex;
-  justify-content: center;
-}
-
-.commentsForm {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-}
-
-#addCommentZmejelov {
-  border: none;
-  resize: none;
-  border-radius: 15px 15px;
-  font-size: 25px;
-}
-
-.submitButtonClass {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 
-.submitCommentButton {
-  border: none;
-  padding: 20px;
-  border-radius: 10px 15px;
-  cursor: pointer;
-  color: black;
-  font-size: 25PX;
-  text-align: center;
-  margin-left: 100px;
-  text-decoration: none;
-
-}
 
 .commentsFormError {
   margin-bottom: 50px;
@@ -533,11 +702,7 @@ body {
 
 
 
-@media screen and (max-width: 1200px) {
-  .game {
-    visibility: hidden;
-  }
-}
+
 
 /*INTRO */
 .introductionDivFrontPage {
@@ -799,10 +964,7 @@ body {
 }
 
 
-#about_proyect {
-  font-size: 30px;
-  margin: 50px;
-}
+
 
 .pictureSlider img {
   max-width: 90%;
@@ -812,19 +974,6 @@ body {
   /* Centers the image horizontally */
 }
 
-.pictureSliderVideo {
-  overflow: hidden;
-  margin: 0px 100px 0px 100px;
-}
-
-.pictureSliderVideo iframe {
-  float: left;
-  margin-right: 20px;
-}
-
-.pictureSliderVideo .text {
-  overflow: hidden;
-}
 
 
 #introduction_FrontPage {
@@ -882,14 +1031,6 @@ body {
 
 
 
-.zmeja {
-  padding: 5%;
-  padding-right: 2%;
-}
-
-.zmeja img {
-  display: block;
-}
 
 
 
@@ -1020,15 +1161,14 @@ p: nth-child(2)
   z-index: 1;
   font-size: 24px;
   background-color: rgba(0, 0, 0, 0.5);
+
+
 }
 
-#prev {
-  left: 0;
-}
 
-#next {
-  right: 0;
-}
+
+
+
 
 .QnA_full {
   display: center;

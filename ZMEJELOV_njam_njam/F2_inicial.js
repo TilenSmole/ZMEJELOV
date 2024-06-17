@@ -18,6 +18,11 @@ class F2_inicial extends F0_shared {
         this.load.image("unmute", "assets/uvod/umute.png")
         this.load.json('textSlo', 'translations/translationsSLO_js.json');
         this.load.json('textEn', 'translations/translationsEN_js.json');
+
+
+
+
+
     }
     loadText(text_to_translate) {
         if (language === "en") {
@@ -109,7 +114,6 @@ class F2_inicial extends F0_shared {
 
 
         this.igra.on('pointerup', () => {
-            stopWatchStart()
             this.scene.stop('F2_inicial')
             this.scene.start('F3_storyIntro')
         })
@@ -117,14 +121,12 @@ class F2_inicial extends F0_shared {
 
         this.igraTimer.on('pointerup', () => {
             countdown = true
-            stopWatchStart()
             this.scene.stop('F2_inicial')
             this.scene.start('F2_time_intro')
         })
 
 
         this.explanation.on('pointerup', () => {
-            stopWatchStart()
             this.scene.stop('F2_inicial')
             this.scene.start('F3_explanation')
         })

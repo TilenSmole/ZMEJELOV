@@ -16,6 +16,8 @@ if (isset($_SESSION['username'])) {
 
 
 
+
+
 ?>
 <html lang="en">
 
@@ -29,6 +31,19 @@ if (isset($_SESSION['username'])) {
 </head>
 
 <body>
+<script>
+    function checkScreenSizeAndRedirect() {
+        var screenWidth = window.innerWidth;
+        if (screenWidth <= 1200)
+            window.location.href = "index.php"; 
+       
+    }
+
+    window.onload = checkScreenSizeAndRedirect;
+    window.onresize = checkScreenSizeAndRedirect;
+</script>
+
+
     <div id="loginForm">
         <form action="/login.php" method="POST">
             <div class="username"> 🧛‍♀️<input type="text" name="username" placeholder=<?php echo $translations["username"] ?>><br>

@@ -115,7 +115,14 @@
 "welcome_1869": " - relive the very beginnings and experience the original version.",
 "welcome_crackelov": " - a fun and insanely fast-paced game that will keep you on the edge of your seat, especially ideal if you love competition.",
 "welcome_city": " - do you want to help Zmeja's friend prepare for the party?",
-"welcome_rage": " - have too much time? Try to find the pot of gold at the end of the rainbow."
+"welcome_rage": " - have too much time? Try to find the pot of gold at the end of the rainbow.",
+"intro_mobile":"Pozdravljeni na Zmejelov igralni platofrmi, žal vam moram sporočiti, da je naprava na kateri ste trenutno premajhna, da bi lahko uživali v polnem doživetju. Naprošam vas, da uporabite napravo z večjim zaslonom. Vredno je ;). Hvala! ",
+"mobile_too_small2":"Žal vam moram sporočiti, da je naprava na kateri ste trenutno premajhna, da bi lahko uživali v polnem doživetju. Naprošam vas, da uporabite napravo z večjim zaslonom. Vredno je ;). Hvala! ",
+"zmentures_intro_mobile": "Zmentures je nadgrajena različica prvotne igre, še iz Ledinskih časov, ki je skozi svojo zgodovino šla čez veliko sprememb. V svoji novi podobi vsebuje 12 nivojev, ki so na začetku zelo enostavni, vendar se težavnost hitro začne stopnjevati, ko na 6 nivoju doseže vrhunec težavnosti. Celotna igra je sestavljena skozi zgodbo, katere glavna nit je Zmejina vrnitev domov, potem ko pobegne iz eksperimentalnega laboratorija Nasse! Igra zna predstavljati kar velik napor za prvo igranje, saj vsebujo veliko nepričakovanega, veliko smrti, upam pa da tudi veliko zabave. Igra vsebuje tudi razširitev imenovano Zmentures++, ki te popelje skozi mesto in doda češnjo na vrh torte, saj zgodbo dodatno razširi. Veliko veselja in potrpežljivosti pri igranju."
+,    "thefinalrage_intro_mobile": " je ustvarjena po navdihu prvih igralcev prvotne igre, ki so igro poskušali opravili v manj kot minuti. Mislim, da je rekord še vedno okoli 30s.Temelji na hitrosti igralca in njegovi 'naučenosti' nivoja. Igra za razliko od ZMENTURES ni popolnoma naključna, saj so vse stvari vedno postavljene na istem mestu. Tako da preklopi na piflarski način in naštudiraj nivo 🤓.  Naj zmaga najhitrejši!",
+"crackelov_intro_mobile": "The Final Rage je bila navdihnjena po igrah, kot sta Subway surf ali pa Zombie cunami. Z igro sem želel predsvsem ugotoviti kako se izdelujejo igre, ki potekajo po principu v neskončnost. Prav tako je bil zanimiv podvig ustvariti trgovino, kjer lahko igralec kupi stvari, ki mu pomagajo med samim igranjem. Na koncu dnevase mi zdi, da je igra nekakšen lep zaključek oz. povzetek celotnega projekta, saj je v igri predstavljeno celotno znanje in stvari iz celega projekta."
+
+,    "cityzmentures_intro": "City Zmentures je bila ustvarjena pod vplivom Zmentures++, kjer igralec v mestu odigra podobno igro tej. Inspiracija tu je bila ustvariti igro, ki igralcuomogoča igranje Zmentures++ igre v nedogled. "
 
 
   }

@@ -47,8 +47,8 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
 
     gtag('config', 'G-TH6M7HMG59');
   </script>
-   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
   <link rel="stylesheet" href="/CSS/index.css">
   <link rel="stylesheet" href="/CSS/common.css">
   <link rel="stylesheet" href="/CSS/common.css">
@@ -120,45 +120,43 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
 
 
   <script>
-  function showLoader() {
-    document.getElementById("loader-wrapper").style.display = "flex";
-  }
+    function showLoader() {
+      document.getElementById("loader-wrapper").style.display = "flex";
+    }
 
-  function hideLoader() {
-    document.getElementById("loader-wrapper").style.display = "none";
-    document.getElementById("fullBody").style.display = "block";
+    function hideLoader() {
+      document.getElementById("loader-wrapper").style.display = "none";
+      document.getElementById("fullBody").style.display = "block";
 
-    // Get the current URL
-    var url = window.location.href;
+      // Get the current URL
+      var url = window.location.href;
 
-    // Find the index of the '#' character in the URL
-    var anchorIndex = url.indexOf('#');
+      // Find the index of the '#' character in the URL
+      var anchorIndex = url.indexOf('#');
 
-    // Check if the '#' character exists in the URL
-    if (anchorIndex !== -1) {
-      // Extract the anchor part of the URL
-      var anchor = url.substring(anchorIndex);
+      // Check if the '#' character exists in the URL
+      if (anchorIndex !== -1) {
+        // Extract the anchor part of the URL
+        var anchor = url.substring(anchorIndex);
 
-      // Scroll to the corresponding section based on the anchor
-      var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
-      if (targetElement) {
-        targetElement.scrollIntoView();
+        // Scroll to the corresponding section based on the anchor
+        var targetElement = document.getElementById(anchor.substring(1)); // Remove the '#' character
+        if (targetElement) {
+          targetElement.scrollIntoView();
+        }
       }
     }
-  }
 
-  window.onload = function() {
-    setTimeout(hideLoader);
-  };
-  showLoader();
-</script>
+    window.onload = function() {
+      setTimeout(hideLoader);
+    };
+    showLoader();
+  </script>
 
 
 
 
   <div id="fullBody">
-
-
     <script>
       $(document).ready(function() {
         var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
@@ -169,11 +167,18 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
     </script>
     <div id="header"></div>
 
+    <div class="mobileContainer">
+      <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmejaMobile">
+      <span class="mobile"><?php echo $translations['zmentures_intro_mobile'] ?></span>
+
+    </div>
+
+
 
     <div class="introduction" id="introduction_OG">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
-        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php  echo $translations["zmentures_intro"] ?></p>
+        <p><b><span style="font-size: 50px;">ZMENTURES</span></b> <?php echo $translations["zmentures_intro"] ?></p>
 
       </div>
     </div>
@@ -194,8 +199,16 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
       </div>
     </div>
 
+
+    <div class="game_mobile">
+      <span><?php echo $translations['mobile_too_small2'] ?></span>
+    </div>
+
+
+
+
     <div class="split">
-      <div  class="col-12" id="QnA_OG">
+      <div class="col-12" id="QnA_OG">
         <h1>Q&A</h1>
         <div>
           <div class="QN_field">
@@ -440,8 +453,9 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
 
 
     <div class="comments_DIV" id="comments_OG">
+      <h1><?php
+          echo $translations["KOMENTARJI"] ?></h1>
       <?php if (isset($_SESSION["username"])) : ?>
-        <h1><?php echo $translations["KOMENTARJI"] ?></h1>
         <div>
           <div class="alignCommentAdd">
             <form action="zmentures.php" method="GET" class="commentsForm">
@@ -455,8 +469,7 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
 
       <?php else : ?>
         <div class="commentsFormError">
-          <h1><?php
-              echo $translations["KOMENTARJI"] ?></h1>
+
           <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
         </div>
       <?php endif; ?>
@@ -513,7 +526,7 @@ WHERE RowNum BETWEEN ? AND ?";
           echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
           exit();
         }
-        $startPage = max(min($page- floor($commentsPerPage / 2), $totalPages - $commentsPerPage + 1), 1);
+        $startPage = max(min($page - floor($commentsPerPage / 2), $totalPages - $commentsPerPage + 1), 1);
         $endPage = min($startPage + $commentsPerPage - 1, $totalPages);
         // Display comments
         echo '<div id="comment_section" class="commentsZmejelov">';
@@ -551,17 +564,17 @@ WHERE RowNum BETWEEN ? AND ?";
 
         // Previous page link
         if ($page > 1) {
-          echo '<a href="zmentures.php?page=' . ($page- 1) . '#comments_OG"><&#160 &#160</a> ';
+          echo '<a href="zmentures.php?page=' . ($page - 1) . '#comments_OG"><&#160 &#160</a> ';
         }
 
         // Pagination links
         for ($i = $startPage; $i <= $endPage; $i++) {
-          echo '<a href="zmentures.php?page=' . $i . '#comments_OG"' . ($i == $page? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
+          echo '<a href="zmentures.php?page=' . $i . '#comments_OG"' . ($i == $page ? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
         }
 
         // Next page link
         if ($page < $totalPages) {
-          echo '<a href="zmentures.php?page=' . ($page+ 1) . '#comments_OG">&#160 &#160></a>';
+          echo '<a href="zmentures.php?page=' . ($page + 1) . '#comments_OG">&#160 &#160></a>';
         }
 
         echo '</div>';

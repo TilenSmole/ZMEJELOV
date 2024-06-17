@@ -94,6 +94,8 @@ $translations = loadTranslations();
   <div id="fullBody">
 
 
+
+
     <script>
       $(document).ready(function() {
         var username = "<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ''; ?>";
@@ -104,6 +106,11 @@ $translations = loadTranslations();
     </script>
     <div id="header"></div>
 
+    <div class="mobileContainer">
+        <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmejaMobile">
+        <span class="mobile"><?php echo $translations['1869_intro_mobile'] ?></span>
+        
+    </div>
 
     <div class="introduction" id="introduction_OG">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
@@ -128,6 +135,11 @@ $translations = loadTranslations();
         <?php endif; ?>
       </div>
     </div>
+
+    <div class="game_mobile">
+      <span><?php echo $translations['mobile_too_small2'] ?></span>
+    </div>
+
 
     <div class="split">
       <div class="QnA_full" class="col-10" id="QnA_OG">
@@ -264,8 +276,9 @@ $translations = loadTranslations();
 
 
     <div class="comments_DIV" id="comments_OG">
+    <h1><?php echo $translations["KOMENTARJI"] ?></h1>
+
       <?php if (isset($_SESSION["username"])) : ?>
-        <h1><?php echo $translations["KOMENTARJI"] ?></h1>
         <div>
           <div class="alignCommentAdd">
             <form action="zmejelov1869.php" method="GET" class="commentsForm">
@@ -279,8 +292,7 @@ $translations = loadTranslations();
 
       <?php else : ?>
         <div class="commentsFormError">
-          <h1><?php
-              echo $translations["KOMENTARJI"] ?></h1>
+
           <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
         </div>
       <?php endif; ?>

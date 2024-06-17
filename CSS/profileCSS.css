@@ -1,3 +1,30 @@
+/*mobile end*/
+@media screen and (max-width: 1200px) {
+    #profileTop {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        padding: 50px;
+        border-radius: 50px; /* Adding 'px' unit for border-radius */
+    }
+
+}
+
+
+/*mobile end*/
+@media screen and (min-width: 1200px) {
+    #profileTop {
+        display: flex;
+        justify-content: center;
+        margin-top: 250px;
+        padding: 50px;
+        margin: 0 500px;
+        border-radius: 50px; /* Adding 'px' unit for border-radius */
+    }
+
+}
+
+
 
 .achievementsDisplayProfile{
     margin-left: 3%;
@@ -37,14 +64,7 @@ img{
 }
 
 
-#profileTop {
-    display: flex;
-    justify-content: center;
-    margin-top: 250px;
-    padding: 50px;
-    margin: 0 500px;
-    border-radius: 50px; /* Adding 'px' unit for border-radius */
-}
+
 .QN_field,  #profileTop{
     background-color: #4d4455;
 

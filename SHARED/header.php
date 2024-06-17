@@ -19,6 +19,24 @@ $username = isset($_GET['username']) ? $_GET['username'] : '';
   <link rel="stylesheet" href="/CSS/common.css">
 
   <style>
+    @media screen and (max-width: 1200px) {
+      #mobile_header_hidden{
+           display: none;
+
+      }
+    }
+
+
+    /*mobile end*/
+    @media screen and (min-width: 1200px) {
+      #mobile_header_hidden{
+        display: inline;
+      }
+
+    }
+
+
+
     .sidenav {
       height: 100%;
       width: 0;
@@ -164,45 +182,45 @@ $username = isset($_GET['username']) ? $_GET['username'] : '';
             <li><a href="/zmentures.php#comments_OG" onclick="closeNav()"><?php
                                                                           echo $translations['KOMENTARJI']; ?></a></li>
             <li><a href="/zmentures.php#dosezki_zmentures" onclick="closeNav()"><?php
-                                                                          echo $translations['achivements']; ?></a></li>
+                                                                                echo $translations['achivements']; ?></a></li>
           </ul>
         </li>
         <li class="has-subnav"><a href="/Crackelov.php" onclick="closeNav()">CRA*KELOV</a>
           <ul class="subnav">
             <li><a href="/Crackelov.php#introduction_crackelov" onclick="closeNav()"><?php
-                                                                                  echo $translations['about_the_game']; ?></a></li>
+                                                                                      echo $translations['about_the_game']; ?></a></li>
             <li><a href="/Crackelov.php#game_crackelov" onclick="closeNav()"><?php
-                                                                          echo $translations['game']; ?></a></li>
+                                                                              echo $translations['game']; ?></a></li>
             <li><a href="/Crackelov.php#QnA_crackelov" onclick="closeNav()">Q&A</a></li>
             <li><a href="/Crackelov.php#comments_crackelov" onclick="closeNav()"><?php
-                                                                              echo $translations['KOMENTARJI']; ?></a></li>
+                                                                                  echo $translations['KOMENTARJI']; ?></a></li>
             <li><a href="/Crackelov.php#dosezki_crackelov" onclick="closeNav()"><?php
-                                                                            echo $translations['achivements']; ?></a></li>
+                                                                                echo $translations['achivements']; ?></a></li>
           </ul>
         </li>
         <li class="has-subnav"><a href="/TheFinalRage.php" onclick="closeNav()">THE FINAL RAGE </a>
           <ul class="subnav">
             <li><a href="/TheFinalRage.php#introduction_TheFinalRage" onclick="closeNav()"><?php
-                                                                                  echo $translations['about_the_game']; ?></a></li>
+                                                                                            echo $translations['about_the_game']; ?></a></li>
             <li><a href="/TheFinalRage.php#game_TheFinalRage" onclick="closeNav()"><?php echo $translations['game']; ?></a></li>
             <li><a href="/TheFinalRage.php#QnA_TheFinalRage" onclick="closeNav()">Q&A</a></li>
             <li><a href="/TheFinalRage.php#comments_TheFinalRage" onclick="closeNav()"><?php
-                                                                              echo $translations['KOMENTARJI']; ?></a></li>
+                                                                                        echo $translations['KOMENTARJI']; ?></a></li>
             <li><a href="/TheFinalRage.php#dosezki_TheFinalRage" onclick="closeNav()"><?php
-                                                                            echo $translations['achivements']; ?></a></li>
+                                                                                      echo $translations['achivements']; ?></a></li>
           </ul>
         </li>
         <li class="has-subnav"><a href="/CityZmentures.php" onclick="closeNav()">CITY ZMENTURES</a>
           <ul class="subnav">
             <li><a href="/CityZmentures.php#introduction_CityZmentures" onclick="closeNav()"><?php
-                                                                                  echo $translations['about_the_game']; ?></a></li>
+                                                                                              echo $translations['about_the_game']; ?></a></li>
             <li><a href="/CityZmentures.php#game_CityZmentures" onclick="closeNav()"><?php
-                                                                          echo $translations['game']; ?></a></li>
+                                                                                      echo $translations['game']; ?></a></li>
             <li><a href="/CityZmentures.php#QnA_CityZmentures" onclick="closeNav()">Q&A</a></li>
             <li><a href="/CityZmentures.php#comments_CityZmentures" onclick="closeNav()"><?php
-                                                                              echo $translations['KOMENTARJI']; ?></a></li>
+                                                                                          echo $translations['KOMENTARJI']; ?></a></li>
             <li><a href="/CityZmentures.php#dosezki_CityZmentures" onclick="closeNav()"><?php
-                                                                            echo $translations['achivements']; ?></a></li>
+                                                                                        echo $translations['achivements']; ?></a></li>
           </ul>
         </li>
         <li class="has-subnav"><a href="/zmejelov1869.php" onclick="closeNav()">ZMEJELOV 1869 </a>
@@ -226,16 +244,18 @@ $username = isset($_GET['username']) ? $_GET['username'] : '';
           </div>
 
 
-
+        <div id="mobile_header_hidden">
           <?php
           if (!$username) : ?>
             <li> <a href="/login.php" onclick="closeNav()"><?php
                                                             echo $translations['login'];
                                                             ?></a></li>
           <?php else : ?>
-            <li><a href="/user.php"><?php echo $_SESSION["username"];  ; ?></a><a href="/SERVER/logout.php"><?php
-                                                                                                          echo $translations['logout']; ?></a></li>
+            <li><a href="/user.php"><?php echo $_SESSION["username"];; ?></a><a href="/SERVER/logout.php"><?php
+                                                                                                            echo $translations['logout']; ?></a></li>
           <?php endif; ?>
+          </div>
+
           <li><a href="/#about_proyect" id="logo">Zmejelov © 2024</a></li>
         </div>
       </ul>
@@ -265,7 +285,12 @@ $username = isset($_GET['username']) ? $_GET['username'] : '';
 
 
     function openNav() {
+      var screenWidth = window.innerWidth;
+    if (screenWidth <= 1200) {
+      document.getElementById("mySidenav").style.width = "100%";
+    } else {
       document.getElementById("mySidenav").style.width = "25%";
+    }
     }
 
     function closeNav() {
