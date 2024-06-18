@@ -21,7 +21,8 @@ class E0_poker4 extends Phaser.Scene {
       }
     
  create() {
-    
+    this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
+
     poker = true
     E_iger += 1
 

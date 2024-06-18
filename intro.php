@@ -10,8 +10,8 @@ $translations = loadTranslations();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZMEJELOV</title>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
- <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="icon" type="image/x-icon" href="assets\favicon.ico">
     <link rel="stylesheet" href="/CSS/index.css">
     <link rel="stylesheet" href="/CSS/common.css">
     <script src="/translations/language_functions.js"></script>
@@ -22,6 +22,20 @@ $translations = loadTranslations();
         <div id="animationIntro">
             <img src="assets/lvl2/Wraith_03_Idle_006.png" id="zmejaIntro" alt="Zmeja">
         </div>
+
+        <script>
+    function checkScreenSizeAndRedirect() {
+        var screenWidth = window.innerWidth;
+        if (screenWidth <= 1200)
+            window.location.href = "index.php"; 
+       
+    }
+
+    window.onload = checkScreenSizeAndRedirect;
+    window.onresize = checkScreenSizeAndRedirect;
+</script>
+
+
         <div id="introductionTextDivFrontPage">
             <p id="textIntroAnimation"></p>
             <p id="welcome"></p>
@@ -43,17 +57,17 @@ $translations = loadTranslations();
 
 
     <script>
-getLanguage(function(language) {
-    var languageObj = JSON.parse(language);
+        getLanguage(function(language) {
+            var languageObj = JSON.parse(language);
 
-    if (languageObj.language == "en") {
-        document.getElementById("english_button_intro").style.display = "none";
-        document.getElementById("slovenian_button_intro").style.display = "block";
-    } else {
-        document.getElementById("english_button_intro").style.display = "block";
-        document.getElementById("slovenian_button_intro").style.display = "none";
-    }
-});
+            if (languageObj.language == "en") {
+                document.getElementById("english_button_intro").style.display = "none";
+                document.getElementById("slovenian_button_intro").style.display = "block";
+            } else {
+                document.getElementById("english_button_intro").style.display = "block";
+                document.getElementById("slovenian_button_intro").style.display = "none";
+            }
+        });
 
 
 

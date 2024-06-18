@@ -39,13 +39,13 @@ class M4_red extends M0_shared {
 
 
     create() {
-
+        distance = 0
 
         super.create();
         lowerPlatforms = [];
 
         //ozadje rainbow
-        var rainbowWidth = 32000; // Width of each color segment
+        var rainbowWidth = 42000; // Width of each color segment
 
         var p1 = this.add.graphics();
 
@@ -134,10 +134,9 @@ class M4_red extends M0_shared {
                     coin.destroy();
                 }
             });
-            if (gameState.junak.x >= 29500) {
-                /*if (rocketStart)
-                    rocketStart = false*/
-             
+            if (gameState.junak.x >= 39500) {
+                if (rocketStart)
+                    rocketStart = false
                 if (speedShip)
                     speedShip = false
                 if (spaceshipStart)
@@ -333,11 +332,11 @@ class M4_red extends M0_shared {
                         potionActivation = false
                         if (potionStart)
                             potionStart = false
-                        if (spaceshipStart)
+                        else if (spaceshipStart)
                             spaceshipStart = false
-                        if (heart)
+                        else if (heart)
                             heart = false
-                        if (spaceShip)
+                        else if (spaceShip)
                             spaceShip = false
 
               //      }, 2000);
@@ -378,33 +377,9 @@ class M4_red extends M0_shared {
                 coin.destroy()
 
             })
-            
-           /* enemies.forEach(enemy => {
-                if (enemy.x >= enemy.targetMax) {
-                    enemy.reachedTarget = true
-                }
-                else if (enemy.x <= enemy.targetMin) {
-                    enemy.reachedTarget = false
-                }
-
-                if (enemy.x < enemy.targetMax && !enemy.reachedTarget) {
-                    enemy.anims.playReverse('reaperMovement', true);
-                    enemy.setVelocityX(500);
-                    enemy.flipX = false;
-                } else if (enemy.x >= enemy.targetMin) {
-                    enemy.anims.playReverse('reaperMovement', true);
-                    enemy.setVelocityX(-500);
-                    enemy.flipX = true;
-                
-
-            }
-
-
-
-        });*/
 
             this.physics.add.overlap(gameState.junak, enemies, (user, enemy) => {
-                if (!shroomStart && !shieldStart && !spaceshipStart && !spaceShip && !shroom && !shield && !rocketStart && !speedShip) {
+                if (!shroomStart && !shieldStart && !spaceshipStart && !spaceShip && !shroom && !shield && !rocketStart && !speedShip && !heart) {
                     this.scene.stop('M4_red')
                     this.scene.start('M4_deathScreen')
                 }
@@ -413,15 +388,17 @@ class M4_red extends M0_shared {
                     enemies = []
                     if (ghostStart)
                         ghostStart = false
-                    if (shieldStart)
+                    else if (shieldStart)
                         shieldStart = false
-                    if (spaceshipStart)
+                    else if (spaceshipStart)
                         spaceshipStart = false
-                    if (spaceShip)
+                    else if (spaceShip)
                         spaceShip = false
-                    if (shroom)
+                    else if (shroom)
                         shroom = false
-                    if (shield)
+                    else if (shield)
+                        shield = false
+                    else if (heart)
                         shield = false
                 }
 
@@ -436,15 +413,15 @@ class M4_red extends M0_shared {
                     });
                     if (ghostStart)
                         ghostStart = false
-                    if (shieldStart)
+                    else if (shieldStart)
                         shieldStart = false
-                    if (spaceshipStart)
+                    else if (spaceshipStart)
                         spaceshipStart = false
-                    if (spaceShip)
+                    else if (spaceShip)
                         spaceShip = false
-                    if (shield)
+                    else if (shield)
                         shield = false
-                    if (ghost)
+                    else if (ghost)
                         ghost = false
 
 

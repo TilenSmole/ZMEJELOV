@@ -185,23 +185,23 @@ class E0_bar extends Phaser.Scene{
   
       });  
       
-      
-      this.anims.create({
-        key: 'walk',
-        frames: [
-            { key: 'zmejaBAR',frame:"Wraith_03_Moving Forward_000.png" },],
-        frameRate: 8,
-        repeat: -1
-    });
+      if (!this.anims.exists('walk')) {
+        this.anims.create({
+            key: 'walk',
+            frames: [{ key: 'zmejaBAR', frame: "Wraith_03_Moving Forward_000.png" }],
+            frameRate: 8,
+            repeat: -1
+        });
+    }
 
-this.anims.create({
-        key: 'stoji',
-        frames: [
-            { key: 'zmejaBAR',frame:"Wraith_03_Idle_000.png" },],
-        frameRate: 8,
-        repeat: -1
-    });
-  
+    if (!this.anims.exists('stoji')) {
+        this.anims.create({
+            key: 'stoji',
+            frames: [{ key: 'zmejaBAR', frame: "Wraith_03_Idle_000.png" }],
+            frameRate: 8,
+            repeat: -1
+        });
+    }  
   }
   
   update(){
@@ -221,7 +221,7 @@ this.anims.create({
   // Plays the idle animation if no arrow keys are pressed
   gameState.junak.anims.play('stoji', true);}
   
-  if(gameState.score > 10000){
+  if(gameState.score >= 9000){
     this.titleMusic = this.sound.add('zmaga', { volume: 0.1, loop: false });   
     this.titleMusic.play(); 
     this.physics.pause();

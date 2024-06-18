@@ -31,8 +31,10 @@ class E12_Swamp_goraUvod extends Phaser.Scene {
   }
   create() {
 
-    this.da = this.add.sprite(GAME_WIDTH / 2 + 100, GAME_HEIGHT - 60, 'gumb').setInteractive();
-    this.ne = this.add.sprite(GAME_WIDTH / 2 - 100, GAME_HEIGHT - 60, 'gumb').setInteractive();
+    this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
+
+    this.da = this.add.sprite(GAME_WIDTH / 2 + 100, GAME_HEIGHT - 80, 'gumb').setInteractive();
+    this.ne = this.add.sprite(GAME_WIDTH / 2 - 100, GAME_HEIGHT - 80, 'gumb').setInteractive();
     this.da.setScale(0.8)
     this.ne.setScale(0.8)
 
@@ -47,8 +49,21 @@ class E12_Swamp_goraUvod extends Phaser.Scene {
       yoyo: true,
     })
 
-    this.add.text(GAME_WIDTH / 2 - 80 - 170, GAME_HEIGHT / 2 + 105, this.loadText("no"), { fontSize: '60px', fill: '#E950F4' });
-    this.add.text(GAME_WIDTH / 2 + 170, GAME_HEIGHT / 2 + 105, this.loadText("yes"), { fontSize: '60px', fill: '#E950F4' });
+
+
+    this.add.text(GAME_WIDTH / 2 - 140, GAME_HEIGHT - 100, this.loadText("no"), { fontSize: '60px', fill: '#E950F4' });
+
+
+    this.add.text(GAME_WIDTH / 2 + 70, GAME_HEIGHT - 100, this.loadText("yes"), { fontSize: '60px', fill: '#E950F4' });
+
+//////
+
+this.add.text(50, GAME_HEIGHT - 400, this.loadText("mountain_intro"), {
+  fontSize: '40px',
+  fill: '#A996BC',
+  fontFamily: 'CustomFont',
+  wordWrap: { width: GAME_WIDTH - 50, useAdvancedWrap: true }
+});
 
 
     this.da.on('pointerup', () => {
@@ -66,12 +81,7 @@ class E12_Swamp_goraUvod extends Phaser.Scene {
 
 
 
-    this.add.text(100, GAME_HEIGHT - 200, this.loadText("mountain_intro"), {
-      fontSize: '40px',
-      fill: '#A996BC',
-      fontFamily: 'CustomFont',
-      wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
-    });
+   
 
 
 

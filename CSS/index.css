@@ -22,6 +22,11 @@
   height: 100px;
 }
 
+#introductionTextDivFrontPage{
+  overflow: hidden;
+}
+
+
 .memes{
   width: 100px;
   height: 500px;

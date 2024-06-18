@@ -9,11 +9,14 @@ class M4_deathScreen extends M0_shared {
     create() {
         this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
-        const xKordinata = (Math.random() * 490)
+        const xKordinata = (Math.random() * 400)
         const yKordinata = (Math.random() * 350)
 
 
         this.add.text(xKordinata, yKordinata, this.loadText("space_restart"), { fontSize: '40px', fill: "#E950F4" })
+
+
+
 
         const showPopupAchievements = (text) => {
             const rectangle = this.add.rectangle(GAME_WIDTH - 300, 0, 700, 100, 0XFFFFFF);
@@ -67,6 +70,7 @@ class M4_deathScreen extends M0_shared {
             const money = {
                 money: userCoins + coinsNewGame,
             };
+            console.log(coinsNewGame);
             this.updateMoney(money);
             saveResOnce = true
             coinsNewGame = 0;
@@ -74,6 +78,7 @@ class M4_deathScreen extends M0_shared {
         }
 
         this.input.keyboard.on('keyup-SPACE', () => {
+            this.restart()
             this.scene.stop('M4_deathScreen')
             this.scene.start("M2_inicial")
         });

@@ -86,6 +86,7 @@ class E0_poker extends Phaser.Scene {
         var srca = [0, 1, "s2", "s3", "s4", "s5", "s6", "s7", "s8", "s9", "s10", "s11", "s12", "s13", "s14"]
         var pik = [0, 1, "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12", "p13", "p14"]
         var vsi = [detelje, kare, srca, pik]
+        this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
         leva = Math.floor(Math.random() * 13) + 2;
         // this.add.text(GAME_WIDTH/2-100,GAME_HEIGHT-100, leva,{ fontSize: '20px',  fill: '#E950F4',fontFamily: 'CustomFont' });

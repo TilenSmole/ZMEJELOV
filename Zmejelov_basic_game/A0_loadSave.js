@@ -98,21 +98,16 @@ class A0_loadSave extends Phaser.Scene {
       if (checkPoints == "1") {
         spawn6 = true;
         spawnP = false;
-        console.log('¸fasfa');
       }
       else if (checkPoints == "2") {
         spawn6 = true;
         spawnP = true;
-        console.log('¸fafasfasfasfasfa');
 
       }
       else {
         spawnP = false;
         spawn6 = false;
-        console.log('¸wtf');
       }
-
-     
 
 
       this.scene.start(lastLevel)

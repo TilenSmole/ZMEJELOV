@@ -38,6 +38,18 @@ class M3_shop extends M0_shared {
             noCheat = true;
 
 
+        this.add.text(500, 200, this.loadText("thefinalrage_explanation"), {
+            fontSize: '30px',
+            fill: '#A996BC',
+            fontFamily: 'CustomFont',
+            wordWrap: { width: 800, useAdvancedWrap: true }
+        });
+
+
+
+
+
+
 
 
 
@@ -97,6 +109,7 @@ class M3_shop extends M0_shared {
 
 
         this.zacetek.on('pointerup', () => {
+            stopWatchStart()
             this.scene.stop('M3_shop')
             this.scene.start('M4_red')
         })
@@ -276,7 +289,7 @@ class M3_shop extends M0_shared {
                 if (userCoins - 100 >= 0) {
                     userCoins -= 100
                     item7.setText(this.loadText("bought"))
-                    showPopupAchievements(this.loadText("ach_ruins"))
+                    showPopupAchievements(this.loadText("money_ach"))
                     this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });
                     this.titleMusic.play();
                     buy = true;

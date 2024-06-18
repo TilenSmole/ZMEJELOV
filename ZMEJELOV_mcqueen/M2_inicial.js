@@ -122,8 +122,7 @@ class M2_inicial extends M0_shared {
 
 
         this.igra.on('pointerup', () => {
-            this.restart()
-            stopWatchStart()
+
             this.scene.stop('M2_inicial')
             this.scene.start('M3_shop')
         })

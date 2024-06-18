@@ -49,12 +49,14 @@ class A0_uvod extends A0_osnova{
       text2 = this.add.text(xKordinata, yKordinata, this.loadText("space_start"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' }); // Create a new text object with updated content
 
 
+      var spaceBar = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
 
+      spaceBar.on('down', () => {
+        this.scene.stop('A0_uvod')
+        this.scene.start('A1_scena1')
+      });
 
-    this.input.keyboard.on('keyup-SPACE', () => {
-      this.scene.stop('A0_uvod')
-      this.scene.start('A1_scena1')
-    });
+ 
   }    
   update() {
    

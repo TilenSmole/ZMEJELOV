@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("database.php");
+include("database.php"); // Ensure this file contains the connection to MySQL using MySQLi
 
 // Retrieve the raw POST data
 $data = file_get_contents("php://input");
@@ -16,28 +16,32 @@ if ($data) {
 
     // Store the values in session variables
     $_SESSION["lastLevel"] = $lastLevel;
-   $_SESSION["difficulty"] = $difficulty;
+    $_SESSION["difficulty"] = $difficulty;
     $currentDate = date("Y-m-d H:i:s");
     $_SESSION["DATE"] = $currentDate;
 
     // Prepare the SQL statement with placeholders
-    $query = "UPDATE users SET lastLevel = ?, DATE = ?, [difficulty] = ? WHERE username = ?";
+    $query = "UPDATE users SET lastLevel = ?, DATE = ?, difficulty = ? WHERE username = ?";
 
     // Prepare the statement
-    $stmt = sqlsrv_prepare($conn, $query, array(&$lastLevel, &$currentDate, &$difficulty, &$username));
-
-    // Execute the statement
+    $stmt = $conn->prepare($query);
     if ($stmt) {
-        $result = sqlsrv_execute($stmt);
-        if ($result) {
+        // Bind the parameters
+        $stmt->bind_param("ssss", $lastLevel, $currentDate, $difficulty, $username);
+
+        // Execute the statement
+        if ($stmt->execute()) {
             echo json_encode(array("message" => "Database updated successfully"));
         } else {
             // Error executing SQL statement
-            echo json_encode(array("error" => "Failed to execute SQL statement: " . print_r(sqlsrv_errors(), true)));
+            echo json_encode(array("error" => "Failed to execute SQL statement: " . $stmt->error));
         }
+
+        // Close the statement
+        $stmt->close();
     } else {
         // Error preparing statement
-        echo json_encode(array("error" => "Error preparing statement: " . print_r(sqlsrv_errors(), true)));
+        echo json_encode(array("error" => "Error preparing statement: " . $conn->error));
     }
 } else {
     // No data received

@@ -16,24 +16,22 @@ if ($data) {
     $user = $_SESSION["username"];
 
     // Prepare the SQL statement with placeholders
-    $query = "INSERT INTO leaderboard ([user], score, type, date) VALUES (?, ?, ?, GETDATE())";
+    $query = "INSERT INTO leaderboard (user, score, type, date) VALUES (?, ?, ?, NOW())";
 
-    $stmt = sqlsrv_prepare($conn, $query, array(&$user, &$score, &$type));
-    echo "jej";
+    $stmt = $conn->prepare($query);
+
     if ($stmt) {
-        if (sqlsrv_execute($stmt)) {
-            echo  $user;
-
-echo $score;
-
+        $stmt->bind_param("sis", $user, $score, $type);
+        if ($stmt->execute()) {
             echo json_encode(array("message" => "Database with result updated successfully"));
         } else {
             // Enhance error handling to get detailed error messages
-            echo json_encode(array("error" => "Failed to execute SQL statement: " . print_r(sqlsrv_errors(), true)));
+            echo json_encode(array("error" => "Failed to execute SQL statement: " . $stmt->error));
         }
+        $stmt->close();
     } else {
         // Enhance error handling to get detailed error messages
-        echo json_encode(array("error" => "Error preparing statement: " . print_r(sqlsrv_errors(), true)));
+        echo json_encode(array("error" => "Error preparing statement: " . $conn->error));
     }
 } else {
     // No data received

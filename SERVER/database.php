@@ -1,18 +1,17 @@
 <?php
 
-// SQL Server Extension Sample Code:
-$connectionInfo = array("UID" => "zmejelover", "pwd" => "9ar:p!d&@,w4mY8", "Database" => "zmejelov", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
-$serverName = "tcp:zmejelov.database.windows.net,1433";
+// MySQLi connection parameters
+$servername = "localhost";  // Usually 'localhost' for local PHP MyAdmin
+$username = "root";
+$password = "";
+$dbname = "zmejelov_db";
 
-try {
-    $conn = sqlsrv_connect($serverName, $connectionInfo);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-    if ($conn === false) {
-        throw new Exception("Failed to connect to the database.");
-    }
-
-    
-} catch (Exception $e) {
-    echo "Error: " . $e->getMessage();
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
+?>

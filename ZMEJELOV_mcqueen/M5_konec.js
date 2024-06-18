@@ -49,6 +49,7 @@ class M5_konec extends M0_shared {
         }
     }
     create() {
+        this.restart()
 
 
         //this.add.image(GAME_WIDTH-200,GAME_HEIGHT - 400,"zmeja");

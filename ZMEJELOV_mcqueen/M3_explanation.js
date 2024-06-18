@@ -87,7 +87,7 @@ class M3_explanation extends M0_shared {
 
      var ach = this.add.image(100,  750, "ach")
      ach.setScale(.1)
-     this.add.text(200, 750, this.loadText("achievementBuy"),{ fontSize: '30px', fill: '#E950F4' ,  fontFamily: 'CustomFont'});
+     this.add.text(200, 750, this.loadText("money_ach"),{ fontSize: '30px', fill: '#E950F4' ,  fontFamily: 'CustomFont'});
      item7 = this.add.text(GAME_WIDTH-350,   750, '100',{ fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
 

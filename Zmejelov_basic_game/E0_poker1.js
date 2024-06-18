@@ -93,6 +93,7 @@ class E0_poker1 extends Phaser.Scene {
         levaKarta.setScale(.5)
         var desna = Math.floor(Math.random() * 13) + 2;
         var vrstaD = Math.floor(Math.random() * 4);
+        this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
 
 

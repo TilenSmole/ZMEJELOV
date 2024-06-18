@@ -16,18 +16,33 @@ class E0_barKonec extends Phaser.Scene {
         this.load.json('textSlo', 'translations/translationsSLO_js.json');
         this.load.json('textEn', 'translations/translationsEN_js.json');
         }
+
+
+        loadText(text_to_translate) {
+            if (language === "en") {
+                            return this.cache.json.get('textEn')["en"][text_to_translate];
+    
+            } else {
+                            return this.cache.json.get('textSlo')["slo"][text_to_translate];
+    
+            }
+        }
+    
+
     create() {
+        this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
+
     bar = true
     E_iger += 1   
     const xKordinata =(Math.random() * 490)
     const yKordinata =(Math.random() * 350)
 
     this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
-    this.add.text(100, GAME_HEIGHT - 200, this.loadText("bar_end"), {
+    this.add.text(50, GAME_HEIGHT - 200, this.loadText("bar_end"), {
         fontSize: '40px',
         fill: '#A996BC',
         fontFamily: 'CustomFont',
-        wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+        wordWrap: { width: GAME_WIDTH - 50, useAdvancedWrap: true }
     });
 
 

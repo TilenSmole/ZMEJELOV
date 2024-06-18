@@ -56,7 +56,7 @@ this.physics.add.overlap(gameState.junak, obvestilo2, () => {
  
   this.add.text(450, 250, this.loadText("good_sings"), {
     fontSize: '40px',
-    fill: '#A996BC',
+    fill: '#B637BF',
     fontFamily: 'CustomFont',
     wordWrap: { width:400, useAdvancedWrap: true }
   });
@@ -72,8 +72,7 @@ var enkat = true
 
 
 this.physics.add.overlap(gameState.junak, izhod, () => {
-  this.titleMusic = this.sound.add('zmaga', { volume: 0.1, loop: false });   
-  this.titleMusic.play();    
+  
   vrstaTeksta = "level_1_konec"
   this.scene.stop('A1_scena1')
   this.scene.start('vrsta')

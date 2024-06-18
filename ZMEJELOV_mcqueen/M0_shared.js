@@ -63,7 +63,6 @@ class M0_shared extends Phaser.Scene {
 		borderLeft = 0
 		generated = false
 		inventory = []
-		chestPickedInGame = false
 		wisdom = false
 		coinsNewGame = 0
 		score = 0
@@ -117,9 +116,11 @@ class M0_shared extends Phaser.Scene {
 		  lastPoint = 1600
 		  borderLeft = 0
 		  generated = false
+	
 
 	}
 	reset() {
+		distance = 0
 		finalPlatform = [];
 		playOnce = false;
 		coins = [];
@@ -148,6 +149,7 @@ class M0_shared extends Phaser.Scene {
 		 lastPoint = 1600
 		 borderLeft = 0
 		 generated = false
+		 dolzina = 40000
 	}
 
 
@@ -261,7 +263,7 @@ class M0_shared extends Phaser.Scene {
 		else if (choosenEle === 12 || choosenEle === 13) {
 			objectsFloor.push(buff)
 
-
+			console.log('¸ok pusham');
 
 
 		}
@@ -408,6 +410,7 @@ class M0_shared extends Phaser.Scene {
 		achievements = achievementsUpdated;
 	}
 	updateMoney(data) {
+		console.log('¸fdsfas');
 		return new Promise((resolve, reject) => {
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "/SERVER/moneyUpdater.php", true);

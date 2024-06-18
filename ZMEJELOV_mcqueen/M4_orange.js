@@ -3,7 +3,7 @@ class M4_orange extends M0_shared {
         super("M4_orange")
     }
 
-    dolzina = 20000
+    dolzina =40000
 
     preload() {
         super.preload()
@@ -61,7 +61,7 @@ class M4_orange extends M0_shared {
         lowerPlatforms = [];
 
         //ozadje rainbow
-        var rainbowWidth = 22000; // Width of each color segment
+        var rainbowWidth = 32000; // Width of each color segment
 
         var p1 = this.add.graphics();
 
@@ -148,12 +148,13 @@ class M4_orange extends M0_shared {
                     coin.destroy();
                 }
             });
-            if (gameState.junak.x >=19500) {
+            if (gameState.junak.x >=29500) {
 
                 this.scene.stop('M4_orange');
                 this.scene.start('M4_yellow');
                 this.reset()
-
+                if (rocketStart)
+                    rocketStart = false
                 if (speedShip)
                     speedShip = false
                 if (spaceshipStart)
@@ -338,11 +339,11 @@ class M4_orange extends M0_shared {
                         potionActivation = false
                         if (potionStart)
                             potionStart = false
-                        if (spaceshipStart)
+                        else if (spaceshipStart)
                             spaceshipStart = false
-                        if (heart)
+                        else  if (heart)
                             heart = false
-                        if (spaceShip)
+                        else  if (spaceShip)
                             spaceShip = false
 
               //      }, 2000);
@@ -384,54 +385,33 @@ class M4_orange extends M0_shared {
 
             })
             
-            enemies.forEach(enemy => {
-                if (enemy.x >= enemy.targetMax) {
-                    enemy.reachedTarget = true
-                }
-                else if (enemy.x <= enemy.targetMin) {
-                    enemy.reachedTarget = false
-                }
+      
 
-                if (enemy.x < enemy.targetMax && !enemy.reachedTarget) {
-                    enemy.anims.playReverse('reaperMovement', true);
-                    enemy.setVelocityX(500);
-                    enemy.flipX = false;
-                } else if (enemy.x >= enemy.targetMin) {
-                    enemy.anims.playReverse('reaperMovement', true);
-                    enemy.setVelocityX(-500);
-                    enemy.flipX = true;
-                
-
+        this.physics.add.overlap(gameState.junak, enemies, (user, enemy) => {
+            if (!shroomStart && !shieldStart && !spaceshipStart && !spaceShip && !shroom && !shield && !rocketStart && !speedShip && !heart) {
+                this.scene.stop('M4_red')
+                this.scene.start('M4_deathScreen')
+            }
+            else {
+                enemy.destroy()
+                enemies = []
+                if (ghostStart)
+                    ghostStart = false
+                else   if (shieldStart)
+                    shieldStart = false
+                else  if (spaceshipStart)
+                    spaceshipStart = false
+                else  if (spaceShip)
+                    spaceShip = false
+                else  if (shroom)
+                    shroom = false
+                else  if (shield)
+                    shield = false
+                else  if (heart)
+                    heart = false
             }
 
-
-
-        });
-
-            this.physics.add.overlap(gameState.junak, enemies, (user, enemy) => {
-                if (!shroomStart && !shieldStart && !spaceshipStart && !spaceShip && !shroom && !shield && !rocketStart && !speedShip) {
-                    this.scene.stop('M4_red')
-                    this.scene.start('M4_deathScreen')
-                }
-                else {
-                    enemy.destroy()
-                    enemies = []
-                    if (ghostStart)
-                        ghostStart = false
-                    if (shieldStart)
-                        shieldStart = false
-                    if (spaceshipStart)
-                        spaceshipStart = false
-                    if (spaceShip)
-                        spaceShip = false
-                    if (shroom)
-                        shroom = false
-                    if (shield)
-                        shield = false
-                }
-
-            })
-
+        })
 
 
             this.physics.add.overlap(gameState.junak, upperPlatforms, (user, platform) => {
@@ -451,7 +431,6 @@ class M4_orange extends M0_shared {
                         shield = false
                     if (ghost)
                         ghost = false
-                    console.log('oh wow unic');
                 }
                 else {
                     this.scene.stop('M4_red')

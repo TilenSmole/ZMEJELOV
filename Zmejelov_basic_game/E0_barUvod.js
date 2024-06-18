@@ -29,6 +29,7 @@ class E0_barUvod extends Phaser.Scene {
       }
   }
  create() {
+  this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
     this.da = this.add.sprite(GAME_WIDTH/2+100,GAME_HEIGHT - 80, 'gumb').setInteractive();
     this.ne = this.add.sprite(GAME_WIDTH/2-100,GAME_HEIGHT - 80 , 'gumb').setInteractive();
@@ -75,11 +76,11 @@ class E0_barUvod extends Phaser.Scene {
    
 
         
-this.add.text(100, GAME_HEIGHT - 200, this.loadText("bar_intro_story"), {
+this.add.text(50, GAME_HEIGHT - 400, this.loadText("bar_intro_story"), {
             fontSize: '40px',
             fill: '#A996BC',
             fontFamily: 'CustomFont',
-            wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+            wordWrap: { width: GAME_WIDTH - 50, useAdvancedWrap: true }
         });
   
     

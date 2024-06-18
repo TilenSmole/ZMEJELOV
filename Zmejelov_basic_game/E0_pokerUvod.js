@@ -30,14 +30,14 @@ class E0_pokerUvod extends Phaser.Scene {
   }
 
   create() {
+    this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
-    this.da = this.add.sprite(GAME_WIDTH / 2 + 100, GAME_HEIGHT - 40, 'gumb').setInteractive();
-    this.ne = this.add.sprite(GAME_WIDTH / 2 - 100, GAME_HEIGHT - 40, 'gumb').setInteractive();
+    this.da = this.add.sprite(GAME_WIDTH / 2 + 100, GAME_HEIGHT - 80, 'gumb').setInteractive();
+    this.ne = this.add.sprite(GAME_WIDTH / 2 - 100, GAME_HEIGHT - 80, 'gumb').setInteractive();
     this.da.setScale(0.8)
     this.ne.setScale(0.8)
 
-    gameState.clovk = this.physics.add.sprite(120, GAME_HEIGHT / 3 - 50, "trgovec");
-    gameState.clovk.setScale(.8)
+    gameState.clovk = this.physics.add.sprite(120, GAME_HEIGHT / 3, "trgovec");
     gameState.clovk.move = this.tweens.add({
       targets: gameState.clovk,
       x: GAME_WIDTH - 100,
@@ -49,8 +49,13 @@ class E0_pokerUvod extends Phaser.Scene {
     })
 
 
-    this.add.text(GAME_WIDTH / 2 - 80 - 140, GAME_HEIGHT / 2 + 105, this.loadText("no"), { fontSize: '60px', fill: '#E950F4' });
-    this.add.text(GAME_WIDTH / 2 + 70, GAME_HEIGHT / 2 + 105, this.loadText("yes"), { fontSize: '60px', fill: '#E950F4' });
+
+    this.add.text(GAME_WIDTH / 2 - 140, GAME_HEIGHT - 100, this.loadText("no"), { fontSize: '60px', fill: '#E950F4' });
+
+
+    this.add.text(GAME_WIDTH / 2 + 70, GAME_HEIGHT - 100, this.loadText("yes"), { fontSize: '60px', fill: '#E950F4' });
+
+
 
 
     this.da.on('pointerup', () => {
@@ -68,12 +73,23 @@ class E0_pokerUvod extends Phaser.Scene {
 
 
 
-    this.add.text(100, GAME_HEIGHT - 200, this.loadText("poker_intro"), {
+
+
+
+    this.add.text(50, GAME_HEIGHT - 400, this.loadText("poker_intro"), {
       fontSize: '40px',
       fill: '#A996BC',
       fontFamily: 'CustomFont',
-      wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+      wordWrap: { width: GAME_WIDTH - 50, useAdvancedWrap: true }
     });
+
+
+
+
+
+
+
+
 
 
 

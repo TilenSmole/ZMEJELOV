@@ -17,6 +17,8 @@ class E12_SWAMP_PORAZ extends Phaser.Scene {
      }
  }
  create() {
+  this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
+
     this.titleMusic = this.sound.add('poraz', { volume: 0.1, loop: false });   
   		this.titleMusic.play(); 
     const xKordinata =(Math.random() * 490)

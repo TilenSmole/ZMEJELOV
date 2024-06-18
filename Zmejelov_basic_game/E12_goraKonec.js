@@ -22,6 +22,7 @@ class E12_goraKonec extends Phaser.Scene {
     }
 
     create() {
+        this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
         E_iger += 1
 

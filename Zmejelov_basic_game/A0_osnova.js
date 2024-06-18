@@ -18,36 +18,45 @@ class A0_osnova extends Phaser.Scene {
 
 
 
-		this.anims.create({
-			key: 'walk',
-			frames: [
-				{ key: 'coolGuy', frame: "Wraith_03_Moving Forward_000.png" },],
-			frameRate: 8,
-			repeat: -1
-		});
+		if (!this.anims.exists('walk')) {
+            this.anims.create({
+                key: 'walk',
+                frames: [{ key: 'coolGuy', frame: "Wraith_03_Moving Forward_000.png" }],
+                frameRate: 8,
+                repeat: -1
+            });
+        }
 
-		this.anims.create({
-			key: 'stoji',
-			frames: [
-				{ key: 'coolGuy', frame: "Wraith_03_Idle_000.png" },],
-			frameRate: 8,
-			repeat: -1
-		});
-		this.anims.create({
-			key: 'umre',
-			frames: [
-				{ key: 'coolGuy', frame: "assets/lvl2/Wraith_03_Dying_000.png" },],
-			frameRate: 8,
-			repeat: -1
-		});
+        // Create 'stoji' animation if it doesn't exist
+        if (!this.anims.exists('stoji')) {
+            this.anims.create({
+                key: 'stoji',
+                frames: [{ key: 'coolGuy', frame: "Wraith_03_Idle_000.png" }],
+                frameRate: 8,
+                repeat: -1
+            });
+        }
 
-		this.anims.create({
-			key: 'sovraznik',
-			frames: [
-				{ key: 'sovraznik', frame: "assets/enemy/Wraith_02_Idle Blinking_003.png" },],  /////////////////////////////////////////CGANGEEEEEEEEEEEEEEEEEEEEE
-			frameRate: 10,
-			repeat: -1
-		});
+        // Create 'umre' animation if it doesn't exist
+        if (!this.anims.exists('umre')) {
+            this.anims.create({
+                key: 'umre',
+                frames: [{ key: 'coolGuy', frame: "assets/lvl2/Wraith_03_Dying_000.png" }],
+                frameRate: 8,
+                repeat: -1
+            });
+        }
+
+        // Create 'sovraznik' animation if it doesn't exist
+        if (!this.anims.exists('sovraznik')) {
+            this.anims.create({
+                key: 'sovraznik',
+                frames: [{ key: 'sovraznik', frame: "assets/enemy/Wraith_02_Idle Blinking_003.png" }],
+                frameRate: 10,
+                repeat: -1
+            });
+        }
+
 
 
 

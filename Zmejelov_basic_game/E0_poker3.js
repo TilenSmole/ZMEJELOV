@@ -86,6 +86,7 @@ class E0_poker3 extends Phaser.Scene {
     var desna =  Math.floor(Math.random() * 13 )+2; 
     var vrstaD = Math.floor(Math.random() * 4 ); 
 
+    this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
 
 
     //this.add.text(GAME_WIDTH/2+400,GAME_HEIGHT-100, desna,{ fontSize: '40px',  fill: '#E950F4',fontFamily: 'CustomFont' });

@@ -82,7 +82,7 @@ class E12_skakanjeUvod extends A0_osnova {
     gameState.junak  = this.physics.add.sprite(GAME_WIDTH-50,110, "coolGuy")
   gameState.junak.setScale(.40)// pomanjsa
   this.physics.add.collider(gameState.junak, tiles)
-  f
+  
   gameState.junak.setCollideWorldBounds(true) //ne more vn past
   gameState.trgovec = this.add.sprite(20  ,GAME_HEIGHT-125, 'trgovec');
   gameState.trgovec.setScale(.4)

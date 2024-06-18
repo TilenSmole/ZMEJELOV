@@ -49,7 +49,7 @@ var spaceShip = false
 var speedShip = false
 
 //for game 
-const dolzina = 30000
+const dolzina = 40000
 var freshlyRocketDone = false
 var lowerPlatforms = [];
 var upperPlatforms = [];
