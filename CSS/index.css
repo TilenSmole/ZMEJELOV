@@ -32,19 +32,19 @@
   height: 500px;
 }
 
-.pictureSliderVideo iframe {
+.SliderVideo iframe {
   width: 300px;
   height: 315px;
   display: block;
   margin: 0 auto;
 }
 
-.pictureSliderVideo {
+.SliderVideo {
   width: 100%;
   float: center;
 
 }
-.pictureSliderVideo .text {
+.SliderVideo .text {
   width: 100%;
   float: center;
   margin: 10px;
@@ -154,27 +154,35 @@
 }
 
 
-.alignCommentAdd {
+.alignCommentAdd, .SliderVideo {
   display: flex;
   justify-content: center;
 }
 
-.pictureSliderVideo iframe {
+.SliderVideo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 0 auto; 
+  max-width: 560px; 
+}
+
+.SliderVideo iframe {
   width: 560px;
   height: 315px;
-}
-
-.pictureSliderVideo {
   overflow: hidden;
-  margin: 0px 100px 0px 100px;
 }
 
-.pictureSliderVideo iframe {
+
+
+
+.SliderVideo iframe {
   float: left;
   margin-right: 20px;
 }
 
-.pictureSliderVideo .text {
+.SliderVideo .text {
   overflow: hidden;
 }
 #about_proyect {
@@ -184,10 +192,10 @@
 
 
 #prev{
-  left: 300;
+  left: 400;
 }
 #next{
-  right: 300
+  right: 400
 
 }
 
@@ -1156,7 +1164,8 @@ p: nth-child(2)
 
 }
 
-.slider-button {
+.slider-button , #prevVid,
+#nextVid{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -1172,7 +1181,18 @@ p: nth-child(2)
 
 
 
+#videos {
+  position: relative;
+}
 
+
+#prevVid {
+  left: 400;
+}
+
+#nextVid {
+  right:400;
+}
 
 
 .QnA_full {

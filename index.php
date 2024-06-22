@@ -75,61 +75,187 @@ $translations = loadTranslations();
 
     $language = isset($_SESSION['selectedLanguage']) ? $_SESSION['selectedLanguage'] : 'slo';
     ?>
-    <div id="memes" style="position: relative; margin: auto; overflow: hidden;">
-        <h1>MEMES</h1>
-        <button id="prev" class="slider-button">&lt;</button>
-        <button id="next" class="slider-button" >&gt;</button>
 
 
+<div id="videos">
+        <h1>VIDEO VSEBINA</h1>
+        <button id="prevVid" >&lt;</button>
+        <button id="nextVid" >&gt;</button>
+        <div>
+            <div class="SliderVideo fade">
+                <iframe src="https://www.youtube.com/embed/eqha3gpD4qI?si=c_8uurAxjtIvQmqd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="SliderVideo fade">
+                <iframe src="https://www.youtube.com/embed/qbz5kqjlVdk?si=7UDlHr-wTV4WIp5i" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+               
+            </div>
+            <div class="SliderVideo fade">
+                <iframe src="https://www.youtube.com/embed/41yrJquOsSA?si=xnEXuFoxMKm9obI8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              
 
-        <div class="memesSlider fade memesSlider2">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m1<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 1">
+            </div>
+            <div class="SliderVideo fade">
+                <iframe src="https://www.youtube.com/embed/DiIv8Hph9wE?si=ZzjuIsQ2F4t7KVwC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+         
+
+
+            </div>
+            <div class="SliderVideo fade">
+                <iframe src="https://www.youtube.com/embed/whNDs0nR5HQ?si=pEOEJqFnZA15TqBy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+
+            <div class="SliderVideo fade">
+                <iframe src="https://www.youtube.com/embed/lYap_4NCPcY?si=wZwL1-0USdmQRexm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                
+
+
+            </div>
+            <div class="SliderVideo fade">
+                <iframe src="https://www.youtube.com/embed/gbjCdeeGPG4?si=qkoFlDyvmiCKIvtS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+
         </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m2<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 2">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m4<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 4">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m5<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 5">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m6<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 6">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m7<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 7">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m8<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 8">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m9<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 9">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m10<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 10">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m11<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 11">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>
-/m12<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 12">
-        </div>
-        <div class="memesSlider fade">
-            <img src="assets/PROMO/keepOn.png" alt="keepOn zmejeloving">
-        </div>
+
+        <script>
+        let videoIndex = 0;
+        showVideo(videoIndex);
+
+        function showVideo(index) {
+            let videos = document.getElementsByClassName("SliderVideo");
+            if (index >= videos.length) {
+                videoIndex = 0;
+            } else if (index < 0) {
+                videoIndex = videos.length - 1;
+            } else {
+                videoIndex = index;
+            }
+
+            for (let i = 0; i < videos.length; i++) {
+                videos[i].style.display = "none";
+            }
+
+            videos[videoIndex].style.display = "block";
+        }
+
+        document.getElementById("nextVid").addEventListener("click", function() {
+            showVideo(videoIndex + 1);
+        });
+
+        document.getElementById("prevVid").addEventListener("click", function() {
+            showVideo(videoIndex - 1);
+        });
+    </script>
+
+
+       
+
+
     </div>
+
+
+    <div id="memes" style="position: relative; margin: auto; overflow: hidden;">
+    <h1>MEMES</h1>
+    <button id="prev" class="slider-button">&lt;</button>
+    <button id="next" class="slider-button">&gt;</button>
+
+    <div class="memesSlider fade memesSlider2">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m1<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 1">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m2<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 2">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m3<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 3">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m4<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 4">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m5<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 5">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m6<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 6">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m7<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 7">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m8<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 8">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m9<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 9">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m10<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 10">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m11<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 11">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m12<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 12">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m13<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 13">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m14<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 14">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m15<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 15">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m16<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 16">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m17<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 17">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m18<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 18">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m19<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 19">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m20<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 20">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m21<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 21">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m22<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 22">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m23<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 23">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m24<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 24">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m25<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 25">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m26<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 26">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m27<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 27">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m28<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 28">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m29<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 29">
+    </div>
+    <div class="memesSlider fade">
+        <img src="assets/<?php echo $language === 'en' ? 'memes_en' : 'memes_slo'; ?>/m30<?php echo $language === 'en' ? 'en' : ''; ?>.jpg" alt="meme 30">
+    </div>
+
+    <div class="memesSlider fade">
+        <img src="assets/PROMO/keepOn.png" alt="keepOn zmejeloving">
+    </div>
+</div>
+
 
     <script>
         let memeIndex = 0;
@@ -160,61 +286,6 @@ $translations = loadTranslations();
             showMeme(memeIndex - 1);
         });
     </script>
-
-
-
-
-
-
-
-
-
-
-    <div id="videos">
-        <h1>VIDEO VSEBINA</h1>
-        <div>
-            <div class="pictureSliderVideo fade">
-                <iframe src="https://www.youtube-nocookie.com/embed/WkpYCOwkyK4?si=BSql_6SpqcIPEFWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse sunt, facere accusamus ipsa assumenda repellendus nisi ullam. Blanditiis consequuntur, voluptatum minus neque porro doloribus voluptatibus impedit, ab amet totam quaerat?</p>
-                </div>
-            </div>
-            <div class="pictureSliderVideo fade">
-                <iframe src="https://www.youtube-nocookie.com/embed/WkpYCOwkyK4?si=BSql_6SpqcIPEFWE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse sunt, facere accusamus ipsa assumenda repellendus nisi ullam. Blanditiis consequuntur, voluptatum minus neque porro doloribus voluptatibus impedit, ab amet totam quaerat?</p>
-                </div>
-            </div>
-            <div class="pictureSliderVideo fade">
-                <iframe src="https://www.youtube-nocookie.com/embed/nN8u2-mLYUY?si=ppCsG7ehGV1jXwW9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                <div class="text">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse sunt, facere accusamus ipsa assumenda repellendus nisi ullam. Blanditiis consequuntur, voluptatum minus neque porro doloribus voluptatibus impedit, ab amet totam quaerat?</p>
-                </div>
-            </div>
-            <script>
-                let slideIndexVideo = 0;
-                showSlidesVideo();
-
-                function showSlidesVideo() {
-                    let slidesVideo = document.getElementsByClassName("pictureSliderVideo");
-                    if (slideIndexVideo >= slidesVideo.length) {
-                        slideIndexVideo = 0
-                    }
-                    for (let i = 0; i < slidesVideo.length; i++) {
-                        slidesVideo[i].style.display = "none";
-                    }
-                    slidesVideo[slideIndexVideo].style.display = "block";
-                    slideIndexVideo++;
-
-
-                    setTimeout(showSlidesVideo, 1000);
-                }
-            </script>
-        </div>
-
-    </div>
-
-
 
 
 
