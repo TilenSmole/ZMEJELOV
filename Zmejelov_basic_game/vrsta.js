@@ -95,7 +95,7 @@ class vrsta extends Phaser.Scene {
                 });
             }
             else if (vrstaTeksta == "level6Vojak") {
-                this.add.text(10 - 200, GAME_HEIGHT - 300, 'hihihi🙈🙊', { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
+                this.add.text(10 , GAME_HEIGHT - 300, 'hihihi🙈🙊', { fontSize: '40px', fill: '#A996BC', fontFamily: 'CustomFont' });
                 if (stSmrtiPrVojski > 5) {
                     this.add.text(10, GAME_HEIGHT - 400, this.loadText("soldier_hint"), {
                         fontSize: '40px',

@@ -56,22 +56,22 @@ class A7_droperUvod extends Phaser.Scene {
     var zmeja = this.add.image(GAME_WIDTH-200,GAME_HEIGHT - 525,"zmejaVladji");
     zmeja.setScale(.4)
 
-    this.add.text(xKordinata, yKordinata, this.loadText("space"))
+    this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '40px', fill: "#E950F4", fontFamily: 'CustomFont' });
 
     if (easy == true){
-      this.add.text(100, GAME_HEIGHT - 200, this.loadText("flying_intro"), {
+      this.add.text(20, GAME_HEIGHT - 300, this.loadText("flying_intro"), {
         fontSize: '40px',
         fill: '#A996BC',
         fontFamily: 'CustomFont',
-        wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+        wordWrap: { width: GAME_WIDTH - 30, useAdvancedWrap: true }
     });
     }
     else{
-      this.add.text(100, GAME_HEIGHT - 200, this.loadText("flying_intro_hard"), {
+      this.add.text(20, GAME_HEIGHT - 300, this.loadText("flying_intro_hard"), {
         fontSize: '40px',
         fill: '#A996BC',
         fontFamily: 'CustomFont',
-        wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+        wordWrap: { width: GAME_WIDTH - 30, useAdvancedWrap: true }
     });
 
 }
@@ -79,19 +79,27 @@ class A7_droperUvod extends Phaser.Scene {
     
 
 
- 
   
   if (easy == true){
-   this.input.keyboard.on('keyup-SPACE', () => {
+    
+    var spaceBar1 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+    spaceBar1.on('down', () => {
       this.scene.stop('A7_droperUvod')
       this.scene.start('A7_droper')
     });
+    
   }
   else{
-   this.input.keyboard.on('keyup-SPACE', () => {
+    var spaceBar2 = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+
+    spaceBar2.on('down', () => {
       this.scene.stop('A7_droperUvod')
       this.scene.start('A7_droperTroll')
     });
+
+
+
 
   }
 

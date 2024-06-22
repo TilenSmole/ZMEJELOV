@@ -86,7 +86,7 @@ class A9_skrinja_uvod extends Phaser.Scene {
 
     const xKordinata = (Math.random() * 490)
     const yKordinata = (Math.random() * 350)
-    this.add.text(xKordinata, yKordinata, this.loadText("space"))
+    this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '40px', fill: "#E950F4", fontFamily: 'CustomFont' });
 
 
     if (!vrniNaPogoj) {
@@ -110,11 +110,11 @@ class A9_skrinja_uvod extends Phaser.Scene {
 
 
 
-    this.add.text(100, GAME_HEIGHT - 200, this.loadText("level_9_intro"), {
+    this.add.text(20, GAME_HEIGHT - 200, this.loadText("level_9_intro"), {
       fontSize: '40px',
       fill: '#A996BC',
       fontFamily: 'CustomFont',
-      wordWrap: { width: GAME_WIDTH - 200, useAdvancedWrap: true }
+      wordWrap: { width: GAME_WIDTH - 20, useAdvancedWrap: true }
     });
 
 

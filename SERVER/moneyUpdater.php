@@ -16,20 +16,20 @@ if ($data) {
     // Prepare the SQL statement with placeholders
     $query = "UPDATE users SET money = ? WHERE username = ?";
 
-    $stmt = $conn->prepare($query);
+    $params = array(&$money, &$user);
+
+    $stmt = sqlsrv_prepare($conn, $query, $params);
 
     if ($stmt) {
-        $stmt->bind_param("is", $money, $user);
-        if ($stmt->execute()) {
-            echo json_encode(array("message" => "Database updated successfully, you have more money"));
+        if (sqlsrv_execute($stmt)) {
+            echo json_encode(array("message" => "Database updated successfully"));
         } else {
             // Enhance error handling to get detailed error messages
-            echo json_encode(array("error" => "Failed to execute SQL statement: " . $stmt->error));
+            echo json_encode(array("error" => "Failed to execute SQL statement: " . print_r(sqlsrv_errors(), true)));
         }
-        $stmt->close();
     } else {
         // Enhance error handling to get detailed error messages
-        echo json_encode(array("error" => "Error preparing statement: " . $conn->error));
+        echo json_encode(array("error" => "Error preparing statement: " . print_r(sqlsrv_errors(), true)));
     }
 } else {
     // No data received

@@ -452,7 +452,7 @@ if (isset($_SESSION['username'], $_SESSION['lastLevel'], $_SESSION['difficulty']
     </div>
 
 
-    <div class="comments_DIV" id="comments_OG">
+    <div class="comments_DIV" id="comments_zmentures">
       <h1><?php
           echo $translations["KOMENTARJI"] ?></h1>
       <?php if (isset($_SESSION["username"])) : ?>
@@ -564,17 +564,17 @@ WHERE RowNum BETWEEN ? AND ?";
 
         // Previous page link
         if ($page > 1) {
-          echo '<a href="zmentures.php?page=' . ($page - 1) . '#comments_OG"><&#160 &#160</a> ';
+          echo '<a href="zmentures.php?page=' . ($page - 1) . '#comments_zmentures"><&#160 &#160</a> ';
         }
 
         // Pagination links
         for ($i = $startPage; $i <= $endPage; $i++) {
-          echo '<a href="zmentures.php?page=' . $i . '#comments_OG"' . ($i == $page ? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
+          echo '<a href="zmentures.php?page=' . $i . '#comments_zmentures"' . ($i == $page ? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
         }
 
         // Next page link
         if ($page < $totalPages) {
-          echo '<a href="zmentures.php?page=' . ($page + 1) . '#comments_OG">&#160 &#160></a>';
+          echo '<a href="zmentures.php?page=' . ($page + 1) . '#comments_zmentures">&#160 &#160></a>';
         }
 
         echo '</div>';
@@ -610,7 +610,7 @@ if (isset($_GET["submitCommentZmejelov"])) {
 
     if ($stmt) {
       if (sqlsrv_execute($stmt)) {
-        echo "<meta http-equiv=Refresh content=2;url=/zmentures#comments_OG>";
+        echo "<meta http-equiv=Refresh content=2;url=/zmentures.php#comments_zmentures>";
       } else {
         echo "Error executing statement: " . print_r(sqlsrv_errors(), true);
       }

@@ -179,7 +179,7 @@ $username = isset($_GET['username']) ? $_GET['username'] : '';
             <li><a href="/zmentures.php#game_OG" onclick="closeNav()"><?php
                                                                       echo $translations['game']; ?></a></li>
             <li><a href="/zmentures.php#QnA_OG" onclick="closeNav()">Q&A</a></li>
-            <li><a href="/zmentures.php#comments_OG" onclick="closeNav()"><?php
+            <li><a href="/zmentures.php#comments_zmentures" onclick="closeNav()"><?php
                                                                           echo $translations['KOMENTARJI']; ?></a></li>
             <li><a href="/zmentures.php#dosezki_zmentures" onclick="closeNav()"><?php
                                                                                 echo $translations['achivements']; ?></a></li>

@@ -1,17 +1,20 @@
 <?php
+$connectionInfo = array(
+    "UID" => "zmejelov",
+    "pwd" => "9ar:p!d&@,w4mY8",
+    "Database" => "Zmejelov DB",
+    "LoginTimeout" => 30,
+    "Encrypt" => 1,
+    "TrustServerCertificate" => 0
+);
+$serverName = "tcp:zmejelov-server.database.windows.net,1433";
 
-// MySQLi connection parameters
-$servername = "localhost";  // Usually 'localhost' for local PHP MyAdmin
-$username = "root";
-$password = "";
-$dbname = "zmejelov_db";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($conn === false) {
+    echo "Error connecting to SQL Server via sqlsrv_connect: ";
+    die(print_r(sqlsrv_errors(), true));
+} else {
+    // echo "Connected successfully via sqlsrv_connect";
 }
-
 ?>

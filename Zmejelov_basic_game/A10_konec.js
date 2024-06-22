@@ -4,9 +4,10 @@ class A10_konec extends A0_osnova {
 	}
 	preload() {
 
-		this.load.image("zmentures", "assets/uvod/Screenshot 2023-01-27 at 16-50-18 Untitled-11.pdf.png")
-		this.load.image("rage", "assets/uvod/rage.png")
-		this.load.image("basic", "assets/uvod/basic.png")
+		this.load.image("zmentures", "assets/zmejelov/1 (7).png")
+        this.load.image("zmentures2", "assets/zmejelov/1 (8).png")
+        this.load.image("zmentures3", "assets/zmejelov/1 (2).png")
+
 	}
 	create() {
 		this.cameras.main.backgroundColor = Phaser.Display.Color.HexStringToColor("#2A282E");
@@ -54,15 +55,15 @@ class A10_konec extends A0_osnova {
 		else if (verzija == 0) {
 
 			var zmentures = this.add.image(GAME_WIDTH / 2, 100, "zmentures");
-			zmentures.setScale(.5)
+			zmentures.setScale(1.7)
 		}
 		else if (verzija == 2) {
-			var rage = this.add.image(GAME_WIDTH / 2, 100, "rage");
-			rage.setScale(.5)
+			var rage = this.add.image(GAME_WIDTH / 2, 100, "zmentures2");
+			rage.setScale(1.7)
 		}
 		else {
-			var basic = this.add.image(GAME_WIDTH / 2, 100, "basic");
-			basic.setScale(.5)
+			var basic = this.add.image(GAME_WIDTH / 2, 100, "zmentures3");
+			basic.setScale(1.7)
 		}
 
 

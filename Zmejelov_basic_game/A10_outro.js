@@ -43,7 +43,7 @@ class A10_outro extends Phaser.Scene {
 
         this.zacetek = this.add.sprite(GAME_WIDTH - 100, GAME_HEIGHT - 50, 'gumb').setInteractive();
         this.zacetek.setScale(0.8)
-        this.add.text(GAME_WIDTH - 265, GAME_HEIGHT - 115, this.loadText("next"), { fontSize: '40px', fill: '#B637BF' });
+        this.add.text(GAME_WIDTH - 150, GAME_HEIGHT - 50, this.loadText("next"), { fontSize: '40px', fill: '#B637BF' });
 
 
 

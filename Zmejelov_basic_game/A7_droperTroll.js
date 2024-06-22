@@ -271,11 +271,11 @@ updateDataBase(data) {
 
    
 
-        gameState.heart1  = this.physics.add.sprite(25,gameState.junak.y -50, "heart")
+        gameState.heart1  = this.physics.add.sprite(40,gameState.junak.y -50, "heart")
         gameState.heart1.setScale(0.1)
-        gameState.heart2  = this.physics.add.sprite(75,gameState.junak.y -50, "heart")
+        gameState.heart2  = this.physics.add.sprite(90,gameState.junak.y -50, "heart")
         gameState.heart2.setScale(0.1)
-        gameState.heart3  = this.physics.add.sprite(125,gameState.junak.y -50, "heart")
+        gameState.heart3  = this.physics.add.sprite(140,gameState.junak.y -50, "heart")
         gameState.heart3.setScale(0.1)
   }
 
