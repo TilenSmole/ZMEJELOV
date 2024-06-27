@@ -164,7 +164,6 @@ class A0_osnova extends Phaser.Scene {
 				lastLevel: _scene,
 				difficulty: difficulty,
 			};
-			console.log('difficulty FINAL CALL' + difficulty);
 			this.updateDataBase(data)
 				.then(response => {
 					console.log("progress saved!");

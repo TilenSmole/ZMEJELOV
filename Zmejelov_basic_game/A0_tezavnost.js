@@ -111,14 +111,14 @@ class A0_tezavnost extends A0_osnova {
         easy = false
         difficulty = "100000"
         this.scene.stop('A0_tezavnost')
-        this.scene.start('A0_intro')
+        this.scene.start('A0_uvod')
 	})
     this.lahko.setScale(1.5)
     this.lahko.on('pointerup', () => {
         easy = true
         difficulty = "00000"
         this.scene.stop('A0_tezavnost')
-        this.scene.start('A0_intro')
+        this.scene.start('A0_uvod')
 	})
     this.city.setScale(1.5)
 	this.city.on('pointerup', () => {

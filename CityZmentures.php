@@ -503,140 +503,86 @@ if (session_status() === PHP_SESSION_NONE)
 
   </div>
 
-  <div class="comments_DIV" id="comments_OG">
-  <h1><?php echo $translations["KOMENTARJI"] ?></h1>
+ 
+  <div class="comments_DIV" id="comments_CityZmentures">
+    <h1><?php echo $translations["KOMENTARJI"] ?></h1>
 
-      <?php if (isset($_SESSION["username"])) : ?>
-        <div>
-          <div class="alignCommentAdd">
-            <form action="CityZmentures.php" method="GET" class="commentsForm">
-              <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php echo $translations["write_comment"]; ?>" rows="3" cols="50"></textarea>
-              <div class="submitButtonClass"><button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton"><?php echo $translations["post"]; ?></button>
-              </div>
-          </div>
-          </form>
+    <?php if (isset($_SESSION["username"])) : ?>
+    <div>
+        <div class="alignCommentAdd">
+            <form id="commentsForm" action="zmejelov1869.php" method="POST" class="commentsForm">
+                <textarea name="addCommentZmejelov" id="addCommentZmejelov" placeholder="<?php echo $translations["write_comment"]; ?>" rows="3" cols="50"></textarea>
+                <div class="submitButtonClass">
+                    <button type="submit" name="submitCommentZmejelov" id="submitCommentZmejelov" class="submitCommentButton"><?php echo $translations["post"]; ?></button>
+                </div>
+            </form>
         </div>
-
-
-      <?php else : ?>
-        <div class="commentsFormError">
-
-          <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
-        </div>
-      <?php endif; ?>
-      <?php
-      // Define the number of comments per page
-      $commentsPerPage = 7;
-
-      // Query to count total number of comments
-      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type = 3";
-      $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
-
-      if ($totalCommentsResult === false) {
-        echo "Error counting total comments: " . print_r(sqlsrv_errors(), true);
-        exit();
-      }
-
-      $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
-      $totalComments = $totalCommentsRow['total'];
-
-      // Calculate the current page number
-      $page = isset($_GET['page']) ? $_GET['page'] : 1;
-      // Calculate the SQL LIMIT for pagination
-      $offset = ($page - 1) * $commentsPerPage;
-
-      // Query to fetch comments for the current page
-      $totalPages = ceil($totalComments / $commentsPerPage);
-
-      // Adjust the offset for the last page
-      if ($page == $totalPages && $totalComments % $commentsPerPage != 0) {
-        $commentsPerPage = $totalComments % $commentsPerPage;
-      }
-
-      // Calculate the SQL LIMIT for pagination
-      $offset = ($page - 1) * $commentsPerPage;
-
-      // Query to fetch comments for the current page
-      $sql = "
-WITH PaginationCTE AS (
-    SELECT *, ROW_NUMBER() OVER (ORDER BY date DESC) AS RowNum
-    FROM comments
-    WHERE type = 3
-)
-SELECT *
-FROM PaginationCTE
-WHERE RowNum BETWEEN ? AND ?";
-
-      $stmt = sqlsrv_prepare($conn, $sql, array($offset + 1, $offset + $commentsPerPage));
-
-      // Execute the statement
-      try {
-        $result = sqlsrv_execute($stmt);
-
-        if ($result === false) {
-          echo "Error fetching comments: " . print_r(sqlsrv_errors(), true);
-          exit();
-        }
-        $startPage = max(min($page- floor($commentsPerPage / 2), $totalPages - $commentsPerPage + 1), 1);
-        $endPage = min($startPage + $commentsPerPage - 1, $totalPages);
-        // Display comments
-        echo '<div id="comment_section" class="commentsZmejelov">';
-        while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)) {
-          echo '<div class="full_comment">
-                  <span class="commentAuthor"> 
-                    <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" style="width: 40px; height: 50px; background-color: #605966; border-radius: 100%;">
-                    <a href="user.php?user=' . urlencode($row["user"]) . '">' . $row["user"] . '</a>      </span>
-                  <span class="commentText"><br>' . $row["comment"] . '</span><br><br>
-                  <span class="commentDate"><br>' . $row["date"]->format('d-m-Y')   . '</span>
-                </div><br><br>';
-        }
-
-        echo '</div>';
-      } catch (Exception $e) {
-        // Handle the exception
-        echo 'Caught exception: ',  $e->getMessage(), "\n";
-      }
-
-
-      // Query to count total number of comments
-      $totalCommentsQuery = "SELECT COUNT(*) AS total FROM comments WHERE type=3";
-      $totalCommentsResult = sqlsrv_query($conn, $totalCommentsQuery);
-      $totalCommentsRow = sqlsrv_fetch_array($totalCommentsResult);
-      $totalComments = $totalCommentsRow['total'];
-
-
-      if ($totalComments != 0) {
-        // Calculate total number of pages
-        $totalPages = ceil($totalComments / $commentsPerPage);
-
-        // Display pagination links
-        echo '<div class="pagination_container_comments">';
-        echo '<div class="pagination">';
-
-        // Previous page link
-        if ($page > 1) {
-          echo '<a href="CityZmentures.php?page=' . ($page- 1) . '#comments_OG"><&#160 &#160</a> ';
-        }
-
-        // Pagination links
-        for ($i = $startPage; $i <= $endPage; $i++) {
-          echo '<a href="CityZmentures.php?page=' . $i . '#comments_OG"' . ($i == $page? ' class="active"' : '') . '>' . $i . "&nbsp;   "  . '</a>';
-        }
-
-        // Next page link
-        if ($page < $totalPages) {
-          echo '<a href="CityZmentures.php?page=' . ($page+ 1) . '#comments_OG">&#160 &#160></a>';
-        }
-
-        echo '</div>';
-        echo '</div>';
-      }
-
-
-      ?>
-
     </div>
 
+    <?php else : ?>
+    <div class="commentsFormError">
+        <p class="commentsFormErrorText"><?php echo $translations["please_login_comments"] ?></p>
+    </div>
+    <?php endif; ?>
+
+    <div id="comment_section" class="commentsZmejelov">
+        <!-- Comments will be loaded here dynamically -->
+    </div>
+</div>
+
+
+    
+    <script>
+$(document).ready(function() {
+    // Handle comment submission via AJAX
+    $('#commentsForm').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting via the browser
+
+        var comment = $('#addCommentZmejelov').val();
+        var type = 3; // Set the type here, you can change it based on your requirement
+
+        $.ajax({
+            url: 'SERVER/submit_comment.php',
+            type: 'POST',
+            data: {
+                addCommentZmejelov: comment,
+                submitCommentZmejelov: true,
+                type: type
+            },
+            success: function(response) {
+                // Clear the comment input field
+                $('#addCommentZmejelov').val('');
+                // Reload comments
+                loadComments(type);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error submitting comment:', status, error);
+            }
+        });
+    });
+
+    // Function to load comments via AJAX
+    function loadComments(type) {
+        $.ajax({
+            url: 'SERVER/load_comments.php',
+            type: 'GET',
+            data: {
+                type: type
+            },
+            success: function(response) {
+                $('#comment_section').html(response);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading comments:', status, error);
+            }
+        });
+    }
+
+    // Initial load of comments
+    var initialType = 3; // Set the initial type here
+    loadComments(initialType);
+});
+</script>
   </div>
   <div id="footer"></div>
 </body>

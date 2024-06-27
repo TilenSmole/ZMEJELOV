@@ -122,7 +122,7 @@ if ($result) {
         ?>
       </div>
       <div class="achievementsDisplayProfile">
-        <h2>CR*CKELOV </h2>
+        <h2>CRA*KELOV </h2>
         <?php
         $finalScore = substr($achievements, 17, 7);
         $finalScore = substr_count($finalScore, '1');

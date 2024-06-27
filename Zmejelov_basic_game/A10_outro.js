@@ -27,29 +27,15 @@ class A10_outro extends Phaser.Scene {
         this.video.play()
 
 
-        //this.add.image(GAME_WIDTH-200,GAME_HEIGHT - 400,"zmeja");
-        /*var x = 150
-        var y = 125
-        var font = "80px"
-        this.add.text(x, y, 'Z', { fontSize:  font,fill: '#A996BC',  fontFamily: 'CustomFont' });
-        this.add.text(x, y + 60, 'M',{ fontSize: font,fill: '#A996BC',  fontFamily: 'CustomFont' });
-        this.add.text(x, y+120, 'E',{ fontSize: font,fill: '#A996BC',  fontFamily: 'CustomFont' });
-        this.add.text(x, y+180, 'J',{ fontSize: '80px',fill: '#A996BC',  fontFamily: 'CustomFont' });
-        this.add.text(x, y+240, 'E',{ fontSize: '80px',fill: '#A996BC',  fontFamily: 'CustomFont' });
-        this.add.text(x, y+300, 'L',{ fontSize: '80px',fill: '#A996BC',  fontFamily: 'CustomFont' });
-        this.add.text(x, y+360, 'O',{ fontSize: '80px',fill: '#A996BC',  fontFamily: 'CustomFont' });
-        this.add.text(x, y+420, 'V',{ fontSize: '80px',fill: '#A996BC',  fontFamily: 'CustomFont' });*/
-
-
-        this.zacetek = this.add.sprite(GAME_WIDTH - 100, GAME_HEIGHT - 50, 'gumb').setInteractive();
+        this.zacetek = this.add.sprite(GAME_WIDTH - 150, GAME_HEIGHT - 50, 'gumb').setInteractive();
         this.zacetek.setScale(0.8)
-        this.add.text(GAME_WIDTH - 150, GAME_HEIGHT - 50, this.loadText("next"), { fontSize: '40px', fill: '#B637BF' });
+        this.add.text(GAME_WIDTH - 225, GAME_HEIGHT - 75, this.loadText("next"), { fontSize: '40px', fill: '#B637BF' });
 
 
 
 
         this.zacetek.on('pointerup', () => {
-            this.scene.stop('A0_intro')
+            this.scene.stop('A10_outro')
             this.scene.start('A10_konec')
         })
 
