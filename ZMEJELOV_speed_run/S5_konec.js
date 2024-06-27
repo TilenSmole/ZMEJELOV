@@ -57,7 +57,6 @@ class S5_konec extends S0_shared {
         };
 
         var speedrun_win = finalTime
-        	console.log(''+speedrun_win);
         var text = ""
         if (speedrun_win < 60)
             text = this.loadText("speedrun_win_fast")

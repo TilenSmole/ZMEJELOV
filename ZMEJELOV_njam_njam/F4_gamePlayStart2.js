@@ -180,20 +180,13 @@ class F4_gamePlayStart2 extends F0_shared {
             }
 
         }
-console.log(currentTime);
 
 if(currentTime % 40 == 0 && currentTime != 0 && lastSwitch +10 < currentTime ){
-    console.log('Evaluating condition:');
-    console.log('currentTime:', currentTime);
-    console.log('lastSwitch:', lastSwitch);
-    console.log('currentTime % 40:', currentTime % 40);
-    console.log('lastSwitch + 10 < currentTime:', lastSwitch + 10 < currentTime);
+
     lastSwitch = currentTime
     startX = gameState.junak.x
     startY = gameState.junak.y
-    console.log(lastSwitch);
-    console.log(currentTime);
-    console.log('¸nova scenaaa');
+
      this.scene.stop('F4_gamePlayStart2')
      this.scene.start('F4_gamePlayStart')
      
@@ -218,7 +211,6 @@ if(currentTime % 40 == 0 && currentTime != 0 && lastSwitch +10 < currentTime ){
                   score -= 50
               }
               else {
-                console.log('¸pain');
 
                   this.stopWatchStop()
                   this.scene.stop('F4_gamePlayStart')
@@ -245,8 +237,7 @@ if(currentTime % 40 == 0 && currentTime != 0 && lastSwitch +10 < currentTime ){
                     type: type,
                     score: score
                 };
-                console.log('¸DELA TOOO');  
-                console.log(data.score);
+
                 this.updateDataBase(data)
                     .then(response => {
                         console.log("progress saved!     " + response);

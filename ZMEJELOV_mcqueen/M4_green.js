@@ -259,7 +259,6 @@ class M4_green extends M0_shared {
 
 
             this.physics.add.overlap(gameState.junak, buffs, (user, buff) => {
-                console.log('' + buff.value);
                 if (buff.value == 2) {
                     if (!shield) {
                         shieldIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (2)")
@@ -460,7 +459,6 @@ class M4_green extends M0_shared {
                         shield = false
                     if (ghost)
                         ghost = false
-                    console.log('oh wow unic');
                 }
                 else {
                     this.scene.stop('M4_red')

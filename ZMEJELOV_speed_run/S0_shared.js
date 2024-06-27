@@ -154,9 +154,7 @@ class S0_shared extends Phaser.Scene {
 
 
 	updateAchievements() {
-		console.log('¸w');
 		var achievementsUpdated = achievements;
-		console.log(achievements)
 		if (completedSpeedy)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 17, "1");
 		if (completedGame)
@@ -169,13 +167,11 @@ class S0_shared extends Phaser.Scene {
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 21, "1");
 		if (quickDeath)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 22, "1");
-		console.log(achievements)
 		achievements = achievementsUpdated;
 	}
 
 
 	resetGame() {
-		console.log('¸ow');
 		disableReturnBack = false //player cant take the easy way out 
 		stopChecking = false //so it doesnt dispplay every second if disableReturnBack
 		hotdogShow = true //shows a hotdog

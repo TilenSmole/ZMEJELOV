@@ -84,7 +84,7 @@ class A10_konec extends A0_osnova {
 
 		this.input.on('pointerup', () => {
 			this.scene.stop('A10_konec')
-			this.scene.start('A0_zahvale')
+			this.scene.start('A0_zacetniZaslon')
 		});
 
 

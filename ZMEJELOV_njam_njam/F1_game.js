@@ -55,7 +55,6 @@ const gameState = {
         if (xhr.status === 200) {
           var response = JSON.parse(xhr.responseText); // Parse JSON response
           var languageOfApp = response.language;
-          console.log(languageOfApp)
           if (languageOfApp === "en") {
             language = "en"
           } 

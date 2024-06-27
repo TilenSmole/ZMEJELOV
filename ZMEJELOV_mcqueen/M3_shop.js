@@ -65,7 +65,7 @@ class M3_shop extends M0_shared {
         var chest = this.add.image(100, 50, "r1 (1)")
         chest.setScale(.8)
 
-        item0 = this.add.text(250, 50, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+        item0 = this.add.text(250, 50, '180', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
 
 
@@ -73,36 +73,36 @@ class M3_shop extends M0_shared {
         var shield = this.add.image(100, 150, "r1 (2)")
         shield.setScale(.5)
 
-        item1 = this.add.text(250, 150, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+        item1 = this.add.text(250, 150, '200', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
 
 
         var ghost = this.add.image(100, 250, "r1 (5)")
 
-        item2 = this.add.text(250, 250, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+        item2 = this.add.text(250, 250, '50', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
 
         var shrrom = this.add.image(100, 350, "r1 (6)")
 
-        item3 = this.add.text(250, 350, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+        item3 = this.add.text(250, 350, '50', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
 
         var potion = this.add.image(100, 450, "r1 (10)")
-        item4 = this.add.text(250, 450, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+        item4 = this.add.text(250, 450, '200', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
         var spaceship = this.add.image(100, 550, "r1 (14)")
-        item5 = this.add.text(250, 550, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+        item5 = this.add.text(250, 550, '500', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
         var zmeja = this.add.image(100, 650, "r1 (15)")
         zmeja.setScale(.1)
-        item6 = this.add.text(250, 650, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+        item6 = this.add.text(250, 650, '300', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
         var ach = this.add.image(100, 750, "ach")
         ach.setScale(.1)
         if (buy)
             this.add.text(250, 750, this.loadText("bought"), { fontSize: '30px', fill: '#E950F4' })
         else
-            item7 = this.add.text(250, 750, '100', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
+            item7 = this.add.text(250, 750, '1000', { fontSize: '30px', fill: '#E950F4' }).setInteractive();
 
 
         gameState.text = this.add.text(GAME_WIDTH - 400, 20, 'Stanje: ' + userCoins, { fontSize: '30px', fill: '#E950F4', fontFamily: 'CustomFont' });
@@ -150,8 +150,8 @@ class M3_shop extends M0_shared {
 
         item0.on('pointerup', () => {
             if (!shieldStart && !ghostStart && !shroomStart && !potionStart && !rocketStart && !spaceshipStart) {
-                if (userCoins - 100 >= 0) {
-                    userCoins -= 100
+                if (userCoins - 180 >= 0) {
+                    userCoins -= 180
                     chooseRandom()
                     this.updateBalance()
 
@@ -185,8 +185,8 @@ class M3_shop extends M0_shared {
 
 
         item1.on('pointerup', () => {
-            if (userCoins - 100 >= 0) {
-                userCoins -= 100
+            if (userCoins - 200 >= 0) {
+                userCoins -= 200
                 item0.setText(this.loadText("not_ava"))
 
                 shieldStart = true
@@ -198,8 +198,8 @@ class M3_shop extends M0_shared {
         })
 
         item2.on('pointerup', () => {
-            if (userCoins - 100 >= 0) {
-                userCoins -= 100
+            if (userCoins - 50 >= 0) {
+                userCoins -= 50
                 item2.setText(this.loadText("bought"))
                 ghostStart = true
                 this.updateBalance()
@@ -209,8 +209,8 @@ class M3_shop extends M0_shared {
         })
 
         item3.on('pointerup', () => {
-            if (userCoins - 100 >= 0) {
-                userCoins -= 100
+            if (userCoins - 50 >= 0) {
+                userCoins -= 50
                 item3.setText(this.loadText("bought"))
                 shroomStart = true
                 this.updateBalance()
@@ -220,8 +220,8 @@ class M3_shop extends M0_shared {
 
         })
         item4.on('pointerup', () => {
-            if (userCoins - 100 >= 0) {
-                userCoins -= 100
+            if (userCoins - 200 >= 0) {
+                userCoins -= 200
                 item4.setText(this.loadText("bought"))
                 potionStart = true
                 this.updateBalance()
@@ -231,8 +231,8 @@ class M3_shop extends M0_shared {
         })
 
         item5.on('pointerup', () => {
-            if (userCoins - 100 >= 0) {
-                userCoins -= 100
+            if (userCoins - 500 >= 0) {
+                userCoins -= 500
                 item5.setText(this.loadText("bought"))
                 rocketStart = true
                 this.updateBalance()
@@ -243,8 +243,8 @@ class M3_shop extends M0_shared {
         })
 
         item6.on('pointerup', () => {
-            if (userCoins - 100 >= 0) {
-                userCoins -= 100
+            if (userCoins - 300 >= 0) {
+                userCoins -= 300
                 item6.setText(this.loadText("bought"))
                 spaceshipStart = true
                 this.updateBalance()
@@ -286,8 +286,8 @@ class M3_shop extends M0_shared {
 
         if (!buy) {
             item7.on('pointerup', () => {
-                if (userCoins - 100 >= 0) {
-                    userCoins -= 100
+                if (userCoins - 1000 >= 0) {
+                    userCoins -= 1000
                     item7.setText(this.loadText("bought"))
                     showPopupAchievements(this.loadText("money_ach"))
                     this.titleMusic = this.sound.add('egg', { volume: 0.1, loop: false });

@@ -101,7 +101,6 @@ this.physics.add.overlap(gameState.junak, zaklad, () => {
 
 
 })
-console.log('difficulty' + difficulty);
 
 this.save("A2_scena2", difficulty)
 

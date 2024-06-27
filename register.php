@@ -89,8 +89,8 @@
                     $_SESSION["achievements"] = $row['achievements'];
                     
                 
-                //   echo "<p class='response''>Registracija uspešna, prenaslavlanje!<p>";
-                //   echo "<meta http-equiv=Refresh content=0;url=../>";
+                   echo "<p class='response''>Registracija uspešna, prenaslavlanje!<p>";
+                       echo "<meta http-equiv=Refresh content=0;url=../>";
             
 
             }

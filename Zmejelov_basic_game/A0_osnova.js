@@ -247,7 +247,6 @@ class A0_osnova extends Phaser.Scene {
 			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 3, "1");
 		}
 
-		console.log('difficultyUpdated' + difficultyUpdated);
 		difficulty = difficultyUpdated;
 	}
 

@@ -220,7 +220,6 @@ class M4_red extends M0_shared {
 
 
             this.physics.add.overlap(gameState.junak, buffs, (user, buff) => {
-                console.log('' + buff.value);
                 if (buff.value == 2) {
                     if (!shield) {
                         shieldIcon = this.add.image(gameState.junak.x - 100, gameState.junak.y - 50, "r1 (2)")

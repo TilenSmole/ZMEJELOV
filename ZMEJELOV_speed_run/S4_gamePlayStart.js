@@ -345,7 +345,6 @@ class S4_gamePlayStart extends S0_shared {
 
 
         this.physics.add.overlap(gameState.junak, winnActivaters, () => {
-            console.log('¸2');
 
             canWin = true
         })
@@ -359,7 +358,6 @@ class S4_gamePlayStart extends S0_shared {
 
         })
         this.physics.add.overlap(gameState.junak, gameState.vulture, () => {
-            console.log('¸3');
 
             stSmrti++
             deathByWho[1] = [1]
@@ -369,7 +367,6 @@ class S4_gamePlayStart extends S0_shared {
 
         })
         this.physics.add.overlap(gameState.junak, gameState.spaceShip, () => {
-            console.log('¸5');
 
             stSmrti++
             deathByWho[3] = [1]
@@ -379,7 +376,6 @@ class S4_gamePlayStart extends S0_shared {
 
         })
         this.physics.add.overlap(gameState.junak, gameState.spaceShipKiller, () => {
-            console.log('¸7');
 
             stSmrti++
             deathByWho[4] = [1]
@@ -389,7 +385,6 @@ class S4_gamePlayStart extends S0_shared {
 
         })
         this.physics.add.overlap(gameState.junak, gameState.reaper1, () => {
-            console.log('6');
 
             stSmrti++
             deathByWho[2] = [1]
@@ -404,7 +399,6 @@ class S4_gamePlayStart extends S0_shared {
             deathVarient = "reaper"
                this.scene.stop('S4_gamePlayStart')
               this.scene.start('S4_deathScreen')
-            console.log('¸9');
 
 
         })
@@ -571,7 +565,6 @@ class S4_gamePlayStart extends S0_shared {
 
         var position = visina - 4500
         if (hotdogShow) {
-            console.log('¸fa');
             hotdogShow = false
             gameState.hotdog = this.physics.add.sprite(dolzina - 3700, position, 'hotdog');
             this.physics.add.collider(gameState.hotdog, allPlatforms)
@@ -586,7 +579,6 @@ class S4_gamePlayStart extends S0_shared {
             var upDownPlanetsLocation = [500, 700, 1000, 1200]
             var planets;
             var distance = 2800
-            console.log('şam enkt naj bi blo');
             for (var i = 0; i < 4; i++) {
                 planets = platforms.create(dolzina - 6000 + distance, position + upDownPlanetsLocation[i], "planet" + i)
                 planets.setScale(1.5)

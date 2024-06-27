@@ -7,7 +7,7 @@ function setLanguage(language) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
             if (xhr.status === 200) {
-                console.log('Language set successfully' + language);
+                console.log('Language set successfully' );
                 // Call getLanguage to update the buttons after setting the language
                 getLanguage();
                 window.location.reload();

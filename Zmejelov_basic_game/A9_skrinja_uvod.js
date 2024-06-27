@@ -67,7 +67,6 @@ class A9_skrinja_uvod extends Phaser.Scene {
 			difficultyUpdated = this.replaceCharAt(difficultyUpdated, 3, "1");
 		}
 
-		console.log('difficultyUpdated' + difficultyUpdated);
 		difficulty = difficultyUpdated;
 	}
   loadText(text_to_translate) {

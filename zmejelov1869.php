@@ -174,7 +174,19 @@ $translations = loadTranslations();
         </div>
 
 
-
+        <div>
+          <div class="QN_field">
+            <div class="question_field">
+              <p> <?php
+                  echo $translations['q5_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a5b','a5bDiv')">&#9660;</button></span>
+              </p>
+            </div>
+          </div>
+          <div id="a5bDiv">
+            <p id="a5b" style="display: none;"><?php
+                                                echo $translations['a5_OG'] ?></p>
+          </div>
+        </div>
         <div>
           <div class="QN_field">
             <div class="question_field">
@@ -188,7 +200,6 @@ $translations = loadTranslations();
                                                 echo $translations['a4_OG'] ?></p>
           </div>
         </div>
-
       </div>
 
       <script>

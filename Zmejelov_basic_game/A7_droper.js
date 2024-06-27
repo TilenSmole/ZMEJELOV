@@ -81,7 +81,6 @@ class A7_droper extends Phaser.Scene {
             difficultyUpdated = this.replaceCharAt(difficultyUpdated, 3, "1");
         }
 
-        console.log('difficultyUpdated' + difficultyUpdated);
         difficulty = difficultyUpdated;
 
 
@@ -324,7 +323,6 @@ class A7_droper extends Phaser.Scene {
 
             this.titleMusic = this.sound.add('poraz', { volume: 0.1, loop: false });
             this.titleMusic.play();
-            console.log('ştik');
             if (stZivljenj > 0) {
                 gameState.junak.y = gameState.junak.y + 150
                 stZivljenj -= 1

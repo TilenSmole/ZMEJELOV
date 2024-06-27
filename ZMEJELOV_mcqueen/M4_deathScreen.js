@@ -70,7 +70,6 @@ class M4_deathScreen extends M0_shared {
             const money = {
                 money: userCoins + coinsNewGame,
             };
-            console.log(coinsNewGame);
             this.updateMoney(money);
             saveResOnce = true
             coinsNewGame = 0;

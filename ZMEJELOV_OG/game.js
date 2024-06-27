@@ -41,7 +41,6 @@ class getStuff {
           var sessionData = JSON.parse(xhr.responseText);
           user = sessionData.username;
           const achievements = sessionData.achievements;
-          console.log(user)
           resolve({achievements, user });
         } else {
           // Handle error
@@ -84,7 +83,6 @@ function getLanguage() {
       if (xhr.status === 200) {
         var response = JSON.parse(xhr.responseText); // Parse JSON response
         var languageOfApp = response.language;
-        console.log(languageOfApp)
         if (languageOfApp === "en") {
           language = "en"
         } 

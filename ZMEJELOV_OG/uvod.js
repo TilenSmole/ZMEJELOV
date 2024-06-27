@@ -14,7 +14,6 @@ class uvod extends Phaser.Scene {
   }
   loadText(text_to_translate) {
 
-    console.log(language)
     if (language === "en") {
       return this.cache.json.get('textEn')["en"][text_to_translate];
     } else {
@@ -35,7 +34,6 @@ class uvod extends Phaser.Scene {
 
     const ach = achievements.substring(16, 17);
 
-    console.log('ach'+ach);
     if (ach == 1)
         completed = true;
     else

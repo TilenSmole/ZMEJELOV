@@ -410,8 +410,7 @@ class A6_scena6 extends A0_osnova {
 
 		var x = 300
 		var y = visina - 300
-		console.log('spawn6'+ spawn6);
-		console.log('easy'+ easy);
+
 
 		if (spawn6 == true && (easy == true || zmaga == true)) {
 			x = 100
@@ -763,7 +762,6 @@ class A6_scena6 extends A0_osnova {
 			});
 
 
-			console.log('difficulty' + difficulty);
 			this.save("A6_scena6", difficulty)
 
 	}

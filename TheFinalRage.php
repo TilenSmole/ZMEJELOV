@@ -148,16 +148,28 @@ if (session_status() === PHP_SESSION_NONE)
           <div class=" QN_field">
             <div class="question_field">
               <p><?php
-                  echo $translations['q3_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a1b','a1bDiv')">&#9660;</button></span>
+                  echo $translations['q6_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a1b','a1bDiv')">&#9660;</button></span>
               </p>
             </div>
           </div>
           <div id="a1bDiv">
             <p id="a1b" style="display: none; "><?php
-                                                echo $translations['a1_OG'] ?></p>
+                                                echo $translations['a6_OG'] ?></p>
           </div>
         </div>
-
+        <div>
+          <div class=" QN_field">
+            <div class="question_field">
+              <p><?php
+                  echo $translations['q7_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a7b','a7bDiv')">&#9660;</button></span>
+              </p>
+            </div>
+          </div>
+          <div id="a7bDiv">
+            <p id="a7b" style="display: none; "><?php
+                                                echo $translations['a7_OG'] ?></p>
+          </div>
+        </div>
 
         <div>
           <div class="QN_field">
@@ -173,19 +185,7 @@ if (session_status() === PHP_SESSION_NONE)
           </div>
         </div>
 
-        <div>
-          <div class="QN_field">
-            <div class="question_field">
-              <p> <?php
-                  echo $translations['q5_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a3b','a3bDiv')">&#9660;</button></span>
-              </p>
-            </div>
-          </div>
-          <div id="a3bDiv">
-            <p id="a3b" style="display: none;"><?php
-                                                echo $translations['a5_OG'] ?></p>
-          </div>
-        </div>
+    
 
         <div>
           <div class="QN_field">
@@ -200,6 +200,21 @@ if (session_status() === PHP_SESSION_NONE)
                                                 echo $translations['a4_OG'] ?></p>
           </div>
         </div>
+
+        <div>
+          <div class="QN_field">
+            <div class="question_field">
+              <p> <?php
+                  echo $translations['q5_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('a5b','a5bDiv')">&#9660;</button></span>
+              </p>
+            </div>
+          </div>
+          <div id="a5bDiv">
+            <p id="a5b" style="display: none;"><?php
+                                                echo $translations['a5_OG'] ?></p>
+          </div>
+        </div>
+
 
 
 
@@ -396,7 +411,7 @@ if (session_status() === PHP_SESSION_NONE)
     </div>
 
  
-    <div class="comments_DIV" id="comments_OG">
+    <div class="comments_DIV" id="comments_TheFinalRage">
     <h1><?php echo $translations["KOMENTARJI"] ?></h1>
 
     <?php if (isset($_SESSION["username"])) : ?>

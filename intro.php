@@ -46,13 +46,13 @@ $translations = loadTranslations();
                     <button class="button_language_intro" id="english_button_intro" onclick="setLanguage('en') ">🇺🇸</button>
                     <button class="button_language_intro" id="slovenian_button_intro" onclick="setLanguage('slo')">🇸🇮</button>
                 </div>
-                <button id="enterTheWorld"><a href="/"><?php echo "<p id='exploretext'><p>"; ?> </a></button></p>
+                <button id="enterTheWorld"><a href="/"><?php echo "<p id='exploretext'><p>"; ?>  <?php echo $translations["skip"];  ?></a></button></p>
 
             </div>
 
         </div>
     </div>
-    <?php $translations["skip"];  ?>
+   
 
 
 
@@ -76,7 +76,7 @@ $translations = loadTranslations();
         <?php
         // Define your PHP variables here if needed
         $content = $translations["welcome_intro"];
-        $content2 =           $translations["welcome"];
+        $content2 =   $translations["welcome"];
         $content3 =  $translations["this_is"];;
         ?>
 

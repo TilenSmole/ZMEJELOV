@@ -23,7 +23,6 @@ function getLanguage() {
       if (xhr.status === 200) {
         var response = JSON.parse(xhr.responseText); // Parse JSON response
         var languageOfApp = response.language;
-        console.log(languageOfApp)
         if (languageOfApp === "en") {
           slo = false;
           usa = true;
@@ -153,7 +152,6 @@ class getStuff {
           var difficulty = sessionData.difficulty;
           const DATE = sessionData.DATE;
           const achievements = sessionData.achievements;
-          console.log('difficulty  v game' + difficulty );
           resolve({ username, lastLevel, difficulty, DATE, achievements, user }); // Resolve with username and lastLevel
         } else {
           // Handle error

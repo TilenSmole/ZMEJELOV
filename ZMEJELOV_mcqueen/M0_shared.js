@@ -263,7 +263,6 @@ class M0_shared extends Phaser.Scene {
 		else if (choosenEle === 12 || choosenEle === 13) {
 			objectsFloor.push(buff)
 
-			console.log('¸ok pusham');
 
 
 		}
@@ -318,7 +317,6 @@ class M0_shared extends Phaser.Scene {
 
 
 	loadText(text_to_translate) {
-		console.log('¸evo klicem json');
 		let textEn = this.cache.json.get('textEn');
 		let textSlo = this.cache.json.get('textSlo');
 		if (language === "en") {
@@ -410,7 +408,6 @@ class M0_shared extends Phaser.Scene {
 		achievements = achievementsUpdated;
 	}
 	updateMoney(data) {
-		console.log('¸fdsfas');
 		return new Promise((resolve, reject) => {
 			var xhr = new XMLHttpRequest();
 			xhr.open("POST", "/SERVER/moneyUpdater.php", true);

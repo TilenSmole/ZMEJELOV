@@ -68,7 +68,6 @@ class konec extends osnova {
 			completed = true;
 		}
 
-		console.log(achievementsUpdated)
 		achievements = achievementsUpdated;
 	}
 

@@ -96,9 +96,6 @@ $translations = loadTranslations();
             </div>
             <div class="SliderVideo fade">
                 <iframe src="https://www.youtube.com/embed/DiIv8Hph9wE?si=ZzjuIsQ2F4t7KVwC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-         
-
-
             </div>
             <div class="SliderVideo fade">
                 <iframe src="https://www.youtube.com/embed/whNDs0nR5HQ?si=pEOEJqFnZA15TqBy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -114,7 +111,8 @@ $translations = loadTranslations();
             <div class="SliderVideo fade">
                 <iframe src="https://www.youtube.com/embed/gbjCdeeGPG4?si=qkoFlDyvmiCKIvtS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-
+            <div class="SliderVideo fade">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/PAIy18UCGBs?si=zMySpEGx0t9OfSXd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>            </div>
 
         </div>
 

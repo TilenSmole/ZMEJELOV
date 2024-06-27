@@ -20,7 +20,6 @@ class vrsta extends Phaser.Scene {
     }
     enemyDeath() {
         var num = Math.round(Math.random() * 7)
-        console.log("num"+ num);
         var death_message = ""
         switch (num) {
             case 0:
@@ -48,7 +47,6 @@ class vrsta extends Phaser.Scene {
                 death_message = this.loadText("enemy_death_n7");
                 break;
         }
-        console.log("death_message" + death_message );
 
         return death_message
 
@@ -63,7 +61,6 @@ class vrsta extends Phaser.Scene {
         const yKordinata = (Math.random() * 280)
 
         this.add.text(xKordinata, yKordinata, this.loadText("space"), { fontSize: '60px', fill: "#E950F4", fontFamily: 'CustomFont' });
-        console.log(vrstaTeksta+ "vrstaTeksta");
         if (vrstaTeksta === "sovraznik" || vrstaTeksta === "sovraznik5" || vrstaTeksta === "level4smrt" || vrstaTeksta === "level6Znak" ||
             vrstaTeksta == "level6Vojak" || vrstaTeksta == "level6Brsljan" || vrstaTeksta == "level6Kip" || vrstaTeksta == "level6Znak2") {
 
@@ -180,7 +177,6 @@ class vrsta extends Phaser.Scene {
             vrsta_smrt = false
 
             if (stSmrti % pogojSmrtLevel == 0 && stSmrti != 0) {
-                console.log('stSmrti'+ stSmrti);
 
                 this.input.keyboard.on('keyup-SPACE', () => {
                     this.scene.stop('vrsta')
@@ -204,7 +200,6 @@ class vrsta extends Phaser.Scene {
 
             vrsta_smrt = false
             if (stSmrti % pogojSmrtLevel == 0 && stSmrti != 0) {
-                console.log('stSmrti'+ stSmrti);
 
                 this.input.keyboard.on('keyup-SPACE', () => {
                     this.scene.stop('vrsta')
@@ -231,7 +226,6 @@ class vrsta extends Phaser.Scene {
             vrsta_smrt = false
             if (stSmrti % pogojSmrtLevel == 0 && stSmrti != 0) {
                 this.input.keyboard.on('keyup-SPACE', () => {
-                    console.log('stSmrti'+ stSmrti);
 
                     this.scene.stop('vrsta')
                     this.scene.start('smrt')
@@ -258,7 +252,6 @@ class vrsta extends Phaser.Scene {
             vrsta_smrt = false
             if (stSmrti % pogojSmrtLevel == 0 && stSmrti != 0) {
                 this.input.keyboard.on('keyup-SPACE', () => {
-                    console.log('stSmrti'+ stSmrti);
 
                     this.scene.stop('vrsta')
                     this.scene.start('smrt')
@@ -291,7 +284,6 @@ class vrsta extends Phaser.Scene {
             if (stSmrti % pogojSmrtLevel == 0 && stSmrti != 0) {
                 trenutnaScena = "E1_swamp"
                 this.input.keyboard.on('keyup-SPACE', () => {
-                    console.log('stSmrti'+ stSmrti);
 
                     this.scene.stop('E1_swamp')
                     this.scene.start('smrt')
@@ -325,7 +317,6 @@ class vrsta extends Phaser.Scene {
 
             vrsta_smrt = false
             if (stSmrti % pogojSmrtLevel == 0 && stSmrti != 0) {
-                console.log('stSmrti'+ stSmrti);
                 trenutnaScena = "E1_swamp"
                 this.input.keyboard.on('keyup-SPACE', () => {
                     this.scene.stop('vrsta')

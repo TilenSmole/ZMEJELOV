@@ -80,7 +80,6 @@ class A8_plavanje extends  Phaser.Scene {
         difficultyUpdated = this.replaceCharAt(difficultyUpdated, 3, "1");
       }
   
-      console.log('difficultyUpdated' + difficultyUpdated);
       difficulty = difficultyUpdated;
     }
 create(){

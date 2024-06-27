@@ -167,7 +167,6 @@ class F4_gamePlayStart extends F0_shared {
 
         var currentTime = this.getTimePassed()
         
-        console.log("currentTime" + currentTime);
         if(currentTime % 40 == 0 && currentTime != 0 && lastSwitch +10 < currentTime ){
        
             lastSwitch = currentTime
@@ -209,7 +208,6 @@ class F4_gamePlayStart extends F0_shared {
                   score -= 50
               }
               else {
-                console.log('¸pain');
                 destoyer.destroy();
 
                   this.stopWatchStop()

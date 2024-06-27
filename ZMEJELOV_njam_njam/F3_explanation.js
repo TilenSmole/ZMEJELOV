@@ -20,7 +20,6 @@ class F3_explanation extends F0_shared {
        loadText(text_to_translate) {
 		let textEn = this.cache.json.get('textEn');
 		let textSlo = this.cache.json.get('textSlo');
-        console.log(textSlo);
 		if (language === "en") 
 			return textEn["en"][text_to_translate];
 		 else 

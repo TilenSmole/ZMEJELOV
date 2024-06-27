@@ -110,7 +110,6 @@ class F0_shared extends Phaser.Scene {
 
 	updateAchievements() {
 		var achievementsUpdated = achievements;
-		console.log(achievements)
 		if (H)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 9, "1");
 		if (FH)
@@ -125,7 +124,6 @@ class F0_shared extends Phaser.Scene {
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 14, "1");
 		if (tfK)
 			achievementsUpdated = this.replaceCharAt(achievementsUpdated, 15, "1");
-		console.log(achievements)
 		achievements = achievementsUpdated;
 	}
 

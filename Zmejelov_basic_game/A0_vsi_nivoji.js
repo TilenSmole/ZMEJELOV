@@ -189,35 +189,6 @@ class A0_vsi_nivoji extends Phaser.Scene {
     this.l9.setScale(0.8)
     
 
-/*
-    this.igra.on('pointerup', () => {
-    this.scene.stop('meni')
-    this.scene.start('A8_plavanje')
-	})
-    this.jezik.setScale(0.8)
-    this.jezik.on('pointerup', () => {
-    this.scene.stop('meni')
-    this.scene.start('')
-	})
-    this.krediti.setScale(0.8)
-	this.krediti.on('pointerup', () => {
-    this.scene.stop('meni')
-    this.scene.start('A0_zahvale')
-	})*/
-    
-   
-
-
-	
-
-
-    
-
-
-  
-
-
-    
   }
 
 
