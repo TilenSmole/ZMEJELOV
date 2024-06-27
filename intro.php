@@ -46,7 +46,11 @@ $translations = loadTranslations();
                     <button class="button_language_intro" id="english_button_intro" onclick="setLanguage('en') ">🇺🇸</button>
                     <button class="button_language_intro" id="slovenian_button_intro" onclick="setLanguage('slo')">🇸🇮</button>
                 </div>
-                <button id="enterTheWorld"><a href="/"><?php echo "<p id='exploretext'><p>"; ?>  <?php echo $translations["skip"];  ?></a></button></p>
+                <button id="enterTheWorld">
+    <a href="/">
+        <?php echo "<p id='exploretext'>" . $translations["skip"] . "</p>"; ?>
+    </a>
+</button>
 
             </div>
 
