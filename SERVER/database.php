@@ -7,7 +7,7 @@ $connectionInfo = array(
     "Encrypt" => 1,
     "TrustServerCertificate" => 0
 );
-$serverName = "tcp:zmejelov-server.database.windows.net,1433";
+$serverName = "tcp:zmejelov-server.database.windows.net";
 
 $conn = sqlsrv_connect($serverName, $connectionInfo);
 

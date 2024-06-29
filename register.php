@@ -86,9 +86,12 @@
                     $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
 
                     $row = sqlsrv_fetch_array($getLastLevel_result);
+                    $_SESSION["lastLevel"] = $row['lastLevel'];
+                    $_SESSION["difficulty"] = $row['difficulty'];
+                    $_SESSION["DATE"] = $row['DATE'];
                     $_SESSION["achievements"] = $row['achievements'];
-                    
-                
+                    $_SESSION["money"] = $row['money'];
+                    $_SESSION['visited_before'] = true;
                    echo "<p class='response''>Registracija uspešna, prenaslavlanje!<p>";
                        echo "<meta http-equiv=Refresh content=0;url=../>";
             

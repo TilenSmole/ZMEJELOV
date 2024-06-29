@@ -97,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION["achievements"] = $row['achievements'];
             $_SESSION["money"] = $row['money'];
             $_SESSION["username"] = $username;
+            $_SESSION['visited_before'] = true;
 
 
            echo "<p class='response'>" . $translations['login_succ'] . "</p>";
