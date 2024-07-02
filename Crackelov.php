@@ -147,6 +147,19 @@ $translations = loadTranslations();
       <div class="QnA_split">
         <h1>Q&A</h1>
   
+        <div>
+          <div class="QN_field">
+            <div class="question_field">
+              <p> <?php
+                  echo $translations['q8_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('space2','spaceDiv')">&#9660;</button></span>
+              </p>
+            </div>
+          </div>
+          <div id="spaceDiv">
+            <p id="space2" style="display: none;"><?php
+                                                echo $translations['a8_OG'] ?></p>
+          </div>
+        </div>
 
 
         <div>

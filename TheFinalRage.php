@@ -110,14 +110,14 @@ if (session_status() === PHP_SESSION_NONE)
 
     <div class="mobileContainer">
         <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmejaMobile">
-        <span class="mobile"><?php echo $translations['crackelov_intro'] ?></span>
+        <span class="mobile"><?php echo $translations['crackelov_intro_mobile'] ?></span>
     </div>
 
     <div class="introduction" id="introduction_TheFinalRage">
       <img src="assets/lvl2/Wraith_03_Idle_006.png" alt="Zmeja" class="zmeja col-10">
       <div class="introductionText">
         <p><b><span style="font-size: 50px;">TheFinalRage</span></b> <?php
-                                                                      echo $translations["crackelov_intro_mobile"] ?></p>
+                                                                      echo $translations["crackelov_intro"] ?></p>
       </div>
     </div>
 
@@ -157,6 +157,24 @@ if (session_status() === PHP_SESSION_NONE)
                                                 echo $translations['a6_OG'] ?></p>
           </div>
         </div>
+
+        <div>
+          <div class="QN_field">
+            <div class="question_field">
+              <p> <?php
+                  echo $translations['q8_OG'] ?> <span class="button_field"><button class="dropbtn" onclick="toggleAnswerVisibilityZmentures('space2','spaceDiv')">&#9660;</button></span>
+              </p>
+            </div>
+          </div>
+          <div id="spaceDiv">
+            <p id="space2" style="display: none;"><?php
+                                                echo $translations['a8_OG'] ?></p>
+          </div>
+        </div>
+
+
+
+
         <div>
           <div class=" QN_field">
             <div class="question_field">

@@ -13,8 +13,8 @@ $conn = sqlsrv_connect($serverName, $connectionInfo);
 
 if ($conn === false) {
     echo "Error connecting to SQL Server via sqlsrv_connect: ";
-    die(print_r(sqlsrv_errors(), true));
+    echo print_r(sqlsrv_errors());
+    //die(print_r(sqlsrv_errors(), true));
 } else {
     // echo "Connected successfully via sqlsrv_connect";
 }
-?>

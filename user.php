@@ -124,10 +124,10 @@ if ($result) {
       <div class="achievementsDisplayProfile">
         <h2>CRA*KELOV </h2>
         <?php
-        $finalScore = substr($achievements, 17, 7);
+        $finalScore = substr($achievements, 17, 6);
         $finalScore = substr_count($finalScore, '1');
         ?>
-        <p><?php echo $translations['unlocked'] ?> <?php echo $finalScore ?>/7 </p>
+        <p><?php echo $translations['unlocked'] ?> <?php echo $finalScore ?>/6 </p>
         <?php
         if ($achievements[17] === "1") {
           echo '<div class="achievement-container">';
