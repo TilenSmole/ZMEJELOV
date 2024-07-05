@@ -535,7 +535,7 @@ class A6_scena6 extends A0_osnova {
 		const znakSmrt = this.physics.add.sprite(800, visina - 1230, "znakSmrt")
 		this.physics.add.collider(znakSmrt, tilesLobanja9)
 
-		//ce se dotaknemo znaka, je random sansa da te ubije
+		//ce se dotaknemo znaka, je naključna verjetnost da te ubije
 		var strupenZnak = Math.floor(Math.random() * 5);
 		if (strupenZnak == 0) {
 			this.physics.add.overlap(gameState.junak, znakSmrt, () => {
