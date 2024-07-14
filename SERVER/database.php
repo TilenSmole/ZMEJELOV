@@ -2,7 +2,7 @@
 $connectionInfo = array(
     "UID" => "zmejelov",
     "pwd" => "9ar:p!d&@,w4mY8",
-    "Database" => "Zmejelov DB",
+    "Database" => "zmejelovDataBase",
     "LoginTimeout" => 30,
     "Encrypt" => 1,
     "TrustServerCertificate" => 0
