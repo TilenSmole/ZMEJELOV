@@ -97,7 +97,7 @@
                 $_SESSION['visited_before'] = true;
                
                 echo "<p class='response'>" . $translations['login_succ'] . "</p>";
-                echo "<meta http-equiv=Refresh content=0;url=/>";
+                echo "<meta http-equiv=Refresh content=0;url=/login.php>";
             }
         }
     }
