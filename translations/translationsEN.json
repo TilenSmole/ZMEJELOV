@@ -1,6 +1,6 @@
 {
   "en": {
-    "please_login": "To play, please <a href='\\login.php'>log in</a> or <a href='SERVER\\register.php'>register.php</a>.",
+    "please_login": "To play, please <a href='\\login.php'>log in</a> or <a href='\\register.php'>register.php</a>.",
     "q1_OG": "HOW DO I SAVE GAME PROGRESS?",
     "q2_OG": "WHAT DO I DO IF MY GAME GLITCHES OUT?",
     "q3_OG": "WHY DO I RESPAWN AT LEVEL 4?",
@@ -17,7 +17,7 @@
     "a6_OG": "As long as it says you bought it, it's going to work. It's like when you're on an airplane and they say that even though the oxygen bag is not inflated, it's still working 😊😉",
     "a7_OG": "Yes ",
     "a8_OG": "It's because you are still playing the game, try refresing the page and it will work",
-    "please_login_achivements": "To unlock achievements <a href='\\logi.php'>login</a> or<a href='/register.php'>register.php</a>    </a>",
+    "please_login_achivements": "To unlock achievements <a href='\\login.php'>login</a> or<a href='/register.php'>register.php</a>    </a>",
     "game": "GAME",
     "skip":"skip animation",
     "achivements": "ACHIEVEMENTS",
@@ -34,7 +34,7 @@
     "ach_OG6": "EXPLORE THE ANCIENT RUINS",
     "ach_OG6.6": "when are we going to Greece? ",
     "KOMENTARJI": "COMMENTS",
-    "please_login_comments": "To comment please <a href='\\login.php'>login</a> or <a href='SERVER\\register.php'>register</a>",
+    "please_login_comments": "To comment please <a href='\\login.php'>login</a> or <a href='\\register.php'>register</a>",
     "write_comment": "write your comment here",
     "add_comment": "POST",
     "zmejelov_1960": "The initial version of the application was designed back in 2021. Today, it is available in its original form, with the only addition being one achievement that you can attain. Although the game is very quick and easy for experienced players, it may pose some challenges for new players at the beginning. Therefore, in case of difficulties, don't give up on playing. The game is also suitable for all 'OGs' who want to relive the nostalgia of playing the original version!",

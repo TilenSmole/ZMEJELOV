@@ -1,6 +1,6 @@
 {
   "slo": {
-    "please_login": "Za igranje se <a href='\\login.php'>prijavi</a> ali pa <a href='SERVER\\register.php'>registriraj</a>.",
+    "please_login": "Za igranje se <a href='\\login.php'>prijavi</a> ali pa <a href='\\register.php'>registriraj</a>.",
     "q1_OG": "KAKO SE SHRANJUJE NAPREDEK IGRE?",
     "q2_OG": "KAJ NAREDITI, ČE IGRICA ZAGLIČA?",
     "q3_OG": "ZAKAJ SE OB SMRTI PONOVNO POJAVIM NA 4 NIVOJU?",
@@ -34,7 +34,7 @@
     "ach_OG6": "RAZIŠČI RUŠEVINE",
     "ach_OG6.6": "kdaj greva v Grčijo? ",
     "KOMENTARJI": "KOMENTARJI",
-    "please_login_comments": "Za komentiranje se <a href='\\login.php'>prijavi</a> ali pa <a href='SERVER\\register.php'>registriraj</a>",
+    "please_login_comments": "Za komentiranje se <a href='\\login.php'>prijavi</a> ali pa <a href='\\register.php'>registriraj</a>",
     "write_comment": "napiši svoj komentar tukaj",
     "add_comment": "OBJAVI",
     "zmejelov_1960": "je prvotna verzija aplikacije zasnovana v davnem 2021 letu. Danes je na voljo v svoji originali formi, edina dodana stvar k igri je en dosežek. Kljub temu, da je igra za izkušene igralce zelo hitra in enostavna, lahko na začetku novim igralcem ponuja malo preglavic, tako da, v primeru težav, ne obupati z igranjem. Igra je primerna tudi za vse 'OG-je', ki želijo podoživeti nostalgijo igranja prvotne verzije!",

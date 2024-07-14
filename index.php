@@ -8,7 +8,7 @@ if (!isset($_SESSION['visited_before'])) {
     exit();
 }
 $translations = loadTranslations();
-
+echo $_SESSION["username"];
 
 
 
