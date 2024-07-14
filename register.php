@@ -84,7 +84,7 @@
                 $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hash') ";
                 sqlsrv_query($conn, $sql);
 
-                $getLastLevel = "SELECT achievements  FROM users WHERE username='$username'";
+                $getLastLevel = "SELECT *  FROM users WHERE username='$username'";
                 $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
 
                 $row = sqlsrv_fetch_array($getLastLevel_result);
@@ -95,10 +95,9 @@
                 $_SESSION["money"] = $row['money'];
                 $_SESSION["username"] = $row['username'];
                 $_SESSION['visited_before'] = true;
-                echo   $_SESSION["username"];
-                echo $username;
+               
                 echo "<p class='response'>" . $translations['login_succ'] . "</p>";
-               // echo "<meta http-equiv=Refresh content=0;url=/>";
+                echo "<meta http-equiv=Refresh content=0;url=/>";
             }
         }
     }
