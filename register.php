@@ -5,7 +5,9 @@
 
         if (isset($_SESSION['username'])) 
         echo "<meta http-equiv=Refresh content=0;url=../>";
-
+    
+        if (session_status() === PHP_SESSION_NONE) 
+        session_start();
 
 
     ?>
@@ -79,9 +81,7 @@
                 $hash = password_hash($password, PASSWORD_DEFAULT);
                 $sql = "INSERT INTO users (username, password) VALUES ('$username', '$hash') "; 
                 sqlsrv_query($conn, $sql);
-                    if (session_status() === PHP_SESSION_NONE) 
-                        session_start();
-                    $_SESSION["username"] = $username;
+                   
                     $getLastLevel = "SELECT achievements  FROM users WHERE username='$username'";
                     $getLastLevel_result = sqlsrv_query($conn, $getLastLevel);
 
@@ -91,6 +91,7 @@
                     $_SESSION["DATE"] = $row['DATE'];
                     $_SESSION["achievements"] = $row['achievements'];
                     $_SESSION["money"] = $row['money'];
+                    $_SESSION["username"] = $username;
                     $_SESSION['visited_before'] = true;
                    echo "<p class='response''>Registracija uspešna, prenaslavlanje!<p>";
                        echo "<meta http-equiv=Refresh content=0;url=../>";
