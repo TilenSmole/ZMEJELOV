@@ -2,6 +2,7 @@
 ob_start();
 include('translations/load_translations.php');
 $translations = loadTranslations();
+$_SESSION['visited_before'] = true;
 ?>
 <!DOCTYPE html>
 <html lang="en">
