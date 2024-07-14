@@ -93,12 +93,12 @@
                 $_SESSION["DATE"] = $row['DATE'];
                 $_SESSION["achievements"] = $row['achievements'];
                 $_SESSION["money"] = $row['money'];
-                $_SESSION["username"] = $username;
+                $_SESSION["username"] = $row['username'];
                 $_SESSION['visited_before'] = true;
                 echo   $_SESSION["username"];
                 echo $username;
                 echo "<p class='response'>" . $translations['login_succ'] . "</p>";
-                echo "<meta http-equiv=Refresh content=0;url=/>";
+               // echo "<meta http-equiv=Refresh content=0;url=/>";
             }
         }
     }
